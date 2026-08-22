@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" width="100%" height="100%">
+  <!-- Map Background -->
+  <rect width="1000" height="500" fill="#e2e8f0" rx="24"/>
+  
+  <!-- Continents Outlines -->
+  <g fill="#94a3b8" stroke="#cbd5e1" stroke-width="1.5">
+    <!-- North America -->
+    <path d="M120,60 Q180,50 260,80 T240,220 Q180,250 140,200 Z"/>
+    <!-- South America -->
+    <path d="M260,250 Q320,270 340,360 T260,460 Q220,400 240,300 Z"/>
+    <!-- Europe -->
+    <path d="M460,70 Q540,60 580,120 T500,180 Q440,160 460,70 Z"/>
+    <!-- Africa -->
+    <path d="M460,190 Q560,180 580,280 T500,420 Q440,360 460,190 Z"/>
+    <!-- Asia -->
+    <path d="M590,70 Q780,50 880,140 T760,280 Q640,250 590,70 Z"/>
+    <!-- Australia -->
+    <path d="M760,330 Q880,320 890,390 T800,440 Q750,400 760,330 Z" fill="#0f172a"/>
+  </g>
+
+  <!-- Location Pin Line (UTC Red Line) -->
+  <line x1="820" y1="20" x2="820" y2="480" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="6,4"/>
+  
+  <!-- Glowing Target Circle on Australia -->
+  <circle cx="820" cy="380" r="16" fill="rgba(239, 68, 68, 0.25)"/>
+  <circle cx="820" cy="380" r="8" fill="#ef4444"/>
+  <circle cx="820" cy="380" r="3" fill="#ffffff"/>
+
+  <!-- Pin Label -->
+  <g transform="translate(730, 270)">
+    <rect width="180" height="42" rx="12" fill="#0f172a" opacity="0.9"/>
+    <text x="90" y="26" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">📍 Australia (1930 &amp; 1852)</text>
+  </g>
+</svg>

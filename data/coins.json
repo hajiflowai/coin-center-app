@@ -1,0 +1,970 @@
+[
+  {
+    "id": "coin-au-1930-penny",
+    "name": "1930 Australian Penny (King George V)",
+    "country": "Australia",
+    "era": "Pre-Decimal",
+    "year": 1930,
+    "mint": "Melbourne Mint (โรงกษาปณ์เมลเบิร์น)",
+    "mintLocation": "Melbourne, Victoria, Australia (พิกัด 37.8136° S, 144.9631° E)",
+    "mintHistory": "โรงกษาปณ์ Melbourne Mint ก่อตั้งขึ้นในปี ค.ศ. 1872 เพื่อรองรับทองคำจากยุคตื่นทองและปั๊มเหรียญกษาปณ์หลักของออสเตรเลีย ในปี 1930 สภาวะเศรษฐกิจตกต่ำครั้งใหญ่ (Great Depression) ทำให้งดการผลิตเหรียญหมุนเวียน แต่โรงกษาปณ์ได้ทดลองปั๊มเหรียญด้วยแม่พิมพ์ปี 1930 เพื่อทดสอบเครื่องจักร หลุดออกมาสู่สาธารณะเพียงประมาณ 1,500 เหรียญเท่านั้น",
+    "denomination": "1 Penny",
+    "material": "Bronze (สำริด)",
+    "composition": "ทองแดง 97% • สังกะสี 2.5% • ดีบุก 0.5%",
+    "rarity": "LEGENDARY 👑",
+    "rarityLevel": "LEGENDARY",
+    "rarityColor": "#ff6b00",
+    "powerRating": 99,
+    "xpValue": 2500,
+    "cardTheme": "holographic-bronze",
+    "keyDatesInfo": "⭐ ปี 1930 คือปีที่หายากที่สุดอันดับ 1 ของเหรียญเพนนีออสเตรเลีย (Key Date) มีเหรียญหมุนเวียนไม่ถึง 1,500 เหรียญในโลก",
+    "mintage": "1,500 - 3,000 เหรียญ (ผลิตน้อยเป็นพิเศษ)",
+    "stock": 1,
+    "location": "ตู้นิรภัยส่วนตัว A1",
+    "description": "เหรียญระดับราชาแห่งออสเตรเลีย (King of Australian Coins) ผลิตช่วงวิกฤตเศรษฐกิจ Great Depression ณ โรงกษาปณ์ Melbourne Mint",
+    "historyText": "ใน พ.ศ. 2473 (ค.ศ. 1930) ประเทศออสเตรเลียเผชิญวิกฤตเศรษฐกิจตกต่ำครั้งใหญ่ (Great Depression) รัฐบาลจึงสั่งงดผลิตเหรียญ 1 เพนนีสำหรับหมุนเวียน แต่โรงกษาปณ์ Melbourne Mint ได้ทดลองปั๊มเหรียญด้วยแม่พิมพ์ปี 1930 เพื่อทดสอบเครื่องจักร และมีเหรียญจำนวนหนึ่งหลุดออกสู่สาธารณะโดยไม่ตั้งใจเพียงประมาณ 1,500 เหรียญ ส่งผลให้เหรียญรุ่นนี้กลายเป็นเหรียญที่หายากที่สุดและเป็นที่ต้องการสูงสุดในประวัติศาสตร์ออสเตรเลีย",
+    "features": {
+      "color": "bronze-brown",
+      "diameterMm": 30.8,
+      "weightG": 9.45,
+      "composition": "Copper 97%, Zinc 2.5%, Tin 0.5%",
+      "shape": "Round",
+      "edge": "Plain",
+      "obverseText": "GEORGIVS V D.G. BRITT: OMN: REX F.D. IND: IMP:",
+      "reverseText": "COMMONWEALTH OF AUSTRALIA ONE PENNY 1930"
+    },
+    "tags": [
+      "Australia",
+      "Pre-Decimal",
+      "Penny",
+      "Key Date",
+      "Rare",
+      "Bronze",
+      "1930"
+    ],
+    "image": "/images/1930-penny-obv.jpg",
+    "obverseImage": "/images/1930-penny-obv.jpg",
+    "reverseImage": "/images/1930-penny-rev.jpg",
+    "soughtAfterYears": "ปี 1930 (Key Date อันดับ 1 หายากสุด ผลิตไม่ถึง 1,500 เหรียญ / Proof 6 เหรียญ)",
+    "marketPriceRange": "ผ่านใช้ทั่วไป: 450,000 – 1,200,000+ บาท ($15,000 – $40,000 USD) | สภาพสวย UNC / Proof: 2.5 – 15 ล้านบาท ($80,000 – $500,000+ USD)",
+    "referenceSources": [
+      {
+        "name": "The Perth Mint (บันทึกกษาปณ์ประวัติศาสตร์ 1930 Penny)",
+        "url": "https://www.perthmint.com"
+      },
+      {
+        "name": "Coinworks Australia (คู่มือการประมูลและราคาเหรียญ 1930 Penny)",
+        "url": "https://coinworks.com.au"
+      }
+    ]
+  },
+  {
+    "id": "coin-au-1852-adelaide-pound",
+    "name": "1852 Adelaide Pound (Type II - Scalloped Border)",
+    "country": "Australia",
+    "era": "Pre-Decimal / Gold Rush",
+    "year": 1852,
+    "mint": "Government Assay Office (Adelaide)",
+    "mintLocation": "Adelaide, South Australia (พิกัด 34.9285° S, 138.6007° E)",
+    "mintHistory": "Government Assay Office เมืองอะดิเลด เป็นโรงหลอมและกษาปณ์ฉุกเฉินแห่งแรกในออสเตรเลีย ก่อตั้งขึ้นตาม พ.ร.บ. Bullion Act 1852 เพื่อแปรรูปทองคำดิบจากยุคตื่นทองให้กลายเป็นเหรียญมาตรฐานปอนด์ ก่อนที่สภาองคมนตรีอังกฤษจะสั่งยกเลิก",
+    "denomination": "1 Pound (£1)",
+    "material": "Gold (ทองคำบริสุทธิ์ 22K)",
+    "composition": "ทองคำ 91.67% (22 Carats) • ทองแดง/เงิน 8.33%",
+    "rarity": "MYTHIC GOLD 🌟",
+    "rarityLevel": "MYTHIC",
+    "rarityColor": "#ffc048",
+    "powerRating": 100,
+    "xpValue": 3000,
+    "cardTheme": "holographic-gold",
+    "keyDatesInfo": "⭐ Type I (ขอบมงกุฎร้าว) ผลิตเพียง ~40-100 เหรียญ / Type II (ขอบหยัก) หลอมละลายเหลือรอดในโลกเพียง 250 - 300 เหรียญเท่านั้น",
+    "mintage": "24,711 เหรียญ (หลอมละลาย เหลือรอดในปัจจุบันเพียง 250 - 300 เหรียญ)",
+    "stock": 1,
+    "location": "ตู้นิรภัยส่วนตัว A1",
+    "description": "เหรียญทองคำประวัติศาสตร์ฉุกเฉินแห่งแรกของออสเตรเลีย (First Gold Coin of Australia) ผลิต ณ เมืองอะดิเลด ยุคตื่นทองวิกตอเรีย",
+    "historyText": "ในปี ค.ศ. 1852 รัฐเซาท์ออสเตรเลียเผชิญวิกฤตขาดแคลนเงินตราอย่างรุนแรงเนื่องจากผู้คนแห่ไปขุดทองที่รัฐวิกตอเรีย สภานิติบัญญัติจึงผ่านกฎหมาย Bullion Act 1852 ก่อตั้ง Government Assay Office เพื่อหลอมและปั๊มทองคำดิบให้เป็นเหรียญทองคำ 1 ปอนด์ แต่ต่อมาสภาองคมนตรีอังกฤษสั่งยกเลิกเนื่องจากละเมิดพระราชอำนาจกษัตริย์ และเนื่องจากเหรียญมีทองคำแท้มูลค่าเกือบ 23 ชิลลิง (สูงกว่าหน้าเหรียญ 20 ชิลลิง) ผู้คนจึงนำไปหลอมละลาย เหลือรอดในปัจจุบันเพียงไม่กี่ร้อยเหรียญ",
+    "features": {
+      "color": "pure-gold",
+      "diameterMm": 23,
+      "weightG": 8.75,
+      "composition": "Gold 91.67%, Copper/Silver 8.33%",
+      "shape": "Round",
+      "edge": "Milled / Scalloped",
+      "obverseText": "GOVERNMENT ASSAY OFFICE ADELAIDE 1852",
+      "reverseText": "WEIGHT 5 DWT: 15 GRS: 22 CARATS VALUE ONE POUND"
+    },
+    "tags": [
+      "Australia",
+      "Pre-Decimal",
+      "Gold Rush",
+      "Pound",
+      "Gold",
+      "Mythic",
+      "1852"
+    ],
+    "image": "/images/1852-adelaide-pound-obv.png",
+    "obverseImage": "/images/1852-adelaide-pound-obv.png",
+    "reverseImage": "/images/1852-adelaide-pound-rev.png",
+    "soughtAfterYears": "ปี 1852 (Type I ขอบมงกุฎร้าว ~40-100 เหรียญ / Type II ขอบหยัก เหลือ 250-300 เหรียญ)",
+    "marketPriceRange": "Type II ผ่านใช้: 1.2 – 3.5 ล้านบาท ($35,000 – $100,000 USD) | Type I หรือสภาพ UNC สูง: 5.5 – 18+ ล้านบาท ($150,000 – $500,000+ USD)",
+    "referenceSources": [
+      {
+        "name": "State Library of South Australia (Bullion Act 1852)",
+        "url": "https://www.slsa.sa.gov.au"
+      },
+      {
+        "name": "Coinworks Australia (1852 Adelaide Pound Rare Coin Guide)",
+        "url": "https://coinworks.com.au"
+      }
+    ]
+  },
+  {
+    "id": "coin-fr-indochina-piastre",
+    "name": "French Indochina 1 Piastre de Commerce (เหรียญนางกวักการค้าอินโดจีน)",
+    "country": "French Indochina",
+    "era": "Colonial / French Indochina",
+    "year": 1885,
+    "mint": "Monnaie de Paris (โรงกษาปณ์ปารีส ฝรั่งเศส - มาร์ก A)",
+    "mintLocation": "11 Quai de Conti, 75006 Paris, France (พิกัด 48.8566° N, 2.3391° E)",
+    "mintHistory": "Monnaie de Paris สถาปนาในปี ค.ศ. 864 เป็นหนึ่งในสถาบันผลิตกษาปณ์ที่เก่าแก่ที่สุดในโลก เป็นผู้ปั๊มเหรียญ 1 Piastre de Commerce เพื่อใช้เป็นสกุลเงินหลักในการค้าขายและเก็บภาษีในสหภาพอินโดจีนฝรั่งเศส (เวียดนาม ลาว กัมพูชา) และหมุนเวียนในสยาม",
+    "denomination": "1 Piastre de Commerce",
+    "material": "Silver (เนื้อเงินแท้ 90%)",
+    "composition": "เนื้อเงิน 90% (0.900 Silver), ทองแดง 10% (Fine Silver 0.7874 ทรอยออนซ์)",
+    "rarity": "RARE ⭐⭐⭐",
+    "rarityLevel": "RARE",
+    "rarityColor": "#38bdf8",
+    "powerRating": 92,
+    "xpValue": 1800,
+    "cardTheme": "holographic-silver",
+    "keyDatesInfo": "⭐ ปี 1890 (ผลิตน้อยมาก), บล็อกปีแรก 1885 (บล็อกน้ำหนัก 27.215g), บล็อกขัดเงา Proof, และเหรียญที่ตอกตราเจ๊ก (Chopmarks) โบราณ",
+    "mintage": "ประมาณ 180 ล้านเหรียญ (รวมตลอดช่วง ค.ศ. 1885–1928)",
+    "stock": 1,
+    "location": "ตู้จัดแสดง C1 - หมวดเหรียญการค้าเอเชีย",
+    "description": "เหรียญเงินการค้าอินโดจีน 1 เปียส หรือ เหรียญนางกวักอินโดจีน ออกแบบโดย Jean-Auguste Barre เทพีเสรีภาพนั่งถือคทาและรวงข้าว เป็นเหรียญเงินการค้าสากลที่แพร่หลายที่สุดในแถบอินโดจีน สยาม และลุ่มแม่น้ำโขง",
+    "historyText": "เหรียญ 1 Piastre de Commerce ออกแบบโดย Jean-Auguste Barre ด้านหน้าเป็นรูปเทพีเสรีภาพฝรั่งเศส (Lady Liberty) นั่งถือคทาฟาสซิสและมัดรวงข้าว คนไทยเรียกว่า \"เหรียญนางกวัก\" ด้านหลังเป็นช่อโอ๊คและตัวเลข 1 PIASTRE DE COMMERCE เป็นเหรียญเงินการค้าหลักที่ขับเคลื่อนเศรษฐกิจแถบอินโดจีน สยาม และลุ่มแม่น้ำโขงในสมัย ร.5–ร.6",
+    "features": {
+      "color": "silver-white",
+      "diameterMm": 39,
+      "weightG": 27.215,
+      "composition": "Silver 90%, Copper 10%",
+      "shape": "Round",
+      "edge": "Reeded",
+      "obverseText": "REPUBLIQUE FRANÇAISE - BARRE",
+      "reverseText": "INDO-CHINE FRANÇAISE - TITRE 0.900. POIDS 27.215 GR. - 1 PIASTRE DE COMMERCE - A"
+    },
+    "tags": [
+      "French Indochina",
+      "Colonial",
+      "Piastre",
+      "Silver",
+      "Trade Dollar",
+      "1885"
+    ],
+    "image": "/images/french-indochina-piastre-obv.jpg",
+    "obverseImage": "/images/french-indochina-piastre-obv.jpg",
+    "reverseImage": "/images/french-indochina-piastre-rev.jpg",
+    "showcaseImage": "/images/french-indochina-piastre-showcase.jpg",
+    "soughtAfterYears": "ปี 1890 (ผลิตน้อยมาก), บล็อกปีแรก 1885 (บล็อกน้ำหนัก 27.215g), และบล็อก Proof",
+    "marketPriceRange": "ผ่านใช้ทั่วไป: 1,500 – 3,500 บาท | สภาพสวย UNC ผิวเงาเดิม: 6,000 – 18,000 บาท | บล็อกปี 1890 หรือเหรียญเกรดตลับสูง MS64+: 35,000 – 150,000+ บาท",
+    "referenceSources": [
+      {
+        "name": "Numista (French Indochina 1 Piastre KM# 5a.1)",
+        "url": "https://en.numista.com/catalogue/pieces11287.html"
+      },
+      {
+        "name": "PCGS CoinFacts (French Indochina Piastre Guide)",
+        "url": "https://www.pcgs.com/coinfacts/category/french-indochina/4370"
+      },
+      {
+        "name": "NGC Coin Explorer (French Indochina Piastre)",
+        "url": "https://www.ngccoin.com/price-guide/world/french-indochina-piastre-km-5a.1-1895-1928-cuid-1051515-duid-1296740"
+      },
+      {
+        "name": "Eurseree Collecting Co., Ltd.",
+        "url": "https://www.eurseree.com"
+      }
+    ]
+  },
+  {
+    "id": "coin-uk-trade-dollar",
+    "name": "British Trade Dollar (เหรียญเงินการค้าอังกฤษ บริทาเนีย)",
+    "country": "United Kingdom",
+    "era": "British Empire / Asian Trade",
+    "year": 1895,
+    "mint": "Bombay Mint (มาร์ก B), Calcutta Mint (มาร์ก C), London Mint (ไม่มีมาร์ก)",
+    "mintLocation": "Bombay & Kolkata, India / London, UK (พิกัด 18.9322° N, 72.8398° E)",
+    "mintHistory": "ผลิตขึ้นเพื่อใช้ในการค้าขายกับเอเชียตะวันออกและจีน โดยใช้โรงกษาปณ์บอมเบย์และกัลกัตตาเป็นฐานผลิตหลัก มีการตอกตรา B ในง่ามตรีศูล หรือตรา C ระหว่างเท้าของบริทาเนีย",
+    "denomination": "1 Dollar",
+    "material": "Silver (เนื้อเงินแท้ 90%)",
+    "composition": "เนื้อเงิน 90% (0.900 Silver), ทองแดง 10% (Fine Silver 0.7800 ทรอยออนซ์)",
+    "rarity": "EPIC 💎",
+    "rarityLevel": "EPIC",
+    "rarityColor": "#a855f7",
+    "powerRating": 95,
+    "xpValue": 2200,
+    "cardTheme": "holographic-silver",
+    "keyDatesInfo": "⭐ ปี 1895-B (ปีแรก), ปี 1900-C, 1921-B และเหรียญปี 1935 (Key Date หายากระดับยอดมงกุฎ)",
+    "mintage": "ประมาณ 275 ล้านเหรียญ (รวมตลอดช่วง ค.ศ. 1895–1935)",
+    "stock": 1,
+    "location": "ตู้จัดแสดง C2 - หมวดเหรียญการค้าเอเชีย",
+    "description": "เหรียญเงินการค้าอังกฤษ (British Trade Dollar) ด้านหน้าเทพีบริทาเนียยืนถือตรีศูลและโล่ยูเนียนแจ็ก ด้านหลังลายเขาวงกตจีนโบราณล้อมอักษร 壹圓 และภาษามลายูอักษรยาวี",
+    "historyText": "ออกแบบโดย George William de Saulles เพื่อแข่งขันกับเหรียญเงินเปโซเม็กซิโกในตลาดการค้าตะวันออกไกล ด้านหน้าเป็นรูปเทพีบริทาเนีย (Britannia) ยืนสง่างามบนชายฝั่ง ถือตรีศูลและโล่ยูเนียนแจ็ก ด้านหลังเป็นลายเขาวงกตจีนโบราณรอบอักษรจีน \"壹圓\" และภาษามลายูอักษรยาวี เป็นเหรียญการค้ายอดนิยมอันดับต้นๆ ในสยามและเอเชีย",
+    "features": {
+      "color": "silver-white",
+      "diameterMm": 39,
+      "weightG": 26.95,
+      "composition": "Silver 90%, Copper 10%",
+      "shape": "Round",
+      "edge": "Reeded",
+      "obverseText": "ONE DOLLAR - 1895 - BRITISH TRADE DOLLAR",
+      "reverseText": "壹圓 (Yī Yuán) - SATU RINGGIT (มลายูอักษรยาวี)"
+    },
+    "tags": [
+      "United Kingdom",
+      "British Empire",
+      "Trade Dollar",
+      "Britannia",
+      "Silver",
+      "1895"
+    ],
+    "image": "/images/british-trade-dollar-obv.jpg",
+    "obverseImage": "/images/british-trade-dollar-obv.jpg",
+    "reverseImage": "/images/british-trade-dollar-rev.jpg",
+    "showcaseImage": "/images/british-trade-dollar-showcase.jpg",
+    "soughtAfterYears": "ปี 1895-B, ปี 1900-C, 1921-B, และปี 1935 (หายากระดับยอดมงกุฎ)",
+    "marketPriceRange": "ผ่านใช้ทั่วไป: 2,500 – 5,500 บาท | สภาพสวย UNC ผิวกระจก: 12,000 – 35,000 บาท | บล็อกหายาก 1900-C หรือ 1935 ตลับเกรดสูง: 60,000 – 300,000+ บาท",
+    "referenceSources": [
+      {
+        "name": "Numista (British Trade Dollar KM# T5)",
+        "url": "https://en.numista.com/catalogue/pieces8472.html"
+      },
+      {
+        "name": "PCGS CoinFacts (Great Britain Trade Dollar)",
+        "url": "https://www.pcgs.com/coinfacts/category/great-britain-trade-dollar/4380"
+      },
+      {
+        "name": "NGC Coin Explorer (British Trade Dollar)",
+        "url": "https://www.ngccoin.com/price-guide/world/great-britain-trade-dollar-km-t5-1895-1935-cuid-1067746-duid-1309832"
+      },
+      {
+        "name": "Eurseree Collecting Co., Ltd.",
+        "url": "https://www.eurseree.com"
+      }
+    ]
+  },
+  {
+    "id": "coin-in-victoria-rupee",
+    "name": "British India 1 Rupee - Victoria Empress (เหรียญรูปีเงินอินเดีย พระจักรพรรดินีวิกตอเรีย)",
+    "country": "United Kingdom",
+    "era": "British Raj / Victorian Era",
+    "year": 1877,
+    "mint": "Bombay Mint (โรงกษาปณ์บอมเบย์ - มาร์ก B / จุด) & Calcutta Mint (โรงกษาปณ์กัลกัตตา - มาร์ก C / ไม่มีมาร์ก)",
+    "mintLocation": "Mumbai & Kolkata, India (พิกัด 18.9322° N, 72.8398° E)",
+    "mintHistory": "สถาปนาขึ้นในสมัยบริติชราช เป็นศูนย์กลางการผลิตเหรียญรูปีมาตรฐานเงินสเตอร์ลิงส่งออกทั่วจักรวรรดิอังกฤษในเอเชียใต้และเอเชียตะวันออกเฉียงใต้",
+    "denomination": "1 Rupee",
+    "material": "Silver (.917 Standard Silver / เนื้อเงินแท้ 91.7%)",
+    "composition": "เนื้อเงิน 91.7% (.9170 Silver), ทองแดง 8.3% (Fine Silver 0.3437 ทรอยออนซ์)",
+    "rarity": "UNCOMMON 💠",
+    "rarityLevel": "UNCOMMON",
+    "rarityColor": "#10b981",
+    "powerRating": 86,
+    "xpValue": 1400,
+    "cardTheme": "holographic-silver",
+    "keyDatesInfo": "⭐ ปี 1897-B, 1880, 1881, และบล็อกตัวอย่างปั๊มแรก (Proof Restrike)",
+    "mintage": "หลายร้อยล้านเหรียญ (รวมตลอดรัชสมัย ค.ศ. 1877–1901)",
+    "stock": 1,
+    "location": "ตู้จัดแสดง C3 - หมวดเหรียญเครือจักรภพ",
+    "description": "เหรียญรูปีเงินอินเดีย พระจักรพรรดินีวิกตอเรีย (Victoria Empress) สัญลักษณ์ยุคบริติชราชและการค้าไม้สัก-ดีบุกในสยาม",
+    "historyText": "พระนางเจ้าวิกตอเรียได้รับการสถาปนาเป็น \"Empress of India\" ในปี 1877 เหรียญรุ่นนี้เปลี่ยนคำจารึกจาก QUEEN เป็น EMPRESS ด้านหลังเป็นลายพฤกษาและลายเถาวัลย์วิจิตรบรรจง เป็นเหรียญเงินหลักที่ไหลเวียนเข้าสู่สยามทางภาคเหนือ (ล้านนา) และภาคใต้ในยุคค้าไม้สักและเหมืองแร่ดีบุก",
+    "features": {
+      "color": "silver-white",
+      "diameterMm": 30.8,
+      "weightG": 11.66,
+      "composition": "Silver 91.7%, Copper 8.3%",
+      "shape": "Round",
+      "edge": "Reeded",
+      "obverseText": "VICTORIA EMPRESS",
+      "reverseText": "ONE RUPEE - INDIA - 1877"
+    },
+    "tags": [
+      "British India",
+      "United Kingdom",
+      "Victoria",
+      "Rupee",
+      "Silver",
+      "1877"
+    ],
+    "image": "/images/british-india-rupee-obv.jpg",
+    "obverseImage": "/images/british-india-rupee-obv.jpg",
+    "reverseImage": "/images/british-india-rupee-rev.jpg",
+    "showcaseImage": "/images/british-india-rupee-showcase.jpg",
+    "soughtAfterYears": "ปี 1897-B, 1880, 1881, และบล็อกขัดเงา Proof Restrike",
+    "marketPriceRange": "ผ่านใช้ทั่วไป: 650 – 1,500 บาท | สภาพสวย UNC คมกริบ ผิวรุ้ง: 2,500 – 6,500 บาท | บล็อกปีหายาก 1897 หรือเหรียญเกรดตลับสูง MS65: 15,000 – 70,000+ บาท",
+    "referenceSources": [
+      {
+        "name": "Numista (British India 1 Rupee KM# 492)",
+        "url": "https://en.numista.com/catalogue/pieces3722.html"
+      },
+      {
+        "name": "PCGS CoinFacts (British India Victoria Rupee)",
+        "url": "https://www.pcgs.com/coinfacts/category/british-india/4360"
+      },
+      {
+        "name": "NGC Coin Explorer (British India 1 Rupee)",
+        "url": "https://www.ngccoin.com/price-guide/world/india-british-rupee-km-492-1877-1901-cuid-1132049-duid-1438781"
+      },
+      {
+        "name": "Eurseree Collecting Co., Ltd.",
+        "url": "https://www.eurseree.com"
+      }
+    ]
+  },
+  {
+    "id": "coin-ss-edward-dollar",
+    "name": "Straits Settlements 1 Dollar - King Edward VII (เหรียญดอลลาร์ช่องแคบมะละกา)",
+    "country": "Straits Settlements",
+    "era": "Edwardian Era / British Malaya",
+    "year": 1903,
+    "mint": "Bombay Mint (มาร์ก B) & Calcutta Mint (มาร์ก C)",
+    "mintLocation": "Mumbai & Kolkata, India (สำหรับใช้ในสิงคโปร์ มะละกา ปีนัง)",
+    "mintHistory": "ผลิตขึ้นตามพระบรมราชโองการกษัตริย์เอ็ดเวิร์ดที่ 7 แห่งสหราชอาณาจักร สำหรับใช้เป็นเงินตราหมุนเวียนหลักในดินแดนอาณานิคมช่องแคบมะละกา (สิงคโปร์ มะละกา ปีนัง)",
+    "denomination": "1 Dollar ($1)",
+    "material": "Silver (เนื้อเงินแท้ 90% และ 50%)",
+    "composition": "ช่วงปี 1903–1904: เงิน 90% (0.900 Silver) หนัก 26.95g / ช่วงปี 1907–1909: เงิน 50% (0.500 Silver) หนัก 20.21g",
+    "rarity": "RARE ⭐⭐⭐",
+    "rarityLevel": "RARE",
+    "rarityColor": "#38bdf8",
+    "powerRating": 91,
+    "xpValue": 1750,
+    "cardTheme": "holographic-silver",
+    "keyDatesInfo": "⭐ ปี 1903-B สภาพ UNC คมกริบ, ปี 1904, และปี 1907 (บล็อกเปลี่ยนสเปกขนาดเหรียญเล็กลง)",
+    "mintage": "ประมาณ 35 ล้านเหรียญ (รวมตลอดช่วง ค.ศ. 1903–1909)",
+    "stock": 1,
+    "location": "ตู้จัดแสดง C4 - หมวดเหรียญมลายู-เอเชียตะวันออกเฉียงใต้",
+    "description": "เหรียญดอลลาร์ช่องแคบมะละกา หรือ ดอลลาร์สเตรทส์เซตเทิลเมนต์ รัชสมัยกษัตริย์เอ็ดเวิร์ดที่ 7 มีบทบาทสูงในการค้าภาคใต้ของสยาม",
+    "historyText": "เหรียญประจำอาณานิคมช่องแคบอังกฤษ (สิงคโปร์ มะละกา ปีนัง) ด้านหน้าพระบรมรูปกษัตริย์เอ็ดเวิร์ดที่ 7 ด้านหลังเป็นลวดลายศิลปะตะวันออกลายสี่เหลี่ยมเปียกปูนและเถาวัลย์ล้อมรอบตัวเลข ONE DOLLAR หมุนเวียนอย่างแพร่หลายในแถบภาคใต้ของไทย (ภูเก็ต สงขลา ปัตตานี) ในยุครุ่งเรืองของเหมืองแร่ดีบุก",
+    "features": {
+      "color": "silver-white",
+      "diameterMm": 37,
+      "weightG": 26.95,
+      "composition": "Silver 90%, Copper 10%",
+      "shape": "Round",
+      "edge": "Reeded",
+      "obverseText": "EDWARD VII KING & EMPEROR",
+      "reverseText": "STRAITS SETTLEMENTS - ONE DOLLAR 1903"
+    },
+    "tags": [
+      "Straits Settlements",
+      "Malaya",
+      "Singapore",
+      "Edward VII",
+      "Silver",
+      "Dollar",
+      "1903"
+    ],
+    "image": "/images/straits-settlements-dollar-obv.jpg",
+    "obverseImage": "/images/straits-settlements-dollar-obv.jpg",
+    "reverseImage": "/images/straits-settlements-dollar-rev.jpg",
+    "showcaseImage": "/images/straits-settlements-dollar-showcase.jpg",
+    "soughtAfterYears": "ปี 1903-B (ปีแรกขนาดใหญ่ 37mm), ปี 1904, และปี 1907 (บล็อกขนาดเล็ก 34mm)",
+    "marketPriceRange": "ผ่านใช้ทั่วไป: 1,500 – 3,500 บาท | สภาพสวย UNC ผิวเดิม: 5,500 – 15,000 บาท | บล็อก 1903 สภาพสวยเกรดตลับ MS63+: 25,000 – 85,000+ บาท",
+    "referenceSources": [
+      {
+        "name": "Numista (Straits Settlements 1 Dollar KM# 25)",
+        "url": "https://en.numista.com/catalogue/pieces4788.html"
+      },
+      {
+        "name": "PCGS CoinFacts (Straits Settlements Dollar)",
+        "url": "https://www.pcgs.com/coinfacts/category/straits-settlements/4440"
+      },
+      {
+        "name": "NGC Coin Explorer (Straits Settlements 1 Dollar)",
+        "url": "https://www.ngccoin.com/price-guide/world/straits-settlements-dollar-km-25-1903-1904-cuid-1088463-duid-1329618"
+      },
+      {
+        "name": "Eurseree Collecting Co., Ltd.",
+        "url": "https://www.eurseree.com"
+      }
+    ]
+  },
+  {
+    "id": "coin-jp-meiji-yen",
+    "name": "Japan 1 Yen Silver - Meiji Era (เหรียญเงิน 1 เยนมังกรญี่ปุ่น ยุคเมจิ)",
+    "country": "Japan",
+    "era": "Meiji Era (ยุคเมจิ)",
+    "year": 1870,
+    "mint": "Japan Mint, Osaka (โรงกษาปณ์โอซาก้า ประเทศญี่ปุ่น)",
+    "mintLocation": "1-1-79 Temma, Kita Ward, Osaka 530-0043 (พิกัด 34.6975° N, 135.5222° E)",
+    "mintHistory": "ก่อตั้งขึ้นในปี ค.ศ. 1871 (เมจิปีที่ 4) ในยุคปฏิรูปเมจิ โดยสั่งซื้อเครื่องจักรไอน้ำจากโรงกษาปณ์ฮ่องกงที่ปิดตัวลง เป็นผู้ผลิตเหรียญเงิน 1 เยนมังกรเมจิอันเลื่องชื่อ และเหรียญกษาปณ์ทองคำของจักรวรรดิญี่ปุ่น",
+    "denomination": "1 Yen (一圓)",
+    "material": "Silver (เนื้อเงินแท้ 90%)",
+    "composition": "เนื้อเงินแท้ 90% (0.900 Silver), ทองแดง 10%",
+    "rarity": "EPIC 💎",
+    "rarityLevel": "EPIC",
+    "rarityColor": "#a855f7",
+    "powerRating": 96,
+    "xpValue": 2300,
+    "cardTheme": "holographic-silver",
+    "keyDatesInfo": "⭐ เมจิปีที่ 7 (ค.ศ. 1874), เมจิปีที่ 8 (ค.ศ. 1875) ผลิตน้อยมาก และบล็อกตอกตรา \"銀\" (Gin - ตราเงินสำหรับส่งออก)",
+    "mintage": "ประมาณ 160 ล้านเหรียญ (รวมตลอดรัชสมัยเมจิ ค.ศ. 1870–1914)",
+    "stock": 1,
+    "location": "ตู้จัดแสดง D1 - หมวดเหรียญจักรวรรดิญี่ปุ่น",
+    "description": "เหรียญเงิน 1 เยนมังกรญี่ปุ่น ยุคเมจิ ลายมังกรถือลูกแก้วจักรพรรดิและตราพระราชลัญจกรดอกเบญจมาศ 16 กลีบ",
+    "historyText": "ลวดลายมังกรญี่ปุ่นขดหางถือลูกแก้วจักรพรรดิที่มีความวิจิตรบรรจง ด้านหลังเป็นตราพระราชลัญจกรดอกเบญจมาศ 16 กลีบ (Chrysanthemum Seal) และรวงข้าว/ช่อเพาโลเนีย เป็นเหรียญเงินหลักที่ชาวญี่ปุ่นและนักสะสมสากลให้คุณค่าและมูลค่าสูงอย่างต่อเนื่อง",
+    "features": {
+      "color": "silver-white",
+      "diameterMm": 38.6,
+      "weightG": 26.96,
+      "composition": "Silver 90%, Copper 10%",
+      "shape": "Round",
+      "edge": "Reeded",
+      "obverseText": "大日本 • 明治三年 • 一圓 (Dai Nippon - Meiji 3 - 1 Yen)",
+      "reverseText": "ตราพระราชลัญจกรดอกเบญจมาศ 16 กลีบ • ช่อดอกเพาโลเนีย"
+    },
+    "tags": [
+      "Japan",
+      "Meiji Era",
+      "Dragon Silver",
+      "Yen",
+      "Empire of Japan",
+      "1870"
+    ],
+    "image": "/images/japan-meiji-yen-obv.jpg",
+    "obverseImage": "/images/japan-meiji-yen-obv.jpg",
+    "reverseImage": "/images/japan-meiji-yen-rev.jpg",
+    "showcaseImage": "/images/japan-meiji-yen-showcase.jpg",
+    "soughtAfterYears": "เมจิปีที่ 7 (1874), เมจิปีที่ 8 (1875), และบล็อกตอกตรา \"銀\" (Gin)",
+    "marketPriceRange": "ผ่านใช้ทั่วไป: 2,500 – 6,000 บาท | สภาพสวย UNC ผิวประกายน้ำทอง/รุ้ง: 12,000 – 45,000 บาท | บล็อกปีหายาก (Meiji 7 / Meiji 8) หรือเกรดตลับสูง (PCGS/NGC MS65+): 100,000 – 450,000+ บาท",
+    "referenceSources": [
+      {
+        "name": "Numista (Japan 1 Yen Meiji Era KM# Y# A25.2)",
+        "url": "https://en.numista.com/catalogue/pieces5827.html"
+      },
+      {
+        "name": "PCGS CoinFacts (Japan 1 Yen Meiji Silver)",
+        "url": "https://www.pcgs.com/coinfacts/category/japan/4400"
+      },
+      {
+        "name": "NGC Coin Explorer (Japan 1 Yen Silver)",
+        "url": "https://www.ngccoin.com/price-guide/world/japan-yen-yr.3(1870)-yr.45(1912)-cuid-1135242-duid-1443658"
+      },
+      {
+        "name": "Eurseree Collecting Co., Ltd.",
+        "url": "https://www.eurseree.com"
+      }
+    ]
+  },
+  {
+    "id": "coin-cn-kwangtung-dragon-dollar",
+    "name": "China Kwangtung Province 7 Mace and 2 Candareens Dragon Dollar (เหรียญมังกรกวางตุ้ง)",
+    "country": "China",
+    "era": "Qing Dynasty (ราชวงศ์ชิง - รัชศกกวงสู)",
+    "year": 1890,
+    "mint": "Kwangtung Mint (โรงกษาปณ์กวางตุ้ง / Canton Mint)",
+    "mintLocation": "Guangzhou, Guangdong, China (พิกัด 23.1291° N, 113.2644° E)",
+    "mintHistory": "โรงกษาปณ์กวางตุ้ง ริเริ่มโดยมหาเสนาบดีจาง จื้อต้ง เป็นโรงกษาปณ์เครื่องจักรไอน้ำแห่งแรกของแผ่นดินจีน สั่งซื้อแท่นปั๊มและแม่พิมพ์จาก Ralph Heaton & Sons ในเบอร์มิงแฮม ประเทศอังกฤษ",
+    "denomination": "7 Mace 2 Candareens (七錢二分 / 1 Dollar)",
+    "material": "Silver (เนื้อเงินแท้ 90%)",
+    "composition": "เนื้อเงิน 90% (0.900 Silver), ทองแดง 10%",
+    "rarity": "EPIC 💎",
+    "rarityLevel": "EPIC",
+    "rarityColor": "#a855f7",
+    "powerRating": 97,
+    "xpValue": 2400,
+    "cardTheme": "holographic-silver",
+    "keyDatesInfo": "⭐ บล็อกปี 1889 ตัวหนังสืออังกฤษกลับด้าน (Seven Mace and Two Candareens อยู่ด้านบน) หายากระดับตำนาน / บล็อกมังกรตาโต / บล็อกขัดเงา Proof",
+    "mintage": "ประมาณ 50 ล้านเหรียญ (รวมตลอดช่วง ค.ศ. 1889–1908)",
+    "stock": 1,
+    "location": "ตู้จัดแสดง B1 - หมวดเหรียญจีนโบราณ",
+    "description": "เหรียญมังกรเงินกวางตุ้ง 7 Mace 2 Candareens เหรียญมังกรเครื่องจักรไอน้ำรุ่นแรกสุดของจีน ต้นแบบเหรียญมังกรทั่วประเทศจีน",
+    "historyText": "ริเริ่มโดยมหาเสนาบดีจาง จื้อต้ง เป็นเหรียญมังกรเงินแท่นปั๊มเครื่องจักรกลไอน้ำรุ่นแรกสุดของแผ่นดินจีน ด้านหน้าเป็นลายมังกรห้าเล็บขดล้อมลูกแก้วสุริยะ ด้านหลังเป็นอักษรจีน \"กวงสูหยวนเป่า\" และอักษรแมนจู เป็นต้นแบบเหรียญมังกรทั่วประเทศจีน",
+    "features": {
+      "color": "silver-white",
+      "diameterMm": 39,
+      "weightG": 26.86,
+      "composition": "Silver 90%, Copper 10%",
+      "shape": "Round",
+      "edge": "Reeded",
+      "obverseText": "KWANG-TUNG PROVINCE - 7 MACE AND 2 CANDAREENS",
+      "reverseText": "光緒元寶 • 廣東省造 • 庫平七錢二分"
+    },
+    "tags": [
+      "China",
+      "Qing Dynasty",
+      "Dragon Dollar",
+      "Kwangtung",
+      "Silver",
+      "1890"
+    ],
+    "image": "/images/kwangtung-dragon-obv.jpg",
+    "obverseImage": "/images/kwangtung-dragon-obv.jpg",
+    "reverseImage": "/images/kwangtung-dragon-rev.jpg",
+    "showcaseImage": "/images/kwangtung-dragon-showcase.jpg",
+    "soughtAfterYears": "บล็อกปีแรก 1889 (ตัวหนังสืออังกฤษกลับด้าน), บล็อกเหรียญตัวอย่าง Proof, และบล็อกสภาพผิวรุ้งเดิม",
+    "marketPriceRange": "ผ่านใช้ทั่วไป: 3,500 – 8,500 บาท | สภาพสวย UNC ลายเกล็ดมังกรคมชัด: 18,000 – 65,000 บาท | บล็อก 1889 หายาก หรือเกรดตลับสูง MS63+: 150,000 – 800,000+ บาท",
+    "referenceSources": [
+      {
+        "name": "Numista (China Kwangtung Dragon Dollar KM# Y# 203)",
+        "url": "https://en.numista.com/catalogue/pieces14107.html"
+      },
+      {
+        "name": "PCGS CoinFacts (Kwangtung Province Dragon Dollar)",
+        "url": "https://www.pcgs.com/coinfacts/category/kwangtung-province/4150"
+      },
+      {
+        "name": "NGC Coin Explorer (Kwangtung 7 Mace 2 Candareens)",
+        "url": "https://www.ngccoin.com/price-guide/world/china-provincial-kwangtung-province-dollar-y-203-yr.16(1890)-yr.34(1908)-cuid-1046702-duid-1290374"
+      },
+      {
+        "name": "Eurseree Collecting Co., Ltd.",
+        "url": "https://www.eurseree.com"
+      }
+    ]
+  },
+  {
+    "id": "coin-cn-yuan-shih-kai-dollar",
+    "name": "China Republic Yuan Shih-kai 1 Dollar (เหรียญหัวโต ยวนซีไข่)",
+    "country": "China",
+    "era": "Republic of China (สาธารณรัฐจีน / รัฐบาลเป่ยหยาง)",
+    "year": 1914,
+    "mint": "Tianjin Central Mint (โรงกษาปณ์กลางเทียนจิน - โรงกษาปณ์หลัก), Nanjing, Wuchang, Canton, Gansu",
+    "mintLocation": "Tianjin, China (พิกัด 39.1415° N, 117.1895° E)",
+    "mintHistory": "โรงกษาปณ์เทียนจินเป็นโรงกษาปณ์กลางแห่งสาธารณรัฐจีน ปั๊มเหรียญเงินยวนซีไข่ (เหรียญหัวโต) ออกมาเพื่อสร้างเอกภาพทางการเงินของจีน ออกแบบแม่พิมพ์โดยช่างศิลป์อิตาลี Luigi Giorgi",
+    "denomination": "1 Yuan / 1 Dollar (壹圓 / เหรียญหัวโต / Fat Man Dollar)",
+    "material": "Silver (เนื้อเงินแท้ 89%)",
+    "composition": "เนื้อเงิน 89% (0.890 Silver), ทองแดง 11%",
+    "rarity": "RARE ⭐⭐⭐",
+    "rarityLevel": "RARE",
+    "rarityColor": "#38bdf8",
+    "powerRating": 94,
+    "xpValue": 2000,
+    "cardTheme": "holographic-silver",
+    "keyDatesInfo": "⭐ ปีนิยมแพงสุด (Key Date): ปีที่ 8 (Republic Year 8 / ค.ศ. 1919 ผลิตน้อยสุด), บล็อกช่างแกะ L.GIORGI, และบล็อกมณฑลกานซู (甘肅)",
+    "mintage": "750 ล้าน – 1,000 ล้านเหรียญ (รวมทุกปีและทุกโรงกษาปณ์)",
+    "stock": 1,
+    "location": "ตู้จัดแสดง B2 - หมวดเหรียญจีนสากล",
+    "description": "เหรียญเงินยวนซีไข่ หรือ เหรียญหัวโต (Fat Man Dollar) ยุคสาธารณรัฐจีน ออกแบบโดย Luigi Giorgi ด้านหน้าเป็นรูปประธานาธิบดีหยวน ซื่อไข่ ด้านหลังเป็นรวงข้าวล้อมรอบอักษร 壹圓",
+    "historyText": "เป็นเหรียญเงินหลักยุคเปลี่ยนแปลงการปกครองของจีน มีค่านิยมทางประวัติศาสตร์สูงมาก ด้านหน้าเป็นรูปใบหน้าประธานาธิบดีหยวน ซื่อไข่ ด้านหลังเป็นรวงข้าวไขว้และตัวอักษร 壹圓 (หนึ่งดอลลาร์/หนึ่งหยวน) นักสะสมชาวจีนทั่วโลกและในไทยนิยมสะสมอย่างแพร่หลาย",
+    "features": {
+      "color": "silver-white",
+      "diameterMm": 39,
+      "weightG": 26.86,
+      "composition": "Silver 89%, Copper 11%",
+      "shape": "Round",
+      "edge": "Reeded",
+      "obverseText": "中華民國三年 (Republic of China Year 3)",
+      "reverseText": "壹圓 (Yī Yuán - หนึ่งหยวน)"
+    },
+    "tags": [
+      "China",
+      "Republic of China",
+      "Yuan Shih-kai",
+      "Fat Man Dollar",
+      "Silver",
+      "1914"
+    ],
+    "image": "/images/yuan-shih-kai-new-obv.jpg",
+    "obverseImage": "/images/yuan-shih-kai-new-obv.jpg",
+    "reverseImage": "/images/yuan-shih-kai-new-rev.jpg",
+    "showcaseImage": "/images/yuan-shih-kai-showcase.jpg",
+    "soughtAfterYears": "ปีที่ 8 (ค.ศ. 1919 ผลิตน้อยสุด), บล็อก L.GIORGI, บล็อก Gansu (甘肅), และบล็อก T-Ribbon พระเกศาชัด",
+    "marketPriceRange": "ปีธรรมดา (ปี 3, 9, 10) ผ่านใช้ทั่วไป: 3,500 – 7,500 บาท | สภาพสวย UNC ผิวเดิม: 12,000 – 35,000 บาท | ปีที่ 8 (Year 8) สภาพสวย หรือเกรดตลับ MS64+: 60,000 – 350,000+ บาท",
+    "referenceSources": [
+      {
+        "name": "Numista (China Republic Yuan Shih-kai Dollar KM# Y# 329)",
+        "url": "https://en.numista.com/catalogue/pieces3849.html"
+      },
+      {
+        "name": "PCGS CoinFacts (China Republic Yuan Shih-kai Dollar)",
+        "url": "https://www.pcgs.com/coinfacts/category/china-republic/4210"
+      },
+      {
+        "name": "NGC Coin Explorer (China Republic Dollar Y-329)",
+        "url": "https://www.ngccoin.com/price-guide/world/china-republic-dollar-y-329-yr.3(1914)-cuid-1046083-duid-1289196"
+      },
+      {
+        "name": "Eurseree Collecting Co., Ltd.",
+        "url": "https://www.eurseree.com"
+      }
+    ]
+  },
+  {
+    "id": "coin-us-morgan-silver-dollar",
+    "name": "United States Morgan Silver Dollar (เหรียญเงินมอร์แกนดอลลาร์)",
+    "country": "United States of America",
+    "era": "Wild West / Classic Gilded Age",
+    "year": 1893,
+    "mint": "Philadelphia (no mint mark), San Francisco (S), New Orleans (O), Carson City (CC), Denver (D - 1921 only)",
+    "mintLocation": "Philadelphia, PA / San Francisco, CA / New Orleans, LA / Carson City, NV / Denver, CO (พิกัด 39.9537° N, 75.1481° W)",
+    "mintHistory": "ผลิตขึ้นจากสายแร่เงินคอมสต็อกโลดอันมหาศาล ออกแบบโดย George T. Morgan ด้านหน้าเป็นรูปเทพีเสรีภาพ ด้านหลังเป็นนกอินทรีสยายปีกคาบกิ่งมะกอกและลูกธนู",
+    "denomination": "1 Dollar ($1)",
+    "material": "Silver (เนื้อเงินแท้ 90%)",
+    "composition": "เนื้อเงิน 90% (0.900 Silver), ทองแดง 10% (.900 Fine Silver / Fine Silver 0.77344 ทรอยออนซ์)",
+    "rarity": "EPIC 💎",
+    "rarityLevel": "EPIC",
+    "rarityColor": "#a855f7",
+    "powerRating": 98,
+    "xpValue": 2500,
+    "cardTheme": "holographic-silver",
+    "keyDatesInfo": "⭐ ปีคีย์เดตแพงสุด: 1893-S, 1889-CC, 1895-P (Proof) และเหรียญโรงกษาปณ์เหมืองเงิน Carson City (CC) ทุกปี",
+    "mintage": "มากกว่า 657 ล้านเหรียญ (รวมทุกปีและทุกโรงกษาปณ์)",
+    "stock": 1,
+    "location": "ตู้จัดแสดง A1 - หมวดเหรียญคลาสสิกอเมริกา",
+    "description": "เหรียญเงินขนาดใหญ่ยอดฮิตอันดับ 1 ของโลก ออกแบบโดย George T. Morgan สัญลักษณ์แห่งยุคคาวบอยและยุคตื่นทองของอเมริกา",
+    "historyText": "เหรียญเงินมอร์แกนดอลลาร์เป็นเหรียญเงินยอดนิยมอันดับ 1 ในหมู่นักสะสมทั่วโลก ผลิตช่วง ค.ศ. 1878–1904 และผลิตซ้ำอีกครั้งในปี 1921 เพื่อทดแทนเหรียญเงินที่ถูกหลอมละลายตามกฎหมาย Pittman Act มีการซื้อขายแลกเปลี่ยนในหมู่นักสะสมไทยอย่างกว้างขวาง",
+    "features": {
+      "color": "silver-white",
+      "diameterMm": 38.1,
+      "weightG": 26.73,
+      "composition": "Silver 90%, Copper 10%",
+      "shape": "Round",
+      "edge": "Reeded",
+      "obverseText": "E PLURIBUS UNUM - LIBERTY - 1893",
+      "reverseText": "UNITED STATES OF AMERICA - ONE DOLLAR - IN GOD WE TRUST"
+    },
+    "tags": [
+      "USA",
+      "United States",
+      "Morgan Dollar",
+      "Silver",
+      "Key Date",
+      "Carson City",
+      "1893"
+    ],
+    "image": "/images/morgan-dollar-new-obv.jpg",
+    "obverseImage": "/images/morgan-dollar-new-obv.jpg",
+    "reverseImage": "/images/morgan-dollar-new-rev.jpg",
+    "showcaseImage": "/images/morgan-dollar-showcase.jpg",
+    "soughtAfterYears": "1893-S (Key Date ราชาแห่งมอร์แกน), 1889-CC, 1895 Proof, และบล็อก CC ทุกปี",
+    "marketPriceRange": "ผ่านใช้ทั่วไปปีธรรมดา (เช่น 1921): 1,300 – 2,500 บาท | สภาพสวยงาม UNC ผิวเงาเดิม: 3,000 – 6,500 บาท | บล็อกหายาก (Carson City CC หรือ 1893-S) เกรดตลับ MS65+: 25,000 – 350,000+ บาท (1893-S สภาพสูงประมูลแตะหลักล้านบาท)",
+    "referenceSources": [
+      {
+        "name": "Numista (Morgan Silver Dollar KM# 110)",
+        "url": "https://en.numista.com/catalogue/pieces1492.html"
+      },
+      {
+        "name": "PCGS CoinFacts (Morgan Dollar 1878-1921)",
+        "url": "https://www.pcgs.com/coinfacts/category/morgan-dollar-1878-1921/744"
+      },
+      {
+        "name": "NGC Coin Explorer (Morgan Dollars)",
+        "url": "https://www.ngccoin.com/coin-explorer/united-states/dollars/morgan-dollars-1878-1921/"
+      },
+      {
+        "name": "Eurseree Collecting Co., Ltd.",
+        "url": "https://www.eurseree.com"
+      }
+    ]
+  },
+  {
+    "id": "coin-us-peace-silver-dollar",
+    "name": "United States Peace Silver Dollar (เหรียญเงินพีซดอลลาร์)",
+    "country": "United States of America",
+    "era": "Roaring Twenties / Interwar Era",
+    "year": 1921,
+    "mint": "Philadelphia, Denver (D), San Francisco (S)",
+    "mintLocation": "Philadelphia, PA / Denver, CO / San Francisco, CA",
+    "mintHistory": "ออกแบบโดย Anthony de Francisci เพื่อเฉลิมฉลองสนธิสัญญาสันติภาพสิ้นสุดสงครามโลกครั้งที่ 1 ด้านหน้าเป็นรูปเทพีเสรีภาพสวมมงกุฎแสงรัศมี ด้านหลังเป็นรูปนกอินทรีเกาะบนยอดหินพร้อมคำว่า PEACE",
+    "denomination": "1 Dollar ($1)",
+    "material": "Silver (เนื้อเงินแท้ 90%)",
+    "composition": "เนื้อเงิน 90% (0.900 Silver), ทองแดง 10% (.900 Fine Silver / Fine Silver 0.77344 ทรอยออนซ์)",
+    "rarity": "RARE ⭐⭐⭐",
+    "rarityLevel": "RARE",
+    "rarityColor": "#38bdf8",
+    "powerRating": 93,
+    "xpValue": 1900,
+    "cardTheme": "holographic-silver",
+    "keyDatesInfo": "⭐ ปี 1921 High Relief (ลายนูนสูงพิเศษ ผลิตเฉพาะปีแรก) และปี 1928 (ปีผลิตน้อยที่สุดเพียง 360,649 เหรียญ)",
+    "mintage": "ประมาณ 190 ล้านเหรียญ (รวมตลอดช่วง ค.ศ. 1921–1935)",
+    "stock": 1,
+    "location": "ตู้จัดแสดง A2 - หมวดเหรียญคลาสสิกอเมริกา",
+    "description": "เหรียญเงินดอลลาร์สันติภาพ ออกแบบโดย Anthony de Francisci เพื่อเฉลิมฉลองสนธิสัญญาสันติภาพสิ้นสุดสงครามโลกครั้งที่ 1",
+    "historyText": "ออกแบบโดย Anthony de Francisci เพื่อเฉลิมฉลองสนธิสัญญาสันติภาพสิ้นสุดสงครามโลกครั้งที่ 1 ด้านหน้าเป็นรูปเทพีเสรีภาพสวมมงกุฎแสงรัศมี ด้านหลังเป็นรูปนกอินทรีเกาะบนยอดหินพร้อมคำว่า \"PEACE\" ได้รับความนิยมสะสมคู่กับเหรียญมอร์แกนดอลลาร์",
+    "features": {
+      "color": "silver-white",
+      "diameterMm": 38.1,
+      "weightG": 26.73,
+      "composition": "Silver 90%, Copper 10%",
+      "shape": "Round",
+      "edge": "Reeded",
+      "obverseText": "LIBERTY - IN GOD WE TRUST - 1921",
+      "reverseText": "UNITED STATES OF AMERICA - E PLURIBUS UNUM - ONE DOLLAR - PEACE"
+    },
+    "tags": [
+      "USA",
+      "United States",
+      "Peace Dollar",
+      "Silver",
+      "Key Date",
+      "High Relief",
+      "1921"
+    ],
+    "image": "/images/peace-dollar-new-obv.jpg",
+    "obverseImage": "/images/peace-dollar-new-obv.jpg",
+    "reverseImage": "/images/peace-dollar-new-rev.jpg",
+    "showcaseImage": "/images/peace-dollar-showcase.jpg",
+    "soughtAfterYears": "ปี 1921 High Relief (ลายนูนสูงพิเศษ ผลิตเฉพาะปีแรก) และปี 1928 (ปีผลิตน้อยที่สุด)",
+    "marketPriceRange": "ผ่านใช้ทั่วไป: 1,200 – 2,200 บาท | สภาพสวยเดิม UNC ไม่ผ่านการใช้: 2,800 – 5,500 บาท | ปี 1921 High Relief หรือปี 1928 สภาพสวย / เกรดตลับ MS64+: 10,000 – 45,000+ บาท",
+    "referenceSources": [
+      {
+        "name": "Numista (Peace Silver Dollar KM# 150)",
+        "url": "https://en.numista.com/catalogue/pieces1493.html"
+      },
+      {
+        "name": "PCGS CoinFacts (Peace Dollar 1921-1935)",
+        "url": "https://www.pcgs.com/coinfacts/category/peace-dollar-1921-1935/745"
+      },
+      {
+        "name": "NGC Coin Explorer (Peace Dollars)",
+        "url": "https://www.ngccoin.com/coin-explorer/united-states/dollars/peace-dollars-1921-1935/"
+      },
+      {
+        "name": "Eurseree Collecting Co., Ltd.",
+        "url": "https://www.eurseree.com"
+      }
+    ]
+  },
+  {
+    "id": "coin-mx-8-reales",
+    "name": "Mexican 8 Reales (เหรียญนกเม็กซิโก / หมวกเสรีภาพ 8 เรอัล)",
+    "country": "Mexico",
+    "era": "First & Restored Mexican Republic (ยุคสาธารณรัฐเม็กซิโก)",
+    "year": 1823,
+    "mint": "Mexico City Mint (Mo), Guanajuato (Go), Zacatecas (Zs), Chihuahua (Ch), Durango (Do), San Luis Potosí (Pi)",
+    "mintLocation": "Mexico City & Guanajuato, Mexico (พิกัด 19.4326° N, 99.1332° W)",
+    "mintHistory": "Casa de Moneda de México สถาปนาในปี ค.ศ. 1535 ถือเป็นโรงกษาปณ์ที่เก่าแก่ที่สุดในทวีปอเมริกา ผลิตเหรียญเงิน 8 Reales (เหรียญนกเม็กซิโก / หัวแปด) ที่หมุนเวียนไปทั่วโลกและขับเคลื่อนเศรษฐกิจสยาม",
+    "denomination": "8 Reales (8R)",
+    "material": "Silver (เนื้อเงินแท้ 90.3%)",
+    "composition": "เนื้อเงินแท้ 90.3% (0.903 Silver / .9027 Fine Silver), ทองแดง 9.7%",
+    "rarity": "EPIC 💎",
+    "rarityLevel": "EPIC",
+    "rarityColor": "#a855f7",
+    "powerRating": 97,
+    "xpValue": 2400,
+    "cardTheme": "holographic-silver",
+    "keyDatesInfo": "⭐ บล็อกปี 1820-1840 ของโรงกษาปณ์หายาก (Ch, Do, Pi), บล็อกสภาพสมบูรณ์ UNC ไร้รอยตอก, และเหรียญที่มีรอยตอกตราประทับเถ้าแก่โบราณ (Chopmarks) ที่สวยงามแปลกตา",
+    "mintage": "มากกว่า 1,000 ล้านเหรียญ (เหรียญเงินการค้าสากลที่แพร่หลายที่สุดในโลกยุคคริสต์ศตวรรษที่ 19)",
+    "stock": 1,
+    "location": "ตู้จัดแสดง D2 - หมวดเหรียญเงินการค้าโลก",
+    "description": "เหรียญนกเม็กซิโก 8 เรอัล (Mexican 8 Reales) หรือ เหรียญหัวแปด เหรียญเงินระดับตำนานที่ขับเคลื่อนเศรษฐกิจสยามในสมัย ร.3–ร.5",
+    "historyText": "เป็นเหรียญเงินการค้าระดับตำนานที่ขับเคลื่อนเศรษฐกิจสยามในสมัย ร.3–ร.5 ก่อนที่สยามจะผลิตเหรียญเงินบาทกลม ด้านหน้าเป็นรูปนกอินทรีเกาะบนต้นกระบองเพชรคาบงู ด้านหลังเป็นหมวกเสรีภาพ (Phrygian Cap) เปล่งรัศมีแสงสุริยะ มีค่านิยมสูงทั้งในไทย เม็กซิโก สหรัฐฯ และจีน",
+    "features": {
+      "color": "silver-white",
+      "diameterMm": 39,
+      "weightG": 27.07,
+      "composition": "Silver 90.3%, Copper 9.7%",
+      "shape": "Round",
+      "edge": "Reeded / Patterned",
+      "obverseText": "REPUBLICA MEXICANA - นกอินทรีคาบงูบนต้นกระบองเพชร",
+      "reverseText": "LIBERTAD - 8R. - หมวกเสรีภาพเปล่งรัศมีแสงสุริยะ"
+    },
+    "tags": [
+      "Mexico",
+      "Mexican Republic",
+      "8 Reales",
+      "Cap and Rays",
+      "Silver",
+      "Trade Coin",
+      "1823"
+    ],
+    "image": "/images/mexico-8-reales-obv.jpg",
+    "obverseImage": "/images/mexico-8-reales-obv.jpg",
+    "reverseImage": "/images/mexico-8-reales-rev.jpg",
+    "showcaseImage": "/images/mexico-8-reales-showcase.jpg",
+    "soughtAfterYears": "บล็อกปี 1820-1840 (โรงกษาปณ์ Ch, Do, Pi), สภาพ UNC ไร้รอยตอก, และเหรียญตอกตราเจ๊ก Chopmarks สวยงาม",
+    "marketPriceRange": "ผ่านใช้ทั่วไป: 1,500 – 4,500 บาท | สภาพสวยเดิม UNC คมกริบ ไร้รอยช้ำ: 8,000 – 35,000 บาท | บล็อกโรงกษาปณ์หายาก หรือเกรดตลับสากล (PCGS/NGC MS63 - MS65+): 50,000 – 250,000+ บาท",
+    "referenceSources": [
+      {
+        "name": "Numista (Mexico 8 Reales Cap and Rays KM# 377)",
+        "url": "https://en.numista.com/catalogue/pieces7387.html"
+      },
+      {
+        "name": "PCGS CoinFacts (Mexico 8 Reales Guide)",
+        "url": "https://www.pcgs.com/coinfacts/category/mexico/4420"
+      },
+      {
+        "name": "NGC Coin Explorer (Mexico Republic 8 Reales)",
+        "url": "https://www.ngccoin.com/price-guide/world/mexico-republic-8-reales-km-377-1824-1897-cuid-1116642-duid-1418758"
+      },
+      {
+        "name": "Eurseree Collecting Co., Ltd.",
+        "url": "https://www.eurseree.com"
+      }
+    ]
+  },
+  {
+    "id": "coin-us-1964-kennedy-half-dollar",
+    "name": "1964 Kennedy Half Dollar (90% Silver)",
+    "country": "United States of America",
+    "era": "Mid-Century Classic",
+    "year": 1964,
+    "mint": "Philadelphia Mint (P) & Denver Mint (D)",
+    "mintLocation": "Philadelphia, PA & Denver, CO, USA (พิกัด 39.9537° N, 75.1481° W)",
+    "mintHistory": "โรงกษาปณ์ฟิลาเดลเฟียและเดนเวอร์ เร่งผลิตเหรียญเงิน 50 เซนต์รุ่นนี้เพื่อเป็นอนุสรณ์แด่ประธานาธิบดี จอห์น เอฟ. เคนเนดี (JFK) หลังเหตุการณ์ลอบสังหารในปี 1963 เป็นปีแรกและปีเดียวที่ผลิตด้วยเนื้อเงินแท้ 90%",
+    "denomination": "50 Cents (Half Dollar)",
+    "material": "Silver 90% (เนื้อเงิน 90%)",
+    "composition": "เงิน 90% • ทองแดง 10% (.900 Fine Silver / Fine Silver 0.36169 ทรอยออนซ์)",
+    "rarity": "UNCOMMON 💠",
+    "rarityLevel": "UNCOMMON",
+    "rarityColor": "#10b981",
+    "powerRating": 88,
+    "xpValue": 1500,
+    "cardTheme": "holographic-silver",
+    "keyDatesInfo": "⭐ ปี 1964 คือปีเดียวที่ผลิตด้วยเนื้อเงิน 90% (หลังจากนั้นลดเหลือ 40% ในปี 1965-1970 และเป็นเนื้อทองแดงชุบนิกเกิล)",
+    "mintage": "429,507,750 เหรียญ (Philadelphia 273.3M, Denver 156.2M, Proof 3.9M)",
+    "stock": 1,
+    "location": "ตู้จัดแสดง A3 - หมวดเหรียญคลาสสิกอเมริกา",
+    "description": "เหรียญเงินที่ระลึกประธานาธิบดี จอห์น เอฟ. เคนเนดี (JFK) รุ่นสุดท้ายที่ใช้เนื้อเงินแท้ 90% ก่อนยกเลิกมาตรฐานเงินหมุนเวียนในสหรัฐอเมริกา",
+    "historyText": "หลังจากการอสัญกรรมของประธานาธิบดี จอห์น เอฟ. เคนเนดี สภาคองเกรสได้อนุมัติให้ผลิตเหรียญรุ่นนี้ขึ้นอย่างเร่งด่วนในปลายปี 1963 และออกใช้ในต้นปี 1964 ผู้คนทั่วโลกพากันเก็บสะสมจนแทบไม่เหลือหมุนเวียนในระบบ และกลายเป็นเหรียญเงิน 90% รุ่นประวัติศาสตร์ของสหรัฐฯ",
+    "features": {
+      "color": "silver-white",
+      "diameterMm": 30.6,
+      "weightG": 12.5,
+      "composition": "Silver 90%, Copper 10%",
+      "shape": "Round",
+      "edge": "Reeded",
+      "obverseText": "LIBERTY - IN GOD WE TRUST - 1964",
+      "reverseText": "UNITED STATES OF AMERICA - HALF DOLLAR - E PLURIBUS UNUM"
+    },
+    "tags": [
+      "USA",
+      "United States",
+      "Kennedy",
+      "Half Dollar",
+      "Silver",
+      "1964"
+    ],
+    "image": "/images/1964-kennedy-obv.jpg",
+    "obverseImage": "/images/1964-kennedy-obv.jpg",
+    "reverseImage": "/images/1964-kennedy-rev.jpg",
+    "soughtAfterYears": "ปี 1964 (เนื้อเงิน 90%) และบล็อก Accented Hair Proof",
+    "marketPriceRange": "ผ่านใช้ทั่วไป: 350 – 650 บาท | สภาพสวย UNC ผิวกระจก/ประกายเดิม: 850 – 2,500 บาท | เกรดตลับสูง MS66+ / Accented Hair Proof: 5,000 – 45,000+ บาท",
+    "referenceSources": [
+      {
+        "name": "US Mint (History of Kennedy Half Dollar)",
+        "url": "https://www.usmint.gov"
+      },
+      {
+        "name": "PCGS CoinFacts (1964 50C Kennedy)",
+        "url": "https://www.pcgs.com/coinfacts/coin/1964-50c/6706"
+      }
+    ]
+  },
+  {
+    "id": "coin-nz-1935-waitangi-crown",
+    "name": "1935 New Zealand Waitangi Crown (5 Shillings)",
+    "country": "New Zealand",
+    "era": "George V / British Commonwealth",
+    "year": 1935,
+    "mint": "Royal Mint, London (โรงกษาปณ์หลวงสหราชอาณาจักร)",
+    "mintLocation": "Tower Hill, London, UK (พิกัด 51.5098° N, 0.0754° W)",
+    "mintHistory": "Royal Mint London ปั๊มเหรียญมงกุฎนี้ขึ้นเป็นพิเศษให้แก่นิวซีแลนด์ เพื่อฉลองครบรอบสนธิสัญญาไวทังกิ (Treaty of Waitangi) และพระราชพิธีรัชดาภิเษกของพระเจ้าจอร์จที่ 5 ผลิตจำนวนจำกัดเพียง 1,128 เหรียญเท่านั้น",
+    "denomination": "5 Shillings (Crown)",
+    "material": "Silver (.500 Silver / เนื้อเงิน 50%)",
+    "composition": "เงิน 50% • ทองแดง 40% • นิกเกิล 5% • สังกะสี 5%",
+    "rarity": "MYTHIC 🌟",
+    "rarityLevel": "MYTHIC",
+    "rarityColor": "#ffc048",
+    "powerRating": 99,
+    "xpValue": 2800,
+    "cardTheme": "holographic-silver",
+    "keyDatesInfo": "⭐ ผลิตเพียง 1,128 เหรียญในโลก (Proof 364 เหรียญ / Regular Strike 764 เหรียญ) เป็น One-Year Type ที่หายากและแพงที่สุดของนิวซีแลนด์",
+    "mintage": "1,128 เหรียญเท่านั้น (ผลิตน้อยระดับตำนาน)",
+    "stock": 1,
+    "location": "ตู้นิรภัยส่วนตัว A2",
+    "description": "สุดยอดเหรียญระดับราชาแห่งนิวซีแลนด์ (King of New Zealand Coins) ลวดลายการจับมือประวัติศาสตร์ระหว่างตัวแทนกษัตริย์อังกฤษและผู้นำเผ่าเมารี",
+    "historyText": "เหรียญ 1935 Waitangi Crown ผลิตขึ้นเพื่อเป็นที่ระลึกสนธิสัญญาประวัติศาสตร์ไวทังกิ ค.ศ. 1840 ออกแบบลวดลายโดย Percy Metcalfe ด้านหน้าพระบรมรูปพระเจ้าจอร์จที่ 5 ด้านหลังเป็นรูปเรือเอกวิลเลียม ฮอบสัน ตัวแทนกษัตริย์อังกฤษ กำลังจับมือกับ ทามาติ วากา เนเน (Tāmati Wāka Nene) หัวหน้าเผ่าเมารี ภายใต้มงกุฎราชวงศ์อังกฤษ เป็นเหรียญที่หายากที่สุดในหมวดเหรียญนิวซีแลนด์",
+    "features": {
+      "color": "silver-bright",
+      "diameterMm": 38.8,
+      "weightG": 28.28,
+      "composition": "Silver 50%, Copper 40%, Nickel 5%, Zinc 5%",
+      "shape": "Round",
+      "edge": "Reeded",
+      "obverseText": "GEORGE V KING EMPEROR",
+      "reverseText": "NEW ZEALAND CROWN - 1935 - WAITANGI"
+    },
+    "tags": [
+      "New Zealand",
+      "Waitangi",
+      "Crown",
+      "Silver",
+      "Mythic",
+      "Rare",
+      "1935"
+    ],
+    "image": "/images/waitangi-crown-obv.png",
+    "obverseImage": "/images/waitangi-crown-obv.png",
+    "reverseImage": "/images/waitangi-crown-rev.png",
+    "soughtAfterYears": "ปี 1935 (One-Year Type ผลิตเพียง 1,128 เหรียญในประวัติศาสตร์)",
+    "marketPriceRange": "สภาพผ่านใช้/มีรอย: 180,000 – 350,000 บาท | สภาพสวย UNC / Proof ตลับเกรดสูง MS63-MS65: 450,000 – 1,200,000+ บาท",
+    "referenceSources": [
+      {
+        "name": "Reserve Bank of New Zealand (Waitangi Crown Archive)",
+        "url": "https://www.rbnz.govt.nz"
+      },
+      {
+        "name": "PCGS CoinFacts (1935 New Zealand Crown)",
+        "url": "https://www.pcgs.com/coinfacts/coin/1935-5s/413480"
+      }
+    ]
+  },
+  {
+    "id": "coin-us-lincoln-wheat-cent",
+    "name": "Lincoln Wheat Cent (1909-S VDB)",
+    "country": "United States of America",
+    "era": "Early 20th Century",
+    "year": 1909,
+    "mint": "San Francisco Mint (S)",
+    "mintLocation": "San Francisco, California, USA (พิกัด 37.7818° N, 122.4069° W)",
+    "mintHistory": "โรงกษาปณ์ซานฟรานซิสโก ปั๊มเหรียญ 1 เซนต์ลินคอล์นที่มีตัวย่อ V.D.B. ของประติมากร Victor David Brenner ในปี 1909 เพียงไม่กี่วัน ก่อนที่สาธารณชนจะร้องเรียนจนรัฐบาลสั่งระงับและลบอักษรย่อออก ทำให้ผลิตได้เพียง 484,000 เหรียญ",
+    "denomination": "1 Cent",
+    "material": "Bronze (สำริด 95% Copper)",
+    "composition": "ทองแดง 95% • ดีบุกและสังกะสี 5%",
+    "rarity": "LEGENDARY 👑",
+    "rarityLevel": "LEGENDARY",
+    "rarityColor": "#ff6b00",
+    "powerRating": 98,
+    "xpValue": 2400,
+    "cardTheme": "holographic-bronze",
+    "keyDatesInfo": "⭐ 1909-S VDB คือราชาเหรียญ 1 เซนต์ลินคอล์น ผลิตเพียง 484,000 เหรียญก่อนสั่งลบอักษรย่อ V.D.B.",
+    "mintage": "484,000 เหรียญ (บล็อกคีย์เดตอันดับ 1)",
+    "stock": 1,
+    "location": "ตู้นิรภัยส่วนตัว A3",
+    "description": "ราชาแห่งเหรียญ 1 เซนต์ลินคอล์น (King of Lincoln Cents) ผลิต ณ โรงกษาปณ์ San Francisco Mint พร้อมอักษรย่อผู้ออกแบบ V.D.B.",
+    "historyText": "ในปี ค.ศ. 1909 สหรัฐฯ เปลี่ยนแบบเหรียญ 1 เซนต์เป็นรูปประธานาธิบดีอับราฮัม ลินคอล์น โดยมีอักษรย่อ V.D.B. ของผู้ออกแบบ Victor David Brenner อยู่ที่ขอบล่างด้านหลัง แต่หลังจากปล่อยเหรียญออกไปได้ไม่นาน เกิดกระแสวิพากษ์วิจารณ์ว่าตัวย่อเด่นเกินไป โรงกษาปณ์จึงสั่งลบตัวย่อออก ส่งผลให้เหรียญ 1909-S VDB ที่ปั๊มจากซานฟรานซิสโกกลายเป็นเหรียญที่หายากที่สุดในชุดลินคอล์นเซนต์",
+    "features": {
+      "color": "red-brown",
+      "diameterMm": 19.05,
+      "weightG": 3.11,
+      "composition": "Copper 95%, Tin/Zinc 5%",
+      "shape": "Round",
+      "edge": "Plain",
+      "obverseText": "IN GOD WE TRUST - LIBERTY - 1909 S",
+      "reverseText": "E PLURIBUS UNUM - ONE CENT - UNITED STATES OF AMERICA - V.D.B."
+    },
+    "tags": [
+      "USA",
+      "United States",
+      "Lincoln Cent",
+      "Wheat Cent",
+      "1909-S VDB",
+      "Key Date",
+      "1909"
+    ],
+    "image": "/images/lincoln-cent-obv.png",
+    "obverseImage": "/images/lincoln-cent-obv.png",
+    "reverseImage": "/images/lincoln-cent-rev.png",
+    "soughtAfterYears": "ปี 1909-S VDB (Key Date อันดับ 1 ของสาย 1 เซนต์ลินคอล์น)",
+    "marketPriceRange": "สภาพผ่านใช้ทั่วไป: 25,000 – 65,000 บาท | สภาพสวย UNC ผิวแดงเดิม Red (RD) ตลับ MS65+: 120,000 – 650,000+ บาท",
+    "referenceSources": [
+      {
+        "name": "PCGS CoinFacts (1909-S VDB 1C RD)",
+        "url": "https://www.pcgs.com/coinfacts/coin/1909-s-vdb-1c-rd/2428"
+      },
+      {
+        "name": "NGC Coin Explorer (1909-S VDB 1C)",
+        "url": "https://www.ngccoin.com/coin-explorer/united-states/cents/lincoln-cents-wheat-reverse-1909-1958/12428/"
+      }
+    ]
+  }
+]

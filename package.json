@@ -1,0 +1,17 @@
+{
+  "name": "coin-center-server",
+  "version": "1.0.0",
+  "description": "Private Coin Data Center & Smart Scanner Server for Home Server and Storefront",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "build": "echo Build completed"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1",
+    "qrcode": "^1.5.3"
+  }
+}

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <radialGradient id="silverRing" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="50%" stop-color="#cbd5e1"/>
+      <stop offset="100%" stop-color="#64748b"/>
+    </radialGradient>
+    <radialGradient id="goldCenter" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="60%" stop-color="#eab308"/>
+      <stop offset="100%" stop-color="#854d0e"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" fill="#090d16"/>
+  <!-- Outer Silver Ring -->
+  <circle cx="200" cy="200" r="160" fill="url(#silverRing)" stroke="#e2e8f0" stroke-width="4"/>
+  <text x="200" y="80" font-family="'Inter', sans-serif" font-size="18" font-weight="900" fill="#1e293b" text-anchor="middle">ภูมิพลอดุลยเดช รัชกาลที่ ๙</text>
+  <!-- Inner Gold Brass Center -->
+  <circle cx="200" cy="200" r="100" fill="url(#goldCenter)" stroke="#ca8a04" stroke-width="3"/>
+  <text x="200" y="190" font-family="'Inter', sans-serif" font-size="38" font-weight="900" fill="#451a03" text-anchor="middle">๑๐</text>
+  <text x="200" y="235" font-family="'Inter', sans-serif" font-size="22" font-weight="800" fill="#fff" text-anchor="middle">BAHT</text>
+  <text x="200" y="325" font-family="'Inter', sans-serif" font-size="18" font-weight="900" fill="#1e293b" text-anchor="middle">ประเทศไทย พ.ศ. ๒๕๓๓</text>
+</svg>

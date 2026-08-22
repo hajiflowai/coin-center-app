@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Coin Center - ศูนย์ข้อมูลเหรียญและตำแหน่งโรงกษาปณ์ทั่วโลก</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Leaflet Interactive Map CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Dribbble Style Canvas Viewport -->
+  <div class="app-viewport">
+
+    <!-- Top Navbar -->
+    <header class="dribbble-navbar">
+      <a href="#" class="brand-logo">
+        <span class="brand-logo-icon">λ</span>
+        <span>Coin Center</span>
+      </a>
+
+      <!-- Center Nav Links (Simplified: Catalog & Mint Map) -->
+      <nav class="nav-links">
+        <button class="nav-link active" data-tab="tab-catalog">
+          📂 <span>คลังเหรียญ</span>
+        </button>
+        <button class="nav-link" data-tab="tab-counter">
+          🌍 <span>แหล่งข้อมูลเหรียญ &amp; โรงกษาปณ์</span>
+        </button>
+      </nav>
+
+      <!-- Right Header Actions (Quick Scanner Popup & LAN Info) -->
+      <div class="header-right" style="display:flex; align-items:center; gap:0.6rem;">
+        <button id="btn-header-scanner" class="pill-btn btn-scanner-cta" onclick="openScannerPopup()" title="เปิดกล้องสแกนเหรียญด่วน">
+          <span style="font-size:1.15rem;">📷</span> <span>สแกนเหรียญ</span>
+        </button>
+        <button id="btn-lan-qr" class="pill-btn" title="คลิกเพื่อแสดง QR Code สำหรับมือถือในวง LAN">
+          🟢 <span id="server-lan-ip">10.194.86.152</span> 📱
+        </button>
+      </div>
+    </header>
+
+    <!-- SECTION 1: CATALOG / HERO VIEW WITH 3D COVERFLOW -->
+    <section id="tab-catalog" class="tab-view-section active">
+      <div class="hero-layout">
+        
+        <!-- Left Hero Branding & Search -->
+        <div class="hero-left">
+          <div>
+            <h1 class="hero-headline">
+              Grow Bold.<br>
+              Collect Free.<br>
+              Value Hard.
+            </h1>
+            <p class="hero-sub">
+              ศูนย์ข้อมูลเหรียญประจำร้าน แสดงสเปกเนื้อโลหะ สัดส่วน% โลหะ ประวัติความเป็นมาจากบันทึกทางประวัติศาสตร์ และระบบเหรียญวนลูป 3D Coverflow
+            </p>
+
+            <!-- Search Bar -->
+            <div class="dribbble-search-box">
+              <input type="text" id="search-input" class="dribbble-search-input" placeholder="ค้นหาชื่อเหรียญ, โรงกษาปณ์, ปีผลิต, สเปก...">
+              <button id="btn-search-trigger" class="dribbble-search-btn">ค้นหา</button>
+            </div>
+
+            <!-- Preset Filters Chips -->
+            <div class="preset-chips-list">
+              <button class="dribbble-chip active" onclick="setQuickPreset('all')">ทั้งหมด (15 เหรียญ)</button>
+              <button class="dribbble-chip" onclick="setQuickPreset('australia')">🇦🇺 ออสเตรเลีย (2)</button>
+              <button class="dribbble-chip" onclick="setQuickPreset('usa')">🇺🇸 อเมริกา (4)</button>
+              <button class="dribbble-chip" onclick="setQuickPreset('china')">🇨🇳 จีน (2)</button>
+              <button class="dribbble-chip" onclick="setQuickPreset('japan')">🇯🇵 ญี่ปุ่น (1)</button>
+              <button class="dribbble-chip" onclick="setQuickPreset('uk')">🇬🇧 สหราชอาณาจักร (2)</button>
+              <button class="dribbble-chip" onclick="setQuickPreset('indochina')">🇫🇷 อินโดจีน (1)</button>
+              <button class="dribbble-chip" onclick="setQuickPreset('straits')">🇸🇬 สเตรทส์ (1)</button>
+              <button class="dribbble-chip" onclick="setQuickPreset('mexico')">🇲🇽 เม็กซิโก (1)</button>
+              <button class="dribbble-chip" onclick="setQuickPreset('newzealand')">🇳🇿 นิวซีแลนด์ (1)</button>
+              <button class="dribbble-chip" onclick="setQuickPreset('rare')">⭐ ปีหายาก (Key Dates)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Dribbble 3D Infinite Coverflow Carousel -->
+        <div class="hero-right">
+          <div class="coverflow-stage">
+            <div id="coverflow-track" class="coverflow-track">
+              <!-- JS Populated Coverflow Cards -->
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="coverflow-nav-bar">
+              <button class="coverflow-arrow-btn" onclick="prevCoverflowCard()" title="เหรียญก่อนหน้า">❮</button>
+              <div id="coverflow-dots" class="coverflow-dots"></div>
+              <button class="coverflow-arrow-btn" onclick="nextCoverflowCard()" title="เหรียญถัดไป">❯</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: COIN DATA SOURCES & CRISP WORLD MINT MAP VIEW -->
+    <section id="tab-counter" class="tab-view-section">
+      <div style="max-width:1180px; margin:0 auto;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:1.75rem; flex-wrap:wrap; gap:1rem;">
+          <div>
+            <h2 style="font-size:2rem; font-weight:900; margin-bottom:0.4rem;">🌍 แหล่งข้อมูลเหรียญ &amp; แผนที่โลกตำแหน่งโรงกษาปณ์</h2>
+            <p style="color:var(--text-muted);">พิกัดแผนที่โลกคมชัดระบุตำแหน่งโรงกษาปณ์ต้นกำเนิด 18 แห่งทั่วโลก พร้อมประวัติศาสตร์และลิงก์อ้างอิงสากล</p>
+          </div>
+          <!-- Mint Search Input -->
+          <div style="min-width:280px;">
+            <input type="text" id="mint-search-input" class="form-input-dribbble" placeholder="🔍 ค้นหาโรงกษาปณ์, เมือง, เหรียญ..." style="margin-top:0;">
+          </div>
+        </div>
+
+        <!-- High-Resolution Real Leaflet Interactive World Mint Map Container -->
+        <div style="background:var(--bg-card); padding:1.75rem; border-radius:32px; border:1px solid #e2e8f0; margin-bottom:2.5rem; box-shadow:0 12px 36px rgba(15,23,42,0.04);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; flex-wrap:wrap; gap:0.75rem;">
+            <div style="font-weight:900; font-size:1.15rem; color:var(--text-main); display:flex; align-items:center; gap:0.5rem;">
+              <span>📍 แผนที่พิกัดโรงกษาปณ์ทั่วโลก (GPS Exact Location Map)</span>
+            </div>
+            
+            <!-- Map Filter & Fly-To Chips -->
+            <div class="preset-chips-list" id="mint-filter-chips" style="margin-top:0;">
+              <button class="dribbble-chip active" onclick="filterMintsByCountry('all')">🌐 ทั่วโลก (18 แห่ง)</button>
+              <button class="dribbble-chip" onclick="filterMintsByCountry('Australia')">🇦🇺 ออสเตรเลีย (2)</button>
+              <button class="dribbble-chip" onclick="filterMintsByCountry('USA')">🇺🇸 อเมริกา (4)</button>
+              <button class="dribbble-chip" onclick="filterMintsByCountry('China')">🇨🇳 จีน (2)</button>
+              <button class="dribbble-chip" onclick="filterMintsByCountry('Japan')">🇯🇵 ญี่ปุ่น (1)</button>
+              <button class="dribbble-chip" onclick="filterMintsByCountry('UK')">🇬🇧 สหราชอาณาจักร (2)</button>
+              <button class="dribbble-chip" onclick="filterMintsByCountry('India')">🇮🇳 อินเดีย (2)</button>
+              <button class="dribbble-chip" onclick="filterMintsByCountry('France')">🇫🇷 ฝรั่งเศส (1)</button>
+              <button class="dribbble-chip" onclick="filterMintsByCountry('Mexico')">🇲🇽 เม็กซิโก (2)</button>
+              <button class="dribbble-chip" onclick="filterMintsByCountry('Thailand')">🇹🇭 ไทย (1)</button>
+              <button class="dribbble-chip" onclick="filterMintsByCountry('New Zealand')">🇳🇿 นิวซีแลนด์ (1)</button>
+            </div>
+          </div>
+
+          <!-- Leaflet Interactive Map Container -->
+          <div id="leaflet-mint-map" class="leaflet-world-map"></div>
+
+          <!-- Mint Quick Stats Summary Bar -->
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; margin-top:1.5rem; background:#ffffff; padding:1.25rem; border-radius:20px; border:1px solid #e2e8f0;">
+            <div style="text-align:center;">
+              <div style="font-size:1.4rem; font-weight:900; color:var(--accent-orange);" id="stat-total-mints">18 แห่ง</div>
+              <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">โรงกษาปณ์ในระบบ</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-size:1.4rem; font-weight:900; color:var(--accent-blue);" id="stat-total-countries">10 ประเทศ</div>
+              <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">ครอบคลุมทวีปทั่วโลก</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-size:1.4rem; font-weight:900; color:var(--accent-green);" id="stat-oldest-mint">ค.ศ. 864</div>
+              <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">โรงกษาปณ์เก่าแก่ที่สุด (Monnaie de Paris)</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-size:1.4rem; font-weight:900; color:var(--accent-purple);" id="stat-total-catalog-coins">15 รายการ</div>
+              <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">เหรียญสะสมในคลังประจำร้าน</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mints Location Cards Grid by Country -->
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+          <h3 style="font-size:1.3rem; font-weight:900; color:var(--text-main);">🏛️ รายละเอียดโรงกษาปณ์และพิกัดภูมิศาสตร์ (Mint Details)</h3>
+          <span style="font-size:0.85rem; color:var(--text-muted); font-weight:700;" id="mints-counter-label">แสดง 12 โรงกษาปณ์</span>
+        </div>
+
+        <div id="mints-cards-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:1.25rem; margin-bottom:2.5rem;">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Official References Grid for All Countries -->
+        <h3 style="font-size:1.3rem; font-weight:900; margin-bottom:1.25rem;">📚 แหล่งข้อมูลอ้างอิงประวัติศาสตร์กษาปณ์สากล (จาก DATA.txt)</h3>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:1.25rem; margin-bottom:2rem;">
+          
+          <a href="https://www.pcgs.com/coinfacts" target="_blank" style="text-decoration:none;" class="dribbble-card" style="padding:1.5rem; border-radius:24px;">
+            <div style="padding:1.25rem;">
+              <div style="font-size:1.5rem; margin-bottom:0.5rem;">💎</div>
+              <div style="font-weight:900; font-size:1.1rem; color:var(--text-main); margin-bottom:0.3rem;">PCGS CoinFacts Global</div>
+              <div style="font-size:0.85rem; color:var(--text-muted); line-height:1.5;">สถาบันรับรองเกรดเหรียญระดับโลก ฐานข้อมูลราคา เกรดความสมบูรณ์ และบันทึกปีหายาก (Key Dates) ของเหรียญอเมริกา ออสเตรเลีย และจีน</div>
+            </div>
+          </a>
+
+          <a href="https://www.ngccoin.com/coin-explorer/" target="_blank" style="text-decoration:none;" class="dribbble-card" style="padding:1.5rem; border-radius:24px;">
+            <div style="padding:1.25rem;">
+              <div style="font-size:1.5rem; margin-bottom:0.5rem;">🦅</div>
+              <div style="font-weight:900; font-size:1.1rem; color:var(--text-main); margin-bottom:0.3rem;">NGC Coin Explorer</div>
+              <div style="font-size:0.85rem; color:var(--text-muted); line-height:1.5;">คลังข้อมูลกษาปณ์ NGC ระบุสเปกเนื้อเงิน 90% ของเหรียญ 1964 Kennedy, Morgan, Peace Dollar และเหรียญยวนซีไข่</div>
+            </div>
+          </a>
+
+          <a href="https://en.numista.com" target="_blank" style="text-decoration:none;" class="dribbble-card" style="padding:1.5rem; border-radius:24px;">
+            <div style="padding:1.25rem;">
+              <div style="font-size:1.5rem; margin-bottom:0.5rem;">🌐</div>
+              <div style="font-weight:900; font-size:1.1rem; color:var(--text-main); margin-bottom:0.3rem;">Numista International</div>
+              <div style="font-size:0.85rem; color:var(--text-muted); line-height:1.5;">คลังข้อมูลเหรียญกษาปณ์สากล ตรวจสอบสเปกสัดส่วนโลหะ ขนาด น้ำหนัก และยอดการผลิต (Mintage) ของทุกเหรียญทั่วโลก</div>
+            </div>
+          </a>
+
+          <a href="https://www.nma.gov.au" target="_blank" style="text-decoration:none;" class="dribbble-card" style="padding:1.5rem; border-radius:24px;">
+            <div style="padding:1.25rem;">
+              <div style="font-size:1.5rem; margin-bottom:0.5rem;">🏛️</div>
+              <div style="font-weight:900; font-size:1.1rem; color:var(--text-main); margin-bottom:0.3rem;">National Museum of Australia</div>
+              <div style="font-size:0.85rem; color:var(--text-muted); line-height:1.5;">พิพิธภัณฑ์แห่งชาติออสเตรเลีย บันทึกประวัติศาสตร์การเงินของเหรียญฉุกเฉิน 1852 Adelaide Pound และ 1930 Penny</div>
+            </div>
+          </a>
+
+          <a href="https://coinworks.com.au" target="_blank" style="text-decoration:none;" class="dribbble-card" style="padding:1.5rem; border-radius:24px;">
+            <div style="padding:1.25rem;">
+              <div style="font-size:1.5rem; margin-bottom:0.5rem;">🪙</div>
+              <div style="font-weight:900; font-size:1.1rem; color:var(--text-main); margin-bottom:0.3rem;">Coinworks Rare Coin Research</div>
+              <div style="font-size:0.85rem; color:var(--text-muted); line-height:1.5;">สถาบันวิจัยและประมูลเหรียญหายากออสเตรเลีย วิเคราะห์แม่พิมพ์ Type I/II และสถิติเหรียญเหลือรอด</div>
+            </div>
+          </a>
+
+          <a href="https://www.royalmint.com" target="_blank" style="text-decoration:none;" class="dribbble-card" style="padding:1.5rem; border-radius:24px;">
+            <div style="padding:1.25rem;">
+              <div style="font-size:1.5rem; margin-bottom:0.5rem;">👑</div>
+              <div style="font-weight:900; font-size:1.1rem; color:var(--text-main); margin-bottom:0.3rem;">The Royal Mint UK (Museum &amp; Archives)</div>
+              <div style="font-size:0.85rem; color:var(--text-muted); line-height:1.5;">หอจดหมายเหตุกษาปณ์หลวงอังกฤษ บันทึกการผลิตเหรียญ 1935 Waitangi Crown และเทคโนโลยีเครื่องจักรส่งออก</div>
+            </div>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FLOATING ACTION BUTTON (Bottom-Right Camera Scanner) -->
+  <button id="btn-fab-scanner" class="floating-scanner-btn" onclick="openScannerPopup()" title="📷 เปิดกล้องสแกนเหรียญ">
+    <span style="font-size:1.35rem;">📷</span>
+    <span>สแกนเหรียญ</span>
+  </button>
+
+  <!-- MODAL: CAMERA SCANNER POPUP (Right / Dialog) -->
+  <div id="modal-scanner" class="modal-overlay">
+    <div class="modal-dribbble-content modal-scanner-content">
+      <button class="btn-close-modal" onclick="closeScannerPopup()">&times;</button>
+      
+      <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:1.25rem;">
+        <span style="font-size:1.6rem;">📷</span>
+        <div>
+          <h3 style="font-size:1.35rem; font-weight:900; color:var(--text-main); margin:0;">กล้องสแกนเหรียญอัจฉริยะ</h3>
+          <p style="color:var(--text-muted); font-size:0.82rem; margin:0;">ถ่ายภาพเหรียญเพื่อแมตช์และดึงข้อมูลจากคลังร้านทันที</p>
+        </div>
+      </div>
+
+      <div class="scanner-popup-grid">
+        <!-- Left: Camera Viewport -->
+        <div>
+          <div class="camera-dribbble-viewport">
+            <video id="webcam-feed" autoplay playsinline muted></video>
+            <canvas id="snapshot-canvas" style="display:none;"></canvas>
+            <div class="camera-overlay-circle"></div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.6rem; margin-top:0.9rem;">
+            <button id="btn-start-camera" class="dribbble-search-btn" style="padding:0.75rem; font-size:0.85rem;">🎬 เปิดกล้อง</button>
+            <button id="btn-capture-scan" class="dribbble-search-btn" style="padding:0.75rem; font-size:0.85rem; background:var(--accent-green);" disabled>⚡ ถ่าย &amp; สแกน</button>
+          </div>
+          
+          <div style="margin-top:0.6rem; text-align:center;">
+            <label for="scanner-file-upload" class="pill-btn" style="width:100%; justify-content:center; cursor:pointer; font-size:0.82rem; padding:0.5rem 0.8rem;">
+              📁 หรือเลือกรูปภาพจากเครื่อง
+            </label>
+            <input type="file" id="scanner-file-upload" accept="image/*" style="display:none;" onchange="handleScannerFileUpload(event)">
+          </div>
+        </div>
+
+        <!-- Right: Real-time Scan Result -->
+        <div style="background:#f8fafc; padding:1.25rem; border-radius:24px; border:1px solid #e2e8f0; display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <h4 style="font-size:1.05rem; font-weight:900; margin-bottom:0.75rem; color:var(--text-main); display:flex; align-items:center; gap:0.4rem;">
+              🎯 <span>ผลการสแกนเปรียบเทียบ</span>
+            </h4>
+            <div id="scan-results-content">
+              <div style="text-align:center; padding:2rem 0.5rem; color:var(--text-muted);">
+                <div style="font-size:2.5rem; margin-bottom:0.5rem;">🔍</div>
+                <div style="font-size:0.85rem; line-height:1.4;">กดปุ่ม <b>"เปิดกล้อง"</b> แล้วกด <b>"ถ่าย &amp; สแกน"</b> หรืออัปโหลดไฟล์รูปภาพเหรียญ</div>
+              </div>
+            </div>
+          </div>
+          
+          <div style="margin-top:0.75rem; padding-top:0.75rem; border-top:1px solid #e2e8f0; text-align:center;">
+            <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">ระบบเทียบโลหะและลวดลายอัตโนมัติ</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL: COIN DETAIL VIEW SHEET -->
+  <div id="modal-coin-detail" class="modal-overlay">
+    <div class="modal-dribbble-content">
+      <button class="btn-close-modal" onclick="closeModal('modal-coin-detail')">&times;</button>
+      <div id="detail-modal-body">
+        <!-- JS Populated -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: LAN HOME SERVER QR CODE -->
+  <div id="modal-lan-qr" class="modal-overlay">
+    <div class="modal-dribbble-content" style="max-width:420px; text-align:center;">
+      <button class="btn-close-modal" onclick="closeModal('modal-lan-qr')">&times;</button>
+      <h3 style="font-size:1.3rem; font-weight:800; margin-bottom:0.5rem;">📱 สแกนเชื่อมต่อ Home Server</h3>
+      <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:1.5rem;">
+        สแกนจากมือถือหรือแท็บเล็ตในวง Wi-Fi เดียวกันเพื่อเข้าใช้งานได้ทันที
+      </p>
+
+      <div style="background:#fff; padding:1rem; border-radius:24px; display:inline-block; margin-bottom:1rem; box-shadow:0 8px 24px rgba(0,0,0,0.06);">
+        <img id="qr-code-img" src="" alt="LAN Server QR Code" style="width:220px; height:220px; display:block;">
+      </div>
+
+      <div style="background:#f1f5f9; padding:0.75rem; border-radius:16px; font-family:monospace; font-weight:800; color:var(--text-main); font-size:1.05rem;" id="qr-modal-url">
+        http://10.194.86.152:3000
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Float Box -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="js/scanner.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

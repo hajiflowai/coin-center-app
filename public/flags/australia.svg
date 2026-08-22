@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="100%" height="100%">
+  <rect width="1280" height="640" fill="#00008b"/>
+  <!-- Canton -->
+  <g id="canton">
+    <rect width="640" height="320" fill="#00247d"/>
+    <path d="M0,0 L640,320 M640,0 L0,320" stroke="#ffffff" stroke-width="64"/>
+    <path d="M0,0 L640,320 M640,0 L0,320" stroke="#cf142b" stroke-width="40"/>
+    <path d="M320,0 V320 M0,160 H640" stroke="#ffffff" stroke-width="106"/>
+    <path d="M320,0 V320 M0,160 H640" stroke="#cf142b" stroke-width="64"/>
+  </g>
+  <!-- Large 7-Point Star -->
+  <polygon points="320,410 334,448 374,448 342,472 354,510 320,486 286,510 298,472 266,448 306,448" fill="#ffffff"/>
+  <!-- Southern Cross -->
+  <g fill="#ffffff">
+    <polygon points="960,490 970,518 998,518 974,534 983,562 960,544 937,562 946,534 922,518 950,518"/>
+    <polygon points="768,260 778,288 806,288 782,304 791,332 768,314 745,332 754,304 730,288 758,288"/>
+    <polygon points="960,130 970,158 998,158 974,174 983,202 960,184 937,202 946,174 922,158 950,158"/>
+    <polygon points="1110,230 1120,258 1148,258 1124,274 1133,302 1110,284 1087,302 1096,274 1072,258 1100,258"/>
+    <polygon points="1020,350 1026,368 1045,368 1030,379 1036,397 1020,386 1004,397 1010,379 995,368 1014,368"/>
+  </g>
+</svg>
