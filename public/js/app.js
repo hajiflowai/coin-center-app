@@ -1219,9 +1219,9 @@ function openCoinDetailModal(coinId) {
   // 2. Deep VIP Insights (Key Observations, Authenticity Guide, International Price, World Auction Records, Key Dates, Live Verification Links)
   const deepInsightsRawHtml = `
     <div style="background:linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); border:1.5px solid #fdba74; padding:1.25rem; border-radius:24px; box-shadow:0 6px 20px rgba(251,146,60,0.12);">
-      ${isVip ? `
+      ${(isVip && currentUser) ? `
       <div style="display:inline-flex; align-items:center; gap:0.35rem; background:#dcfce7; color:#166534; padding:0.35rem 0.85rem; border-radius:9999px; font-size:0.8rem; font-weight:800; margin-bottom:1rem; border:1.5px solid #86efac;">
-        👑 <span>ข้อมูลจริงปลดล็อกครบถ้วน (สำหรับ คุณ ${currentUser.name} - ${currentUser.memberCode})</span>
+        👑 <span>ข้อมูลจริงปลดล็อกครบถ้วน (สำหรับ คุณ ${currentUser.name || ''} - ${currentUser.memberCode || ''})</span>
       </div>
       ` : ''}
 
