@@ -6,6 +6,14 @@ let activeMintCountry = 'all';
 let leafletMap = null;
 let leafletMarkersLayer = null;
 
+// Auth State (VIP Supporter & Admin)
+let currentUser = JSON.parse(localStorage.getItem('coin_center_user') || 'null');
+let adminToken = localStorage.getItem('coin_center_admin_token') || null;
+
+function isVipSupporter() {
+  return currentUser && currentUser.status === 'approved';
+}
+
 // Complete Dataset of World Mints with Exact Real-World GPS Coordinates & Technology
 const worldMintsData = [
   {
@@ -342,6 +350,7 @@ async function initApp() {
   setupNavigation();
   setupFilters();
   setupMintSearch();
+  renderAuthHeader();
   await loadNetworkInfo();
   await loadCoins();
   initLeafletMap();
@@ -1034,6 +1043,66 @@ function openCoinDetailModal(coinId) {
   const flagBgClass = getCountryFlagClass(coin.country);
   const obv = coin.obverseImage || coin.image;
   const historyText = coin.historyText || coin.description || 'ไม่มีข้อมูลประวัติศาสตร์';
+  const isVip = isVipSupporter();
+
+  // Valuation Block (Rendered clear or blurred)
+  let valuationBlockHtml = '';
+  if (coin.soughtAfterYears || coin.marketPriceRange) {
+    const rawValuationHtml = `
+      <div style="background:linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); border:1.5px solid #fdba74; padding:1.25rem; border-radius:24px; box-shadow:0 6px 20px rgba(251,146,60,0.12);">
+        ${isVip ? `
+        <div style="display:inline-flex; align-items:center; gap:0.35rem; background:#dcfce7; color:#166534; padding:0.25rem 0.65rem; border-radius:9999px; font-size:0.75rem; font-weight:800; margin-bottom:0.75rem; border:1px solid #86efac;">
+          👑 <span>ข้อมูลจริงปลดล็อกแล้ว (สำหรับ ${currentUser.name} - ${currentUser.memberCode})</span>
+        </div>
+        ` : ''}
+
+        ${coin.soughtAfterYears ? `
+        <div style="margin-bottom:0.75rem;">
+          <div style="font-size:0.8rem; color:#c2410c; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.25rem;">
+            ⭐ ปีที่นักสะสมตามหา (Key Dates / Sought-After Years)
+          </div>
+          <div style="font-size:0.92rem; font-weight:900; color:#9a3412; line-height:1.4;">
+            ${coin.soughtAfterYears}
+          </div>
+        </div>
+        ` : ''}
+        
+        ${coin.marketPriceRange ? `
+        <div>
+          <div style="font-size:0.8rem; color:#15803d; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.25rem;">
+            💰 ราคาที่เล่นกันในตลาดนักสะสม (Collector Market Price)
+          </div>
+          <div style="font-size:0.92rem; font-weight:900; color:#166534; line-height:1.45; background:#dcfce7; padding:0.65rem 0.9rem; border-radius:14px; border:1px solid #86efac;">
+            ${coin.marketPriceRange}
+          </div>
+        </div>
+        ` : ''}
+      </div>
+    `;
+
+    if (isVip) {
+      valuationBlockHtml = `<div style="margin-bottom:1.25rem;">${rawValuationHtml}</div>`;
+    } else {
+      valuationBlockHtml = `
+        <div class="vip-blur-wrapper">
+          <div class="vip-blur-content">
+            ${rawValuationHtml}
+          </div>
+          <div class="vip-blur-overlay">
+            <div class="vip-lock-icon">🔒</div>
+            <div class="vip-lock-title">ข้อมูลสงวนสิทธิ์เฉพาะ "ผู้สนับสนุนเว็บไซต์"</div>
+            <div class="vip-lock-sub">
+              สมัครสมาชิกเพียง 199 บาท (โอนเข้าบัญชี SCB 4190025841 ศรัณย์ทองขวัญ) เพื่อปลดล็อกราคาประเมินตลาดจริง
+            </div>
+            <div class="vip-lock-actions">
+              <button class="pill-btn btn-vip-cta" onclick="closeModal('modal-coin-detail'); openRegisterModal();">✨ สมัครสมาชิก (199 บ.)</button>
+              <button class="pill-btn btn-vip-login" onclick="closeModal('modal-coin-detail'); openLoginModal();">🔑 เข้าสู่ระบบ</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+  }
 
   modalBody.innerHTML = `
     <div style="text-align:center; margin-bottom:1.5rem;" id="modal-img-container" data-side="obv">
@@ -1093,32 +1162,8 @@ function openCoinDetailModal(coinId) {
       <div>${historyText}</div>
     </div>
 
-    <!-- Sought After Years & Market Valuation Section -->
-    ${coin.soughtAfterYears || coin.marketPriceRange ? `
-    <div style="background:linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); border:1.5px solid #fdba74; padding:1.25rem; border-radius:24px; margin-bottom:1.25rem; box-shadow:0 6px 20px rgba(251,146,60,0.12);">
-      ${coin.soughtAfterYears ? `
-      <div style="margin-bottom:0.75rem;">
-        <div style="font-size:0.8rem; color:#c2410c; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.25rem;">
-          ⭐ ปีที่นักสะสมตามหา (Key Dates / Sought-After Years)
-        </div>
-        <div style="font-size:0.92rem; font-weight:900; color:#9a3412; line-height:1.4;">
-          ${coin.soughtAfterYears}
-        </div>
-      </div>
-      ` : ''}
-      
-      ${coin.marketPriceRange ? `
-      <div>
-        <div style="font-size:0.8rem; color:#15803d; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.25rem;">
-          💰 ราคาที่เล่นกันในตลาดนักสะสม (Collector Market Price)
-        </div>
-        <div style="font-size:0.92rem; font-weight:900; color:#166534; line-height:1.45; background:#dcfce7; padding:0.65rem 0.9rem; border-radius:14px; border:1px solid #86efac;">
-          ${coin.marketPriceRange}
-        </div>
-      </div>
-      ` : ''}
-    </div>
-    ` : ''}
+    <!-- Sought After Years & Market Valuation Section (with VIP Gatekeeper Blur) -->
+    ${valuationBlockHtml}
 
     <!-- Reference Sources Section -->
     ${coin.referenceSources && coin.referenceSources.length ? `
@@ -1282,4 +1327,380 @@ function openModal(id) {
 
 function closeModal(id) {
   document.getElementById(id)?.classList.remove('active');
+}
+
+// ----------------------------------------------------
+// 🌟 VIP SUPPORTER AUTH & ADMIN MANAGEMENT LOGIC
+// ----------------------------------------------------
+
+function renderAuthHeader() {
+  const container = document.getElementById('auth-header-container');
+  if (!container) return;
+
+  if (!currentUser) {
+    // Guest
+    container.innerHTML = `
+      <button class="pill-btn" style="background:linear-gradient(135deg,#ff6b00,#ea580c); color:#fff; font-weight:800; border:none; box-shadow:0 4px 12px rgba(255,107,0,0.3);" onclick="openRegisterModal()">
+        ✨ <span>สมัครสมาชิก (199 บ.)</span>
+      </button>
+      <button class="pill-btn" style="background:#0f172a; color:#fff; font-weight:800; border:none;" onclick="openLoginModal()">
+        🔑 <span>เข้าสู่ระบบ</span>
+      </button>
+    `;
+  } else if (currentUser.status === 'approved') {
+    // Approved VIP Supporter
+    container.innerHTML = `
+      <div class="vip-badge-header">
+        <span>👑</span> <span>${currentUser.name}</span> <span class="member-code-badge" style="background:rgba(255,255,255,0.6); padding:0.15rem 0.4rem; font-size:0.75rem;">${currentUser.memberCode}</span>
+      </div>
+      <button class="pill-btn" style="padding:0.35rem 0.65rem; font-size:0.75rem; background:#f1f5f9; border:1px solid #cbd5e1;" onclick="handleLogout()" title="ออกจากระบบ">
+        🚪 ออก
+      </button>
+    `;
+  } else {
+    // Pending Member
+    container.innerHTML = `
+      <div class="pending-badge-header" onclick="openPendingStatusModal()" title="คลิกเพื่อดูสถานะการสมัคร">
+        <span>⏳</span> <span>${currentUser.memberCode} (รอคุณศรัณย์อนุมัติ)</span>
+      </div>
+      <button class="pill-btn" style="padding:0.35rem 0.65rem; font-size:0.75rem; background:#f1f5f9; border:1px solid #cbd5e1;" onclick="handleLogout()" title="ออกจากระบบ">
+        🚪 ออก
+      </button>
+    `;
+  }
+}
+
+function openRegisterModal() {
+  openModal('modal-register');
+}
+
+function openLoginModal() {
+  openModal('modal-login');
+}
+
+function openPendingStatusModal() {
+  if (!currentUser) return;
+  const codeEl = document.getElementById('pending-modal-code');
+  const nameEl = document.getElementById('pending-modal-name');
+  const emailEl = document.getElementById('pending-modal-email');
+  if (codeEl) codeEl.textContent = currentUser.memberCode || 'CC-XXXXX';
+  if (nameEl) nameEl.textContent = currentUser.name || '-';
+  if (emailEl) emailEl.textContent = currentUser.email || '-';
+  openModal('modal-pending-status');
+}
+
+function copyAccountNumber(accountNo) {
+  navigator.clipboard.writeText(accountNo).then(() => {
+    showToast(`📋 คัดลอกเลขบัญชี SCB: ${accountNo} เรียบร้อยแล้ว!`);
+  }).catch(() => {
+    showToast(`เลขบัญชี SCB: ${accountNo}`);
+  });
+}
+
+let uploadedSlipBase64 = '';
+
+function previewSlipUpload(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    uploadedSlipBase64 = e.target.result;
+    const imgEl = document.getElementById('reg-slip-preview-img');
+    const container = document.getElementById('reg-slip-preview-container');
+    if (imgEl && container) {
+      imgEl.src = uploadedSlipBase64;
+      container.style.display = 'block';
+    }
+  };
+  reader.readAsDataURL(file);
+}
+
+async function handleRegisterSubmit(event) {
+  event.preventDefault();
+  const name = document.getElementById('reg-name').value.trim();
+  const email = document.getElementById('reg-email').value.trim();
+  const password = document.getElementById('reg-password').value.trim();
+  const phone = document.getElementById('reg-phone')?.value.trim() || '';
+
+  if (!uploadedSlipBase64) {
+    showToast('กรุณาแนบรูปภาพสลิปโอนเงิน 199 บาท');
+    return;
+  }
+
+  const btn = document.getElementById('btn-submit-reg');
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = 'กำลังส่งข้อมูลการสมัคร...';
+  }
+
+  try {
+    const res = await fetch('/api/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+        phone,
+        slipUrl: uploadedSlipBase64,
+        bankRef: 'SCB 4190025841 ศรัณย์ทองขวัญ'
+      })
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+      currentUser = data.member;
+      localStorage.setItem('coin_center_user', JSON.stringify(currentUser));
+      closeModal('modal-register');
+      renderAuthHeader();
+      openPendingStatusModal();
+      showToast(`🎉 ส่งคำขอสมัครเรียบร้อย! รหัสสมาชิก: ${data.member.memberCode}`);
+    } else {
+      showToast(`❌ ${data.error || 'เกิดข้อผิดพลาดในการสมัคร'}`);
+    }
+  } catch (err) {
+    console.error('Registration error:', err);
+    showToast('เกิดข้อผิดพลาดในการเชื่อมต่อเซิร์ฟเวอร์');
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = '✨ ยืนยันการสมัคร & ส่งสลิป 199 บาท';
+    }
+  }
+}
+
+async function handleLoginSubmit(event) {
+  event.preventDefault();
+  const email = document.getElementById('login-email').value.trim();
+  const password = document.getElementById('login-password').value.trim();
+
+  const btn = document.getElementById('btn-submit-login');
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = 'กำลังตรวจสอบ...';
+  }
+
+  try {
+    const res = await fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+      currentUser = data.user;
+      localStorage.setItem('coin_center_user', JSON.stringify(currentUser));
+      closeModal('modal-login');
+      renderAuthHeader();
+
+      if (currentUser.status === 'approved') {
+        showToast(`👑 ยินดีต้อนรับ ${currentUser.name}! ปลดล็อกข้อมูลจริงเรียบร้อย`);
+      } else {
+        openPendingStatusModal();
+        showToast(`⏳ เข้าสู่ระบบสำเร็จ (รหัส: ${currentUser.memberCode} - รออนุมัติ)`);
+      }
+    } else {
+      showToast(`❌ ${data.error || 'อีเมลหรือรหัสผ่านไม่ถูกต้อง'}`);
+    }
+  } catch (err) {
+    console.error('Login error:', err);
+    showToast('เกิดข้อผิดพลาดในการเข้าสู่ระบบ');
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = '🔑 เข้าสู่ระบบ';
+    }
+  }
+}
+
+function handleLogout() {
+  currentUser = null;
+  localStorage.removeItem('coin_center_user');
+  renderAuthHeader();
+  showToast('ออกจากระบบเรียบร้อยแล้ว');
+}
+
+// ----------------------------------------------------
+// ⚙️ ADMIN MANAGEMENT FOR OWNER (คุณศรัณย์)
+// ----------------------------------------------------
+
+function openAdminModal() {
+  if (adminToken) {
+    document.getElementById('admin-auth-box').style.display = 'none';
+    document.getElementById('admin-dashboard-panel').style.display = 'block';
+    loadAdminMembersList();
+  } else {
+    document.getElementById('admin-auth-box').style.display = 'block';
+    document.getElementById('admin-dashboard-panel').style.display = 'none';
+  }
+  openModal('modal-admin');
+}
+
+async function handleAdminLoginSubmit(event) {
+  event.preventDefault();
+  const password = document.getElementById('admin-pass-input').value.trim();
+
+  try {
+    const res = await fetch('/api/admin/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password })
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+      adminToken = data.token;
+      localStorage.setItem('coin_center_admin_token', adminToken);
+      document.getElementById('admin-auth-box').style.display = 'none';
+      document.getElementById('admin-dashboard-panel').style.display = 'block';
+      loadAdminMembersList();
+      showToast(`👑 ${data.message || 'ยินดีต้อนรับคุณศรัณย์'}`);
+    } else {
+      showToast(`❌ ${data.error || 'รหัสผ่านไม่ถูกต้อง'}`);
+    }
+  } catch (err) {
+    console.error('Admin login error:', err);
+    showToast('เกิดข้อผิดพลาดในการเข้าสู่ระบบ');
+  }
+}
+
+function handleAdminLogout() {
+  adminToken = null;
+  localStorage.removeItem('coin_center_admin_token');
+  document.getElementById('admin-auth-box').style.display = 'block';
+  document.getElementById('admin-dashboard-panel').style.display = 'none';
+  showToast('ออกจากระบบผู้ดูแลเรียบร้อยแล้ว');
+}
+
+async function loadAdminMembersList() {
+  const tbody = document.getElementById('admin-members-tbody');
+  if (!tbody) return;
+
+  tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding:2rem;">กำลังโหลดข้อมูลสมาชิก...</td></tr>`;
+
+  try {
+    const res = await fetch('/api/admin/members');
+    const data = await res.json();
+    const members = data.members || [];
+
+    if (members.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding:2rem; color:#64748b;">ยังไม่มีสมาชิกในระบบ</td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = members.map(m => {
+      let statusBadge = `<span class="status-badge-pending">⏳ รออนุมัติ</span>`;
+      if (m.status === 'approved') statusBadge = `<span class="status-badge-approved">👑 ผู้สนับสนุน</span>`;
+      if (m.status === 'rejected') statusBadge = `<span class="status-badge-rejected">❌ ปฏิเสธ</span>`;
+
+      const slipThumb = m.slipUrl ? `
+        <img src="${m.slipUrl}" alt="สลิป" style="width:48px; height:48px; object-fit:cover; border-radius:8px; cursor:pointer; border:1px solid #cbd5e1;" onclick="zoomSlipImage('${m.slipUrl}')" title="คลิกเพื่อดูรูปสลิปขนาดใหญ่">
+      ` : `<span style="font-size:0.75rem; color:#94a3b8;">ไม่มีสลิป</span>`;
+
+      const dateStr = m.createdAt ? new Date(m.createdAt).toLocaleString('th-TH', { dateStyle: 'short', timeStyle: 'short' }) : '-';
+
+      return `
+        <tr>
+          <td><span class="member-code-badge">${m.memberCode || '-'}</span></td>
+          <td><b>${m.name}</b></td>
+          <td><span style="font-family:monospace;">${m.email}</span></td>
+          <td><b style="color:#16a34a;">${m.amountPaid || 199} บ.</b></td>
+          <td>${slipThumb}</td>
+          <td>${statusBadge}</td>
+          <td style="font-size:0.78rem; color:#64748b;">${dateStr}</td>
+          <td>
+            <div style="display:flex; gap:0.35rem; flex-wrap:wrap;">
+              ${m.status !== 'approved' ? `
+                <button class="btn-approve-action" onclick="approveMemberAction('${m.id}')" title="อนุมัติเป็นผู้สนับสนุนเว็บไซต์">
+                  ✅ อนุมัติ
+                </button>
+              ` : ''}
+              ${m.status !== 'rejected' && m.role !== 'admin' ? `
+                <button class="btn-reject-action" onclick="rejectMemberAction('${m.id}')" title="ปฏิเสธคำขอ">
+                  ❌ ปฏิเสธ
+                </button>
+              ` : ''}
+              ${m.role !== 'admin' ? `
+                <button style="background:#f1f5f9; color:#64748b; border:1px solid #cbd5e1; border-radius:6px; padding:0.25rem 0.5rem; font-size:0.72rem; cursor:pointer;" onclick="deleteMemberAction('${m.id}')" title="ลบข้อมูล">
+                  🗑️
+                </button>
+              ` : ''}
+            </div>
+          </td>
+        </tr>
+      `;
+    }).join('');
+  } catch (err) {
+    console.error('Error loading admin members:', err);
+    tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding:2rem; color:#ef4444;">เกิดข้อผิดพลาดในการโหลดข้อมูล</td></tr>`;
+  }
+}
+
+async function approveMemberAction(memberId) {
+  try {
+    const res = await fetch('/api/admin/members/approve', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ memberId })
+    });
+    const data = await res.json();
+    if (res.ok) {
+      showToast(`🎉 ${data.message || 'อนุมัติเรียบร้อยแล้ว'}`);
+      loadAdminMembersList();
+
+      // If current browser user is approved, update local storage
+      if (currentUser && (currentUser.id === memberId || currentUser.memberCode === memberId)) {
+        currentUser.status = 'approved';
+        localStorage.setItem('coin_center_user', JSON.stringify(currentUser));
+        renderAuthHeader();
+      }
+    }
+  } catch (err) {
+    console.error('Error approving member:', err);
+    showToast('เกิดข้อผิดพลาดในการอนุมัติ');
+  }
+}
+
+async function rejectMemberAction(memberId) {
+  try {
+    const res = await fetch('/api/admin/members/reject', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ memberId })
+    });
+    const data = await res.json();
+    if (res.ok) {
+      showToast(`❌ ${data.message || 'ปฏิเสธคำขอเรียบร้อยแล้ว'}`);
+      loadAdminMembersList();
+    }
+  } catch (err) {
+    console.error('Error rejecting member:', err);
+    showToast('เกิดข้อผิดพลาด');
+  }
+}
+
+async function deleteMemberAction(memberId) {
+  if (!confirm('คุณแน่ใจหรือไม่ว่าต้องการลบประวัติสมาชิกนี้?')) return;
+  try {
+    const res = await fetch('/api/admin/members/delete', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ memberId })
+    });
+    if (res.ok) {
+      showToast('ลบสมาชิกเรียบร้อยแล้ว');
+      loadAdminMembersList();
+    }
+  } catch (err) {
+    console.error('Error deleting member:', err);
+    showToast('เกิดข้อผิดพลาดในการลบ');
+  }
+}
+
+function zoomSlipImage(url) {
+  const img = document.getElementById('zoom-slip-img');
+  if (img) img.src = url;
+  openModal('modal-slip-zoom');
 }

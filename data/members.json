@@ -1,0 +1,31 @@
+[
+  {
+    "id": "mem-1787423663196-4knj8",
+    "memberCode": "CC-96727",
+    "name": "สมศักดิ์ พระนคร",
+    "email": "somsak.thai@gmail.com",
+    "password": "password123",
+    "phone": "0812345678",
+    "slipUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+    "bankRef": "SCB 4190025841 ศรัณย์ทองขวัญ",
+    "amountPaid": 199,
+    "bankAccount": "ไทยพาณิชย์ (SCB) 4190025841 ศรัณย์ทองขวัญ",
+    "status": "approved",
+    "role": "supporter",
+    "createdAt": "2026-08-22T18:34:23.196Z",
+    "approvedAt": "2026-08-22T18:34:23.202Z"
+  },
+  {
+    "id": "mem-owner-001",
+    "memberCode": "CC-00001",
+    "name": "ศรัณย์ทองขวัญ (เจ้าของร้าน)",
+    "email": "saran.owner@gmail.com",
+    "password": "admin",
+    "slipUrl": "",
+    "status": "approved",
+    "role": "admin",
+    "createdAt": "2026-08-23T00:00:00.000Z",
+    "approvedAt": "2026-08-23T00:00:00.000Z",
+    "note": "บัญชีผู้ดูแลระบบ / เจ้าของร้าน"
+  }
+]

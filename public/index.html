@@ -37,11 +37,26 @@
         </button>
       </nav>
 
-      <!-- Right Header Actions (Quick Scanner Popup & LAN Info) -->
-      <div class="header-right" style="display:flex; align-items:center; gap:0.6rem;">
-        <button id="btn-header-scanner" class="pill-btn btn-scanner-cta" onclick="openScannerPopup()" title="เปิดกล้องสแกนเหรียญด่วน">
-          <span style="font-size:1.15rem;">📷</span> <span>สแกนเหรียญ</span>
+      <!-- Right Header Actions (Auth, Quick Scanner Popup & LAN Info) -->
+      <div class="header-right" style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
+        <!-- Auth Status Container (Dynamic) -->
+        <div id="auth-header-container" class="auth-status-container">
+          <button class="pill-btn" style="background:linear-gradient(135deg,#ff6b00,#ea580c); color:#fff; font-weight:800; border:none; box-shadow:0 4px 12px rgba(255,107,0,0.3);" onclick="openRegisterModal()">
+            ✨ <span>สมัครสมาชิก (199 บ.)</span>
+          </button>
+          <button class="pill-btn" style="background:#0f172a; color:#fff; font-weight:800; border:none;" onclick="openLoginModal()">
+            🔑 <span>เข้าสู่ระบบ</span>
+          </button>
+        </div>
+
+        <button id="btn-admin-portal" class="pill-btn" style="background:#f1f5f9; border:1px solid #cbd5e1; font-size:0.8rem; font-weight:800; color:#334155;" onclick="openAdminModal()" title="ระบบจัดการและอนุมัติสมาชิกสำหรับคุณศรัณย์ (เจ้าของร้าน)">
+          ⚙️ <span>จัดการสมาชิก</span>
         </button>
+
+        <button id="btn-header-scanner" class="pill-btn btn-scanner-cta" onclick="openScannerPopup()" title="เปิดกล้องสแกนเหรียญด่วน">
+          <span style="font-size:1.15rem;">📷</span> <span>สแกน</span>
+        </button>
+
         <button id="btn-lan-qr" class="pill-btn" title="คลิกเพื่อแสดง QR Code สำหรับมือถือในวง LAN">
           🟢 <span id="server-lan-ip">10.194.86.152</span> 📱
         </button>
@@ -330,6 +345,265 @@
       <div style="background:#f1f5f9; padding:0.75rem; border-radius:16px; font-family:monospace; font-weight:800; color:var(--text-main); font-size:1.05rem;" id="qr-modal-url">
         http://10.194.86.152:3000
       </div>
+    </div>
+  </div>
+
+  <!-- MODAL 1: VIP SUPPORTER REGISTRATION (199 THB - SCB 4190025841 ศรัณย์ทองขวัญ) -->
+  <div id="modal-register" class="modal-overlay">
+    <div class="modal-dribbble-content" style="max-width:540px;">
+      <button class="btn-close-modal" onclick="closeModal('modal-register')">&times;</button>
+      
+      <div style="text-align:center; margin-bottom:1.25rem;">
+        <div style="font-size:2.2rem; margin-bottom:0.3rem;">👑</div>
+        <h3 style="font-size:1.4rem; font-weight:900; color:var(--text-main); margin-bottom:0.25rem;">
+          สมัครสมาชิก "ผู้สนับสนุนเว็บไซต์"
+        </h3>
+        <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.4;">
+          ปลดล็อกราคาประเมินตลาดจริง, สถิติราคาเกรดสะสม, และคลังข้อมูลประวัติศาสตร์เหรียญแท้
+        </p>
+      </div>
+
+      <!-- SCB Bank Payment Box -->
+      <div class="scb-payment-card">
+        <div class="scb-badge">
+          <span>🏦 ธนาคารไทยพาณิชย์ (SCB)</span>
+        </div>
+        <div style="font-size:0.75rem; color:#cbd5e1; font-weight:700; text-transform:uppercase; margin-bottom:0.2rem;">
+          เลขที่บัญชีรับโอนเงินค่าสมัคร:
+        </div>
+        <div class="scb-account-num">
+          <span id="scb-acc-text">4190025841</span>
+          <button class="scb-copy-btn" onclick="copyAccountNumber('4190025841')">📋 คัดลอก</button>
+        </div>
+        <div class="scb-account-name">
+          👤 ชื่อบัญชี: <b>ศรัณย์ทองขวัญ</b>
+        </div>
+        <div class="scb-fee-amount">
+          💵 ค่าสนับสนุนสมาชิก: <b>199 บาท.-</b> <span style="font-size:0.8rem; font-weight:600; color:#f1f5f9;">(ครั้งเดียวตลอดชีพ)</span>
+        </div>
+      </div>
+
+      <!-- Registration Form -->
+      <form id="form-register" onsubmit="handleRegisterSubmit(event)">
+        <div style="display:flex; flex-direction:column; gap:0.9rem; margin-bottom:1.25rem;">
+          <div>
+            <label style="display:block; font-size:0.82rem; font-weight:800; color:var(--text-main); margin-bottom:0.35rem;">
+              👤 ชื่อ-นามสกุล หรือ ชื่อในวงการสะสม *
+            </label>
+            <input type="text" id="reg-name" required placeholder="เช่น สมศักดิ์ พระนคร" style="width:100%; padding:0.75rem 1rem; border-radius:14px; border:1.5px solid #cbd5e1; font-size:0.9rem; font-weight:700;">
+          </div>
+
+          <div>
+            <label style="display:block; font-size:0.82rem; font-weight:800; color:var(--text-main); margin-bottom:0.35rem;">
+              📧 อีเมล Gmail / Email *
+            </label>
+            <input type="email" id="reg-email" required placeholder="example@gmail.com" style="width:100%; padding:0.75rem 1rem; border-radius:14px; border:1.5px solid #cbd5e1; font-size:0.9rem; font-weight:700;">
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem;">
+            <div>
+              <label style="display:block; font-size:0.82rem; font-weight:800; color:var(--text-main); margin-bottom:0.35rem;">
+                🔑 กำหนดรหัสผ่าน *
+              </label>
+              <input type="password" id="reg-password" required placeholder="รหัสผ่านเข้าเว็บ" style="width:100%; padding:0.75rem 1rem; border-radius:14px; border:1.5px solid #cbd5e1; font-size:0.9rem; font-weight:700;">
+            </div>
+            <div>
+              <label style="display:block; font-size:0.82rem; font-weight:800; color:var(--text-main); margin-bottom:0.35rem;">
+                📱 เบอร์โทรศัพท์ (ไม่บังคับ)
+              </label>
+              <input type="tel" id="reg-phone" placeholder="08x-xxx-xxxx" style="width:100%; padding:0.75rem 1rem; border-radius:14px; border:1.5px solid #cbd5e1; font-size:0.9rem; font-weight:700;">
+            </div>
+          </div>
+
+          <div>
+            <label style="display:block; font-size:0.82rem; font-weight:800; color:var(--text-main); margin-bottom:0.35rem;">
+              📎 แนบรูปภาพสลิปโอนเงิน 199 บาท *
+            </label>
+            <input type="file" id="reg-slip-file" accept="image/*" required onchange="previewSlipUpload(event)" style="width:100%; padding:0.5rem; border-radius:14px; border:1.5px dashed #cbd5e1; font-size:0.85rem; background:#f8fafc;">
+            <div id="reg-slip-preview-container" style="display:none; margin-top:0.6rem; text-align:center;">
+              <img id="reg-slip-preview-img" src="" alt="สลิปโอนเงิน" style="max-height:160px; border-radius:12px; border:1px solid #cbd5e1; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#fef3c7; border:1px solid #fde68a; padding:0.75rem 1rem; border-radius:14px; margin-bottom:1.25rem; font-size:0.8rem; color:#92400e; line-height:1.4;">
+          ℹ️ <b>เงื่อนไขการอนุมัติ:</b> หลังส่งข้อมูลแล้ว ระบบจะออกรหัสประจำตัวสมาชิกให้ทันที และจะเปิดสิทธิ์เข้าดูข้อมูลจริงเมื่อคุณศรัณย์ตรวจสอบสลิปและกดอนุมัติเรียบร้อย
+        </div>
+
+        <button type="submit" id="btn-submit-reg" class="dribbble-search-btn" style="width:100%; padding:0.9rem; font-size:1rem; justify-content:center;">
+          ✨ ยืนยันการสมัคร &amp; ส่งสลิป 199 บาท
+        </button>
+      </form>
+
+      <div style="text-align:center; margin-top:1rem; font-size:0.85rem; color:var(--text-muted);">
+        มีบัญชีอยู่แล้ว? <a href="javascript:void(0)" onclick="closeModal('modal-register'); openLoginModal();" style="color:var(--accent-orange); font-weight:800; text-decoration:none;">เข้าสู่ระบบที่นี่ ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: MEMBER LOGIN (Gmail + Password) -->
+  <div id="modal-login" class="modal-overlay">
+    <div class="modal-dribbble-content" style="max-width:440px;">
+      <button class="btn-close-modal" onclick="closeModal('modal-login')">&times;</button>
+      
+      <div style="text-align:center; margin-bottom:1.5rem;">
+        <div style="font-size:2rem; margin-bottom:0.3rem;">🔑</div>
+        <h3 style="font-size:1.35rem; font-weight:900; color:var(--text-main); margin-bottom:0.25rem;">
+          เข้าสู่ระบบสมาชิก
+        </h3>
+        <p style="font-size:0.85rem; color:var(--text-muted);">
+          เข้าใช้งานเพื่อดูข้อมูลจริงและสถานะผู้สนับสนุนเว็บไซต์
+        </p>
+      </div>
+
+      <form id="form-login" onsubmit="handleLoginSubmit(event)">
+        <div style="display:flex; flex-direction:column; gap:1rem; margin-bottom:1.5rem;">
+          <div>
+            <label style="display:block; font-size:0.82rem; font-weight:800; color:var(--text-main); margin-bottom:0.35rem;">
+              📧 อีเมล Gmail / Email
+            </label>
+            <input type="email" id="login-email" required placeholder="example@gmail.com" style="width:100%; padding:0.75rem 1rem; border-radius:14px; border:1.5px solid #cbd5e1; font-size:0.9rem; font-weight:700;">
+          </div>
+
+          <div>
+            <label style="display:block; font-size:0.82rem; font-weight:800; color:var(--text-main); margin-bottom:0.35rem;">
+              🔑 รหัสผ่าน
+            </label>
+            <input type="password" id="login-password" required placeholder="กรอกรหัสผ่านของคุณ" style="width:100%; padding:0.75rem 1rem; border-radius:14px; border:1.5px solid #cbd5e1; font-size:0.9rem; font-weight:700;">
+          </div>
+        </div>
+
+        <button type="submit" id="btn-submit-login" class="dribbble-search-btn" style="width:100%; padding:0.85rem; font-size:0.95rem; justify-content:center;">
+          🔑 เข้าสู่ระบบ
+        </button>
+      </form>
+
+      <div style="text-align:center; margin-top:1.25rem; font-size:0.85rem; color:var(--text-muted);">
+        ยังไม่มีบัญชีสมาชิก? <a href="javascript:void(0)" onclick="closeModal('modal-login'); openRegisterModal();" style="color:var(--accent-orange); font-weight:800; text-decoration:none;">สมัครสมาชิกผู้สนับสนุน (199 บ.) ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 3: PENDING STATUS CARD -->
+  <div id="modal-pending-status" class="modal-overlay">
+    <div class="modal-dribbble-content" style="max-width:460px; text-align:center;">
+      <button class="btn-close-modal" onclick="closeModal('modal-pending-status')">&times;</button>
+      
+      <div style="font-size:2.5rem; margin-bottom:0.5rem;">⏳</div>
+      <h3 style="font-size:1.35rem; font-weight:900; color:#b45309; margin-bottom:0.3rem;">
+        สถานะ: กำลังรอคุณศรัณย์ตรวจสอบสลิป
+      </h3>
+      <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.5; margin-bottom:1.25rem;">
+        ระบบได้รับหลักฐานการโอนเงิน 199 บาท เรียบร้อยแล้ว กำลังรอเจ้าของร้านตรวจสอบและกดอนุมัติสิทธิ์ให้ท่าน
+      </p>
+
+      <div style="background:#f8fafc; padding:1.25rem; border-radius:20px; border:1.5px solid #e2e8f0; margin-bottom:1.5rem; text-align:left;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+          <span style="font-size:0.82rem; color:var(--text-muted); font-weight:700;">เลขประจำตัวสมาชิก:</span>
+          <span class="member-code-badge" id="pending-modal-code">CC-XXXXX</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+          <span style="font-size:0.82rem; color:var(--text-muted); font-weight:700;">ชื่อผู้สมัคร:</span>
+          <b style="font-size:0.88rem; color:var(--text-main);" id="pending-modal-name">-</b>
+        </div>
+        <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+          <span style="font-size:0.82rem; color:var(--text-muted); font-weight:700;">อีเมล:</span>
+          <b style="font-size:0.88rem; color:var(--text-main);" id="pending-modal-email">-</b>
+        </div>
+        <div style="display:flex; justify-content:space-between;">
+          <span style="font-size:0.82rem; color:var(--text-muted); font-weight:700;">ยอดเงินสนับสนุน:</span>
+          <b style="font-size:0.88rem; color:#16a34a;">199 บาท (SCB ศรัณย์ทองขวัญ)</b>
+        </div>
+      </div>
+
+      <button class="dribbble-search-btn" style="width:100%; padding:0.8rem; justify-content:center;" onclick="closeModal('modal-pending-status')">
+        รับทราบ / ปิดหน้าต่าง
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL 4: ADMIN APPROVAL DASHBOARD (สำหรับคุณศรัณย์ เจ้าของร้าน) -->
+  <div id="modal-admin" class="modal-overlay">
+    <div class="modal-dribbble-content admin-modal-content">
+      <button class="btn-close-modal" onclick="closeModal('modal-admin')">&times;</button>
+      
+      <!-- Admin Login Box (if not authenticated) -->
+      <div id="admin-auth-box">
+        <div style="text-align:center; padding:1.5rem 0;">
+          <div style="font-size:2.5rem; margin-bottom:0.5rem;">⚙️</div>
+          <h3 style="font-size:1.4rem; font-weight:900; color:var(--text-main); margin-bottom:0.3rem;">
+            ระบบจัดการและอนุมัติสมาชิก (คุณศรัณย์)
+          </h3>
+          <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1.5rem;">
+            กรุณากรอกรหัสผ่านเจ้าของร้านเพื่อเข้าสู่แดชบอร์ดตรวจสอบสลิปและอนุมัติสมาชิก
+          </p>
+
+          <form onsubmit="handleAdminLoginSubmit(event)" style="max-width:340px; margin:0 auto;">
+            <input type="password" id="admin-pass-input" placeholder="กรอกรหัสผ่านเจ้าของร้าน" required style="width:100%; padding:0.85rem 1rem; border-radius:16px; border:1.5px solid #cbd5e1; font-size:0.95rem; font-weight:700; margin-bottom:1rem;">
+            <button type="submit" class="dribbble-search-btn" style="width:100%; padding:0.85rem; justify-content:center; font-size:0.95rem;">
+              🔓 เข้าสู่ระบบจัดการ
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Admin Management Panel (after authenticated) -->
+      <div id="admin-dashboard-panel" style="display:none;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.75rem; margin-bottom:1rem; padding-bottom:1rem; border-bottom:1.5px solid #f1f5f9;">
+          <div>
+            <h3 style="font-size:1.35rem; font-weight:900; color:var(--text-main); margin-bottom:0.2rem; display:flex; align-items:center; gap:0.5rem;">
+              <span>👑</span> <span>แดชบอร์ดตรวจสอบสลิป &amp; อนุมัติผู้สนับสนุน</span>
+            </h3>
+            <div style="font-size:0.82rem; color:var(--text-muted); font-weight:700;">
+              เจ้าของร้าน: <b>คุณศรัณย์ทองขวัญ</b> | บัญชีไทยพาณิชย์ 4190025841
+            </div>
+          </div>
+          <div style="display:flex; gap:0.5rem;">
+            <button class="pill-btn" style="background:#f1f5f9; border:1px solid #cbd5e1; font-size:0.8rem;" onclick="loadAdminMembersList()">
+              🔄 รีเฟรชรายการ
+            </button>
+            <button class="pill-btn" style="background:#fee2e2; color:#991b1b; border:1px solid #fca5a5; font-size:0.8rem;" onclick="handleAdminLogout()">
+              🚪 ออกจากระบบแอดมิน
+            </button>
+          </div>
+        </div>
+
+        <!-- Members Table -->
+        <div class="admin-members-table-wrapper">
+          <table class="admin-members-table">
+            <thead>
+              <tr>
+                <th>รหัสสมาชิก</th>
+                <th>ชื่อผู้สมัคร</th>
+                <th>อีเมล (Gmail)</th>
+                <th>ยอดเงิน</th>
+                <th>สลิปโอนเงิน</th>
+                <th>สถานะ</th>
+                <th>วันที่สมัคร</th>
+                <th>การอนุมัติ</th>
+              </tr>
+            </thead>
+            <tbody id="admin-members-tbody">
+              <!-- JS Populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL 5: ZOOM TRANSFER SLIP -->
+  <div id="modal-slip-zoom" class="modal-overlay">
+    <div class="modal-dribbble-content" style="max-width:500px; text-align:center;">
+      <button class="btn-close-modal" onclick="closeModal('modal-slip-zoom')">&times;</button>
+      <h4 style="font-size:1.1rem; font-weight:900; margin-bottom:0.75rem;">🧾 สลิปโอนเงินค่าสมัคร 199 บาท</h4>
+      <div style="background:#0f172a; padding:0.5rem; border-radius:16px; margin-bottom:1rem;">
+        <img id="zoom-slip-img" src="" alt="สลิปโอนเงินขนาดใหญ่" style="max-width:100%; max-height:480px; object-fit:contain; border-radius:12px;">
+      </div>
+      <button class="pill-btn" style="background:#0f172a; color:#fff; border:none; width:100%; padding:0.7rem;" onclick="closeModal('modal-slip-zoom')">
+        ปิดหน้าต่างสลิป
+      </button>
     </div>
   </div>
 

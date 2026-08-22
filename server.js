@@ -146,11 +146,13 @@ const upload = multer({
 });
 
 app.use(cors({ origin: true }));
-app.use(express.json({ limit: '2mb' }));
-app.use(express.urlencoded({ extended: true, limit: '2mb' }));
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 let memoryCoins = null;
+let memoryMembers = null;
+const MEMBERS_FILE = path.join(__dirname, 'data', 'members.json');
 
 // Helper to read coins data
 function getCoinsData() {
@@ -197,6 +199,54 @@ function saveCoinsData(data) {
       return true;
     } catch (tmpErr) {
       return true; // Keep in memory
+    }
+  }
+}
+
+// Helper to read members data
+function getMembersData() {
+  if (memoryMembers) return memoryMembers;
+
+  try {
+    const tmpPath = path.join('/tmp', 'members.json');
+    if (fs.existsSync(tmpPath)) {
+      const raw = fs.readFileSync(tmpPath, 'utf8');
+      memoryMembers = JSON.parse(raw);
+      return memoryMembers;
+    }
+  } catch (e) {}
+
+  try {
+    memoryMembers = require('./data/members.json');
+    return memoryMembers;
+  } catch (e) {}
+
+  try {
+    if (fs.existsSync(MEMBERS_FILE)) {
+      const raw = fs.readFileSync(MEMBERS_FILE, 'utf8');
+      memoryMembers = JSON.parse(raw);
+      return memoryMembers;
+    }
+  } catch (err) {
+    console.error('Error reading members data:', err);
+  }
+  return memoryMembers || [];
+}
+
+// Helper to save members data
+function saveMembersData(data) {
+  memoryMembers = data;
+  try {
+    const dataDir = path.dirname(MEMBERS_FILE);
+    if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+    fs.writeFileSync(MEMBERS_FILE, JSON.stringify(data, null, 2), 'utf8');
+    return true;
+  } catch (err) {
+    try {
+      fs.writeFileSync(path.join('/tmp', 'members.json'), JSON.stringify(data, null, 2), 'utf8');
+      return true;
+    } catch (tmpErr) {
+      return true;
     }
   }
 }
@@ -410,6 +460,221 @@ app.post('/api/scan', (req, res) => {
   }).sort((a, b) => b.confidence - a.confidence);
 
   res.json({ bestMatch: matches[0] || null, matches: matches.slice(0, 4) });
+});
+
+// ----------------------------------------------------
+// 🌟 VIP SUPPORTER MEMBERSHIP & APPROVAL API ROUTES
+// ----------------------------------------------------
+
+// 11. Upload Transfer Slip Image (Multipart or Base64)
+app.post('/api/upload-slip', upload.single('slipFile'), (req, res) => {
+  if (req.file) {
+    return res.json({
+      url: `/uploads/${req.file.filename}`,
+      filename: req.file.filename,
+      message: 'อัปโหลดสลิปเรียบร้อยแล้ว'
+    });
+  }
+  if (req.body.slipDataUrl) {
+    return res.json({
+      url: req.body.slipDataUrl,
+      message: 'บันทึกสลิปสำเร็จ'
+    });
+  }
+  res.status(400).json({ error: 'ไม่พบไฟล์สลิปหรือข้อมูลรูปภาพ' });
+});
+
+// 12. Register as VIP Supporter (199 THB - SCB 4190025841 ศรัณย์ทองขวัญ)
+app.post('/api/register', (req, res) => {
+  const { name, email, password, phone, slipUrl, bankRef } = req.body;
+
+  if (!name || !email || !password) {
+    return res.status(400).json({
+      error: 'กรุณากรอกข้อมูลให้ครบถ้วน (ชื่อ-นามสกุล, อีเมล Gmail, และรหัสผ่าน)'
+    });
+  }
+
+  const cleanEmail = email.trim().toLowerCase();
+  const members = getMembersData();
+
+  // Check if email already exists
+  const existing = members.find(m => m.email.toLowerCase() === cleanEmail);
+  if (existing) {
+    return res.status(400).json({
+      error: 'อีเมลนี้ถูกลงทะเบียนไว้ในระบบแล้ว กรุณาเข้าสู่ระบบ หรือใช้ Gmail อื่น'
+    });
+  }
+
+  // Generate unique Member Code like CC-89241
+  const randomNum = Math.floor(10000 + Math.random() * 90000);
+  const memberCode = `CC-${randomNum}`;
+
+  const newMember = {
+    id: `mem-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`,
+    memberCode: memberCode,
+    name: name.trim(),
+    email: cleanEmail,
+    password: password.trim(),
+    phone: (phone || '').trim(),
+    slipUrl: slipUrl || '',
+    bankRef: (bankRef || '').trim(),
+    amountPaid: 199,
+    bankAccount: 'ไทยพาณิชย์ (SCB) 4190025841 ศรัณย์ทองขวัญ',
+    status: 'pending', // 'pending' (รอคุณศรัณย์อนุมัติ) | 'approved' (อนุมัติแล้ว) | 'rejected'
+    role: 'supporter',
+    createdAt: new Date().toISOString(),
+    approvedAt: null
+  };
+
+  members.unshift(newMember);
+  if (saveMembersData(members)) {
+    res.status(201).json({
+      success: true,
+      message: 'ส่งคำขอสมัครสมาชิกผู้สนับสนุนเรียบร้อยแล้ว รอคุณศรัณย์ตรวจสอบสลิป 199 บ. และอนุมัติสิทธิ์',
+      member: {
+        id: newMember.id,
+        memberCode: newMember.memberCode,
+        name: newMember.name,
+        email: newMember.email,
+        status: newMember.status,
+        role: newMember.role,
+        createdAt: newMember.createdAt
+      }
+    });
+  } else {
+    res.status(500).json({ error: 'เกิดข้อผิดพลาดในการบันทึกข้อมูลสมาชิก' });
+  }
+});
+
+// 13. Login for Members (Gmail + Password)
+app.post('/api/login', (req, res) => {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res.status(400).json({ error: 'กรุณากรอกอีเมลและรหัสผ่าน' });
+  }
+
+  const cleanEmail = email.trim().toLowerCase();
+  const members = getMembersData();
+  const user = members.find(m => m.email.toLowerCase() === cleanEmail && m.password === password.trim());
+
+  if (!user) {
+    return res.status(401).json({ error: 'อีเมลหรือรหัสผ่านไม่ถูกต้อง' });
+  }
+
+  res.json({
+    success: true,
+    message: user.status === 'approved' 
+      ? 'ยินดีต้อนรับผู้สนับสนุนเว็บไซต์! ปลดล็อกข้อมูลจริงเรียบร้อย' 
+      : 'เข้าสู่ระบบสำเร็จ (สถานะ: กำลังรอคุณศรัณย์อนุมัติยอด 199 บ.)',
+    user: {
+      id: user.id,
+      memberCode: user.memberCode,
+      name: user.name,
+      email: user.email,
+      status: user.status,
+      role: user.role,
+      amountPaid: user.amountPaid,
+      approvedAt: user.approvedAt,
+      createdAt: user.createdAt
+    }
+  });
+});
+
+// 14. Admin Login (สำหรับคุณศรัณย์ เจ้าของร้าน)
+app.post('/api/admin/login', (req, res) => {
+  const { password } = req.body;
+  // Master passwords for owner
+  if (password === 'saran999' || password === 'admin' || password === 'coin888') {
+    return res.json({
+      success: true,
+      token: 'admin-saran-verified-token',
+      adminName: 'ศรัณย์ทองขวัญ (เจ้าของร้าน)',
+      message: 'ยินดีต้อนรับคุณศรัณย์ เข้าสู่ระบบจัดการสมาชิก'
+    });
+  }
+  res.status(401).json({ error: 'รหัสผ่านผู้ดูแลระบบไม่ถูกต้อง' });
+});
+
+// 15. Admin Get All Members List
+app.get('/api/admin/members', (req, res) => {
+  const members = getMembersData();
+  // Sanitize password before sending
+  const sanitized = members.map(m => ({
+    id: m.id,
+    memberCode: m.memberCode,
+    name: m.name,
+    email: m.email,
+    phone: m.phone || '',
+    slipUrl: m.slipUrl || '',
+    bankRef: m.bankRef || '',
+    amountPaid: m.amountPaid || 199,
+    status: m.status || 'pending',
+    role: m.role || 'supporter',
+    createdAt: m.createdAt,
+    approvedAt: m.approvedAt
+  }));
+  res.json({ members: sanitized });
+});
+
+// 16. Admin Approve Member (อนุมัติสิทธิ์ผู้สนับสนุน)
+app.post('/api/admin/members/approve', (req, res) => {
+  const { memberId } = req.body;
+  if (!memberId) return res.status(400).json({ error: 'ไม่พบรหัสสมาชิก' });
+
+  const members = getMembersData();
+  const member = members.find(m => m.id === memberId || m.memberCode === memberId);
+  if (!member) return res.status(404).json({ error: 'ไม่พบข้อมูลสมาชิก' });
+
+  member.status = 'approved';
+  member.approvedAt = new Date().toISOString();
+
+  if (saveMembersData(members)) {
+    res.json({
+      success: true,
+      message: `อนุมัติสมาชิก ${member.name} (${member.memberCode}) เป็นผู้สนับสนุนเว็บไซต์เรียบร้อยแล้ว!`,
+      member
+    });
+  } else {
+    res.status(500).json({ error: 'บันทึกสถานะไม่สำเร็จ' });
+  }
+});
+
+// 17. Admin Reject Member
+app.post('/api/admin/members/reject', (req, res) => {
+  const { memberId } = req.body;
+  if (!memberId) return res.status(400).json({ error: 'ไม่พบรหัสสมาชิก' });
+
+  const members = getMembersData();
+  const member = members.find(m => m.id === memberId || m.memberCode === memberId);
+  if (!member) return res.status(404).json({ error: 'ไม่พบข้อมูลสมาชิก' });
+
+  member.status = 'rejected';
+
+  if (saveMembersData(members)) {
+    res.json({
+      success: true,
+      message: `ปฏิเสธคำขอสมัครของ ${member.name} (${member.memberCode}) เรียบร้อยแล้ว`,
+      member
+    });
+  } else {
+    res.status(500).json({ error: 'บันทึกสถานะไม่สำเร็จ' });
+  }
+});
+
+// 18. Admin Delete Member
+app.post('/api/admin/members/delete', (req, res) => {
+  const { memberId } = req.body;
+  if (!memberId) return res.status(400).json({ error: 'ไม่พบรหัสสมาชิก' });
+
+  let members = getMembersData();
+  members = members.filter(m => m.id !== memberId && m.memberCode !== memberId);
+
+  if (saveMembersData(members)) {
+    res.json({ success: true, message: 'ลบข้อมูลสมาชิกเรียบร้อยแล้ว' });
+  } else {
+    res.status(500).json({ error: 'ลบข้อมูลไม่สำเร็จ' });
+  }
 });
 
 if (require.main === module) {
