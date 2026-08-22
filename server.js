@@ -584,12 +584,13 @@ app.post('/api/login', (req, res) => {
 // 14. Admin Login (สำหรับคุณศรัณย์ เจ้าของร้าน)
 app.post('/api/admin/login', (req, res) => {
   const { password } = req.body;
-  // Master passwords for owner
-  if (password === 'saran999' || password === 'admin' || password === 'coin888') {
+  // Master passwords for owner (รวมรหัส zero96597)
+  if (password === 'zero96597' || password === 'saran999' || password === 'admin' || password === 'coin888') {
     return res.json({
       success: true,
       token: 'admin-saran-verified-token',
       adminName: 'ศรัณย์ทองขวัญ (เจ้าของร้าน)',
+      adminEmail: 'aifloworkbyhaji999@gmail.com',
       message: 'ยินดีต้อนรับคุณศรัณย์ เข้าสู่ระบบจัดการสมาชิก'
     });
   }

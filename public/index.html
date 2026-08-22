@@ -89,19 +89,20 @@
             </div>
 
             <!-- Preset Filters Chips -->
-            <div class="preset-chips-list">
-              <button class="dribbble-chip active" onclick="setQuickPreset('home')">🏠 หน้าแรก (นิยมในไทย 5 เหรียญ)</button>
-              <button class="dribbble-chip" onclick="setQuickPreset('all')">📂 ทั้งหมด (15 เหรียญ)</button>
-              <button class="dribbble-chip" onclick="setQuickPreset('indochina')">🇫🇷 อินโดจีน (1)</button>
-              <button class="dribbble-chip" onclick="setQuickPreset('uk')">🇬🇧 สหราชอาณาจักร (2)</button>
-              <button class="dribbble-chip" onclick="setQuickPreset('china')">🇨🇳 จีน (2)</button>
-              <button class="dribbble-chip" onclick="setQuickPreset('mexico')">🇲🇽 เม็กซิโก (1)</button>
-              <button class="dribbble-chip" onclick="setQuickPreset('japan')">🇯🇵 ญี่ปุ่น (1)</button>
-              <button class="dribbble-chip" onclick="setQuickPreset('straits')">🇸🇬 สเตรทส์ (1)</button>
-              <button class="dribbble-chip" onclick="setQuickPreset('usa')">🇺🇸 อเมริกา (4)</button>
-              <button class="dribbble-chip" onclick="setQuickPreset('australia')">🇦🇺 ออสเตรเลีย (2)</button>
-              <button class="dribbble-chip" onclick="setQuickPreset('newzealand')">🇳🇿 นิวซีแลนด์ (1)</button>
-              <button class="dribbble-chip" onclick="setQuickPreset('rare')">⭐ ปีหายาก (Key Dates)</button>
+            <div class="preset-chips-list" id="hero-preset-chips-list">
+              <!-- Dynamically populated by renderPresetChips() with VIP Lock status -->
+              <button class="dribbble-chip active" onclick="handlePresetClick('home')">🏠 หน้าแรก (นิยมในไทย 5 เหรียญ)</button>
+              <button class="dribbble-chip" onclick="handlePresetClick('all')">📂 ทั้งหมด (15 เหรียญ) 🔒</button>
+              <button class="dribbble-chip" onclick="handlePresetClick('indochina')">🇫🇷 อินโดจีน (1) 🔒</button>
+              <button class="dribbble-chip" onclick="handlePresetClick('uk')">🇬🇧 สหราชอาณาจักร (2) 🔒</button>
+              <button class="dribbble-chip" onclick="handlePresetClick('china')">🇨🇳 จีน (2) 🔒</button>
+              <button class="dribbble-chip" onclick="handlePresetClick('mexico')">🇲🇽 เม็กซิโก (1) 🔒</button>
+              <button class="dribbble-chip" onclick="handlePresetClick('japan')">🇯🇵 ญี่ปุ่น (1) 🔒</button>
+              <button class="dribbble-chip" onclick="handlePresetClick('straits')">🇸🇬 สเตรทส์ (1) 🔒</button>
+              <button class="dribbble-chip" onclick="handlePresetClick('usa')">🇺🇸 อเมริกา (4) 🔒</button>
+              <button class="dribbble-chip" onclick="handlePresetClick('australia')">🇦🇺 ออสเตรเลีย (2) 🔒</button>
+              <button class="dribbble-chip" onclick="handlePresetClick('newzealand')">🇳🇿 นิวซีแลนด์ (1) 🔒</button>
+              <button class="dribbble-chip" onclick="handlePresetClick('rare')">⭐ ปีหายาก (Key Dates) 🔒</button>
             </div>
           </div>
         </div>

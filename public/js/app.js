@@ -351,6 +351,7 @@ async function initApp() {
   setupFilters();
   setupMintSearch();
   renderAuthHeader();
+  renderPresetChips();
   await loadNetworkInfo();
   await loadCoins();
   initLeafletMap();
@@ -430,7 +431,37 @@ function setupNavigation() {
   }
 }
 
+// Navigation Tabs Manager
+function setupNavigation() {
+  const tabs = document.querySelectorAll('.nav-link');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const targetId = tab.getAttribute('data-tab');
+      if (targetId === 'tab-home') {
+        setNavMode('home');
+      } else if (targetId === 'tab-catalog') {
+        setNavMode('all');
+      } else if (targetId === 'tab-counter') {
+        setNavMode('counter');
+      } else {
+        switchTab(targetId);
+      }
+    });
+  });
+
+  const lanBadge = document.getElementById('btn-lan-qr');
+  if (lanBadge) {
+    lanBadge.addEventListener('click', () => openModal('modal-lan-qr'));
+  }
+}
+
 function setNavMode(mode) {
+  if (mode === 'all' && !isVipSupporter()) {
+    showToast('🔒 คลังข้อมูลเหรียญทั้งหมด (15 รายการ) สงวนสิทธิ์เฉพาะผู้สนับสนุนเว็บไซต์ (199 บ.)');
+    openRegisterModal();
+    return;
+  }
+
   document.querySelectorAll('.nav-link').forEach(btn => {
     btn.classList.toggle('active', btn.getAttribute('data-tab') === `tab-${mode}`);
   });
@@ -494,13 +525,51 @@ async function loadCoins() {
   }
 }
 
+// Render Dynamic Preset Chips with VIP Lock Status
+function renderPresetChips() {
+  const container = document.getElementById('hero-preset-chips-list');
+  if (!container) return;
+
+  const isVip = isVipSupporter();
+
+  const presets = [
+    { id: 'home', label: '🏠 หน้าแรก (นิยมในไทย 5 เหรียญ)', isFree: true },
+    { id: 'all', label: '📂 ทั้งหมด (15 เหรียญ)', isFree: false },
+    { id: 'indochina', label: '🇫🇷 อินโดจีน (1)', isFree: false },
+    { id: 'uk', label: '🇬🇧 สหราชอาณาจักร (2)', isFree: false },
+    { id: 'china', label: '🇨🇳 จีน (2)', isFree: false },
+    { id: 'mexico', label: '🇲🇽 เม็กซิโก (1)', isFree: false },
+    { id: 'japan', label: '🇯🇵 ญี่ปุ่น (1)', isFree: false },
+    { id: 'straits', label: '🇸🇬 สเตรทส์ (1)', isFree: false },
+    { id: 'usa', label: '🇺🇸 อเมริกา (4)', isFree: false },
+    { id: 'australia', label: '🇦🇺 ออสเตรเลีย (2)', isFree: false },
+    { id: 'newzealand', label: '🇳🇿 นิวซีแลนด์ (1)', isFree: false },
+    { id: 'rare', label: '⭐ ปีหายาก (Key Dates)', isFree: false }
+  ];
+
+  container.innerHTML = presets.map(p => {
+    const isActive = activePreset === p.id;
+    const lockIcon = (!isVip && !p.isFree) ? ' <span style="font-size:0.75rem; opacity:0.8;">🔒</span>' : '';
+    return `<button class="dribbble-chip ${isActive ? 'active' : ''}" onclick="handlePresetClick('${p.id}')">${p.label}${lockIcon}</button>`;
+  }).join('');
+}
+
+// Handle Preset Click with VIP Access Check
+function handlePresetClick(preset) {
+  const isVip = isVipSupporter();
+  if (preset !== 'home' && !isVip) {
+    showToast('🔒 หมวดหมู่นี้สงวนสิทธิ์เฉพาะผู้สนับสนุนเว็บไซต์ (199 บ.)');
+    openRegisterModal();
+    return;
+  }
+  setQuickPreset(preset);
+}
+
 // Quick Preset Filters
 function setQuickPreset(preset) {
   activePreset = preset;
   activeCoverflowIndex = 0; // Reset to 1st coin
-  document.querySelectorAll('.preset-chips-list .dribbble-chip').forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('onclick')?.includes(`'${preset}'`));
-  });
+  renderPresetChips();
 
   // Sync Top Nav active state
   const homeNav = document.querySelector('.nav-link[data-tab="tab-home"]');
@@ -549,9 +618,10 @@ function setupFilters() {
   });
 }
 
-// Helper to get filtered coins list
+// Helper to get filtered coins list (Constrained to 5 Thai coins for non-VIP)
 function getFilteredCoins() {
   const searchVal = (document.getElementById('search-input')?.value || '').toLowerCase();
+  const isVip = isVipSupporter();
 
   const THAI_FEATURED_IDS = [
     'coin-fr-indochina-piastre',
@@ -561,7 +631,13 @@ function getFilteredCoins() {
     'coin-mx-8-reales'
   ];
 
-  let filtered = globalCoinsData.filter(c => {
+  // If user is not VIP, always constrain to 5 Thai coins
+  let sourceCoins = globalCoinsData;
+  if (!isVip) {
+    sourceCoins = globalCoinsData.filter(c => c.popularInThailand === true || THAI_FEATURED_IDS.includes(c.id));
+  }
+
+  let filtered = sourceCoins.filter(c => {
     const matchSearch = !searchVal || 
       c.name.toLowerCase().includes(searchVal) ||
       c.country.toLowerCase().includes(searchVal) ||
@@ -1045,63 +1121,100 @@ function openCoinDetailModal(coinId) {
   const historyText = coin.historyText || coin.description || 'ไม่มีข้อมูลประวัติศาสตร์';
   const isVip = isVipSupporter();
 
-  // Valuation Block (Rendered clear or blurred)
-  let valuationBlockHtml = '';
-  if (coin.soughtAfterYears || coin.marketPriceRange) {
-    const rawValuationHtml = `
-      <div style="background:linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); border:1.5px solid #fdba74; padding:1.25rem; border-radius:24px; box-shadow:0 6px 20px rgba(251,146,60,0.12);">
-        ${isVip ? `
-        <div style="display:inline-flex; align-items:center; gap:0.35rem; background:#dcfce7; color:#166534; padding:0.25rem 0.65rem; border-radius:9999px; font-size:0.75rem; font-weight:800; margin-bottom:0.75rem; border:1px solid #86efac;">
-          👑 <span>ข้อมูลจริงปลดล็อกแล้ว (สำหรับ ${currentUser.name} - ${currentUser.memberCode})</span>
-        </div>
-        ` : ''}
+  // 1. Thai Local Market Price (Visible to All Users)
+  const thaiPriceHtml = `
+    <div style="background:linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border:1.5px solid #86efac; padding:1.2rem; border-radius:24px; margin-bottom:1.25rem; box-shadow:0 4px 16px rgba(22,163,74,0.08);">
+      <div style="font-size:0.8rem; color:#15803d; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.35rem; display:flex; align-items:center; gap:0.4rem;">
+        🇹🇭 <span>ราคาซื้อขายพื้นฐานในประเทศไทย (Thai Market Price)</span>
+      </div>
+      <div style="font-size:1.15rem; font-weight:900; color:#166534; line-height:1.4;">
+        ${coin.thaiMarketPrice || coin.marketPriceRange || '2,500 – 6,500 บาท (ตามสภาพ)'}
+      </div>
+    </div>
+  `;
 
-        ${coin.soughtAfterYears ? `
-        <div style="margin-bottom:0.75rem;">
-          <div style="font-size:0.8rem; color:#c2410c; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.25rem;">
-            ⭐ ปีที่นักสะสมตามหา (Key Dates / Sought-After Years)
+  // 2. Deep VIP Insights (International Price, World Auction Records, Key Dates, Live Verification Links)
+  const deepInsightsRawHtml = `
+    <div style="background:linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); border:1.5px solid #fdba74; padding:1.25rem; border-radius:24px; box-shadow:0 6px 20px rgba(251,146,60,0.12);">
+      ${isVip ? `
+      <div style="display:inline-flex; align-items:center; gap:0.35rem; background:#dcfce7; color:#166534; padding:0.35rem 0.85rem; border-radius:9999px; font-size:0.8rem; font-weight:800; margin-bottom:1rem; border:1.5px solid #86efac;">
+        👑 <span>ข้อมูลจริงปลดล็อกครบถ้วน (สำหรับ คุณ ${currentUser.name} - ${currentUser.memberCode})</span>
+      </div>
+      ` : ''}
+
+      <!-- International Market Price -->
+      <div style="margin-bottom:0.9rem;">
+        <div style="font-size:0.8rem; color:#0369a1; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.25rem; display:flex; align-items:center; gap:0.35rem;">
+          🌐 <span>ราคาซื้อขายในตลาดต่างประเทศ (International Market)</span>
+        </div>
+        <div style="font-size:0.95rem; font-weight:900; color:#0c4a6e; line-height:1.45; background:#e0f2fe; padding:0.65rem 0.95rem; border-radius:14px; border:1px solid #7dd3fc;">
+          ${coin.internationalPrice || '$150 – $450 USD'}
+        </div>
+      </div>
+
+      <!-- World Auction Record Price -->
+      <div style="margin-bottom:0.9rem;">
+        <div style="font-size:0.8rem; color:#9333ea; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.25rem; display:flex; align-items:center; gap:0.35rem;">
+          🔨 <span>สถิติราคาประมูลสูงสุดระดับโลก (Auction Records)</span>
+        </div>
+        <div style="font-size:0.95rem; font-weight:900; color:#581c87; line-height:1.45; background:#f3e8ff; padding:0.65rem 0.95rem; border-radius:14px; border:1px solid #d8b4fe;">
+          ${coin.auctionRecord || 'ประมูลจบระดับสากลที่ Heritage / Stacks Bowers'}
+        </div>
+      </div>
+
+      <!-- Key Dates & Sought After Years -->
+      ${coin.soughtAfterYears ? `
+      <div style="margin-bottom:0.9rem;">
+        <div style="font-size:0.8rem; color:#c2410c; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.25rem; display:flex; align-items:center; gap:0.35rem;">
+          ⭐ <span>ปีที่นักสะสมตามหา & บล็อกลับ (Key Dates / Sought-After Years)</span>
+        </div>
+        <div style="font-size:0.95rem; font-weight:900; color:#9a3412; line-height:1.45; background:#ffedd5; padding:0.65rem 0.95rem; border-radius:14px; border:1px solid #fdba74;">
+          ${coin.soughtAfterYears}
+        </div>
+      </div>
+      ` : ''}
+
+      <!-- Live Verification Reference Links -->
+      ${coin.referenceSources && coin.referenceSources.length ? `
+      <div>
+        <div style="font-size:0.8rem; color:#0f766e; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.4rem; display:flex; align-items:center; gap:0.35rem;">
+          🔗 <span>แหล่งข้อมูลอ้างอิงจริง กดตามไปดูข้อมูลกษาปณ์ (Live Verification Links)</span>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:0.5rem;">
+          ${coin.referenceSources.map(ref => `
+            <a href="${ref.url}" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; justify-content:space-between; background:#ffffff; border:1.5px solid #cbd5e1; padding:0.6rem 0.9rem; border-radius:14px; text-decoration:none; color:var(--text-main); font-size:0.85rem; font-weight:800; transition:all 0.2s ease;">
+              <span>🌐 ${ref.name}</span>
+              <span style="color:var(--accent-orange); font-weight:900;">เปิดดูข้อมูลจริง ↗</span>
+            </a>
+          `).join('')}
+        </div>
+      </div>
+      ` : ''}
+    </div>
+  `;
+
+  let deepInsightsBlockHtml = '';
+  if (isVip) {
+    deepInsightsBlockHtml = `<div style="margin-bottom:1.25rem;">${deepInsightsRawHtml}</div>`;
+  } else {
+    deepInsightsBlockHtml = `
+      <div class="vip-blur-wrapper">
+        <div class="vip-blur-content">
+          ${deepInsightsRawHtml}
+        </div>
+        <div class="vip-blur-overlay">
+          <div class="vip-lock-icon">🔒</div>
+          <div class="vip-lock-title">ราคาขายต่างชาติ, สถิติประมูล และลิงก์จริง สงวนสิทธิ์เฉพาะผู้สนับสนุน</div>
+          <div class="vip-lock-sub">
+            สมัครสมาชิก 199 บาท (โอนเข้าบัญชี SCB 4190025841 ศรัณย์ทองขวัญ) เพื่อปลดล็อกราคาตลาดสากล สถิติประมูล Heritage/Stacks Bowers และลิงก์ตรวจเช็กจริง
           </div>
-          <div style="font-size:0.92rem; font-weight:900; color:#9a3412; line-height:1.4;">
-            ${coin.soughtAfterYears}
+          <div class="vip-lock-actions">
+            <button class="pill-btn btn-vip-cta" onclick="closeModal('modal-coin-detail'); openRegisterModal();">✨ สมัครสมาชิก (199 บ.)</button>
+            <button class="pill-btn btn-vip-login" onclick="closeModal('modal-coin-detail'); openLoginModal();">🔑 เข้าสู่ระบบ</button>
           </div>
         </div>
-        ` : ''}
-        
-        ${coin.marketPriceRange ? `
-        <div>
-          <div style="font-size:0.8rem; color:#15803d; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.25rem;">
-            💰 ราคาที่เล่นกันในตลาดนักสะสม (Collector Market Price)
-          </div>
-          <div style="font-size:0.92rem; font-weight:900; color:#166534; line-height:1.45; background:#dcfce7; padding:0.65rem 0.9rem; border-radius:14px; border:1px solid #86efac;">
-            ${coin.marketPriceRange}
-          </div>
-        </div>
-        ` : ''}
       </div>
     `;
-
-    if (isVip) {
-      valuationBlockHtml = `<div style="margin-bottom:1.25rem;">${rawValuationHtml}</div>`;
-    } else {
-      valuationBlockHtml = `
-        <div class="vip-blur-wrapper">
-          <div class="vip-blur-content">
-            ${rawValuationHtml}
-          </div>
-          <div class="vip-blur-overlay">
-            <div class="vip-lock-icon">🔒</div>
-            <div class="vip-lock-title">ข้อมูลสงวนสิทธิ์เฉพาะ "ผู้สนับสนุนเว็บไซต์"</div>
-            <div class="vip-lock-sub">
-              สมัครสมาชิกเพียง 199 บาท (โอนเข้าบัญชี SCB 4190025841 ศรัณย์ทองขวัญ) เพื่อปลดล็อกราคาประเมินตลาดจริง
-            </div>
-            <div class="vip-lock-actions">
-              <button class="pill-btn btn-vip-cta" onclick="closeModal('modal-coin-detail'); openRegisterModal();">✨ สมัครสมาชิก (199 บ.)</button>
-              <button class="pill-btn btn-vip-login" onclick="closeModal('modal-coin-detail'); openLoginModal();">🔑 เข้าสู่ระบบ</button>
-            </div>
-          </div>
-        </div>
-      `;
-    }
   }
 
   modalBody.innerHTML = `
@@ -1162,25 +1275,11 @@ function openCoinDetailModal(coinId) {
       <div>${historyText}</div>
     </div>
 
-    <!-- Sought After Years & Market Valuation Section (with VIP Gatekeeper Blur) -->
-    ${valuationBlockHtml}
+    <!-- Section 1: Thai Local Market Price (Visible to All) -->
+    ${thaiPriceHtml}
 
-    <!-- Reference Sources Section -->
-    ${coin.referenceSources && coin.referenceSources.length ? `
-    <div style="background:#f8fafc; padding:1.25rem; border-radius:24px; border:1.5px solid #cbd5e1; margin-bottom:1.25rem;">
-      <div style="font-weight:900; font-size:0.95rem; color:var(--text-main); margin-bottom:0.75rem; display:flex; align-items:center; gap:0.4rem;">
-        🔗 <span>แหล่งข้อมูลอ้างอิงประจำเหรียญ (สถาบันกษาปณ์สากล)</span>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:0.6rem;">
-        ${coin.referenceSources.map(ref => `
-          <a href="${ref.url}" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; justify-content:space-between; background:#ffffff; border:1.5px solid #e2e8f0; padding:0.65rem 1rem; border-radius:16px; text-decoration:none; color:var(--text-main); font-size:0.88rem; font-weight:800; transition:all 0.2s ease;">
-            <span>🌐 ${ref.name}</span>
-            <span style="color:var(--accent-orange); font-weight:900;">เปิดดู ↗</span>
-          </a>
-        `).join('')}
-      </div>
-    </div>
-    ` : ''}
+    <!-- Section 2: Deep VIP Insights (International Price, Auction Records, Key Dates, Live Links) -->
+    ${deepInsightsBlockHtml}
 
     <div style="display:flex; justify-content:space-between; font-size:0.9rem; color:var(--text-muted); margin-bottom:1.5rem;">
       <span>📍 จัดเก็บ: <b style="color:var(--text-main);">${coin.location || 'ตู้โชว์สินค้า A1'}</b></span>
@@ -1192,8 +1291,6 @@ function openCoinDetailModal(coinId) {
         ตกลง / ปิดหน้าต่าง
       </button>
     </div>
-  `;
-
   openModal('modal-coin-detail');
 }
 
@@ -1368,6 +1465,8 @@ function renderAuthHeader() {
       </button>
     `;
   }
+
+  renderPresetChips();
 }
 
 function openRegisterModal() {
