@@ -557,16 +557,16 @@ async function loadCoins() {
   }
 }
 
-// Render Dynamic Preset Chips with VIP Lock Status
+let isCountrySubmenuOpen = false;
+
+// Render Dynamic Preset Chips with Hierarchical Country Grouping
 function renderPresetChips() {
   const container = document.getElementById('hero-preset-chips-list');
   if (!container) return;
 
   const isVip = isVipSupporter();
 
-  const presets = [
-    { id: 'home', label: '🏠 หน้าแรก (นิยมในไทย 5 เหรียญ)', isFree: true },
-    { id: 'all', label: '📂 ทั้งหมด (15 เหรียญ)', isFree: false },
+  const countryList = [
     { id: 'indochina', label: '🇫🇷 อินโดจีน (1)', isFree: false },
     { id: 'uk', label: '🇬🇧 สหราชอาณาจักร (2)', isFree: false },
     { id: 'china', label: '🇨🇳 จีน (2)', isFree: false },
@@ -575,15 +575,66 @@ function renderPresetChips() {
     { id: 'straits', label: '🇸🇬 สเตรทส์ (1)', isFree: false },
     { id: 'usa', label: '🇺🇸 อเมริกา (4)', isFree: false },
     { id: 'australia', label: '🇦🇺 ออสเตรเลีย (2)', isFree: false },
-    { id: 'newzealand', label: '🇳🇿 นิวซีแลนด์ (1)', isFree: false },
+    { id: 'newzealand', label: '🇳🇿 นิวซีแลนด์ (1)', isFree: false }
+  ];
+
+  const isCountryActive = countryList.some(c => c.id === activePreset);
+
+  const mainChips = [
+    { id: 'home', label: '🏠 หน้าแรก (นิยมในไทย 5 เหรียญ)', isFree: true },
+    { id: 'all', label: '📂 ทั้งหมด (15 เหรียญ)', isFree: false },
+    { 
+      id: 'toggle-countries', 
+      label: `🌍 แยกตามประเทศ (9 ประเทศ) ${isCountrySubmenuOpen || isCountryActive ? '▴' : '▾'}`, 
+      isFree: false, 
+      isActive: isCountryActive 
+    },
     { id: 'rare', label: '⭐ ปีหายาก (Key Dates)', isFree: false }
   ];
 
-  container.innerHTML = presets.map(p => {
-    const isActive = activePreset === p.id;
-    const lockIcon = (!isVip && !p.isFree) ? ' <span style="font-size:0.75rem; opacity:0.8;">🔒</span>' : '';
-    return `<button class="dribbble-chip ${isActive ? 'active' : ''}" onclick="handlePresetClick('${p.id}')">${p.label}${lockIcon}</button>`;
-  }).join('');
+  let html = `
+    <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:${(isCountrySubmenuOpen || isCountryActive) ? '0.6rem' : '0'};">
+      ${mainChips.map(p => {
+        const isActive = p.isActive || activePreset === p.id;
+        const lockIcon = (!isVip && !p.isFree) ? ' <span style="font-size:0.75rem; opacity:0.8;">🔒</span>' : '';
+        return `<button class="dribbble-chip ${isActive ? 'active' : ''}" onclick="handleMainPresetClick('${p.id}')">${p.label}${lockIcon}</button>`;
+      }).join('')}
+    </div>
+  `;
+
+  if (isCountrySubmenuOpen || isCountryActive) {
+    html += `
+      <div class="country-submenu-box" style="background:var(--bg-card-sub, #f8fafc); border:1.5px solid var(--border-color, #e2e8f0); border-radius:20px; padding:0.75rem 0.85rem; display:flex; gap:0.45rem; flex-wrap:wrap; margin-top:0.4rem; animation:fadeIn 0.2s ease;">
+        <div style="font-size:0.78rem; font-weight:800; color:var(--text-muted); width:100%; margin-bottom:0.25rem; display:flex; align-items:center; gap:0.35rem;">
+          🌍 <span>เลือกดูเหรียญตามประเทศ:</span>
+        </div>
+        ${countryList.map(c => {
+          const isActive = activePreset === c.id;
+          const lockIcon = !isVip ? ' <span style="font-size:0.7rem;">🔒</span>' : '';
+          return `<button class="dribbble-chip ${isActive ? 'active' : ''}" style="padding:0.4rem 0.8rem; font-size:0.82rem;" onclick="handlePresetClick('${c.id}')">${c.label}${lockIcon}</button>`;
+        }).join('')}
+      </div>
+    `;
+  }
+
+  container.innerHTML = html;
+}
+
+function handleMainPresetClick(presetId) {
+  const isVip = isVipSupporter();
+
+  if (presetId === 'toggle-countries') {
+    if (!isVip) {
+      showToast('🔒 หมวดหมู่แยกตามประเทศสงวนสิทธิ์เฉพาะผู้สนับสนุนเว็บไซต์ (199 บ.)');
+      openRegisterModal();
+      return;
+    }
+    isCountrySubmenuOpen = !isCountrySubmenuOpen;
+    renderPresetChips();
+    return;
+  }
+
+  handlePresetClick(presetId);
 }
 
 // Handle Preset Click with VIP Access Check
@@ -1145,9 +1196,9 @@ function openCoinDetailModal(coinId) {
   const modalBody = document.getElementById('detail-modal-body');
   if (!modalBody) return;
 
-  const weight = getWeightText(coin);
+  const weight = coin.exactWeightG || getWeightText(coin);
   const mintage = coin.mintage || 'ไม่ระบุ';
-  const composition = getCompositionText(coin);
+  const composition = coin.exactPurity || getCompositionText(coin);
   const flagBgClass = getCountryFlagClass(coin.country);
   const obv = coin.obverseImage || coin.image;
   const historyText = coin.historyText || coin.description || 'ไม่มีข้อมูลประวัติศาสตร์';
@@ -1165,12 +1216,46 @@ function openCoinDetailModal(coinId) {
     </div>
   `;
 
-  // 2. Deep VIP Insights (International Price, World Auction Records, Key Dates, Live Verification Links)
+  // 2. Deep VIP Insights (Key Observations, Authenticity Guide, International Price, World Auction Records, Key Dates, Live Verification Links)
   const deepInsightsRawHtml = `
     <div style="background:linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); border:1.5px solid #fdba74; padding:1.25rem; border-radius:24px; box-shadow:0 6px 20px rgba(251,146,60,0.12);">
       ${isVip ? `
       <div style="display:inline-flex; align-items:center; gap:0.35rem; background:#dcfce7; color:#166534; padding:0.35rem 0.85rem; border-radius:9999px; font-size:0.8rem; font-weight:800; margin-bottom:1rem; border:1.5px solid #86efac;">
         👑 <span>ข้อมูลจริงปลดล็อกครบถ้วน (สำหรับ คุณ ${currentUser.name} - ${currentUser.memberCode})</span>
+      </div>
+      ` : ''}
+
+      <!-- Key Observations & Minting Points -->
+      ${coin.keyObservations ? `
+      <div style="margin-bottom:1rem; background:#ffffff; border:1.5px solid #fed7aa; padding:1rem; border-radius:18px;">
+        <div style="font-size:0.82rem; color:#c2410c; font-weight:900; text-transform:uppercase; letter-spacing:0.03em; margin-bottom:0.45rem; display:flex; align-items:center; gap:0.35rem;">
+          🔍 <span>จุดสังเกตเฉพาะเหรียญ & ตำหนิแม่พิมพ์แท้ (Key Observations)</span>
+        </div>
+        <div style="font-size:0.88rem; color:#7c2d12; line-height:1.6; white-space:pre-line; font-weight:600;">
+          ${coin.keyObservations}
+        </div>
+      </div>
+      ` : ''}
+
+      <!-- 5-Step Counterfeit & Authenticity Guide -->
+      ${coin.authenticityGuide ? `
+      <div style="margin-bottom:1rem; background:#ffffff; border:1.5px solid #86efac; padding:1rem; border-radius:18px;">
+        <div style="font-size:0.82rem; color:#15803d; font-weight:900; text-transform:uppercase; letter-spacing:0.03em; margin-bottom:0.45rem; display:flex; align-items:center; gap:0.35rem;">
+          🛡️ <span>วิธีเช็คแท้-ปลอม 5 ขั้นตอน & เสียงกังวาน (Authenticity & Ping Test Guide)</span>
+        </div>
+        <div style="font-size:0.88rem; color:#14532d; line-height:1.6; white-space:pre-line; font-weight:600;">
+          ${coin.authenticityGuide}
+        </div>
+      </div>
+      ` : ''}
+
+      <!-- Counterfeit Risk Rating -->
+      ${coin.counterfeitRisk ? `
+      <div style="margin-bottom:1rem; background:#fef2f2; border:1.5px solid #fca5a5; padding:0.75rem 1rem; border-radius:16px; display:flex; align-items:center; gap:0.5rem;">
+        <span style="font-size:1.1rem;">⚠️</span>
+        <div style="font-size:0.85rem; font-weight:800; color:#991b1b; line-height:1.4;">
+          <b>ความเสี่ยงการปลอมแปลงในตลาด:</b> ${coin.counterfeitRisk}
+        </div>
       </div>
       ` : ''}
 
@@ -1236,9 +1321,9 @@ function openCoinDetailModal(coinId) {
         </div>
         <div class="vip-blur-overlay">
           <div class="vip-lock-icon">🔒</div>
-          <div class="vip-lock-title">ราคาขายต่างชาติ, สถิติประมูล และลิงก์จริง สงวนสิทธิ์เฉพาะผู้สนับสนุน</div>
+          <div class="vip-lock-title">จุดสังเกตแม่พิมพ์, วิธีเช็คแท้-ปลอม, ราคาต่างชาติ และสถิติประมูล สงวนสิทธิ์เฉพาะผู้สนับสนุน</div>
           <div class="vip-lock-sub">
-            สมัครสมาชิก 199 บาท (โอนเข้าบัญชี SCB 4190025841 ศรัณย์ทองขวัญ) เพื่อปลดล็อกราคาตลาดสากล สถิติประมูล Heritage/Stacks Bowers และลิงก์ตรวจเช็กจริง
+            สมัครสมาชิก 199 บาท (โอนเข้าบัญชี SCB 4190025841 ศรัณย์ทองขวัญ) เพื่อปลดล็อกจุดสังเกตเก๊-แท้ครบทุกมิติ และลิงก์ตรวจเช็กจริง
           </div>
           <div class="vip-lock-actions">
             <button class="pill-btn btn-vip-cta" onclick="closeModal('modal-coin-detail'); openRegisterModal();">✨ สมัครสมาชิก (199 บ.)</button>
@@ -1268,23 +1353,31 @@ function openCoinDetailModal(coinId) {
     </div>
     ` : ''}
 
-    <!-- Specs Grid with Composition % -->
+    <!-- Specs Grid with Accurate Purity, Weight, Size & Edge -->
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; background:#f8fafc; padding:1.25rem; border-radius:20px; border:1.5px solid #e2e8f0; margin-bottom:1.25rem;">
-      <div>
-        <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">🧪 ส่วนประกอบโลหะ (%)</div>
+      <div style="grid-column: 1 / -1;">
+        <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">🧪 เปอร์เซ็นต์เนื้อโลหะบริสุทธิ์ตามจริง</div>
         <div style="font-size:0.95rem; font-weight:800; color:var(--accent-blue);">${composition}</div>
       </div>
       <div>
-        <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">⚖️ น้ำหนัก</div>
+        <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">⚖️ น้ำหนักมาตรฐานแท้</div>
         <div style="font-size:0.95rem; font-weight:800; color:var(--accent-gold);">${weight}</div>
       </div>
       <div>
-        <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">🏛️ โรงกษาปณ์ที่ผลิต</div>
-        <div style="font-size:0.95rem; font-weight:800; color:var(--text-main);">${coin.mint || 'ไม่ระบุ'}</div>
+        <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">📏 ขนาด &amp; ความหนา</div>
+        <div style="font-size:0.95rem; font-weight:800; color:var(--text-main);">${coin.exactDiameterMm || '-'} (หนา ${coin.exactThicknessMm || '-'})</div>
       </div>
       <div>
-        <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">🪙 จำนวนที่ผลิต (Mintage)</div>
+        <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">⚙️ ลายขอบเหรียญ (Edge)</div>
+        <div style="font-size:0.95rem; font-weight:800; color:var(--text-main);">${coin.edgeDescription || 'ขอบเฟืองตรง'}</div>
+      </div>
+      <div>
+        <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">🪙 จำนวนผลิต (Mintage)</div>
         <div style="font-size:0.95rem; font-weight:800; color:var(--accent-green);">${mintage}</div>
+      </div>
+      <div style="grid-column: 1 / -1;">
+        <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">🏛️ โรงกษาปณ์ที่ผลิต</div>
+        <div style="font-size:0.95rem; font-weight:800; color:var(--text-main);">${coin.mint || 'ไม่ระบุ'}</div>
       </div>
     </div>
 

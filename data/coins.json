@@ -42,9 +42,9 @@
       "Bronze",
       "1930"
     ],
-    "image": "/images/1930-penny-obv.jpg",
-    "obverseImage": "/images/1930-penny-obv.jpg",
-    "reverseImage": "/images/1930-penny-rev.jpg",
+    "image": "/images/1930-penny-obv.png",
+    "obverseImage": "/images/1930-penny-obv.png",
+    "reverseImage": "/images/1930-penny-rev.png",
     "soughtAfterYears": "ปี 1930 (Key Date อันดับ 1 หายากสุด ผลิตไม่ถึง 1,500 เหรียญ / Proof 6 เหรียญ)",
     "marketPriceRange": "ผ่านใช้ทั่วไป: 450,000 – 1,200,000+ บาท ($15,000 – $40,000 USD) | สภาพสวย UNC / Proof: 2.5 – 15 ล้านบาท ($80,000 – $500,000+ USD)",
     "referenceSources": [
@@ -68,7 +68,16 @@
     "popularInThailand": false,
     "thaiMarketPrice": "ผ่านใช้ทั่วไป: 450,000 – 1,200,000 บาท | สภาพสวยแชมป์: 2.5 – 5.5 ล้านบาท",
     "internationalPrice": "$15,000 – $40,000 USD (Fine–VF) | $80,000 – $250,000 USD (About Uncirculated)",
-    "auctionRecord": "สถิติโลกประมูลจบที่ Coinworks Australia: $1,150,000 AUD (~27.5 ล้านบาท) สำหรับเหรียญ Proof-66"
+    "auctionRecord": "สถิติโลกประมูลจบที่ Coinworks Australia: $1,150,000 AUD (~27.5 ล้านบาท) สำหรับเหรียญ Proof-66",
+    "showcaseImage": "/images/1930-penny-obv.png",
+    "exactPurity": "เนื้อสำริดทองแดง 97.0% Copper, 2.5% Zinc, 0.5% Tin",
+    "exactWeightG": "9.45 กรัม",
+    "exactDiameterMm": "30.8 มม.",
+    "exactThicknessMm": "1.8 มม.",
+    "edgeDescription": "ขอบเรียบมน (Plain Edge)",
+    "keyObservations": "1. มงกุฎกษัตริย์จอร์จที่ 5: มีเพชรตรงกลาง (Centre Diamond) และไข่มุก 6 เม็ด (6 Pearls) ชัดเจน\n2. ตัวเลขปี '1930' เลข 3 และ 0 ช่องไฟและฟอนต์ต้องตรงตามบล็อก Melbourne Mint แท้\n3. ผิวเหรียญสำริดธรรมชาติสีน้ำตาลช็อกโกแลต ไม่ผ่านการแช่น้ำยาล้าง\n4. ไม่มีตราสัญลักษณ์โรงกษาปณ์ (No Mintmark ใต้ปี)",
+    "authenticityGuide": "• ขั้นที่ 1: ตรวจสอบความถูกต้องของเลขปี 1930 ภายใต้กล้องจุลทรรศน์ (ป้องกันการดัดแปลงเลขจากปี 1920 หรือ 1936)\n• ขั้นที่ 2: ชั่งน้ำหนักต้องได้ 9.45 กรัม\n• ขั้นที่ 3: ตรวจสอบไข่มุก 6 เม็ดในมงกุฎของพระเจ้าจอร์จที่ 5\n• ขั้นที่ 4: ส่องขอบเหรียญเรียบสนิท ไร้รอยเฉือนหรือประกบ\n• ขั้นที่ 5: สำหรับเหรียญมูลค่าหลักล้าน แนะนำให้ส่งตรวจสอบกับสถาบัน PCGS / NGC เท่านั้น",
+    "counterfeitRisk": "ระดับวิกฤต (เหรียญเพนนีที่แพงที่สุดในโลก มีการดัดแปลงตัวเลขปีปลอม)"
   },
   {
     "id": "coin-au-1852-adelaide-pound",
@@ -135,7 +144,16 @@
     "popularInThailand": false,
     "thaiMarketPrice": "Type II ผ่านใช้: 1,200,000 – 3,500,000 บาท | สภาพสวยสมบูรณ์: 5.5 – 15 ล้านบาท",
     "internationalPrice": "$35,000 – $100,000 USD (VF/XF) | $150,000 – $450,000 USD (UNC)",
-    "auctionRecord": "สถิติประมูลที่ Noble Numismatics: $470,000 AUD (~11.2 ล้านบาท) สำหรับ Type I (มงกุฎร้าว)"
+    "auctionRecord": "สถิติประมูลที่ Noble Numismatics: $470,000 AUD (~11.2 ล้านบาท) สำหรับ Type I (มงกุฎร้าว)",
+    "showcaseImage": "/images/1852-adelaide-pound-obv.png",
+    "exactPurity": "เนื้อทองคำแท้ 91.67% (22 Karat Gold), เงิน/ทองแดง 8.33%",
+    "exactWeightG": "8.75 กรัม (5 Pennyweights 15 Grains = 5 DWT 15 GRS)",
+    "exactDiameterMm": "23.0 มม.",
+    "exactThicknessMm": "1.5 มม.",
+    "edgeDescription": "ขอบหยักลวดลายฟันปลาโบราณ (Milled / Scalloped Edge)",
+    "keyObservations": "1. ด้านหน้า: มงกุฎหลวงและปี '1852' ล้อมด้วยคำว่า 'GOVERNMENT ASSAY OFFICE ADELAIDE'\n2. ด้านหลัง: ระบุน้ำหนักทองคำแท้ 'WEIGHT 5 DWT: 15 GRS: 22 CARATS VALUE ONE POUND'\n3. บล็อก Type I ขอบมงกุฎมีรอยร้าว (Die Crack) ส่วน Type II มีขอบหยักลูกคลื่นสวยงาม\n4. เนื้อทองคำสีทองสุกอร่าม 22K หนักแน่นในมือ",
+    "authenticityGuide": "• ขั้นที่ 1: ชั่งน้ำหนักทองคำแท้ 8.75 กรัมเป๊ะ\n• ขั้นที่ 2: ทดสอบด้วยเครื่องตรวจเนื้อทอง XRF (X-ray Fluorescence) ต้องได้ทอง 22K (91.67% Au)\n• ขั้นที่ 3: วัดเส้นผ่านศูนย์กลาง 23.0 มม. ความหนา 1.5 มม.\n• ขั้นที่ 4: ส่องลายเส้นหยัก Scalloped Border ต้องปั๊มด้วยเครื่องจักรโบราณคมกริบ\n• ขั้นที่ 5: ตรวจสอบประวัติการถือครอง (Provenance) ในฐานข้อมูลสากล",
+    "counterfeitRisk": "ระดับสูงมาก (เหรียญทองคำระดับตำนานมูลค่าหลายล้านบาท)"
   },
   {
     "id": "coin-fr-indochina-piastre",
@@ -180,10 +198,10 @@
       "Trade Dollar",
       "1885"
     ],
-    "image": "/images/french-indochina-piastre-obv.jpg",
-    "obverseImage": "/images/french-indochina-piastre-obv.jpg",
-    "reverseImage": "/images/french-indochina-piastre-rev.jpg",
-    "showcaseImage": "/images/french-indochina-piastre-showcase.jpg",
+    "image": "/images/french-indochina-piastre-obv.png",
+    "obverseImage": "/images/french-indochina-piastre-obv.png",
+    "reverseImage": "/images/french-indochina-piastre-rev.png",
+    "showcaseImage": "/images/french-indochina-piastre-showcase.png",
     "soughtAfterYears": "ปี 1890 (ผลิตน้อยมาก), บล็อกปีแรก 1885 (บล็อกน้ำหนัก 27.215g), และบล็อก Proof",
     "marketPriceRange": "ผ่านใช้ทั่วไป: 1,500 – 3,500 บาท | สภาพสวย UNC ผิวเงาเดิม: 6,000 – 18,000 บาท | บล็อกปี 1890 หรือเหรียญเกรดตลับสูง MS64+: 35,000 – 150,000+ บาท",
     "referenceSources": [
@@ -213,7 +231,15 @@
     "thaiMarketNote": "เหรียญการค้ายอดนิยมอันดับ 1 ในสยามยุค ร.5 หมุนเวียนทั่วลุ่มแม่น้ำโขง ภาคอีสาน ภาคเหนือ และภาคกลาง",
     "thaiMarketPrice": "ผ่านใช้ทั่วไป: 1,500 – 3,500 บาท | สภาพสวย UNC ผิวเดิม: 6,000 – 18,000 บาท",
     "internationalPrice": "$60 – $150 USD (Circulated) | $250 – $650 USD (Choice UNC MS63–MS64)",
-    "auctionRecord": "สถิติประมูลจบที่ Heritage Auctions / Stacks Bowers: $4,560 USD (~160,000 บาท) บล็อกปี 1890 เกรด PCGS MS65"
+    "auctionRecord": "สถิติประมูลจบที่ Heritage Auctions / Stacks Bowers: $4,560 USD (~160,000 บาท) บล็อกปี 1890 เกรด PCGS MS65",
+    "exactPurity": "เนื้อเงินแท้ 90.0% (.900 Fine Silver), ทองแดง 10.0%",
+    "exactWeightG": "27.215 กรัม (บล็อกปี 1885–1895) / 27.00 กรัม (บล็อกปี 1895–1928)",
+    "exactDiameterMm": "39.0 มม.",
+    "exactThicknessMm": "2.7 มม.",
+    "edgeDescription": "ขอบเฟืองร่องลึกสม่ำเสมอ (Reeded Edge)",
+    "keyObservations": "1. ลายเซ็นผู้ออกแบบ 'BARRE' ใต้ฐานเทพีเสรีภาพต้องคมชัด\n2. ลายช่อลอเรลด้านหลังเส้นใบคมกริบ ไม่มีฟองอากาศหรือตามด\n3. ตัวหนังสือ PIASTRE DE COMMERCE เป็นฟอนต์เหลี่ยมคมชัด\n4. ตรวจสอบรอยตอกตราประทับพ่อค้า (Chopmarks) แท้ต้องมีคราบความเก่าในร่องตอก",
+    "authenticityGuide": "• ขั้นที่ 1: ชั่งน้ำหนักดิจิทัลทศนิยม 2 ตำแหน่ง ต้องได้ 27.00g (±0.15g)\n• ขั้นที่ 2: วัดความหนา 2.7mm หากหนาเกิน 3mm ส่อว่าเป็นเหรียญชุบเงินแกนทองเหลือง\n• ขั้นที่ 3: ส่องขอบเฟืองด้านข้าง เฟืองแท้ตัดด้วยเครื่องจักรคมกริบ ไม่มีรอยตะไบแต่งข้าง\n• ขั้นที่ 4: เคาะฟังเสียงกังวาน (Ping Test) เนื้อเงิน 90% ให้เสียงใสยาว 3–5 วินาที\n• ขั้นที่ 5: ตรวจสอบความคมชัดของเกลียวเชือกและช่อใบไม้ด้านหลัง",
+    "counterfeitRisk": "ระดับสูง (เหรียญยอดนิยมในไทย มีงานก๊อปปี้บล็อกจีน ควรเช็กน้ำหนักและขอบเฟืองอย่างละเอียด)"
   },
   {
     "id": "coin-uk-trade-dollar",
@@ -258,10 +284,10 @@
       "Silver",
       "1895"
     ],
-    "image": "/images/british-trade-dollar-obv.jpg",
-    "obverseImage": "/images/british-trade-dollar-obv.jpg",
-    "reverseImage": "/images/british-trade-dollar-rev.jpg",
-    "showcaseImage": "/images/british-trade-dollar-showcase.jpg",
+    "image": "/images/british-trade-dollar-obv.png",
+    "obverseImage": "/images/british-trade-dollar-obv.png",
+    "reverseImage": "/images/british-trade-dollar-rev.png",
+    "showcaseImage": "/images/british-trade-dollar-showcase.png",
     "soughtAfterYears": "ปี 1895-B, ปี 1900-C, 1921-B, และปี 1935 (หายากระดับยอดมงกุฎ)",
     "marketPriceRange": "ผ่านใช้ทั่วไป: 2,500 – 5,500 บาท | สภาพสวย UNC ผิวกระจก: 12,000 – 35,000 บาท | บล็อกหายาก 1900-C หรือ 1935 ตลับเกรดสูง: 60,000 – 300,000+ บาท",
     "referenceSources": [
@@ -291,7 +317,15 @@
     "thaiMarketNote": "เหรียญเงินการค้าอังกฤษยอดนิยมสูงสุดในตลาดการค้าสยามและเยาวราช ยุค ร.5",
     "thaiMarketPrice": "ผ่านใช้ทั่วไป: 2,500 – 5,500 บาท | สภาพสวย UNC ผิวกระจก: 12,000 – 35,000 บาท",
     "internationalPrice": "$90 – $220 USD (Circulated) | $400 – $1,200 USD (Choice UNC)",
-    "auctionRecord": "สถิติประมูลจบที่ Heritage Auctions: $11,400 USD (~399,000 บาท) บล็อก 1900-C Calcutta Mint เกรด NGC MS64"
+    "auctionRecord": "สถิติประมูลจบที่ Heritage Auctions: $11,400 USD (~399,000 บาท) บล็อก 1900-C Calcutta Mint เกรด NGC MS64",
+    "exactPurity": "เนื้อเงินแท้ 90.0% (.900 Fine Silver), ทองแดง 10.0%",
+    "exactWeightG": "26.95 กรัม (มาตรฐานสากล)",
+    "exactDiameterMm": "39.0 มม.",
+    "exactThicknessMm": "2.5 มม.",
+    "edgeDescription": "ขอบเฟืองตรงคมชัด (Milled / Reeded Edge)",
+    "keyObservations": "1. ตรวจสอบโค้ดโรงกษาปณ์: อักษร 'B' จิ๋วในง่ามตรีศูลตรงกลาง (Bombay) หรือ 'C' ระหว่างเท้ากับโล่ (Calcutta)\n2. รายละเอียดลายผ้าคลุมและเกราะบริทาเนียคมกริบ มีมิตินูนสูง\n3. ตัวอักษรจีน '壹圓' (หนึ่งหยวน) และภาษามลายูอักษรยาวี 'SATU RINGGIT' เส้นติดคมชัด\n4. คราบรมดำธรรมชาติผิวเหรียญแห้งสนิท ไร้กลิ่นน้ำยากัดกรด",
+    "authenticityGuide": "• ขั้นที่ 1: ชั่งน้ำหนักจริง 26.95g หากต่ำกว่า 26.5g ในสภาพ UNC แสดงว่าปลอม\n• ขั้นที่ 2: ส่องขอบเหรียญหารอยเชื่อมประกบ เหรียญฉีดหล่อปลอมมักมีรอยตะเข็บข้าง\n• ขั้นที่ 3: ตรวจสอบตรีศูลและโล่ยูเนียนแจ็ค ต้องไม่มีเส้นหล่อฟุ้งหรือเบลอ\n• ขั้นที่ 4: ตรวจสอบความลึกของอักษรภาษาจีน 壹圓 และ มลายู\n• ขั้นที่ 5: ตรวจวัดด้วยแม่เหล็กนีโอไดเมียม (Neodymium) เหรียญเงินแท้ต้องไม่ดูดติด",
+    "counterfeitRisk": "ระดับสูงมาก (เหรียญการค้ายอดนิยมอันดับต้นๆ ของเอเชีย)"
   },
   {
     "id": "coin-in-victoria-rupee",
@@ -542,10 +576,10 @@
       "Silver",
       "1890"
     ],
-    "image": "/images/kwangtung-dragon-obv.jpg",
-    "obverseImage": "/images/kwangtung-dragon-obv.jpg",
-    "reverseImage": "/images/kwangtung-dragon-rev.jpg",
-    "showcaseImage": "/images/kwangtung-dragon-showcase.jpg",
+    "image": "/images/kwangtung-dragon-obv.png",
+    "obverseImage": "/images/kwangtung-dragon-obv.png",
+    "reverseImage": "/images/kwangtung-dragon-rev.png",
+    "showcaseImage": "/images/kwangtung-dragon-showcase.png",
     "soughtAfterYears": "บล็อกปีแรก 1889 (ตัวหนังสืออังกฤษกลับด้าน), บล็อกเหรียญตัวอย่าง Proof, และบล็อกสภาพผิวรุ้งเดิม",
     "marketPriceRange": "ผ่านใช้ทั่วไป: 3,500 – 8,500 บาท | สภาพสวย UNC ลายเกล็ดมังกรคมชัด: 18,000 – 65,000 บาท | บล็อก 1889 หายาก หรือเกรดตลับสูง MS63+: 150,000 – 800,000+ บาท",
     "referenceSources": [
@@ -575,7 +609,15 @@
     "thaiMarketNote": "สุดยอดเหรียญมังกรเงินยอดนิยมอันดับ 1 ในวงการสะสมไทยและงานประมูลเอื้อเสรี",
     "thaiMarketPrice": "ผ่านใช้ทั่วไป: 3,500 – 8,500 บาท | สภาพสวย UNC ลายเกล็ดมังกรคมชัด: 18,000 – 65,000 บาท",
     "internationalPrice": "$120 – $350 USD (Circulated) | $750 – $2,500 USD (UNC MS62–MS64)",
-    "auctionRecord": "สถิติประมูลที่ Stacks Bowers Hong Kong: $31,200 USD (~1,090,000 บาท) บล็อกตัวหนังสือกลับด้านปี 1889 เกรด PCGS MS63"
+    "auctionRecord": "สถิติประมูลที่ Stacks Bowers Hong Kong: $31,200 USD (~1,090,000 บาท) บล็อกตัวหนังสือกลับด้านปี 1889 เกรด PCGS MS63",
+    "exactPurity": "เนื้อเงินแท้ 90.0% (.900 Fine Silver), ทองแดง 10.0%",
+    "exactWeightG": "26.86 กรัม (7 Mace and 2 Candareens = 0.72 ตำลึงจีน)",
+    "exactDiameterMm": "39.5 มม.",
+    "exactThicknessMm": "2.5 มม.",
+    "edgeDescription": "ขอบเฟืองตรงสม่ำเสมอ (Standard Reeded Edge)",
+    "keyObservations": "1. เกล็ดมังกรทุกแถวติดคมชัด ไม่มีรอยหล่อกลืนหรือเกล็ดแบน\n2. ลูกแก้วไฟกลางลำตัวมังกรมี 7 เปลวเพลิง (7 Flames on Fireball)\n3. เล็บมังกร 5 เล็บกางคมกริบ ดวงตามังกรนูนกลมมีชีวิตชีวา\n4. ตัวอักษรภาษาอังกฤษ 'KWANG-TUNG PROVINCE' ตัวอักษรคมเรียบเสมอกัน",
+    "authenticityGuide": "• ขั้นที่ 1: ตรวจสอบน้ำหนักเป๊ะ 26.86g (ไม่ควรต่ำกว่า 26.6g ในสภาพสมบูรณ์)\n• ขั้นที่ 2: ส่องเกล็ดมังกรและหนวดมังกรด้วยแว่นขยาย เหรียญแท้ลายเส้นคมเป็นสัน\n• ขั้นที่ 3: ส่องอักษรจีน '廣東省造' และ '光緒元寶' เส้นขีดอักษรคมชัดไม่บวมหนา\n• ขั้นที่ 4: ตรวจสอบขอบเหรียญ (Edge) เฟืองปั๊มแท้ลึกเท่ากันตลอด 360 องศา\n• ขั้นที่ 5: สัมผัสคราบผิวพรรณธรรมชาติ (Patina) สนิมเงินแท้แห้งติดแน่นไม่หลุดลอกง่าย",
+    "counterfeitRisk": "ระดับวิกฤต (เหรียญมังกรกวางตุ้งเป็นเหรียญยอดนิยมอันดับ 1 ในวงการ มีของลอกเลียนแบบมาก)"
   },
   {
     "id": "coin-cn-yuan-shih-kai-dollar",
@@ -620,10 +662,10 @@
       "Silver",
       "1914"
     ],
-    "image": "/images/yuan-shih-kai-new-obv.jpg",
-    "obverseImage": "/images/yuan-shih-kai-new-obv.jpg",
-    "reverseImage": "/images/yuan-shih-kai-new-rev.jpg",
-    "showcaseImage": "/images/yuan-shih-kai-showcase.jpg",
+    "image": "/images/yuan-shih-kai-new-obv.png",
+    "obverseImage": "/images/yuan-shih-kai-new-obv.png",
+    "reverseImage": "/images/yuan-shih-kai-new-rev.png",
+    "showcaseImage": "/images/yuan-shih-kai-showcase.png",
     "soughtAfterYears": "ปีที่ 8 (ค.ศ. 1919 ผลิตน้อยสุด), บล็อก L.GIORGI, บล็อก Gansu (甘肅), และบล็อก T-Ribbon พระเกศาชัด",
     "marketPriceRange": "ปีธรรมดา (ปี 3, 9, 10) ผ่านใช้ทั่วไป: 3,500 – 7,500 บาท | สภาพสวย UNC ผิวเดิม: 12,000 – 35,000 บาท | ปีที่ 8 (Year 8) สภาพสวย หรือเกรดตลับ MS64+: 60,000 – 350,000+ บาท",
     "referenceSources": [
@@ -649,7 +691,15 @@
     "thaiMarketNote": "เหรียญเงินจีนที่พบมากที่สุดในไทย ตกทอดตามตระกูลคนไทยเชื้อสายจีน (เยาวราช-ตลาดน้อย-สำเพ็ง)",
     "thaiMarketPrice": "ผ่านใช้ทั่วไป (ปี 3, 9, 10): 3,500 – 7,500 บาท | สภาพสวย UNC ผิวเดิม: 12,000 – 35,000 บาท",
     "internationalPrice": "$110 – $280 USD (Circulated) | $550 – $1,600 USD (UNC MS63–MS64)",
-    "auctionRecord": "สถิติประมูลจบที่ Stacks Bowers & Ponterio: $288,000 USD (~10,080,000 บาท) สำหรับบล็อกตัวอย่างแกะลาย L.GIORGI เกรด PCGS SP66"
+    "auctionRecord": "สถิติประมูลจบที่ Stacks Bowers & Ponterio: $288,000 USD (~10,080,000 บาท) สำหรับบล็อกตัวอย่างแกะลาย L.GIORGI เกรด PCGS SP66",
+    "exactPurity": "เนื้อเงินแท้ 89.0% – 90.0% (.890/.900 Silver), ทองแดง 10.0%–11.0%",
+    "exactWeightG": "26.86 กรัม (บล็อกมาตรฐาน) / 26.40 – 26.86 กรัม",
+    "exactDiameterMm": "39.0 มม.",
+    "exactThicknessMm": "2.6 มม.",
+    "edgeDescription": "ขอบเฟืองร่องเฉียงประณีต หรือ เฟืองตรง (Reeded Edge / T-Edge Variety)",
+    "keyObservations": "1. อักษรจีนด้านบน: ปี 3 มี 7 ตัวอักษร (中華民國三年) ส่วนปี 8, 9, 10 มี 6 ตัวอักษร (มีคำว่า 造)\n2. เส้นอินทรธนูบนบ่าของหยวน ซื่อไข่ เส้นสายคมชัด มีมิติไม่แบนราบ\n3. โบว์ผูกรวงข้าวด้านหลัง: ส่องดูเม็ดไข่ปลาและจุดเชื่อมในโบว์\n4. เส้นสายตาและหนวดของหยวน ซื่อไข่มีความคมชัดลึก มีประกายตาธรรมชาติ",
+    "authenticityGuide": "• ขั้นที่ 1: ชั่งน้ำหนักทศนิยม 2 ตำแหน่ง ต้องได้ 26.6 – 26.9 กรัม\n• ขั้นที่ 2: ฟังเสียงเคาะเหรียญ เนื้อเงินแท้เสียงจะใส กังวาน แหลมสูงต่อเนื่อง\n• ขั้นที่ 3: ส่องผิวเหรียญหารูตามด เหรียญปั๊มแท้ผิวตึงเรียบ เหรียญหล่อจะมีเม็ดผด\n• ขั้นที่ 4: เช็กเส้นอินทรธนูและขอบดวงตาภายใต้กล้องขยาย 10x–30x\n• ขั้นที่ 5: ตรวจสอบความลึกของตัวหนังสือจีนรอบขอบเหรียญ",
+    "counterfeitRisk": "ระดับวิกฤต (เหรียญยอดนิยมสูงสุดในจีนและไทย มีงานเก๊เฉียบหลายเกรด ต้องอาศัยน้ำหนักและขอบเฟือง)"
   },
   {
     "id": "coin-us-morgan-silver-dollar",
@@ -835,10 +885,10 @@
       "Trade Coin",
       "1823"
     ],
-    "image": "/images/mexico-8-reales-obv.jpg",
-    "obverseImage": "/images/mexico-8-reales-obv.jpg",
-    "reverseImage": "/images/mexico-8-reales-rev.jpg",
-    "showcaseImage": "/images/mexico-8-reales-showcase.jpg",
+    "image": "/images/mexico-8-reales-obv.png",
+    "obverseImage": "/images/mexico-8-reales-obv.png",
+    "reverseImage": "/images/mexico-8-reales-rev.png",
+    "showcaseImage": "/images/mexico-8-reales-showcase.png",
     "soughtAfterYears": "บล็อกปี 1820-1840 (โรงกษาปณ์ Ch, Do, Pi), สภาพ UNC ไร้รอยตอก, และเหรียญตอกตราเจ๊ก Chopmarks สวยงาม",
     "marketPriceRange": "ผ่านใช้ทั่วไป: 1,500 – 4,500 บาท | สภาพสวยเดิม UNC คมกริบ ไร้รอยช้ำ: 8,000 – 35,000 บาท | บล็อกโรงกษาปณ์หายาก หรือเกรดตลับสากล (PCGS/NGC MS63 - MS65+): 50,000 – 250,000+ บาท",
     "referenceSources": [
@@ -864,7 +914,15 @@
     "thaiMarketNote": "เหรียญเงินการค้าโลกหลักที่หมุนเวียนในสยามตั้งแต่ ร.3–ร.5 และมีการตอกตราประทับร้านค้าสยาม (Chopmark) มากที่สุด",
     "thaiMarketPrice": "ผ่านใช้ทั่วไป: 1,500 – 4,500 บาท | สภาพสวยเดิม UNC ไร้รอยช้ำ: 8,000 – 35,000 บาท",
     "internationalPrice": "$60 – $180 USD (Circulated) | $350 – $1,400 USD (UNC MS62–MS65)",
-    "auctionRecord": "สถิติประมูลที่ Heritage Auctions / Sedwick Coins: $12,500 USD (~437,000 บาท) สำหรับบล็อกโรงกษาปณ์หายาก Durango (Do) เกรด NGC MS65"
+    "auctionRecord": "สถิติประมูลที่ Heritage Auctions / Sedwick Coins: $12,500 USD (~437,000 บาท) สำหรับบล็อกโรงกษาปณ์หายาก Durango (Do) เกรด NGC MS65",
+    "exactPurity": "เนื้อเงินแท้ 90.3% (.9027 Fine Silver), ทองแดง 9.7%",
+    "exactWeightG": "27.07 กรัม (ตามมาตรฐานเหรียญแปดเรียล)",
+    "exactDiameterMm": "39.0 มม.",
+    "exactThicknessMm": "2.5 มม.",
+    "edgeDescription": "ขอบลายลายกลมรีโบราณ หรือ ขอบเฟือง (Patterned Circle-Rectangle Edge / Reeded)",
+    "keyObservations": "1. ลายนกอินทรีเม็กซิโก: จงอยปากคาบงู ลายขนนกที่ปีกและอกติดเป็นริ้วคมชัด\n2. หมวกเสรีภาพ (Liberty Cap) ด้านหลัง: มีตัวอักษร 'LIBERTAD' สลักคมชัดบนตัวหมวก\n3. เส้นรัศมีแสงอาทิตย์พุ่งออกจากหมวกเสรีภาพเส้นตรงคม ไม่มีรอยขาดตอน\n4. ตราสัญลักษณ์โรงกษาปณ์ (เช่น Mo, Go, Zs) และชื่อ Assayer ย่อ 2 ตัวอักษร",
+    "authenticityGuide": "• ขั้นที่ 1: ชั่งน้ำหนักต้องได้ 27.07g (±0.2g หากผ่านใช้)\n• ขั้นที่ 2: ส่องขอบลวดลายพิเศษของเม็กซิโก เหรียญแท้ลายขอบเชื่อมต่อกันอย่างประณีต\n• ขั้นที่ 3: ตรวจสอบรอยตอกตราเถ้าแก่สยาม (Chopmarks) ขอบรอยตอกต้องมีเนื้อปลิ้นธรรมชาติ\n• ขั้นที่ 4: ทดสอบปฏิกิริยาแม่เหล็กแรงสูง ไม่ดูดติดแน่นอน\n• ขั้นที่ 5: ตรวจดูตัวหนังสือ REPUBLICA MEXICANA หัวตัวหนังสือคมเป็นมิติ",
+    "counterfeitRisk": "ระดับสูง (เหรียญหัวแปดยอดนิยมในไทย ร.3–ร.5)"
   },
   {
     "id": "coin-us-1964-kennedy-half-dollar",
@@ -997,7 +1055,16 @@
     "popularInThailand": false,
     "thaiMarketPrice": "สภาพผ่านใช้/มีรอย: 180,000 – 350,000 บาท | สภาพสวย UNC / Proof ตลับสูง: 450,000 – 1,200,000 บาท",
     "internationalPrice": "$6,000 – $15,000 USD (Circulated/XF) | $20,000 – $55,000 USD (Choice Proof)",
-    "auctionRecord": "สถิติประมูลที่ Noble Numismatics Australia: $85,000 AUD (~2,040,000 บาท) สำหรับ 1935 Waitangi Proof-65"
+    "auctionRecord": "สถิติประมูลที่ Noble Numismatics Australia: $85,000 AUD (~2,040,000 บาท) สำหรับ 1935 Waitangi Proof-65",
+    "showcaseImage": "/images/waitangi-crown-1.png",
+    "exactPurity": "เนื้อเงิน 50.0% (.500 Silver), ทองแดง 40.0%, นิกเกิล 5.0%, สังกะสี 5.0%",
+    "exactWeightG": "28.28 กรัม",
+    "exactDiameterMm": "38.8 มม.",
+    "exactThicknessMm": "2.8 มม.",
+    "edgeDescription": "ขอบเฟืองประณีต (Milled Reeded Edge)",
+    "keyObservations": "1. ภาพประวัติศาสตร์สนธิสัญญาไวตังกิ: หัวหน้าเผ่าเมารี Tamati Waka Nene จับมือกับผู้ว่าการ William Hobson\n2. มงกุฎกษัตริย์เหนือภาพจับมือ และมงกุฎบนพระเศียรพระเจ้าจอร์จที่ 5 ด้านหน้า\n3. ตัวหนังสือ 'NEW ZEALAND CROWN 1935' ตัวอักษรคมกริบ\n4. ผลิตรวมเพียง 1,128 เหรียญ ผิวเหรียญแบบ Proof หรือ Specimen",
+    "authenticityGuide": "• ขั้นที่ 1: ชั่งน้ำหนักจริง 28.28 กรัม\n• ขั้นที่ 2: ส่องรอยจับมือระหว่าง Tamati Waka Nene และ William Hobson ต้องคมชัดทุกนิ้วมือ\n• ขั้นที่ 3: ตรวจสอบมงกุฎและรอยพับของชุดพื้นเมืองเมารี\n• ขั้นที่ 4: ส่องขอบเฟืองและพื้นผิวประกายกระจก (Proof Mirror Surface)\n• ขั้นที่ 5: ตรวจสอบความถูกต้องของฟอนต์ตัวเลขปี 1935",
+    "counterfeitRisk": "ระดับสูง (เหรียญผลิตน้อยมาก มีการทำเหรียญปลอมเกรดฉีดหล่อ)"
   },
   {
     "id": "coin-us-lincoln-wheat-cent",

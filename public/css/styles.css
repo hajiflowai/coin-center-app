@@ -936,23 +936,121 @@ body {
   animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes slideUp {
-  from { transform: translateY(100%); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+/* ----------------------------------------------------
+   👑 OFFICIAL SPONSOR FLOATING WIDGET (บอยแบงค์เก่า)
+   ---------------------------------------------------- */
+.sponsor-floating-widget {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  border: 2px solid #f59e0b;
+  border-radius: var(--radius-pill);
+  padding: 0.4rem 1.15rem 0.4rem 0.45rem;
+  box-shadow: 0 12px 36px rgba(245, 158, 11, 0.35), 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: sponsorFloatPulse 3.5s infinite ease-in-out;
 }
 
-/* Scanner CTA in Navbar */
-.btn-scanner-cta {
-  background: var(--accent-orange) !important;
-  color: #ffffff !important;
-  border: none !important;
-  box-shadow: 0 4px 14px rgba(255, 107, 0, 0.35) !important;
-  font-weight: 800 !important;
+@keyframes sponsorFloatPulse {
+  0%, 100% { transform: translateY(0); box-shadow: 0 12px 36px rgba(245, 158, 11, 0.35); }
+  50% { transform: translateY(-4px); box-shadow: 0 18px 48px rgba(245, 158, 11, 0.5); }
 }
 
-.btn-scanner-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(255, 107, 0, 0.45) !important;
+.sponsor-floating-widget:hover {
+  transform: translateY(-5px) scale(1.04);
+  box-shadow: 0 20px 50px rgba(245, 158, 11, 0.6);
+  border-color: #d97706;
+}
+
+.sponsor-link-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.sponsor-avatar-wrapper {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+.sponsor-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #f59e0b;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: #000;
+}
+
+.sponsor-crown-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #f59e0b;
+  color: #fff;
+  font-size: 0.75rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.sponsor-content-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.sponsor-title-badge {
+  font-size: 0.72rem;
+  font-weight: 900;
+  color: #b45309;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.sponsor-slogan-text {
+  font-size: 0.92rem;
+  font-weight: 900;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.sponsor-arrow-icon {
+  color: #f59e0b;
+  font-weight: 900;
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.sponsor-floating-widget:hover .sponsor-arrow-icon {
+  transform: translate(2px, -2px);
+}
+
+body.dark-mode .sponsor-floating-widget {
+  background: rgba(15, 23, 42, 0.95);
+  border-color: #f59e0b;
+  box-shadow: 0 12px 36px rgba(245, 158, 11, 0.25);
+}
+
+body.dark-mode .sponsor-slogan-text {
+  color: #f8fafc;
+}
+
+body.dark-mode .sponsor-title-badge {
+  color: #fbbf24;
 }
 
 /* Floating Action Button for Scanner (Bottom Right) */
@@ -1461,6 +1559,11 @@ body.dark-mode .vip-lock-sub {
   color: #94a3b8;
 }
 
+body.dark-mode .country-submenu-box {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+}
+
 /* Mobile Responsive */
 @media (max-width: 1024px) {
   .hero-layout {
@@ -1488,7 +1591,17 @@ body.dark-mode .vip-lock-sub {
     gap: 1rem;
     align-items: flex-start;
   }
-  .scanner-popup-grid {
-    grid-template-columns: 1fr;
+  .sponsor-floating-widget {
+    bottom: 1rem;
+    right: 1rem;
+    left: auto;
+    padding: 0.35rem 0.85rem 0.35rem 0.35rem;
+  }
+  .sponsor-avatar-wrapper {
+    width: 42px;
+    height: 42px;
+  }
+  .sponsor-slogan-text {
+    font-size: 0.82rem;
   }
 }
