@@ -1291,6 +1291,8 @@ function openCoinDetailModal(coinId) {
         ตกลง / ปิดหน้าต่าง
       </button>
     </div>
+  `;
+
   openModal('modal-coin-detail');
 }
 
