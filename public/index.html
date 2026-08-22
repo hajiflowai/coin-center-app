@@ -24,12 +24,15 @@
         <span>Coin Center</span>
       </a>
 
-      <!-- Center Nav Links (Simplified: Catalog & Mint Map) -->
+      <!-- Center Nav Links (Home Featured 5, All Catalog 15, Mint Map) -->
       <nav class="nav-links">
-        <button class="nav-link active" data-tab="tab-catalog">
-          📂 <span>คลังเหรียญ</span>
+        <button class="nav-link active" data-tab="tab-home" onclick="setNavMode('home')">
+          🏠 <span>หน้าแรก (นิยมในไทย 5 เหรียญ)</span>
         </button>
-        <button class="nav-link" data-tab="tab-counter">
+        <button class="nav-link" data-tab="tab-catalog" onclick="setNavMode('all')">
+          📂 <span>คลังเหรียญทั้งหมด (15 เหรียญ)</span>
+        </button>
+        <button class="nav-link" data-tab="tab-counter" onclick="setNavMode('counter')">
           🌍 <span>แหล่งข้อมูลเหรียญ &amp; โรงกษาปณ์</span>
         </button>
       </nav>
@@ -52,13 +55,16 @@
         <!-- Left Hero Branding & Search -->
         <div class="hero-left">
           <div>
+            <div style="display:inline-flex; align-items:center; gap:0.4rem; background:rgba(255,107,0,0.1); color:var(--accent-orange); font-size:0.82rem; font-weight:800; padding:0.35rem 0.8rem; border-radius:9999px; margin-bottom:0.75rem; border:1px solid rgba(255,107,0,0.25);" id="hero-badge-mode">
+              <span>🇹🇭 คัดเฉพาะ 5 เหรียญเงินแท้ยอดนิยมในไทย</span>
+            </div>
             <h1 class="hero-headline">
               Grow Bold.<br>
               Collect Free.<br>
               Value Hard.
             </h1>
-            <p class="hero-sub">
-              ศูนย์ข้อมูลเหรียญประจำร้าน แสดงสเปกเนื้อโลหะ สัดส่วน% โลหะ ประวัติความเป็นมาจากบันทึกทางประวัติศาสตร์ และระบบเหรียญวนลูป 3D Coverflow
+            <p class="hero-sub" id="hero-sub-text">
+              ศูนย์ข้อมูลเหรียญประจำร้าน คัดสรร 5 เหรียญเงินประวัติศาสตร์ยอดนิยมที่พบและหมุนเวียนจริงในแผ่นดินสยาม/ประเทศไทย
             </p>
 
             <!-- Search Bar -->
@@ -69,15 +75,16 @@
 
             <!-- Preset Filters Chips -->
             <div class="preset-chips-list">
-              <button class="dribbble-chip active" onclick="setQuickPreset('all')">ทั้งหมด (15 เหรียญ)</button>
-              <button class="dribbble-chip" onclick="setQuickPreset('australia')">🇦🇺 ออสเตรเลีย (2)</button>
-              <button class="dribbble-chip" onclick="setQuickPreset('usa')">🇺🇸 อเมริกา (4)</button>
-              <button class="dribbble-chip" onclick="setQuickPreset('china')">🇨🇳 จีน (2)</button>
-              <button class="dribbble-chip" onclick="setQuickPreset('japan')">🇯🇵 ญี่ปุ่น (1)</button>
-              <button class="dribbble-chip" onclick="setQuickPreset('uk')">🇬🇧 สหราชอาณาจักร (2)</button>
+              <button class="dribbble-chip active" onclick="setQuickPreset('home')">🏠 หน้าแรก (นิยมในไทย 5 เหรียญ)</button>
+              <button class="dribbble-chip" onclick="setQuickPreset('all')">📂 ทั้งหมด (15 เหรียญ)</button>
               <button class="dribbble-chip" onclick="setQuickPreset('indochina')">🇫🇷 อินโดจีน (1)</button>
-              <button class="dribbble-chip" onclick="setQuickPreset('straits')">🇸🇬 สเตรทส์ (1)</button>
+              <button class="dribbble-chip" onclick="setQuickPreset('uk')">🇬🇧 สหราชอาณาจักร (2)</button>
+              <button class="dribbble-chip" onclick="setQuickPreset('china')">🇨🇳 จีน (2)</button>
               <button class="dribbble-chip" onclick="setQuickPreset('mexico')">🇲🇽 เม็กซิโก (1)</button>
+              <button class="dribbble-chip" onclick="setQuickPreset('japan')">🇯🇵 ญี่ปุ่น (1)</button>
+              <button class="dribbble-chip" onclick="setQuickPreset('straits')">🇸🇬 สเตรทส์ (1)</button>
+              <button class="dribbble-chip" onclick="setQuickPreset('usa')">🇺🇸 อเมริกา (4)</button>
+              <button class="dribbble-chip" onclick="setQuickPreset('australia')">🇦🇺 ออสเตรเลีย (2)</button>
               <button class="dribbble-chip" onclick="setQuickPreset('newzealand')">🇳🇿 นิวซีแลนด์ (1)</button>
               <button class="dribbble-chip" onclick="setQuickPreset('rare')">⭐ ปีหายาก (Key Dates)</button>
             </div>

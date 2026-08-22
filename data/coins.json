@@ -56,7 +56,8 @@
         "name": "Coinworks Australia (คู่มือการประมูลและราคาเหรียญ 1930 Penny)",
         "url": "https://coinworks.com.au"
       }
-    ]
+    ],
+    "popularInThailand": false
   },
   {
     "id": "coin-au-1852-adelaide-pound",
@@ -115,7 +116,8 @@
         "name": "Coinworks Australia (1852 Adelaide Pound Rare Coin Guide)",
         "url": "https://coinworks.com.au"
       }
-    ]
+    ],
+    "popularInThailand": false
   },
   {
     "id": "coin-fr-indochina-piastre",
@@ -152,6 +154,7 @@
       "reverseText": "INDO-CHINE FRANÇAISE - TITRE 0.900. POIDS 27.215 GR. - 1 PIASTRE DE COMMERCE - A"
     },
     "tags": [
+      "นิยมในไทย",
       "French Indochina",
       "Colonial",
       "Piastre",
@@ -182,7 +185,10 @@
         "name": "Eurseree Collecting Co., Ltd.",
         "url": "https://www.eurseree.com"
       }
-    ]
+    ],
+    "popularInThailand": true,
+    "thaiRank": 1,
+    "thaiMarketNote": "เหรียญการค้ายอดนิยมอันดับ 1 ในสยามยุค ร.5 หมุนเวียนทั่วลุ่มแม่น้ำโขง ภาคอีสาน ภาคเหนือ และภาคกลาง"
   },
   {
     "id": "coin-uk-trade-dollar",
@@ -219,6 +225,7 @@
       "reverseText": "壹圓 (Yī Yuán) - SATU RINGGIT (มลายูอักษรยาวี)"
     },
     "tags": [
+      "นิยมในไทย",
       "United Kingdom",
       "British Empire",
       "Trade Dollar",
@@ -249,7 +256,10 @@
         "name": "Eurseree Collecting Co., Ltd.",
         "url": "https://www.eurseree.com"
       }
-    ]
+    ],
+    "popularInThailand": true,
+    "thaiRank": 2,
+    "thaiMarketNote": "เหรียญเงินการค้าอังกฤษยอดนิยมสูงสุดในตลาดการค้าสยามและเยาวราช ยุค ร.5"
   },
   {
     "id": "coin-in-victoria-rupee",
@@ -316,7 +326,8 @@
         "name": "Eurseree Collecting Co., Ltd.",
         "url": "https://www.eurseree.com"
       }
-    ]
+    ],
+    "popularInThailand": false
   },
   {
     "id": "coin-ss-edward-dollar",
@@ -384,7 +395,8 @@
         "name": "Eurseree Collecting Co., Ltd.",
         "url": "https://www.eurseree.com"
       }
-    ]
+    ],
+    "popularInThailand": false
   },
   {
     "id": "coin-jp-meiji-yen",
@@ -451,7 +463,8 @@
         "name": "Eurseree Collecting Co., Ltd.",
         "url": "https://www.eurseree.com"
       }
-    ]
+    ],
+    "popularInThailand": false
   },
   {
     "id": "coin-cn-kwangtung-dragon-dollar",
@@ -488,6 +501,7 @@
       "reverseText": "光緒元寶 • 廣東省造 • 庫平七錢二分"
     },
     "tags": [
+      "นิยมในไทย",
       "China",
       "Qing Dynasty",
       "Dragon Dollar",
@@ -518,7 +532,10 @@
         "name": "Eurseree Collecting Co., Ltd.",
         "url": "https://www.eurseree.com"
       }
-    ]
+    ],
+    "popularInThailand": true,
+    "thaiRank": 4,
+    "thaiMarketNote": "สุดยอดเหรียญมังกรเงินยอดนิยมอันดับ 1 ในวงการสะสมไทยและงานประมูลเอื้อเสรี"
   },
   {
     "id": "coin-cn-yuan-shih-kai-dollar",
@@ -555,6 +572,7 @@
       "reverseText": "壹圓 (Yī Yuán - หนึ่งหยวน)"
     },
     "tags": [
+      "นิยมในไทย",
       "China",
       "Republic of China",
       "Yuan Shih-kai",
@@ -585,7 +603,10 @@
         "name": "Eurseree Collecting Co., Ltd.",
         "url": "https://www.eurseree.com"
       }
-    ]
+    ],
+    "popularInThailand": true,
+    "thaiRank": 3,
+    "thaiMarketNote": "เหรียญเงินจีนที่พบมากที่สุดในไทย ตกทอดตามตระกูลคนไทยเชื้อสายจีน (เยาวราช-ตลาดน้อย-สำเพ็ง)"
   },
   {
     "id": "coin-us-morgan-silver-dollar",
@@ -653,7 +674,8 @@
         "name": "Eurseree Collecting Co., Ltd.",
         "url": "https://www.eurseree.com"
       }
-    ]
+    ],
+    "popularInThailand": false
   },
   {
     "id": "coin-us-peace-silver-dollar",
@@ -721,7 +743,8 @@
         "name": "Eurseree Collecting Co., Ltd.",
         "url": "https://www.eurseree.com"
       }
-    ]
+    ],
+    "popularInThailand": false
   },
   {
     "id": "coin-mx-8-reales",
@@ -758,6 +781,7 @@
       "reverseText": "LIBERTAD - 8R. - หมวกเสรีภาพเปล่งรัศมีแสงสุริยะ"
     },
     "tags": [
+      "นิยมในไทย",
       "Mexico",
       "Mexican Republic",
       "8 Reales",
@@ -789,7 +813,10 @@
         "name": "Eurseree Collecting Co., Ltd.",
         "url": "https://www.eurseree.com"
       }
-    ]
+    ],
+    "popularInThailand": true,
+    "thaiRank": 5,
+    "thaiMarketNote": "เหรียญเงินการค้าโลกหลักที่หมุนเวียนในสยามตั้งแต่ ร.3–ร.5 และมีการตอกตราประทับร้านค้าสยาม (Chopmark) มากที่สุด"
   },
   {
     "id": "coin-us-1964-kennedy-half-dollar",
@@ -847,7 +874,8 @@
         "name": "PCGS CoinFacts (1964 50C Kennedy)",
         "url": "https://www.pcgs.com/coinfacts/coin/1964-50c/6706"
       }
-    ]
+    ],
+    "popularInThailand": false
   },
   {
     "id": "coin-nz-1935-waitangi-crown",
@@ -906,7 +934,8 @@
         "name": "PCGS CoinFacts (1935 New Zealand Crown)",
         "url": "https://www.pcgs.com/coinfacts/coin/1935-5s/413480"
       }
-    ]
+    ],
+    "popularInThailand": false
   },
   {
     "id": "coin-us-lincoln-wheat-cent",
@@ -965,6 +994,7 @@
         "name": "NGC Coin Explorer (1909-S VDB 1C)",
         "url": "https://www.ngccoin.com/coin-explorer/united-states/cents/lincoln-cents-wheat-reverse-1909-1958/12428/"
       }
-    ]
+    ],
+    "popularInThailand": false
   }
 ]

@@ -1,6 +1,6 @@
 // Dribbble Modern UI App Module - Coin Center Data Store & Exact GPS World Mint Map
 let globalCoinsData = [];
-let activePreset = 'all';
+let activePreset = 'home';
 let activeCoverflowIndex = 0;
 let activeMintCountry = 'all';
 let leafletMap = null;
@@ -403,7 +403,15 @@ function setupNavigation() {
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       const targetId = tab.getAttribute('data-tab');
-      switchTab(targetId);
+      if (targetId === 'tab-home') {
+        setNavMode('home');
+      } else if (targetId === 'tab-catalog') {
+        setNavMode('all');
+      } else if (targetId === 'tab-counter') {
+        setNavMode('counter');
+      } else {
+        switchTab(targetId);
+      }
     });
   });
 
@@ -413,11 +421,23 @@ function setupNavigation() {
   }
 }
 
-function switchTab(targetId) {
-  document.querySelectorAll('.nav-link').forEach(t => {
-    t.classList.toggle('active', t.getAttribute('data-tab') === targetId);
+function setNavMode(mode) {
+  document.querySelectorAll('.nav-link').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-tab') === `tab-${mode}`);
   });
 
+  if (mode === 'home') {
+    switchTab('tab-catalog');
+    setQuickPreset('home');
+  } else if (mode === 'all') {
+    switchTab('tab-catalog');
+    setQuickPreset('all');
+  } else if (mode === 'counter') {
+    switchTab('tab-counter');
+  }
+}
+
+function switchTab(targetId) {
   document.querySelectorAll('.tab-view-section').forEach(sec => {
     sec.classList.toggle('active', sec.id === targetId);
   });
@@ -468,9 +488,39 @@ async function loadCoins() {
 // Quick Preset Filters
 function setQuickPreset(preset) {
   activePreset = preset;
+  activeCoverflowIndex = 0; // Reset to 1st coin
   document.querySelectorAll('.preset-chips-list .dribbble-chip').forEach(btn => {
     btn.classList.toggle('active', btn.getAttribute('onclick')?.includes(`'${preset}'`));
   });
+
+  // Sync Top Nav active state
+  const homeNav = document.querySelector('.nav-link[data-tab="tab-home"]');
+  const catalogNav = document.querySelector('.nav-link[data-tab="tab-catalog"]');
+  const counterNav = document.querySelector('.nav-link[data-tab="tab-counter"]');
+  if (homeNav && catalogNav && counterNav) {
+    if (preset === 'home') {
+      homeNav.classList.add('active');
+      catalogNav.classList.remove('active');
+      counterNav.classList.remove('active');
+    } else {
+      homeNav.classList.remove('active');
+      catalogNav.classList.toggle('active', preset === 'all');
+      counterNav.classList.remove('active');
+    }
+  }
+
+  // Update dynamic hero badge and subtitle
+  const badgeEl = document.getElementById('hero-badge-mode');
+  const subEl = document.getElementById('hero-sub-text');
+  if (badgeEl && subEl) {
+    if (preset === 'home') {
+      badgeEl.innerHTML = `<span>🇹🇭 คัดเฉพาะ 5 เหรียญเงินแท้ยอดนิยมในไทย</span>`;
+      subEl.textContent = `ศูนย์ข้อมูลเหรียญประจำร้าน คัดสรร 5 เหรียญเงินประวัติศาสตร์ยอดนิยมที่พบและหมุนเวียนจริงในแผ่นดินสยาม/ประเทศไทย`;
+    } else {
+      badgeEl.innerHTML = `<span>📂 คลังข้อมูลเหรียญกษาปณ์สะสมสากล (15 รายการ)</span>`;
+      subEl.textContent = `ศูนย์ข้อมูลเหรียญประจำร้าน แสดงสเปกเนื้อโลหะ สัดส่วน% โลหะ ประวัติความเป็นมาจากบันทึกทางประวัติศาสตร์ และระบบเหรียญวนลูป 3D Coverflow`;
+    }
+  }
 
   renderCatalog();
 }
@@ -480,18 +530,27 @@ function setupFilters() {
   const searchInput = document.getElementById('search-input');
   const searchBtn = document.getElementById('btn-search-trigger');
 
-  if (searchInput) searchInput.addEventListener('input', () => renderCatalog());
-  if (searchBtn) searchBtn.addEventListener('click', () => renderCatalog());
+  if (searchInput) searchInput.addEventListener('input', () => {
+    activeCoverflowIndex = 0;
+    renderCatalog();
+  });
+  if (searchBtn) searchBtn.addEventListener('click', () => {
+    activeCoverflowIndex = 0;
+    renderCatalog();
+  });
 }
 
-// ----------------------------------------------------
-// 3D COVERFLOW CAROUSEL LOGIC
-// ----------------------------------------------------
-function renderCatalog() {
-  const track = document.getElementById('coverflow-track');
-  const dotsContainer = document.getElementById('coverflow-dots');
+// Helper to get filtered coins list
+function getFilteredCoins() {
   const searchVal = (document.getElementById('search-input')?.value || '').toLowerCase();
-  if (!track) return;
+
+  const THAI_FEATURED_IDS = [
+    'coin-fr-indochina-piastre',
+    'coin-uk-trade-dollar',
+    'coin-cn-yuan-shih-kai-dollar',
+    'coin-cn-kwangtung-dragon-dollar',
+    'coin-mx-8-reales'
+  ];
 
   let filtered = globalCoinsData.filter(c => {
     const matchSearch = !searchVal || 
@@ -503,19 +562,49 @@ function renderCatalog() {
       c.year.toString().includes(searchVal);
 
     let matchPreset = true;
-    if (activePreset === 'australia') matchPreset = (c.country || '').includes('Australia') || (c.country || '').includes('ออสเตรเลีย');
-    else if (activePreset === 'usa') matchPreset = (c.country || '').includes('United States') || (c.country || '').includes('USA') || (c.country || '').includes('อเมริกา');
-    else if (activePreset === 'china') matchPreset = (c.country || '').includes('China') || (c.country || '').includes('จีน');
-    else if (activePreset === 'japan') matchPreset = (c.country || '').includes('Japan') || (c.country || '').includes('ญี่ปุ่น');
-    else if (activePreset === 'uk') matchPreset = (c.country || '').includes('United Kingdom') || (c.country || '').includes('UK') || (c.country || '').includes('อังกฤษ') || (c.country || '').includes('India') || (c.country || '').includes('อินเดีย');
-    else if (activePreset === 'indochina') matchPreset = (c.country || '').includes('Indochina') || (c.country || '').includes('France') || (c.country || '').includes('อินโดจีน') || (c.country || '').includes('ฝรั่งเศส');
-    else if (activePreset === 'straits') matchPreset = (c.country || '').includes('Straits') || (c.country || '').includes('สเตรทส์') || (c.country || '').includes('Singapore') || (c.country || '').includes('Malaya');
-    else if (activePreset === 'mexico') matchPreset = (c.country || '').includes('Mexico') || (c.country || '').includes('เม็กซิโก');
-    else if (activePreset === 'newzealand') matchPreset = (c.country || '').includes('New Zealand') || (c.country || '').includes('นิวซีแลนด์');
-    else if (activePreset === 'rare') matchPreset = (c.rarity || '').includes('Rare') || (c.rarity || '').includes('Legendary') || (c.rarity || '').includes('Key Date') || (c.rarity || '').includes('MYTHIC') || (c.rarity || '').includes('EPIC');
+    if (activePreset === 'home') {
+      matchPreset = c.popularInThailand === true || THAI_FEATURED_IDS.includes(c.id);
+    } else if (activePreset === 'australia') {
+      matchPreset = (c.country || '').includes('Australia') || (c.country || '').includes('ออสเตรเลีย');
+    } else if (activePreset === 'usa') {
+      matchPreset = (c.country || '').includes('United States') || (c.country || '').includes('USA') || (c.country || '').includes('อเมริกา');
+    } else if (activePreset === 'china') {
+      matchPreset = (c.country || '').includes('China') || (c.country || '').includes('จีน');
+    } else if (activePreset === 'japan') {
+      matchPreset = (c.country || '').includes('Japan') || (c.country || '').includes('ญี่ปุ่น');
+    } else if (activePreset === 'uk') {
+      matchPreset = (c.country || '').includes('United Kingdom') || (c.country || '').includes('UK') || (c.country || '').includes('อังกฤษ') || (c.country || '').includes('India') || (c.country || '').includes('อินเดีย');
+    } else if (activePreset === 'indochina') {
+      matchPreset = (c.country || '').includes('Indochina') || (c.country || '').includes('France') || (c.country || '').includes('อินโดจีน') || (c.country || '').includes('ฝรั่งเศส');
+    } else if (activePreset === 'straits') {
+      matchPreset = (c.country || '').includes('Straits') || (c.country || '').includes('สเตรทส์') || (c.country || '').includes('Singapore') || (c.country || '').includes('Malaya');
+    } else if (activePreset === 'mexico') {
+      matchPreset = (c.country || '').includes('Mexico') || (c.country || '').includes('เม็กซิโก');
+    } else if (activePreset === 'newzealand') {
+      matchPreset = (c.country || '').includes('New Zealand') || (c.country || '').includes('นิวซีแลนด์');
+    } else if (activePreset === 'rare') {
+      matchPreset = (c.rarity || '').includes('Rare') || (c.rarity || '').includes('Legendary') || (c.rarity || '').includes('Key Date') || (c.rarity || '').includes('MYTHIC') || (c.rarity || '').includes('EPIC');
+    }
 
     return matchSearch && matchPreset;
   });
+
+  if (activePreset === 'home') {
+    filtered.sort((a, b) => (a.thaiRank || 99) - (b.thaiRank || 99));
+  }
+
+  return filtered;
+}
+
+// ----------------------------------------------------
+// 3D COVERFLOW CAROUSEL LOGIC
+// ----------------------------------------------------
+function renderCatalog() {
+  const track = document.getElementById('coverflow-track');
+  const dotsContainer = document.getElementById('coverflow-dots');
+  if (!track) return;
+
+  const filtered = getFilteredCoins();
 
   if (filtered.length === 0) {
     track.innerHTML = `
@@ -560,12 +649,16 @@ function createCoverflowCardHtml(coin, index, posClass) {
   const composition = getCompositionText(coin);
   const flagBgClass = getCountryFlagClass(coin.country);
   const mainImage = coin.obverseImage || coin.image;
+  const thaiBadge = coin.popularInThailand ? `<span class="card-badge" style="background:rgba(239,68,68,0.15); color:#ef4444; border:1px solid rgba(239,68,68,0.3); font-weight:800; font-size:0.7rem; padding:0.2rem 0.55rem;">🇹🇭 นิยมในไทย #${coin.thaiRank || ''}</span>` : '';
 
   return `
     <div class="coverflow-card ${posClass}" id="cover-card-${coin.id}" data-side="obv" onclick="handleCardClick(${index}, '${coin.id}')">
       <div class="card-top-content">
         <div class="card-header-row">
-          <span class="card-badge">📅 ${coin.year}</span>
+          <div style="display:flex; align-items:center; gap:0.35rem; flex-wrap:wrap;">
+            <span class="card-badge">📅 ${coin.year}</span>
+            ${thaiBadge}
+          </div>
           <button class="card-arrow-btn" title="ดูรายละเอียด">↗</button>
         </div>
 
@@ -578,6 +671,12 @@ function createCoverflowCardHtml(coin, index, posClass) {
           <div>⚖️ น้ำหนัก: <b>${weight}</b></div>
           <div>🪙 ผลิต: <b>${mintage}</b></div>
         </div>
+
+        ${coin.thaiMarketNote ? `
+          <div style="margin-top:0.4rem; font-size:0.74rem; line-height:1.3; color:#b45309; background:#fffbeb; padding:0.3rem 0.55rem; border-radius:8px; border:1px solid #fde68a; font-weight:700;">
+            📍 ${coin.thaiMarketNote}
+          </div>
+        ` : ''}
       </div>
 
       <!-- Flag Background Container -->
@@ -601,14 +700,16 @@ function handleCardClick(index, coinId) {
 }
 
 function nextCoverflowCard() {
-  if (globalCoinsData.length === 0) return;
-  activeCoverflowIndex = (activeCoverflowIndex + 1) % globalCoinsData.length;
+  const filtered = getFilteredCoins();
+  if (filtered.length === 0) return;
+  activeCoverflowIndex = (activeCoverflowIndex + 1) % filtered.length;
   renderCatalog();
 }
 
 function prevCoverflowCard() {
-  if (globalCoinsData.length === 0) return;
-  activeCoverflowIndex = (activeCoverflowIndex - 1 + globalCoinsData.length) % globalCoinsData.length;
+  const filtered = getFilteredCoins();
+  if (filtered.length === 0) return;
+  activeCoverflowIndex = (activeCoverflowIndex - 1 + filtered.length) % filtered.length;
   renderCatalog();
 }
 
