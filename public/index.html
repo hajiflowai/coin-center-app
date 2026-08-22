@@ -37,7 +37,7 @@
         </button>
       </nav>
 
-      <!-- Right Header Actions (Auth, Quick Scanner Popup & LAN Info) -->
+      <!-- Right Header Actions (Auth, Admin & Theme Toggle) -->
       <div class="header-right" style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
         <!-- Auth Status Container (Dynamic) -->
         <div id="auth-header-container" class="auth-status-container">
@@ -49,16 +49,13 @@
           </button>
         </div>
 
-        <button id="btn-admin-portal" class="pill-btn" style="background:#f1f5f9; border:1px solid #cbd5e1; font-size:0.8rem; font-weight:800; color:#334155;" onclick="openAdminModal()" title="ระบบจัดการและอนุมัติสมาชิกสำหรับคุณศรัณย์ (เจ้าของร้าน)">
+        <button id="btn-admin-portal" class="pill-btn" style="background:var(--bg-card-sub, #f1f5f9); border:1.5px solid var(--border-color, #cbd5e1); font-size:0.82rem; font-weight:800; color:var(--text-main);" onclick="openAdminModal()" title="ระบบจัดการและอนุมัติสมาชิกสำหรับคุณศรัณย์ (เจ้าของร้าน)">
           ⚙️ <span>จัดการสมาชิก</span>
         </button>
 
-        <button id="btn-header-scanner" class="pill-btn btn-scanner-cta" onclick="openScannerPopup()" title="เปิดกล้องสแกนเหรียญด่วน">
-          <span style="font-size:1.15rem;">📷</span> <span>สแกน</span>
-        </button>
-
-        <button id="btn-lan-qr" class="pill-btn" title="คลิกเพื่อแสดง QR Code สำหรับมือถือในวง LAN">
-          🟢 <span id="server-lan-ip">10.194.86.152</span> 📱
+        <!-- Dark / Light Theme Toggle -->
+        <button id="theme-toggle-btn" class="pill-btn theme-toggle-btn" onclick="toggleTheme()" title="สลับโหมด ธีมสว่าง / ธีมมืด">
+          <span id="theme-icon">🌙</span> <span id="theme-text">ธีมมืด</span>
         </button>
       </div>
     </header>
@@ -256,95 +253,12 @@
 
   </div>
 
-  <!-- FLOATING ACTION BUTTON (Bottom-Right Camera Scanner) -->
-  <button id="btn-fab-scanner" class="floating-scanner-btn" onclick="openScannerPopup()" title="📷 เปิดกล้องสแกนเหรียญ">
-    <span style="font-size:1.35rem;">📷</span>
-    <span>สแกนเหรียญ</span>
-  </button>
-
-  <!-- MODAL: CAMERA SCANNER POPUP (Right / Dialog) -->
-  <div id="modal-scanner" class="modal-overlay">
-    <div class="modal-dribbble-content modal-scanner-content">
-      <button class="btn-close-modal" onclick="closeScannerPopup()">&times;</button>
-      
-      <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:1.25rem;">
-        <span style="font-size:1.6rem;">📷</span>
-        <div>
-          <h3 style="font-size:1.35rem; font-weight:900; color:var(--text-main); margin:0;">กล้องสแกนเหรียญอัจฉริยะ</h3>
-          <p style="color:var(--text-muted); font-size:0.82rem; margin:0;">ถ่ายภาพเหรียญเพื่อแมตช์และดึงข้อมูลจากคลังร้านทันที</p>
-        </div>
-      </div>
-
-      <div class="scanner-popup-grid">
-        <!-- Left: Camera Viewport -->
-        <div>
-          <div class="camera-dribbble-viewport">
-            <video id="webcam-feed" autoplay playsinline muted></video>
-            <canvas id="snapshot-canvas" style="display:none;"></canvas>
-            <div class="camera-overlay-circle"></div>
-          </div>
-
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.6rem; margin-top:0.9rem;">
-            <button id="btn-start-camera" class="dribbble-search-btn" style="padding:0.75rem; font-size:0.85rem;">🎬 เปิดกล้อง</button>
-            <button id="btn-capture-scan" class="dribbble-search-btn" style="padding:0.75rem; font-size:0.85rem; background:var(--accent-green);" disabled>⚡ ถ่าย &amp; สแกน</button>
-          </div>
-          
-          <div style="margin-top:0.6rem; text-align:center;">
-            <label for="scanner-file-upload" class="pill-btn" style="width:100%; justify-content:center; cursor:pointer; font-size:0.82rem; padding:0.5rem 0.8rem;">
-              📁 หรือเลือกรูปภาพจากเครื่อง
-            </label>
-            <input type="file" id="scanner-file-upload" accept="image/*" style="display:none;" onchange="handleScannerFileUpload(event)">
-          </div>
-        </div>
-
-        <!-- Right: Real-time Scan Result -->
-        <div style="background:#f8fafc; padding:1.25rem; border-radius:24px; border:1px solid #e2e8f0; display:flex; flex-direction:column; justify-content:space-between;">
-          <div>
-            <h4 style="font-size:1.05rem; font-weight:900; margin-bottom:0.75rem; color:var(--text-main); display:flex; align-items:center; gap:0.4rem;">
-              🎯 <span>ผลการสแกนเปรียบเทียบ</span>
-            </h4>
-            <div id="scan-results-content">
-              <div style="text-align:center; padding:2rem 0.5rem; color:var(--text-muted);">
-                <div style="font-size:2.5rem; margin-bottom:0.5rem;">🔍</div>
-                <div style="font-size:0.85rem; line-height:1.4;">กดปุ่ม <b>"เปิดกล้อง"</b> แล้วกด <b>"ถ่าย &amp; สแกน"</b> หรืออัปโหลดไฟล์รูปภาพเหรียญ</div>
-              </div>
-            </div>
-          </div>
-          
-          <div style="margin-top:0.75rem; padding-top:0.75rem; border-top:1px solid #e2e8f0; text-align:center;">
-            <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">ระบบเทียบโลหะและลวดลายอัตโนมัติ</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
   <!-- MODAL: COIN DETAIL VIEW SHEET -->
   <div id="modal-coin-detail" class="modal-overlay">
     <div class="modal-dribbble-content">
       <button class="btn-close-modal" onclick="closeModal('modal-coin-detail')">&times;</button>
       <div id="detail-modal-body">
         <!-- JS Populated -->
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL: LAN HOME SERVER QR CODE -->
-  <div id="modal-lan-qr" class="modal-overlay">
-    <div class="modal-dribbble-content" style="max-width:420px; text-align:center;">
-      <button class="btn-close-modal" onclick="closeModal('modal-lan-qr')">&times;</button>
-      <h3 style="font-size:1.3rem; font-weight:800; margin-bottom:0.5rem;">📱 สแกนเชื่อมต่อ Home Server</h3>
-      <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:1.5rem;">
-        สแกนจากมือถือหรือแท็บเล็ตในวง Wi-Fi เดียวกันเพื่อเข้าใช้งานได้ทันที
-      </p>
-
-      <div style="background:#fff; padding:1rem; border-radius:24px; display:inline-block; margin-bottom:1rem; box-shadow:0 8px 24px rgba(0,0,0,0.06);">
-        <img id="qr-code-img" src="" alt="LAN Server QR Code" style="width:220px; height:220px; display:block;">
-      </div>
-
-      <div style="background:#f1f5f9; padding:0.75rem; border-radius:16px; font-family:monospace; font-weight:800; color:var(--text-main); font-size:1.05rem;" id="qr-modal-url">
-        http://10.194.86.152:3000
       </div>
     </div>
   </div>

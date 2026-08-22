@@ -342,11 +342,43 @@ const worldMintsData = [
   }
 ];
 
+// ----------------------------------------------------
+// 🌓 THEME MANAGER (LIGHT / DARK MODE)
+// ----------------------------------------------------
+let currentTheme = localStorage.getItem('coin_center_theme') || 'light';
+
+function initTheme() {
+  currentTheme = localStorage.getItem('coin_center_theme') || 'light';
+  applyTheme(currentTheme);
+}
+
+function toggleTheme() {
+  currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  localStorage.setItem('coin_center_theme', currentTheme);
+  applyTheme(currentTheme);
+  showToast(currentTheme === 'dark' ? '🌙 สลับเป็นธีมมืด (Dark Mode)' : '☀️ สลับเป็นธีมสว่าง (Light Mode)');
+}
+
+function applyTheme(theme) {
+  if (theme === 'dark') {
+    document.body.classList.add('dark-mode');
+  } else {
+    document.body.classList.remove('dark-mode');
+  }
+
+  const iconEl = document.getElementById('theme-icon');
+  const textEl = document.getElementById('theme-text');
+  if (iconEl) iconEl.textContent = theme === 'dark' ? '☀️' : '🌙';
+  if (textEl) textEl.textContent = theme === 'dark' ? 'ธีมสว่าง' : 'ธีมมืด';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
   initApp();
 });
 
 async function initApp() {
+  initTheme();
   setupNavigation();
   setupFilters();
   setupMintSearch();
