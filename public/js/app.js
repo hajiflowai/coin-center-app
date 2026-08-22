@@ -1421,7 +1421,18 @@ async function deleteCoin(coinId) {
 
 // Generic Modal Helpers
 function openModal(id) {
-  document.getElementById(id)?.classList.add('active');
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.classList.add('active');
+
+  if (!el.hasAttribute('data-backdrop-bound')) {
+    el.setAttribute('data-backdrop-bound', 'true');
+    el.addEventListener('click', (e) => {
+      if (e.target === el) {
+        closeModal(id);
+      }
+    });
+  }
 }
 
 function closeModal(id) {
