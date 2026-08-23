@@ -30,7 +30,7 @@
           🏠 <span>หน้าแรก (นิยมในไทย 5 เหรียญ)</span>
         </button>
         <button class="nav-link" data-tab="tab-catalog" onclick="setNavMode('all')">
-          📂 <span>คลังเหรียญทั้งหมด (15 เหรียญ)</span>
+          📂 <span>คลังเหรียญทั้งหมด (<span id="nav-total-coins">27</span> เหรียญ)</span>
         </button>
         <button class="nav-link" data-tab="tab-counter" onclick="setNavMode('counter')">
           🌍 <span>แหล่งข้อมูลเหรียญ &amp; โรงกษาปณ์</span>
@@ -89,7 +89,7 @@
             <div class="preset-chips-list" id="hero-preset-chips-list">
               <!-- Dynamically populated by renderPresetChips() with VIP Lock status -->
               <button class="dribbble-chip active" onclick="handlePresetClick('home')">🏠 หน้าแรก (นิยมในไทย 5 เหรียญ)</button>
-              <button class="dribbble-chip" onclick="handlePresetClick('all')">📂 ทั้งหมด (15 เหรียญ) 🔒</button>
+              <button class="dribbble-chip" onclick="handlePresetClick('all')">📂 ทั้งหมด (<span id="hero-total-coins">27</span> เหรียญ) 🔒</button>
               <button class="dribbble-chip" onclick="handlePresetClick('indochina')">🇫🇷 อินโดจีน (1) 🔒</button>
               <button class="dribbble-chip" onclick="handlePresetClick('uk')">🇬🇧 สหราชอาณาจักร (2) 🔒</button>
               <button class="dribbble-chip" onclick="handlePresetClick('china')">🇨🇳 จีน (2) 🔒</button>
@@ -170,7 +170,7 @@
               <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">โรงกษาปณ์ในระบบ</div>
             </div>
             <div style="text-align:center;">
-              <div style="font-size:1.4rem; font-weight:900; color:var(--accent-blue);" id="stat-total-countries">10 ประเทศ</div>
+              <div style="font-size:1.4rem; font-weight:900; color:var(--accent-blue);" id="stat-total-countries">18 ประเทศ</div>
               <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">ครอบคลุมทวีปทั่วโลก</div>
             </div>
             <div style="text-align:center;">

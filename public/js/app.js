@@ -393,6 +393,15 @@ async function initApp() {
 // Helper to determine National Flag Background CSS class
 function getCountryFlagClass(country) {
   const c = (country || '').toLowerCase();
+  if (c.includes('canada') || c.includes('แคนาดา')) return 'flag-bg-canada';
+  if (c.includes('germany') || c.includes('prussia') || c.includes('เยอรมัน') || c.includes('ปรัสเซีย')) return 'flag-bg-germany';
+  if (c.includes('switzerland') || c.includes('สวิตเซอร์แลนด์') || c.includes('สวิส')) return 'flag-bg-switzerland';
+  if (c.includes('russia') || c.includes('russian') || c.includes('รัสเซีย')) return 'flag-bg-russia';
+  if (c.includes('italy') || c.includes('อิตาลี')) return 'flag-bg-italy';
+  if (c.includes('netherlands') || c.includes('เนเธอร์แลนด์') || c.includes('ฮอลแลนด์')) return 'flag-bg-netherlands';
+  if (c.includes('belgium') || c.includes('เบลเยียม')) return 'flag-bg-belgium';
+  if (c.includes('austria') || c.includes('ออสเตรีย')) return 'flag-bg-austria';
+  if (c.includes('spain') || c.includes('spanish') || c.includes('สเปน')) return 'flag-bg-spain';
   if (c.includes('australia') || c.includes('ออสเตรเลีย')) return 'flag-bg-australia';
   if (c.includes('united states') || c.includes('usa') || c.includes('อเมริกา') || c.includes('america')) return 'flag-bg-usa';
   if (c.includes('china') || c.includes('จีน') || c.includes('chinese')) return 'flag-bg-china';
@@ -560,37 +569,74 @@ async function loadCoins() {
 let isCountrySubmenuOpen = false;
 
 // Render Dynamic Preset Chips with Hierarchical Country Grouping
+// Render Dynamic Preset Chips with Hierarchical Country Grouping
+
+const ALL_COUNTRIES_DEF = [
+  { id: 'indochina', label: '🇫🇷 ฝรั่งเศส/อินโดจีน', aliases: ['Indochina', 'France', 'ฝรั่งเศส', 'อินโดจีน'] },
+  { id: 'uk', label: '🇬🇧 สหราชอาณาจักร/บริติช', aliases: ['United Kingdom', 'UK', 'อังกฤษ', 'India', 'อินเดีย'] },
+  { id: 'usa', label: '🇺🇸 สหรัฐอเมริกา', aliases: ['United States', 'USA', 'อเมริกา'] },
+  { id: 'canada', label: '🇨🇦 แคนาดา', aliases: ['Canada', 'แคนาดา'] },
+  { id: 'germany', label: '🇩🇪 เยอรมัน/ปรัสเซีย', aliases: ['Germany', 'Prussia', 'เยอรมัน', 'ปรัสเซีย'] },
+  { id: 'switzerland', label: '🇨🇭 สวิตเซอร์แลนด์', aliases: ['Switzerland', 'สวิตเซอร์แลนด์', 'สวิส'] },
+  { id: 'russia', label: '🇷🇺 รัสเซีย/โรมานอฟ', aliases: ['Russian Empire', 'Russia', 'รัสเซีย'] },
+  { id: 'italy', label: '🇮🇹 อิตาลี', aliases: ['Italy', 'อิตาลี'] },
+  { id: 'netherlands', label: '🇳🇱 เนเธอร์แลนด์', aliases: ['Netherlands', 'เนเธอร์แลนด์', 'ฮอลแลนด์'] },
+  { id: 'belgium', label: '🇧🇪 เบลเยียม', aliases: ['Belgium', 'เบลเยียม'] },
+  { id: 'austria', label: '🇦🇹 ออสเตรีย', aliases: ['Austria', 'ออสเตรีย'] },
+  { id: 'spain', label: '🇪🇸 สเปน', aliases: ['Spain', 'Spanish', 'สเปน'] },
+  { id: 'mexico', label: '🇲🇽 เม็กซิโก', aliases: ['Mexico', 'เม็กซิโก'] },
+  { id: 'china', label: '🇨🇳 จีน', aliases: ['China', 'จีน'] },
+  { id: 'japan', label: '🇯🇵 ญี่ปุ่น', aliases: ['Japan', 'ญี่ปุ่น'] },
+  { id: 'straits', label: '🇸🇬 สเตรทส์/มลายา', aliases: ['Straits', 'Singapore', 'Malaya', 'สเตรทส์'] },
+  { id: 'australia', label: '🇦🇺 ออสเตรเลีย', aliases: ['Australia', 'ออสเตรเลีย'] },
+  { id: 'newzealand', label: '🇳🇿 นิวซีแลนด์', aliases: ['New Zealand', 'นิวซีแลนด์'] }
+];
+
+
 function renderPresetChips() {
   const container = document.getElementById('hero-preset-chips-list');
   if (!container) return;
 
   const isVip = isVipSupporter();
+  const totalCoins = globalCoinsData.length || 27;
 
-  const countryList = [
-    { id: 'indochina', label: '🇫🇷 อินโดจีน (1)', isFree: false },
-    { id: 'uk', label: '🇬🇧 สหราชอาณาจักร (2)', isFree: false },
-    { id: 'china', label: '🇨🇳 จีน (2)', isFree: false },
-    { id: 'mexico', label: '🇲🇽 เม็กซิโก (1)', isFree: false },
-    { id: 'japan', label: '🇯🇵 ญี่ปุ่น (1)', isFree: false },
-    { id: 'straits', label: '🇸🇬 สเตรทส์ (1)', isFree: false },
-    { id: 'usa', label: '🇺🇸 อเมริกา (4)', isFree: false },
-    { id: 'australia', label: '🇦🇺 ออสเตรเลีย (2)', isFree: false },
-    { id: 'newzealand', label: '🇳🇿 นิวซีแลนด์ (1)', isFree: false }
-  ];
+  // Compute active country list with exact live counts
+  const countryList = ALL_COUNTRIES_DEF.map(cDef => {
+    const count = globalCoinsData.filter(coin => {
+      const countryStr = (coin.country || '').toLowerCase();
+      return cDef.aliases.some(alias => countryStr.includes(alias.toLowerCase()));
+    }).length;
+    return {
+      id: cDef.id,
+      label: `${cDef.label} (${count})`,
+      count: count,
+      isFree: false
+    };
+  }).filter(c => c.count > 0);
 
   const isCountryActive = countryList.some(c => c.id === activePreset);
 
+  const thaiCoinsCount = globalCoinsData.filter(c => c.popularInThailand === true).length || 5;
+
   const mainChips = [
-    { id: 'home', label: '🏠 หน้าแรก (นิยมในไทย 5 เหรียญ)', isFree: true },
-    { id: 'all', label: '📂 ทั้งหมด (15 เหรียญ)', isFree: false },
+    { id: 'home', label: `🏠 หน้าแรก (นิยมในไทย ${thaiCoinsCount} เหรียญ)`, isFree: true },
+    { id: 'all', label: `📂 ทั้งหมด (${totalCoins} เหรียญ)`, isFree: false },
     { 
       id: 'toggle-countries', 
-      label: `🌍 แยกตามประเทศ (9 ประเทศ) ${isCountrySubmenuOpen || isCountryActive ? '▴' : '▾'}`, 
+      label: `🌍 แยกตามประเทศ (${countryList.length} ประเทศ) ${isCountrySubmenuOpen || isCountryActive ? '▴' : '▾'}`, 
       isFree: false, 
       isActive: isCountryActive 
     },
     { id: 'rare', label: '⭐ ปีหายาก (Key Dates)', isFree: false }
   ];
+
+  // Update top nav and hero stats dynamically if elements exist
+  const navTotalCoins = document.getElementById('nav-total-coins');
+  if (navTotalCoins) navTotalCoins.textContent = totalCoins;
+  const heroTotalCoins = document.getElementById('hero-total-coins');
+  if (heroTotalCoins) heroTotalCoins.textContent = totalCoins;
+  const statCountries = document.getElementById('stat-total-countries');
+  if (statCountries) statCountries.textContent = `${countryList.length} ประเทศ`;
 
   let html = `
     <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:${(isCountrySubmenuOpen || isCountryActive) ? '0.6rem' : '0'};">
@@ -606,7 +652,7 @@ function renderPresetChips() {
     html += `
       <div class="country-submenu-box" style="background:var(--bg-card-sub, #f8fafc); border:1.5px solid var(--border-color, #e2e8f0); border-radius:20px; padding:0.75rem 0.85rem; display:flex; gap:0.45rem; flex-wrap:wrap; margin-top:0.4rem; animation:fadeIn 0.2s ease;">
         <div style="font-size:0.78rem; font-weight:800; color:var(--text-muted); width:100%; margin-bottom:0.25rem; display:flex; align-items:center; gap:0.35rem;">
-          🌍 <span>เลือกดูเหรียญตามประเทศ:</span>
+          🌍 <span>เลือกดูเหรียญตามประเทศ (${countryList.length} ประเทศในระบบ):</span>
         </div>
         ${countryList.map(c => {
           const isActive = activePreset === c.id;
@@ -714,7 +760,6 @@ function getFilteredCoins() {
     'coin-mx-8-reales'
   ];
 
-  // If user is not VIP, always constrain to 5 Thai coins
   let sourceCoins = globalCoinsData;
   if (!isVip) {
     sourceCoins = globalCoinsData.filter(c => c.popularInThailand === true || THAI_FEATURED_IDS.includes(c.id));
@@ -732,26 +777,15 @@ function getFilteredCoins() {
     let matchPreset = true;
     if (activePreset === 'home') {
       matchPreset = c.popularInThailand === true || THAI_FEATURED_IDS.includes(c.id);
-    } else if (activePreset === 'australia') {
-      matchPreset = (c.country || '').includes('Australia') || (c.country || '').includes('ออสเตรเลีย');
-    } else if (activePreset === 'usa') {
-      matchPreset = (c.country || '').includes('United States') || (c.country || '').includes('USA') || (c.country || '').includes('อเมริกา');
-    } else if (activePreset === 'china') {
-      matchPreset = (c.country || '').includes('China') || (c.country || '').includes('จีน');
-    } else if (activePreset === 'japan') {
-      matchPreset = (c.country || '').includes('Japan') || (c.country || '').includes('ญี่ปุ่น');
-    } else if (activePreset === 'uk') {
-      matchPreset = (c.country || '').includes('United Kingdom') || (c.country || '').includes('UK') || (c.country || '').includes('อังกฤษ') || (c.country || '').includes('India') || (c.country || '').includes('อินเดีย');
-    } else if (activePreset === 'indochina') {
-      matchPreset = (c.country || '').includes('Indochina') || (c.country || '').includes('France') || (c.country || '').includes('อินโดจีน') || (c.country || '').includes('ฝรั่งเศส');
-    } else if (activePreset === 'straits') {
-      matchPreset = (c.country || '').includes('Straits') || (c.country || '').includes('สเตรทส์') || (c.country || '').includes('Singapore') || (c.country || '').includes('Malaya');
-    } else if (activePreset === 'mexico') {
-      matchPreset = (c.country || '').includes('Mexico') || (c.country || '').includes('เม็กซิโก');
-    } else if (activePreset === 'newzealand') {
-      matchPreset = (c.country || '').includes('New Zealand') || (c.country || '').includes('นิวซีแลนด์');
     } else if (activePreset === 'rare') {
       matchPreset = (c.rarity || '').includes('Rare') || (c.rarity || '').includes('Legendary') || (c.rarity || '').includes('Key Date') || (c.rarity || '').includes('MYTHIC') || (c.rarity || '').includes('EPIC');
+    } else if (activePreset !== 'all') {
+      // Dynamic country match
+      const cDef = ALL_COUNTRIES_DEF.find(item => item.id === activePreset);
+      if (cDef) {
+        const countryStr = (c.country || '').toLowerCase();
+        matchPreset = cDef.aliases.some(alias => countryStr.includes(alias.toLowerCase()));
+      }
     }
 
     return matchSearch && matchPreset;
