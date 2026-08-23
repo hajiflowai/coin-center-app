@@ -1337,7 +1337,7 @@ function openCoinDetailModal(coinId) {
   modalBody.innerHTML = `
     <div style="text-align:center; margin-bottom:1.5rem;" id="modal-img-container" data-side="obv">
       <div class="card-image-wrapper ${flagBgClass}" style="height:200px; max-width:240px; margin:0 auto 1rem auto; cursor:pointer;" onclick="toggleModalCoinSide('${coin.id}')">
-        <img id="modal-coin-img-element" src="${obv}" style="width:140px; height:140px; object-fit:cover; filter:drop-shadow(0 12px 28px rgba(0,0,0,0.3)); transition:transform 0.25s ease;" alt="${coin.name}">
+        <img id="modal-coin-img-element" src="${obv}" style="width:140px; height:140px; object-fit:contain; filter:drop-shadow(0 12px 28px rgba(0,0,0,0.45)); transition:transform 0.25s ease;" alt="${coin.name}">
         <div id="modal-side-badge" style="position:absolute; bottom:0.6rem; background:rgba(30,39,46,0.9); backdrop-filter:blur(8px); color:#fff; padding:0.35rem 0.85rem; border-radius:9999px; font-size:0.75rem; font-weight:800; border:1px solid rgba(255,255,255,0.2);">
           🔄 ด้านหน้า (แตะเพื่อสลับเป็นด้านหลัง)
         </div>
