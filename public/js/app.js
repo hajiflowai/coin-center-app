@@ -16,6 +16,7 @@ function isVipSupporter() {
 
 // Complete Dataset of World Mints with Exact Real-World GPS Coordinates & Technology
 const worldMintsData = [
+  // 1. Australia
   {
     id: 'mint-melbourne',
     name: 'Melbourne Mint (โรงกษาปณ์เมลเบิร์น)',
@@ -36,7 +37,7 @@ const worldMintsData = [
   },
   {
     id: 'mint-adelaide',
-    name: 'Government Assay Office (โรงหลอมและกษาปณ์อะดิเลด)',
+    name: 'Government Assay Office, Adelaide (โรงกษาปณ์แอดิเลด)',
     country: 'Australia',
     countryTh: 'ออสเตรเลีย',
     flag: '🇦🇺',
@@ -44,107 +45,477 @@ const worldMintsData = [
     coordinates: '34.9285° S, 138.6007° E',
     lat: -34.9285,
     lng: 138.6007,
-    tagColor: '#f59e0b',
-    founded: 'ค.ศ. 1852 (พ.ร.บ. Bullion Act 1852)',
-    status: 'โรงกษาปณ์ฉุกเฉินแห่งแรกในประวัติศาสตร์ออสเตรเลีย',
-    coinsMinted: ['1852 Adelaide Pound Type I (ขอบมงกุฎร้าว ~40-100 เหรียญ)', '1852 Adelaide Pound Type II (ขอบหยัก เหลือรอด 250-300 เหรียญ)'],
-    technology: 'เตาหลอมทองคำความบริสุทธิ์ 22K และแท่นปั๊มแรงเหวี่ยงฉุกเฉิน',
-    history: 'เป็นโรงหลอมและกษาปณ์ฉุกเฉินแห่งแรกในออสเตรเลีย ก่อตั้งขึ้นตาม พ.ร.บ. Bullion Act 1852 เพื่อแปรรูปทองคำดิบจากยุคตื่นทองให้กลายเป็นเหรียญมาตรฐานปอนด์ ก่อนที่สภาองคมนตรีอังกฤษจะสั่งยกเลิก ปั๊มเหรียญรวม 24,711 เหรียญ แต่เนื่องจากมูลค่าทองคำสูงกว่าหน้าเหรียญ (£1) ผู้คนจึงนำไปหลอมละลาย เหลือรอดในโลกเพียง 250-300 เหรียญเท่านั้น',
+    tagColor: '#ef4444',
+    founded: 'ค.ศ. 1852',
+    status: 'โรงถลุงและผลิตเหรียญทองคำแห่งแรกของออสเตรเลีย (Bullion Act 1852)',
+    coinsMinted: ['1852 Adelaide Pound (Type I & Type II เหรียญทองคำแรกของออสเตรเลีย)', 'Adelaide Gold Ingots'],
+    technology: 'แท่นปั๊มลูกตุ้มแรงเหวี่ยงและแม่พิมพ์แกะมือโดยช่างแกะสลักประจำเมือง Joshua Payne',
+    history: 'ก่อตั้งตามกฎหมาย Bullion Act 1852 เพื่อแก้วิกฤตการณ์ขาดแคลนเงินตราหลังผู้คนแห่ไปขุดทองที่รัฐวิกตอเรีย โดยนำทองคำบริสุทธิ์ 22 กะรัตมาหลอมเป็นแท่งและปั๊มเป็นเหรียญ Adelaide Pound ถือเป็นเหรียญทองคำอย่างเป็นทางการเหรียญแรกในประวัติศาสตร์ออสเตรเลีย',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=-34.9285,138.6007'
   },
+
+  // 2. United States of America
   {
     id: 'mint-philadelphia',
-    name: 'Philadelphia Mint (โรงกษาปณ์ฟิลาเดลเฟีย - P)',
-    country: 'USA',
+    name: 'Philadelphia Mint (โรงกษาปณ์ฟิลาเดลเฟีย - ไม่มีมาร์ก / มาร์ก P)',
+    country: 'United States of America',
     countryTh: 'สหรัฐอเมริกา',
     flag: '🇺🇸',
-    city: 'Philadelphia, Pennsylvania, USA (151 N Independence Mall E)',
-    coordinates: '39.9537° N, 75.1481° W',
-    lat: 39.9537,
+    city: 'Philadelphia, Pennsylvania, USA (5th & Arch St)',
+    coordinates: '39.9535° N, 75.1481° W',
+    lat: 39.9535,
     lng: -75.1481,
-    tagColor: '#0284c7',
-    founded: 'ค.ศ. 1792 (กฎหมาย Coinage Act)',
-    status: 'โรงกษาปณ์แห่งแรกและใหญ่ที่สุดของสหรัฐอเมริกา',
-    coinsMinted: ['1964 Kennedy Half Dollar (90% Silver เนื้อเงินรุ่นสุดท้าย)', 'Morgan Silver Dollar (1878–1921 / 1895 Proof)', 'Peace Dollar', 'Lincoln Cent'],
-    technology: 'เครื่องจักรปั๊มเหรียญไอน้ำยุคแรก จนถึงระบบอัตโนมัติความเร็วสูง 1 ล้านเหรียญ/30 นาที',
-    history: 'ก่อตั้งขึ้นในสมัยประธานาธิบดีจอร์จ วอชิงตัน และโทมัส เจฟเฟอร์สัน เป็นโรงกษาปณ์หลักแห่งแรกของสหรัฐอเมริกา ผลิตเหรียญเงินเคนเนดี 90% ในปี 1964 เป็นปีสุดท้ายก่อนปรับลดเนื้อเงิน และผลิตเหรียญเงินประวัติศาสตร์มากมาย',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=39.9537,-75.1481'
+    tagColor: '#2563eb',
+    founded: 'ค.ศ. 1792',
+    status: 'โรงกษาปณ์แม่แห่งแรกของสหรัฐอเมริกา (First US Mint)',
+    coinsMinted: ['Morgan Silver Dollar (1878–1904, 1921)', 'Peace Silver Dollar (1921–1935)', 'Walking Liberty Half Dollar (1916–1947)', '1964 Kennedy Half Dollar (90% Silver)'],
+    technology: 'แท่นปั๊มสกรูแรงม้าในยุคแรก พัฒนาสู่แท่นปั๊มไอน้ำ Peale Coining Press ค.ศ. 1836',
+    history: 'สภาคองเกรสก่อตั้งขึ้นตามรัฐบัญญัติ Coinage Act of 1792 โดยประธานาธิบดีจอร์จ วอชิงตัน ถือเป็นโรงกษาปณ์หลักในการผลิตเหรียญเงินและเหรียญทองคำของชาติ เหรียญที่ผลิตที่นี่ส่วนใหญ่ในยุคคลาสสิกจะไม่ใส่เครื่องหมายโรงกษาปณ์ (No Mint Mark)',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=39.9535,-75.1481'
   },
   {
     id: 'mint-san-francisco',
-    name: 'San Francisco Mint (โรงกษาปณ์ซานฟรานซิสโก - S)',
-    country: 'USA',
+    name: 'San Francisco Mint (โรงกษาปณ์ซานฟรานซิสโก - มาร์ก S / The Granite Lady)',
+    country: 'United States of America',
     countryTh: 'สหรัฐอเมริกา',
     flag: '🇺🇸',
-    city: 'San Francisco, California, USA (155 Hermann St / Old Mint 88 5th St)',
-    coordinates: '37.7818° N, 122.4069° W',
-    lat: 37.7818,
-    lng: -122.4069,
-    tagColor: '#0284c7',
-    founded: 'ค.ศ. 1854 (California Gold Rush)',
-    status: 'ฉายา "The Granite Lady" รอดพ้นจากแผ่นดินไหวใหญ่ 1906',
-    coinsMinted: ['1909-S VDB Lincoln Wheat Cent (Key Date ผลิต 484,000 เหรียญ)', '1893-S Morgan Silver Dollar (ผลิต 100,000 เหรียญ ราคาประมูลหลักล้าน)'],
-    technology: 'ศูนย์กลางการผลิตเหรียญขัดเงาพิเศษ Proof Coin & Collector Strike ชั้นนำระดับโลก',
-    history: 'ก่อตั้งขึ้นเพื่อแปรรูปทองคำมหาศาลจากยุคตื่นทองแคลิฟอร์เนีย เป็นแหล่งผลิตเหรียญคีย์เดตหายากอันดับ 1 ของสายเหรียญ 1 เซนต์ ลินคอล์น (1909-S VDB) และเหรียญมอร์แกนดอลลาร์ 1893-S ที่มีราคาซื้อขายหลักล้านบาท',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=37.7818,-122.4069'
+    city: 'San Francisco, California, USA (88 5th St)',
+    coordinates: '37.7702° N, 122.4267° W',
+    lat: 37.7702,
+    lng: -122.4267,
+    tagColor: '#2563eb',
+    founded: 'ค.ศ. 1854',
+    status: 'โรงกษาปณ์แห่งยุคตื่นทองแคลิฟอร์เนีย (California Gold Rush)',
+    coinsMinted: ['1909-S VDB Lincoln Cent (สุดยอดเหรียญเซนต์หายาก ผลิต 484,000 เหรียญ)', '1893-S Morgan Dollar (Key Date มูลค่าสูงสุด)', 'Walking Liberty Half Dollar (S)', 'Peace Dollar (S)'],
+    technology: 'อาคารหินแกรนิตเสริมเหล็กกล้า รอดพ้นจากแผ่นดินไหวและไฟไหม้ใหญ่ปี 1906 อย่างปาฏิหาริย์',
+    history: 'ก่อตั้งขึ้นเพื่อแปรรูปทองคำมหาศาลจากยุคตื่นทองแคลิฟอร์เนีย 1849 อาคารโรงกษาปณ์ The Old Mint หรือ Granite Lady โด่งดังจากการรอดพ้นแผ่นดินไหวใหญ่ปี 1906 และเป็นแหล่งผลิตเหรียญระดับตำนานอย่าง 1909-S VDB และ 1893-S Morgan Dollar',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=37.7702,-122.4267'
   },
   {
     id: 'mint-denver',
-    name: 'Denver Mint (โรงกษาปณ์เดนเวอร์ - D)',
-    country: 'USA',
+    name: 'Denver Mint (โรงกษาปณ์เดนเวอร์ - มาร์ก D)',
+    country: 'United States of America',
     countryTh: 'สหรัฐอเมริกา',
     flag: '🇺🇸',
     city: 'Denver, Colorado, USA (320 W Colfax Ave)',
-    coordinates: '39.7397° N, 104.9915° W',
+    coordinates: '39.7397° N, 104.9926° W',
     lat: 39.7397,
-    lng: -104.9915,
-    tagColor: '#0284c7',
-    founded: 'ค.ศ. 1863 (เริ่มปั๊มเหรียญกษาปณ์ ค.ศ. 1906)',
-    status: 'โรงกษาปณ์ที่มีกำลังผลิตเหรียญหมุนเวียนสูงที่สุดในโลก',
-    coinsMinted: ['1964-D Kennedy Half Dollar (90% Silver)', '1914-D Lincoln Cent', 'Morgan & Peace Dollars (D)'],
-    technology: 'สายการผลิตกษาปณ์ความเร็วสูงระดับสิบล้านเหรียญต่อวัน',
-    history: 'ก่อตั้งขึ้นช่วงยุคตื่นทองเทือกเขาร็อกกี้ (Pikes Peak Gold Rush) ปัจจุบันเป็นโรงกษาปณ์หลักร่วมกับฟิลาเดลเฟียในการผลิตเหรียญหมุนเวียนของสหรัฐอเมริกา',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=39.7397,-104.9915'
+    lng: -104.9926,
+    tagColor: '#2563eb',
+    founded: 'ค.ศ. 1906',
+    status: 'โรงกษาปณ์หลักแห่งเทือกเขาร็อกกี',
+    coinsMinted: ['1964-D Kennedy Half Dollar (90% Silver)', '1921-D Morgan Silver Dollar', 'Peace Dollar (D)', 'Walking Liberty (D)'],
+    technology: 'ระบบหลอมและปั๊มโลหะด้วยพลังงานไฟฟ้าความเร็วสูง',
+    history: 'เริ่มต้นจากการเป็นโรงตรวจวิเคราะห์ทองคำ Clark, Gruber & Co. ในปี 1860 ก่อนรัฐบาลสหรัฐฯ เข้าซื้อกิจการและเปิดเป็นโรงกษาปณ์ผลิตเหรียญอย่างเป็นทางการในปี 1906 ผลิตเหรียญหมุนเวียนหลักของสหรัฐฯ มาจนถึงปัจจุบัน',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=39.7397,-104.9926'
   },
   {
     id: 'mint-carson-city',
-    name: 'Carson City Mint (โรงกษาปณ์คาร์สันซิตี - CC)',
-    country: 'USA',
+    name: 'Carson City Mint (โรงกษาปณ์คาร์สันซิตี - มาร์ก CC)',
+    country: 'United States of America',
     countryTh: 'สหรัฐอเมริกา',
     flag: '🇺🇸',
-    city: 'Carson City, Nevada, USA (600 N Carson St)',
-    coordinates: '39.1685° N, 119.7677° W',
-    lat: 39.1685,
-    lng: -119.7677,
-    tagColor: '#0284c7',
-    founded: 'ค.ศ. 1870 (ปิดสายการผลิต ค.ศ. 1893)',
-    status: 'โรงกษาปณ์เหมืองแร่เงินเนวาดา (ปัจจุบันเป็นพิพิธภัณฑ์แห่งรัฐ)',
-    coinsMinted: ['Morgan Silver Dollar ตราตอก CC (เช่น 1889-CC, 1878-CC ถึง 1893-CC)'],
-    technology: 'เครื่องจักรปั๊มเหรียญไอน้ำเฉพาะสำหรับแท่งเงินจากสายแร่ Comstock Lode',
-    history: 'ตั้งอยู่ติดกับสายแร่เงินคอมสต็อกโลดอันโด่งดัง ปั๊มเหรียญเงินมอร์แกนที่มีตราตอก "CC" ซึ่งเป็นที่ต้องการสูงสุดในหมู่นักสะสมทั่วโลก',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=39.1685,-119.7677'
+    city: 'Carson City, Nevada, USA (N Carson St)',
+    coordinates: '39.1678° N, 119.7674° W',
+    lat: 39.1678,
+    lng: -119.7674,
+    tagColor: '#2563eb',
+    founded: 'ค.ศ. 1870',
+    status: 'โรงกษาปณ์แห่งสายแร่เงินคอมสต็อก (Comstock Lode)',
+    coinsMinted: ['Morgan Silver Dollar CC (1878–1893)', 'Seated Liberty Silver Coins', 'Double Eagles Gold ($20)'],
+    technology: 'แท่นปั๊ม Morgan & Orr Steam Press #1 ผลิตตรงจากสายแร่เงินธรรมชาติ',
+    history: 'ตั้งอยู่ใกล้กับสายแร่เงินที่ใหญ่ที่สุดในประวัติศาสตร์อเมริกา Comstock Lode เหรียญที่ปั๊มตรา "CC" เป็นที่ต้องการสูงสุดในหมู่นักสะสมทั่วโลก ปิดทำการในปี 1893 ปัจจุบันเป็นพิพิธภัณฑ์แห่งรัฐเนวาดา',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=39.1678,-119.7674'
   },
   {
+    id: 'mint-new-orleans',
+    name: 'New Orleans Mint (โรงกษาปณ์นิวออร์ลีนส์ - มาร์ก O)',
+    country: 'United States of America',
+    countryTh: 'สหรัฐอเมริกา',
+    flag: '🇺🇸',
+    city: 'New Orleans, Louisiana, USA (400 Esplanade Ave)',
+    coordinates: '29.9631° N, 90.0610° W',
+    lat: 29.9631,
+    lng: -90.0610,
+    tagColor: '#2563eb',
+    founded: 'ค.ศ. 1838',
+    status: 'โรงกษาปณ์ประวัติศาสตร์ริมแม่น้ำมิสซิสซิปปี',
+    coinsMinted: ['Morgan Silver Dollar O (1879–1904)', 'Seated Liberty & Barber Silver Coins'],
+    technology: 'แท่นปั๊มไอน้ำขนาดใหญ่ รองรับการค้าปากแม่น้ำมิสซิสซิปปี',
+    history: 'เป็นโรงกษาปณ์แห่งเดียวที่เคยดำเนินการภายใต้ 3 รัฐบาล (สหรัฐอเมริกา, รัฐลุยเซียนา, และสมาพันธรัฐอเมริกาช่วงสงครามกลางเมือง) ผลิตเหรียญเงินมอร์แกนดอลลาร์ตรา O ที่มีชื่อเสียง ปิดทำการในปี 1909',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=29.9631,-90.0610'
+  },
+
+  // 3. Canada
+  {
+    id: 'mint-ottawa',
+    name: 'Royal Canadian Mint (โรงกษาปณ์หลวงแคนาดา - Ottawa)',
+    country: 'Canada',
+    countryTh: 'แคนาดา',
+    flag: '🇨🇦',
+    city: 'Ottawa, Ontario, Canada (320 Sussex Drive)',
+    coordinates: '45.4297° N, 75.6985° W',
+    lat: 45.4297,
+    lng: -75.6985,
+    tagColor: '#dc2626',
+    founded: 'ค.ศ. 1908',
+    status: 'โรงกษาปณ์หลวงแห่งเครือจักรภพแคนาดา',
+    coinsMinted: ['Canada 1 Dollar Silver Voyageur 1948 (King George VI - ผลิตเพียง 18,780 เหรียญ)', 'Canadian Silver Maple Leaf', 'เหรียญเงินฉลองครบรอบประวัติศาสตร์แคนาดา'],
+    technology: 'แท่นปั๊มกษาปณ์มาตรฐานสูงของเครือจักรภพอังกฤษ และเทคโนโลยีรีดเหรียญเงิน 80% Fine Silver',
+    history: 'เปิดทำการอย่างเป็นทางการในวันที่ 2 มกราคม 1908 โดยข้าหลวงใหญ่ Earl Grey เดิมเป็นสาขาของ Royal Mint ลอนดอน ก่อนโอนมาอยู่ภายใต้การบริหารของกระทรวงการคลังแคนาดาในปี 1931 ผลิตเหรียญเงินดอลลาร์ประวัติศาสตร์ 1948 Voyageur ซึ่งเป็นหนึ่งในเหรียญเงินแคนาดาที่หายากและมีมูลค่าสูงสุด',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=45.4297,-75.6985'
+  },
+
+  // 4. United Kingdom
+  {
+    id: 'mint-royal-uk',
+    name: 'The Royal Mint (โรงกษาปณ์หลวงสหราชอาณาจักร - Tower Hill / Llantrisant)',
+    country: 'United Kingdom',
+    countryTh: 'สหราชอาณาจักร',
+    flag: '🇬🇧',
+    city: 'Tower Hill, London / Llantrisant, Wales, UK',
+    coordinates: '51.5100° N, 0.0736° W',
+    lat: 51.5100,
+    lng: -0.0736,
+    tagColor: '#1e3a8a',
+    founded: 'ค.ศ. 886',
+    status: 'หนึ่งในโรงกษาปณ์ที่เก่าแก่ที่สุดในโลก (กว่า 1,100 ปี)',
+    coinsMinted: ['Victorian Gothic Crown 1847 (เหรียญเงินกอธิคคราวน์ ผลิตเพียง 8,000 เหรียญ)', '1935 New Zealand Waitangi Crown (ผลิต 1,128 เหรียญ)', 'British Trade Dollar 1895–1935', 'Sovereign Gold Coins'],
+    technology: 'แท่นปั๊มไอน้ำ Matthew Boulton & James Watt ค.ศ. 1810 และเครื่องมือแกะลายระดับโลกโดย William Wyon',
+    history: 'ก่อตั้งขึ้นในรัชสมัยของกษัตริย์อัลเฟรดมหาราช (ค.ศ. 886) ผลิตเหรียญให้กับสหราชอาณาจักรและดินแดนในเครือจักรภพทั่วโลก รวมถึงสร้างผลงานระดับมาสเตอร์พีซของโลกอย่าง Gothic Crown 1847 และ Waitangi Crown 1935',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=51.5100,-0.0736'
+  },
+  {
+    id: 'mint-birmingham',
+    name: 'The Mint, Birmingham (โรงกษาปณ์เบอร์มิงแฮม - Heaton & Sons / มาร์ก H)',
+    country: 'United Kingdom',
+    countryTh: 'สหราชอาณาจักร',
+    flag: '🇬🇧',
+    city: 'Birmingham, England, UK (Icknield St)',
+    coordinates: '52.4862° N, 1.8904° W',
+    lat: 52.4862,
+    lng: -1.8904,
+    tagColor: '#1e3a8a',
+    founded: 'ค.ศ. 1850',
+    status: 'โรงกษาปณ์เอกชนที่ใหญ่ที่สุดในโลกยุควิกตอเรีย',
+    coinsMinted: ['British Trade Dollar (ตรา H)', 'เหรียญกษาปณ์สยามสมัยรัชกาลที่ 5 (อันเฟื้อง, เสี้ยว, ซีก, โสฬส)', 'เหรียญกษาปณ์กว่า 40 ประเทศทั่วโลก'],
+    technology: 'แท่นปั๊มลูกสูบไอน้ำความแม่นยำสูงและเตาหลอมโลหะผสมพิเศษ',
+    history: 'ก่อตั้งโดย Ralph Heaton รับจ้างผลิตเหรียญกษาปณ์ให้กับรัฐบาลทั่วโลกกว่า 40 ประเทศ รวมถึงเป็นผู้รับจ้างปั๊มเหรียญทองแดงและดีบุกให้กับประเทศสยาม (ไทย) ในสมัยรัชกาลที่ 5 เพื่อแก้วิกฤตการณ์เหรียญกษาปณ์ในประเทศ',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=52.4862,-1.8904'
+  },
+
+  // 5. France & French Empire
+  {
+    id: 'mint-paris',
+    name: 'Monnaie de Paris (โรงกษาปณ์ปารีส - มาร์ก A / Cornucopia)',
+    country: 'France',
+    countryTh: 'ฝรั่งเศส',
+    flag: '🇫🇷',
+    city: 'Paris, France (11 Quai de Conti, 6th Arrondissement)',
+    coordinates: '48.8566° N, 2.3387° E',
+    lat: 48.8566,
+    lng: 2.3387,
+    tagColor: '#3b82f6',
+    founded: 'ค.ศ. 864',
+    status: 'สถาบันที่เก่าแก่ที่สุดของฝรั่งเศส (ก่อตั้งโดยพระเจ้าชาร์ลส์ผู้ศีรษะล้าน)',
+    coinsMinted: ['French Third Republic 5 Francs Hercules 1875 (มาร์ก A)', 'French Indochina 1 Piastre de Commerce 1885–1928 (เหรียญนางกวักอินโดจีน)', 'Russian Empire 1 Ruble 1897 (ปั๊มช่วยรัสเซีย)'],
+    technology: 'แท่นปั๊มกษาปณ์แบบ Balancier และแท่นปั๊ม Thonnelier ความแม่นยำสูง แกะสลักโดย Augustin Dupré และ Barre',
+    history: 'ก่อตั้งขึ้นตามพระบรมราชโองการ Edict of Pistres ค.ศ. 864 เป็นโรงกษาปณ์ที่เก่าแก่ที่สุดของฝรั่งเศส ผลิตเหรียญเงิน 5 Francs Hercules และเหรียญการค้า French Indochina Piastre (เหรียญนางกวัก) ซึ่งกลายเป็นสกุลเงินหลักที่แพร่หลายในเวียดนาม กัมพูชา ลาว และภาคอีสานของไทย',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=48.8566,2.3387'
+  },
+  {
+    id: 'mint-bordeaux',
+    name: 'Bordeaux Mint (โรงกษาปณ์บอร์กโดซ์ - มาร์ก K)',
+    country: 'France',
+    countryTh: 'ฝรั่งเศส',
+    flag: '🇫🇷',
+    city: 'Bordeaux, Gironde, France',
+    coordinates: '44.8378° N, 0.5792° W',
+    lat: 44.8378,
+    lng: -0.5792,
+    tagColor: '#3b82f6',
+    founded: 'ค.ศ. 1550',
+    status: 'โรงกษาปณ์สาขาหลักของฝรั่งเศสทางภาคตะวันตกเฉียงใต้',
+    coinsMinted: ['French 5 Francs Hercules (มาร์ก K)', 'French Franc Silver Series'],
+    technology: 'แท่นปั๊มเหรียญกษาปณ์พลังน้ำและไอน้ำประจำเมืองท่าบอร์กโดซ์',
+    history: 'เป็นโรงกษาปณ์สาขาที่สำคัญของฝรั่งเศส ใช้สัญลักษณ์ตัวอักษร "K" มีบทบาทสำคัญในการปั๊มเหรียญเงินหมุนเวียนและเหรียญพาณิชยการทางทะเล ปิดสายการผลิตเหรียญกษาปณ์ในปี 1878',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=44.8378,-0.5792'
+  },
+
+  // 6. Germany
+  {
+    id: 'mint-berlin',
+    name: 'Staatliche Münze Berlin (โรงกษาปณ์แห่งรัฐเบอร์ลิน - มาร์ก A)',
+    country: 'Germany',
+    countryTh: 'เยอรมนี',
+    flag: '🇩🇪',
+    city: 'Berlin, Germany (Ollenhauerstraße 97)',
+    coordinates: '52.5658° N, 13.3328° E',
+    lat: 52.5658,
+    lng: 13.3328,
+    tagColor: '#eab308',
+    founded: 'ค.ศ. 1280',
+    status: 'โรงกษาปณ์หลวงแห่งจักรวรรดิเยอรมันและปรัสเซีย (มาร์ก A)',
+    coinsMinted: ['German Empire Prussia 5 Mark Wilhelm II 1913 (ตรา A)', 'เหรียญทองคำ 20 Mark Wilhelm II', 'เหรียญเงินจักรวรรดิเยอรมัน Deutsches Reich'],
+    technology: 'แท่นปั๊มกษาปณ์ระบบ Uhlhorn Lever Press มาตรฐานวิศวกรรมเยอรมันขั้นสูง',
+    history: 'ก่อตั้งขึ้นตั้งแต่ปี ค.ศ. 1280 ได้รับเกียรติให้ใช้เครื่องหมายโรงกษาปณ์ตัวอักษร "A" ในฐานะโรงกษาปณ์หลวงอันดับ 1 ของปรัสเซียและจักรวรรดิเยอรมัน ผลิตเหรียญเงิน 5 มาร์ค จักรพรรดิวิลเฮ็ล์มที่ 2 เนื่องในวาระครองราชย์ครบ 25 ปี ค.ศ. 1913',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=52.5658,13.3328'
+  },
+
+  // 7. Austria
+  {
+    id: 'mint-vienna',
+    name: 'Münze Österreich (โรงกษาปณ์เวียนนา - Austrian Mint)',
+    country: 'Austria',
+    countryTh: 'ออสเตรีย',
+    flag: '🇦🇹',
+    city: 'Vienna, Austria (Am Heumarkt 1)',
+    coordinates: '48.2014° N, 16.3817° E',
+    lat: 48.2014,
+    lng: 16.3817,
+    tagColor: '#ef4444',
+    founded: 'ค.ศ. 1194',
+    status: 'โรงกษาปณ์แห่งจักรวรรดิออสเตรีย-ฮังการีและราชวงศ์ฮับส์บูร์ก',
+    coinsMinted: ['Austria Maria Theresa Thaler 1780 (เหรียญการค้าที่ผลิตมากที่สุดในโลกกว่า 800 ล้านเหรียญ)', 'Vienna Philharmonic Gold & Silver', 'Corona & Gulden Series'],
+    technology: 'แท่นปั๊มกษาปณ์ Screw Press ยุคฮับส์บูร์ก และเทคโนโลยีขอบเหรียญตัวหนังสือนูน (Raised Edge Lettering)',
+    history: 'มีจุดเริ่มต้นจากการเรียกค่าไถ่พระเจ้าริชาร์ดใจสิงห์แห่งอังกฤษในปี 1194 ผลิตเหรียญการค้าระดับตำนาน Maria Theresa Thaler 1780 (MTT) ซึ่งได้รับการยอมรับและใช้หมุนเวียนข้ามทวีปตั้งแต่ยุโรป ตะวันออกกลาง จนถึงแอฟริกาตะวันออกมายาวนานกว่า 200 ปี',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=48.2014,16.3817'
+  },
+
+  // 8. Switzerland
+  {
+    id: 'mint-swissmint',
+    name: 'Swissmint (โรงกษาปณ์แห่งสหพันธ์สวิส - Bern Mint / มาร์ก B)',
+    country: 'Switzerland',
+    countryTh: 'สวิตเซอร์แลนด์',
+    flag: '🇨🇭',
+    city: 'Bern, Switzerland (Bernastrasse 28)',
+    coordinates: '46.9427° N, 7.4474° E',
+    lat: 46.9427,
+    lng: 7.4474,
+    tagColor: '#dc2626',
+    founded: 'ค.ศ. 1853',
+    status: 'โรงกษาปณ์ทางการแห่งสมาพันธรัฐสวิส',
+    coinsMinted: ['Switzerland 5 Francs Standing Helvetia 1900 (ตรา B - ขอบอักษรนูน DOMINUS PROVIDEBIT)', 'Vreneli 20 Francs Gold', 'Swiss Franc Silver Series'],
+    technology: 'แม่พิมพ์กษาปณ์ความแม่นยำสูงระดับนาฬิกาสวิส แกะสลักโดย Antoine Bovy และ Paul Burkhard',
+    history: 'ก่อตั้งขึ้นหลังการรวมระบบเงินตราของสวิตเซอร์แลนด์ตามรัฐบัญญัติ Federal Coinage Act 1850 สัญลักษณ์มาร์ก "B" หมายถึงกรุงเบิร์น ผลิตเหรียญเงิน 5 Francs เทพีเฮลเวเทีย (Standing Helvetia) ที่มีมาตรฐานความบริสุทธิ์ของเนื้อเงิน 90% ตามข้อตกลง Latin Monetary Union (LMU)',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=46.9427,7.4474'
+  },
+
+  // 9. Italy
+  {
+    id: 'mint-rome',
+    name: 'Zecca di Roma (โรงกษาปณ์กรุงโรม - มาร์ก R)',
+    country: 'Italy',
+    countryTh: 'อิตาลี',
+    flag: '🇮🇹',
+    city: 'Rome, Italy (Via Principe Umberto / Via Salaria)',
+    coordinates: '41.8797° N, 12.4839° E',
+    lat: 41.8797,
+    lng: 12.4839,
+    tagColor: '#16a34a',
+    founded: 'ค.ศ. 1871',
+    status: 'โรงกษาปณ์แห่งชาติราชอาณาจักรอิตาลี (Istituto Poligrafico e Zecca dello Stato)',
+    coinsMinted: ['Kingdom of Italy 5 Lire Vittorio Emanuele II 1874 (มาร์ก R)', 'เหรียญทองคำ 20 Lire Umberto I', 'เหรียญเงิน 5 Lire Regno d Italia'],
+    technology: 'แท่นปั๊มไฮดรอลิกมาตรฐานราชอาณาจักร แกะแม่พิมพ์โดย Giuseppe Ferraris',
+    history: 'กลายเป็นโรงกษาปณ์หลวงหลักของอิตาลีหลังการรวมชาติและการย้ายเมืองหลวงมายังกรุงโรมในปี 1871 ผลิตเหรียญเงิน 5 Lire กษัตริย์วิกเตอร์ เอ็มมานูเอลที่ 2 ที่มีตราอาร์มราชวงศ์ซาวอยและสายสร้อยพระราชทานแอนนันซิอาตา',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=41.8797,12.4839'
+  },
+  {
+    id: 'mint-milan',
+    name: 'Regia Zecca di Milano (โรงกษาปณ์มิลาน - มาร์ก M)',
+    country: 'Italy',
+    countryTh: 'อิตาลี',
+    flag: '🇮🇹',
+    city: 'Milan, Lombardy, Italy',
+    coordinates: '45.4642° N, 9.1900° E',
+    lat: 45.4642,
+    lng: 9.1900,
+    tagColor: '#16a34a',
+    founded: 'ศตวรรษที่ 4 (ยุคโรมัน)',
+    status: 'โรงกษาปณ์ประวัติศาสตร์แห่งแคว้นลอมบาร์เดีย',
+    coinsMinted: ['Kingdom of Italy 5 Lire (มาร์ก M)', 'เหรียญกษาปณ์ราชอาณาจักรลอมบาร์ดี-เวเนเชีย'],
+    technology: 'แท่นปั๊มลูกสูบพลังน้ำและไอน้ำยุคฟื้นฟูศิลปวิทยาการสู่ยุคปฏิวัติอุตสาหกรรม',
+    history: 'เป็นโรงกษาปณ์เก่าแก่ตั้งแต่ยุคจักรวรรดิโรมัน ผลิตเหรียญเงิน 5 Lire ให้กับราชอาณาจักรอิตาลีในยุคแรกของการรวมชาติ โดยใช้สัญลักษณ์ตัวอักษร "M" ปิดสายการผลิตในปี 1892',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=45.4642,9.1900'
+  },
+
+  // 10. Netherlands
+  {
+    id: 'mint-utrecht',
+    name: 'Royal Dutch Mint (โรงกษาปณ์หลวงเนเธอร์แลนด์ - Utrecht / ตรา Caduceus)',
+    country: 'Netherlands',
+    countryTh: 'เนเธอร์แลนด์',
+    flag: '🇳🇱',
+    city: 'Utrecht / Houten, Netherlands',
+    coordinates: '52.0298° N, 5.1764° E',
+    lat: 52.0298,
+    lng: 5.1764,
+    tagColor: '#f97316',
+    founded: 'ค.ศ. 1567',
+    status: 'โรงกษาปณ์แห่งราชอาณาจักรเนเธอร์แลนด์ (Koninklijke Nederlandse Munt)',
+    coinsMinted: ['Netherlands 2.5 Gulden Rijksdaalder - Queen Wilhelmina 1938 (เนื้อเงิน 72%)', '10 Gulden Gold Coin', 'เหรียญกษาปณ์ดัตช์อีสต์อินดีส (อินโดนีเซีย)'],
+    technology: 'แท่นปั๊มกษาปณ์ความแม่นยำสูง พร้อมตราสัญลักษณ์คทาคาดูเซียส (Caduceus) และตราม้าน้ำ/เรือใบประจำนายกษาปณ์',
+    history: 'ก่อตั้งขึ้นในปี 1567 เป็นผู้ผลิตเงินตราหลักของชาวดัตช์และเหรียญการค้าในดินแดนอาณานิคมโพ้นทะเล เหรียญ 2.5 Gulden (ไรค์สดาลเดอร์) พระราชินีวิลเฮลมินาเป็นหนึ่งในเหรียญเงินหมุนเวียนขนาดใหญ่ที่ได้รับความนิยมอย่างสูงทั่วยุโรป',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=52.0298,5.1764'
+  },
+
+  // 11. Belgium
+  {
+    id: 'mint-brussels',
+    name: 'Royal Mint of Belgium (โรงกษาปณ์หลวงเบลเยียม - Brussels)',
+    country: 'Belgium',
+    countryTh: 'เบลเยียม',
+    flag: '🇧🇪',
+    city: 'Brussels, Belgium (Boulevard Pachéco 32)',
+    coordinates: '50.8466° N, 4.3528° E',
+    lat: 50.8466,
+    lng: 4.3528,
+    tagColor: '#ca8a04',
+    founded: 'ค.ศ. 1832',
+    status: 'โรงกษาปณ์แห่งราชอาณาจักรเบลเยียม (Monnaie Royale de Belgique)',
+    coinsMinted: ['Kingdom of Belgium 5 Francs Leopold II 1873 (เนื้อเงิน 90% LMU)', 'Belgian 20 Francs Gold Leopold II', 'Russian 1 Ruble 1897 (ปั๊มช่วยจักรวรรดิรัสเซีย - มาร์ก 2 ดาว)'],
+    technology: 'แท่นปั๊มกษาปณ์มาตรฐานสูง แกะสลักโดยประติมากรหลวง Léopold Wiener',
+    history: 'ก่อตั้งขึ้นหลังการประกาศเอกราชของเบลเยียม ผลิตเหรียญเงินขนาดใหญ่ 5 Francs กษัตริย์เลโอโปลด์ที่ 2 ซึ่งมีคำขวัญภาษาดัตช์และฝรั่งเศส "L UNION FAIT LA FORCE" (ความสามัคคีคือพลัง) รวมถึงได้รับเกียรติให้ปั๊มเหรียญเงิน 1 รูเบิลช่วยซาร์นิโคลัสที่ 2 แห่งรัสเซียในปี 1897',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=50.8466,4.3528'
+  },
+
+  // 12. Russian Empire
+  {
+    id: 'mint-spb',
+    name: 'Saint Petersburg Mint (โรงกษาปณ์เซนต์ปีเตอร์สเบิร์ก - ตรา СПБ / АГ)',
+    country: 'Russian Empire',
+    countryTh: 'รัสเซีย',
+    flag: '🇷🇺',
+    city: 'Saint Petersburg, Russia (Peter and Paul Fortress)',
+    coordinates: '59.9500° N, 30.3167° E',
+    lat: 59.9500,
+    lng: 30.3167,
+    tagColor: '#0284c7',
+    founded: 'ค.ศ. 1724',
+    status: 'โรงกษาปณ์หลวงแห่งราชวงศ์โรมานอฟ (ก่อตั้งโดยซาร์ปีเตอร์มหาราช)',
+    coinsMinted: ['Russian Empire 1 Ruble - Tsar Nicholas II 1897 (เหรียญเงิน 1 รูเบิล ซาร์นิโคลัสที่ 2)', 'Gold 5, 10, 15 Roubles Nicholas II', 'Imperial Silver Roubles 1724–1917'],
+    technology: 'โรงกษาปณ์ตั้งอยู่ภายในป้อมปราการปีเตอร์แอนด์พอล (Peter and Paul Fortress) พร้อมระบบแกะอักษรขอบเหรียญนูน (Edge Inscription)',
+    history: 'ก่อตั้งขึ้นตามพระราชโองการของซาร์ปีเตอร์มหาราชในปี 1724 เป็นศูนย์กลางการผลิตเหรียญเงินและทองคำของจักรวรรดิรัสเซีย ผลิตเหรียญ 1 รูเบิล ซาร์นิโคลัสที่ 2 ซึ่งถือเป็นเหรียญเงินหมุนเวียนหลักชุดสุดท้ายก่อนการปฏิวัติรัสเซียปี 1917',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=59.9500,30.3167'
+  },
+
+  // 13. Spain & Colonial Spanish Mints
+  {
+    id: 'mint-madrid',
+    name: 'Real Casa de la Moneda (โรงกษาปณ์หลวงแห่งสเปน - Madrid / มาร์ก M / ดาวหกแฉก)',
+    country: 'Spain',
+    countryTh: 'สเปน',
+    flag: '🇪🇸',
+    city: 'Madrid, Spain (Calle de Jorge Juan 106)',
+    coordinates: '40.4225° N, 3.6669° W',
+    lat: 40.4225,
+    lng: -3.6669,
+    tagColor: '#dc2626',
+    founded: 'ค.ศ. 1591',
+    status: 'โรงกษาปณ์หลวงแห่งราชอาณาจักรสเปน (FNMT)',
+    coinsMinted: ['Spanish 8 Reales & 5 Pesetas Silver Series', 'Gold Escudos & Doubloons', 'เหรียญกษาปณ์อาณานิคมสเปน'],
+    technology: 'แท่นปั๊มกษาปณ์ลูกสูบระบบไอน้ำและเครื่องรีดแผ่นเงินบริสุทธิ์',
+    history: 'ก่อตั้งขึ้นในรัชสมัยพระเจ้าฟิลิปที่ 2 เป็นศูนย์กลางการเงินและการผลิตเหรียญกษาปณ์หลักของจักรวรรดิสเปนบนคาบสมุทรไอบีเรีย ควบคุมดูแลระบบเงินตรา Reales และ Pesetas มายาวนานกว่า 4 ศตวรรษ',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=40.4225,-3.6669'
+  },
+  {
+    id: 'mint-potosi',
+    name: 'Casa de Moneda de Potosí (โรงกษาปณ์โปโตซี - โบลิเวีย / Cerro Rico / มาร์ก PTS)',
+    country: 'Spain',
+    countryTh: 'สเปน',
+    flag: '🇧🇴',
+    city: 'Potosí, Bolivia (Calle Nogales)',
+    coordinates: '19.5836° S, 65.7531° W',
+    lat: -19.5836,
+    lng: -65.7531,
+    tagColor: '#dc2626',
+    founded: 'ค.ศ. 1572',
+    status: 'โรงกษาปณ์แร่เงินที่ใหญ่ที่สุดในโลกยุคอาณานิคม (ภูเขาแร่เงินเซร์โรริโก)',
+    coinsMinted: ['Spanish 8 Reales Columnarios (ตรา PTS)', '8 Reales Cob Coins (เหรียญเงินตัดมุมก้นขนมปัง)', 'Silver Macuquinas'],
+    technology: 'กังหันพลังน้ำจากอ่างเก็บน้ำบนเทือกเขาแอนดีส และแท่นปั๊มลูกกลิ้งไม้โอ๊คยักษ์ (Laminadores)',
+    history: 'ตั้งอยู่บนระดับความสูงกว่า 4,000 เมตรเหนือระดับน้ำทะเล ใกล้ภูเขาแร่เงิน Cerro Rico ซึ่งผลิตแร่เงินคิดเป็นกว่าครึ่งหนึ่งของผลผลิตเงินทั่วโลกในคริสต์ศตวรรษที่ 16–18 เหรียญ 8 Reales จากที่นี่ถูกขนส่งข้ามมหาสมุทรไปหมุนเวียนทั่วโลก',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=-19.5836,-65.7531'
+  },
+  {
+    id: 'mint-lima',
+    name: 'Casa Nacional de Moneda, Lima (โรงกษาปณ์ลิมา - เปรู / มาร์ก LIME / LM)',
+    country: 'Spain',
+    countryTh: 'สเปน',
+    flag: '🇵🇪',
+    city: 'Lima, Peru (Jirón Junín 791)',
+    coordinates: '12.0464° S, 77.0428° W',
+    lat: -12.0464,
+    lng: -77.0428,
+    tagColor: '#dc2626',
+    founded: 'ค.ศ. 1565',
+    status: 'โรงกษาปณ์แห่งแรกในทวีปอเมริกาใต้',
+    coinsMinted: ['Spanish 8 Reales Columnarios (ตรา LM)', 'Peruvian Sol Silver Series', 'Gold Escudos'],
+    technology: 'ระบบหลอมและรีดแผ่นเงินจากเหมืองแร่ในเปรู สู่แท่นปั๊มกษาปณ์เสาโรมัน',
+    history: 'ก่อตั้งโดยอุปราชแห่งเปรูในปี 1565 ถือเป็นโรงกษาปณ์แห่งแรกในอเมริกาใต้ ผลิตเหรียญ 8 Reales เสาค้ำโลก Columnarios ที่ใช้สัญลักษณ์ LM หมุนเวียนในตลาดการค้าระหว่างประเทศและเป็นที่ยอมรับอย่างกว้างขวางในเอเชีย',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=-12.0464,-77.0428'
+  },
+
+  // 14. Mexico
+  {
+    id: 'mint-mexico-city',
+    name: 'Casa de Moneda de México (โรงกษาปณ์เม็กซิโกซิตี - มาร์ก Mo / Oldest in Americas)',
+    country: 'Mexico',
+    countryTh: 'เม็กซิโก',
+    flag: '🇲🇽',
+    city: 'Mexico City, Mexico (Paseo de la Reforma / Apartado St)',
+    coordinates: '19.4326° N, 99.1332° W',
+    lat: 19.4326,
+    lng: -99.1332,
+    tagColor: '#16a34a',
+    founded: 'ค.ศ. 1535',
+    status: 'โรงกษาปณ์ที่เก่าแก่ที่สุดในทวีปอเมริกา (กว่า 490 ปี)',
+    coinsMinted: ['Spanish Empire 8 Reales Columnarios 1732–1772 (ตรา Mo)', 'Mexican 8 Reales Cap & Rays (เหรียญนกเม็กซิโก 1823–1897)', 'Centenario 50 Pesos Gold Coin', 'Libertad Silver Series'],
+    technology: 'แท่นปั๊มลูกกลิ้งสกรู (Screw Press) รุ่นแรกของทวีปอเมริกา และเครื่องมือขึ้นรูปเหรียญทรงกลมสมบูรณ์แบบ',
+    history: 'ก่อตั้งขึ้นตามพระบรมราชโองการของพระเจ้าชาร์ลส์ที่ 5 แห่งสเปน ในปี ค.ศ. 1535 เป็นแหล่งผลิตเหรียญเงิน 8 Reales "Columnarios" (เสาโรมัน) และ "Cap & Rays" (เหรียญนกเม็กซิโก) ที่หมุนเวียนเป็นสกุลเงินสากลของโลกและเป็นต้นกำเนิดของเครื่องหมายดอลลาร์ ($)',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=19.4326,-99.1332'
+  },
+  {
+    id: 'mint-guanajuato',
+    name: 'Casa de Moneda de Guanajuato (โรงกษาปณ์กวานาคัวโต - มาร์ก Go)',
+    country: 'Mexico',
+    countryTh: 'เม็กซิโก',
+    flag: '🇲🇽',
+    city: 'Guanajuato, Mexico (Calle de Alonso)',
+    coordinates: '21.0190° N, 101.2574° W',
+    lat: 21.0190,
+    lng: -101.2574,
+    tagColor: '#16a34a',
+    founded: 'ค.ศ. 1812',
+    status: 'โรงกษาปณ์สายแร่เงินวาเลนเซียนา (La Valenciana Silver Mine)',
+    coinsMinted: ['Mexican 8 Reales Cap & Rays (มาร์ก Go)', 'Silver Pesos Series'],
+    technology: 'แท่นปั๊มกลไกไอน้ำประจำเหมืองเงินที่มั่งคั่งที่สุดแห่งหนึ่งของโลก',
+    history: 'ก่อตั้งขึ้นในช่วงสงครามประกาศเอกราชเม็กซิโก ตั้งอยู่ใจกลางแหล่งแร่เงิน La Valenciana ซึ่งผลิตแร่เงินได้ถึง 2 ใน 3 ของผลผลิตเงินทั่วประเทศเม็กซิโก เหรียญที่ปั๊มตรา "Go" ได้รับความนิยมสูงมากในตลาดค้าเงินของจีนและเอเชียตะวันออกเฉียงใต้',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=21.0190,-101.2574'
+  },
+
+  // 15. China
+  {
     id: 'mint-tianjin',
-    name: 'Tianjin Central Mint (โรงกษาปณ์เทียนจิน - โรงกษาปณ์กลาง)',
+    name: 'Tianjin Central Mint (โรงกษาปณ์กลางเทียนจิน - โรงกษาปณ์เป่ยหยาง)',
     country: 'China',
     countryTh: 'จีน',
     flag: '🇨🇳',
-    city: 'Tianjin, Hebei, China (Hebei District, ริมแม่น้ำไห่เหอ)',
-    coordinates: '39.1415° N, 117.1895° E',
-    lat: 39.1415,
-    lng: 117.1895,
-    tagColor: '#e11d48',
-    founded: 'ค.ศ. 1903 (สถาปนาเป็นโรงกษาปณ์กลาง ค.ศ. 1912)',
-    status: 'โรงกษาปณ์กลางแห่งรัฐบาลสาธารณรัฐจีน',
-    coinsMinted: ['China Republic Yuan Shih-kai 1 Dollar (เหรียญหัวโต 1914-1921)', 'เหรียญมังกรไท่ชิง 1911'],
-    technology: 'แม่พิมพ์แกะสลักพิเศษโดยประติมากรชาวอิตาลี Luigi Giorgi (บล็อกตัวอย่างมีอักษร L.GIORGI)',
-    history: 'เป็นโรงกษาปณ์หลักในการกำหนดมาตรฐานเหรียญเงินแห่งชาติของจีน มีการปั๊มเหรียญเงินยวนซีไข่ (เหรียญหัวโต) ออกมามากกว่า 750 ล้านเหรียญ และส่งต่อแม่พิมพ์ให้โรงกษาปณ์สาขาหนานจิงและอู่ชาง',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=39.1415,117.1895'
+    city: 'Tianjin, China (Hedong District / Dazhigu)',
+    coordinates: '39.1356° N, 117.2008° E',
+    lat: 39.1356,
+    lng: 117.2008,
+    tagColor: '#dc2626',
+    founded: 'ค.ศ. 1905',
+    status: 'โรงกษาปณ์กลางแห่งรัฐบาลสาธารณรัฐจีน (Central Mint of the Republic of China)',
+    coinsMinted: ['Yuan Shih-kai 1 Dollar 1914 (เหรียญหัวโต ยวนซีไข่ ปีที่ 3, 8, 9, 10)', 'Sun Yat-sen Memento Dollar', 'Dragon Dollar Beiyang Series'],
+    technology: 'เครื่องจักรปั๊มเหรียญไฟฟ้าสั่งนำเข้าจากเยอรมนีและสหรัฐอเมริกา และแม่พิมพ์แกะสลักโดยช่างอิตาลี Luigi Giorgi (L.GIORGI)',
+    history: 'เป็นโรงกษาปณ์หลักในการผลิตเหรียญเงินดอลลาร์ของจีนยุคสาธารณรัฐ แม่พิมพ์ต้นแบบของเหรียญ Yuan Shih-kai 1 Dollar ถูกแกะสลักขึ้นที่นี่โดยหัวหน้าช่างแกะสลักชาวอิตาลี Luigi Giorgi ก่อนส่งต่อไปยังโรงกษาปณ์หนานจิงและอู่ชางเพื่อผลิตหมุนเวียนทั่วประเทศกว่า 750 ล้านเหรียญ',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=39.1356,117.2008'
   },
   {
     id: 'mint-kwangtung',
-    name: 'Kwangtung Mint (โรงกษาปณ์กวางตุ้ง / Canton Mint)',
+    name: 'Kwangtung Mint (โรงกษาปณ์กวางตุ้ง - Canton Mint / โรงกษาปณ์มังกร)',
     country: 'China',
     countryTh: 'จีน',
     flag: '🇨🇳',
@@ -152,193 +523,129 @@ const worldMintsData = [
     coordinates: '23.1291° N, 113.2644° E',
     lat: 23.1291,
     lng: 113.2644,
-    tagColor: '#e11d48',
-    founded: 'ค.ศ. 1887 (ริเริ่มโดยมหาเสนาบดีจาง จื้อต้ง)',
-    status: 'โรงกษาปณ์เครื่องจักรไอน้ำแห่งแรกของแผ่นดินจีน',
-    coinsMinted: ['Kwangtung Province 7 Mace and 2 Candareens Dragon Dollar (เหรียญมังกรกวางตุ้ง 1889-1908)'],
-    technology: 'เครื่องจักรปั๊มเหรียญไอน้ำ 90 แรงม้าสั่งทำพิเศษจาก Ralph Heaton & Sons (Heaton Mint, อังกฤษ)',
-    history: 'เป็นโรงกษาปณ์แห่งแรกในจีนที่ใช้เครื่องจักรไอน้ำตามมาตรฐานตะวันตก ผลิตเหรียญเงินลายมังกร 7 Mace 2 Candareens ซึ่งกลายเป็นต้นแบบให้มณฑลอื่น ๆ ทั่วแผ่นดินจีนนำไปปั๊มตาม',
+    tagColor: '#dc2626',
+    founded: 'ค.ศ. 1887',
+    status: 'โรงกษาปณ์เครื่องจักรกลสมัยใหม่แห่งแรกของจีน (สร้างโดยข้าหลวงจางจือตง)',
+    coinsMinted: ['Kwangtung 7 Mace and 2 Candareens Dragon Dollar 1890 (เหรียญมังกรกวางตุ้ง)', 'Kwangtung 1 Mace and 4.4 Candareens (20 Cents)', 'Copper Cash Coins Series'],
+    technology: 'เครื่องจักรไอน้ำปั๊มเหรียญกษาปณ์ครบวงจร 90 แท่นปั๊ม สั่งนำเข้าจากบริษัท Ralph Heaton & Sons แห่งเมืองเบอร์มิงแฮม ประเทศอังกฤษ',
+    history: 'ริเริ่มก่อตั้งโดยขุนนางปฏิรูป จาง จือตง (Zhang Zhidong) ในรัชสมัยกวางซู่ เพื่อปฏิรูประบบเงินตราจีนให้ทันสมัยทัดเทียมตะวันตก ถือเป็นโรงกษาปณ์ที่ใหญ่ที่สุดในโลกในขณะนั้นด้วยกำลังผลิต 2.7 ล้านเหรียญต่อวัน และเป็นต้นกำเนิดของเหรียญมังกรเงินแท้ที่แพร่หลายไปทั่วเอเชียรวมถึงสยาม',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=23.1291,113.2644'
   },
   {
-    id: 'mint-royal-uk',
-    name: 'Royal Mint, London (โรงกษาปณ์หลวงสหราชอาณาจักร)',
-    country: 'UK',
-    countryTh: 'สหราชอาณาจักร',
-    flag: '🇬🇧',
-    city: 'Tower Hill, London, UK (EC3N 4AB)',
-    coordinates: '51.5098° N, 0.0754° W',
-    lat: 51.5098,
-    lng: -0.0754,
-    tagColor: '#6366f1',
-    founded: 'ค.ศ. 886 (กว่า 1,100 ปี สมัยพระเจ้าอัลเฟรดมหาราช)',
-    status: 'โรงกษาปณ์หลวงแห่งสหราชอาณาจักรและเครือจักรภพ',
-    coinsMinted: ['1935 New Zealand Waitangi Crown 5 Shillings (One-Year Type ผลิตเพียง 1,128 เหรียญ)', 'Gold Sovereign', 'Britannia'],
-    technology: 'แท่นปั๊มเหรียญไอน้ำ Boulton & Watt ในศตวรรษที่ 19 สู่เทคโนโลยีกษาปณ์ดิจิทัลสมัยใหม่',
-    history: 'เคยมี เซอร์ ไอแซก นิวตัน (Sir Isaac Newton) ดำรงตำแหน่งผู้ว่าการโรงกษาปณ์ ปั๊มเหรียญกษาปณ์ที่ระลึกสนธิสัญญาไวทังกิ 5 ชิลลิง ให้นิวซีแลนด์ในปี 1935 ซึ่งได้รับการยกย่องว่าเป็นสุดยอดเหรียญหายากระดับตำนาน',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=51.5098,-0.0754'
+    id: 'mint-nanjing',
+    name: 'Nanjing Mint (โรงกษาปณ์นานกิง / เจียงหนาน - Jiangnan Mint)',
+    country: 'China',
+    countryTh: 'จีน',
+    flag: '🇨🇳',
+    city: 'Nanjing, Jiangsu, China',
+    coordinates: '32.0603° N, 118.7969° E',
+    lat: 32.0603,
+    lng: 118.7969,
+    tagColor: '#dc2626',
+    founded: 'ค.ศ. 1897',
+    status: 'โรงกษาปณ์สำคัญแห่งลุ่มแม่น้ำแยงซีเกียง',
+    coinsMinted: ['Jiangnan Dragon Dollar Series', 'Yuan Shih-kai 1 Dollar (Nanjing Issue)', 'Sun Yat-sen Junk Dollar (เหรียญเรือสำเภา)'],
+    technology: 'แท่นปั๊มกษาปณ์นำเข้าจากอังกฤษและสหรัฐอเมริกา',
+    history: 'มีบทบาทสำคัญทั้งในยุคปลายราชวงศ์ชิงและยุคสาธารณรัฐจีน ผลิตเหรียญเงินมังกรเจียงหนาน (Jiangnan Dragon) ที่มีตัวอักษรบอกปีนักษัตร รวมถึงผลิตเหรียญเรือสำเภา Sun Yat-sen Junk Dollar และเหรียญยวนซีไข่หัวโต',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=32.0603,118.7969'
   },
-  {
-    id: 'mint-birmingham',
-    name: 'The Mint, Birmingham / Ralph Heaton & Sons (Heaton Mint - H)',
-    country: 'UK',
-    countryTh: 'สหราชอาณาจักร',
-    flag: '🇬🇧',
-    city: 'Birmingham, England (Icknield St, Jewellery Quarter)',
-    coordinates: '52.4883° N, 1.9168° W',
-    lat: 52.4883,
-    lng: -1.9168,
-    tagColor: '#6366f1',
-    founded: 'ค.ศ. 1819',
-    status: 'โรงกษาปณ์เอกชนที่ใหญ่ที่สุดในโลกยุคปฏิวัติอุตสาหกรรม',
-    coinsMinted: ['เครื่องจักรและแม่พิมพ์เหรียญมังกรกวางตุ้ง 1889', 'เหรียญกษาปณ์ส่งออกกว่า 40 ประเทศ'],
-    technology: 'โรงงานหล่อและสร้างเครื่องจักรผลิตเหรียญไอน้ำส่งออกทั่วโลก',
-    history: 'เป็นผู้สร้างเครื่องจักรไอน้ำและแม่พิมพ์เหรียญมังกรชุดแรกให้แก่โรงกษาปณ์กวางตุ้งของจีนในปี 1887 และปั๊มเหรียญตราตอก "H" ให้แก่หลายประเทศทั่วโลก',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=52.4883,-1.9168'
-  },
-  {
-    id: 'mint-thailand',
-    name: 'Royal Thai Mint (สำนักกษาปณ์ กรมธนารักษ์ รังสิต)',
-    country: 'Thailand',
-    countryTh: 'ไทย',
-    flag: '🇹🇭',
-    city: 'ต.คลองหนึ่ง อ.คลองหลวง จ.ปทุมธานี 12120',
-    coordinates: '14.0208° N, 100.6140° E',
-    lat: 14.0208,
-    lng: 100.6140,
-    tagColor: '#10b981',
-    founded: 'พ.ศ. 2403 (สมัย ร.4 โรงกษาปณ์สิทธิการ) / รังสิต พ.ศ. 2545',
-    status: 'โรงกษาปณ์แห่งชาติ สังกัดกรมธนารักษ์ กระทรวงการคลัง',
-    coinsMinted: ['เหรียญเงินบรรณาการ ร.4', 'เหรียญเงิน ร.5 ปราบฮ่อ', 'เหรียญ 10 บาท 2 สี 2533', 'เหรียญหมุนเวียนและที่ระลึกทุกรุ่น'],
-    technology: 'ระบบปั๊มเหรียญอัตโนมัติความเร็วสูงและระบบตรวจสอบคุณภาพด้วยเลเซอร์',
-    history: 'พระบาทสมเด็จพระจอมเกล้าเจ้าอยู่หัว (ร.4) โปรดเกล้าฯ ให้สั่งซื้อเครื่องจักรผลิตเหรียญจากประเทศอังกฤษมาติดตั้งในพระบรมมหาราชวัง พระราชทานนามว่า "โรงกระสาปน์สิทธิการ" นับเป็นจุดเริ่มต้นของเหรียญกษาปณ์แบนกลมแบบสากลของไทย ก่อนจะย้ายสู่โรงกษาปณ์รังสิตที่ทันสมัยระดับเอเชีย',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=14.0208,100.6140'
-  },
-  {
-    id: 'mint-waitangi-nz',
-    name: 'Waitangi Treaty Grounds (จุดกำเนิดเหรียญสนธิสัญญาไวทังกิ)',
-    country: 'New Zealand',
-    countryTh: 'นิวซีแลนด์',
-    flag: '🇳🇿',
-    city: 'Waitangi, Bay of Islands, New Zealand (106 Tau Henare Dr)',
-    coordinates: '35.2673° S, 174.0837° E',
-    lat: -35.2673,
-    lng: 174.0837,
-    tagColor: '#ec4899',
-    founded: 'ค.ศ. 1840 (ลงนามสนธิสัญญาไวทังกิ) / เหรียญผลิต ค.ศ. 1935',
-    status: 'อนุสรณ์สถานแห่งชาติ จุดกำเนิดประวัติศาสตร์นิวซีแลนด์',
-    coinsMinted: ['1935 Waitangi Crown (King of New Zealand Coins)'],
-    technology: 'สั่งปั๊มเหรียญที่ระลึกระดับราชวงศ์จาก Royal Mint London',
-    history: 'สถานที่ลงนามในสนธิสัญญาประวัติศาสตร์ไวทังกิ (Treaty of Waitangi) ปี 1840 ระหว่างเรือเอกวิลเลียม ฮอบสัน ตัวแทนกษัตริย์อังกฤษกับหัวหน้าเผ่าเมารี ซึ่งเป็นที่มาของลวดลายบนเหรียญ 1935 Waitangi Crown',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=-35.2673,174.0837'
-  },
-  {
-    id: 'mint-paris',
-    name: 'Monnaie de Paris (โรงกษาปณ์ปารีส - มาร์ก A)',
-    country: 'France',
-    countryTh: 'ฝรั่งเศส',
-    flag: '🇫🇷',
-    city: '11 Quai de Conti, 75006 Paris, France',
-    coordinates: '48.8566° N, 2.3391° E',
-    lat: 48.8566,
-    lng: 2.3391,
-    tagColor: '#3b82f6',
-    founded: 'ค.ศ. 864 (สถาปนาโดยพระเจ้าชาร์ลส์ผู้ศีรษะล้าน)',
-    status: 'โรงกษาปณ์แห่งชาติที่เก่าแก่ที่สุดในโลก',
-    coinsMinted: ['French Indochina 1 Piastre de Commerce (เหรียญนางกวักการค้าอินโดจีน 1885–1928)', 'เหรียญฟรังก์ฝรั่งเศส'],
-    technology: 'เครื่องจักรปั๊มเหรียญระบบแรงดันไฮดรอลิกและแม่พิมพ์แกะสลัก Barre ระดับโลก',
-    history: 'สถาปนาในปี ค.ศ. 864 ถือเป็นสถาบันผลิตกษาปณ์ที่เก่าแก่ที่สุดของฝรั่งเศสและของโลก เป็นผู้ผลิตเหรียญเงินการค้า 1 Piastre de Commerce (เหรียญนางกวัก) ส่งมายังดินแดนอาณานิคมอินโดจีนและลุ่มแม่น้ำโขงในสมัย ร.5',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=48.8566,2.3391'
-  },
-  {
-    id: 'mint-bombay',
-    name: 'India Government Mint, Mumbai (โรงกษาปณ์บอมเบย์ - มาร์ก B)',
-    country: 'India',
-    countryTh: 'อินเดีย',
-    flag: '🇮🇳',
-    city: 'Shahid Bhagat Singh Rd, Fort, Mumbai, Maharashtra 400001, India',
-    coordinates: '18.9322° N, 72.8398° E',
-    lat: 18.9322,
-    lng: 72.8398,
-    tagColor: '#f97316',
-    founded: 'ค.ศ. 1829 (ยุคบริติชราช)',
-    status: 'โรงกษาปณ์หลักแห่งจักรวรรดิบริติชราชในเอเชียใต้',
-    coinsMinted: ['British Trade Dollar (เหรียญบริติชดอลลาร์การค้า ตราตอก B ในง่ามตรีศูล)', 'British India 1 Rupee Victoria Empress', 'Straits Settlements 1 Dollar'],
-    technology: 'แท่นปั๊มไอน้ำแรงดันสูง Boulton & Watt และเครื่องจักรผลิตเหรียญมาตรฐานสเตอร์ลิง',
-    history: 'เป็นโรงกษาปณ์หลักของรัฐบาลบริติชราชในการผลิตเหรียญเงินการค้าสากลส่งออกไปทั่วเอเชียตะวันออกและช่องแคบมะละกา รวมทั้งเหรียญเงินบริติชดอลลาร์การค้าและเหรียญรูปีวิกตอเรีย',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=18.9322,72.8398'
-  },
-  {
-    id: 'mint-calcutta',
-    name: 'India Government Mint, Kolkata (โรงกษาปณ์กัลกัตตา - มาร์ก C)',
-    country: 'India',
-    countryTh: 'อินเดีย',
-    flag: '🇮🇳',
-    city: 'Alipore, Kolkata, West Bengal 700053, India',
-    coordinates: '22.5186° N, 88.3284° E',
-    lat: 22.5186,
-    lng: 88.3284,
-    tagColor: '#f97316',
-    founded: 'ค.ศ. 1757 (ย้ายสู่อะลีปุระ ค.ศ. 1952)',
-    status: 'โรงกษาปณ์แห่งแรกของบริษัทบริติชอีสต์อินเดีย',
-    coinsMinted: ['British India 1 Rupee Victoria Empress (มาร์ก C)', 'British Trade Dollar (1900-C Key Date)', 'Straits Settlements 1 Dollar'],
-    technology: 'เตาหลอมเงินสเตอร์ลิงขนาดใหญ่และแท่นปั๊มเหรียญไอน้ำมาตรฐานลอนดอน',
-    history: 'ก่อตั้งขึ้นตั้งแต่ยุคบริษัทบริติชอีสต์อินเดีย (British East India Company) ผลิตเหรียญรูปีเงินวิกตอเรียและเหรียญบริติชเทรดดอลลาร์มาร์ก C ที่หายากและมีราคาสูงในปัจจุบัน',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=22.5186,88.3284'
-  },
+
+  // 16. Japan
   {
     id: 'mint-osaka',
     name: 'Japan Mint, Osaka (โรงกษาปณ์โอซาก้า ประเทศญี่ปุ่น)',
     country: 'Japan',
     countryTh: 'ญี่ปุ่น',
     flag: '🇯🇵',
-    city: '1-1-79 Temma, Kita Ward, Osaka 530-0043, Japan',
-    coordinates: '34.6975° N, 135.5222° E',
-    lat: 34.6975,
-    lng: 135.5222,
+    city: 'Osaka, Japan (1-1-79 Temma, Kita-ku)',
+    coordinates: '34.6976° N, 135.5226° E',
+    lat: 34.6976,
+    lng: 135.5226,
     tagColor: '#dc2626',
-    founded: 'ค.ศ. 1871 (เมจิปีที่ 4)',
-    status: 'โรงกษาปณ์แห่งชาติจักรวรรดิญี่ปุ่นยุคปฏิรูปเมจิ',
-    coinsMinted: ['Japan 1 Yen Silver Meiji Era (เหรียญ 1 เยนมังกรเงิน ยุคเมจิ 1870–1914)', 'เหรียญทองคำ Gold Yen 20 Yen Meiji'],
-    technology: 'เครื่องจักรปั๊มเหรียญไอน้ำมาตรฐานสากลสั่งซื้อจากโรงกษาปณ์ฮ่องกง',
-    history: 'ก่อตั้งขึ้นในยุคปฏิรูปเมจิ (Meiji Restoration) เพื่อปฏิวัติระบบเงินตราของญี่ปุ่นสู่มาตรฐานสากล เป็นผู้ผลิตเหรียญเงิน 1 เยนมังกรถือลูกแก้วจักรพรรดิอันวิจิตรตระการตาและมีชื่อเสียงไปทั่วโลก',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=34.6975,135.5222'
+    founded: 'ค.ศ. 1871',
+    status: 'โรงกษาปณ์สมัยใหม่แห่งยุคปฏิรูปเมจิ (Meiji Restoration)',
+    coinsMinted: ['Japan 1 Yen Silver Meiji Era 1870–1914 (เหรียญเงิน 1 เยนมังกรญี่ปุ่น)', 'Trade Dollar 420 Grains (เหรียญการค้าโบเอกิ)', 'Gold Yen 1871–1897', 'เหรียญกษาปณ์หมุนเวียนญี่ปุ่นปัจจุบัน'],
+    technology: 'เครื่องจักรปั๊มเหรียญไอน้ำที่ซื้อต่อมาจากโรงกษาปณ์ฮ่องกง (Hong Kong Mint) และปรับปรุงด้วยวิศวกรรมญี่ปุ่นชั้นเลิศ',
+    history: 'ก่อตั้งขึ้นในรัชสมัยจักรพรรดิเมจิ เพื่อปฏิรูประบบเงินตราโบราณเข้าสู่ระบบทศนิยมสากล (เยน) โดยซื้อเครื่องจักรทั้งหมดจากโรงกษาปณ์ฮ่องกงที่ปิดตัวลง ผลิตเหรียญมังกร 1 เยนเงินแท้ 90% ซึ่งมีลายมังกรญี่ปุ่นอุ้มแก้วสารพัดนึกอันวิจิตรงดงาม ได้รับการยอมรับอย่างสูงในการค้าสากลแถบเอเชียตะวันออก',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=34.6976,135.5226'
+  },
+
+  // 17. India
+  {
+    id: 'mint-bombay',
+    name: 'India Government Mint, Mumbai (โรงกษาปณ์บอมเบย์ - มาร์ก B / จุด)',
+    country: 'India',
+    countryTh: 'อินเดีย',
+    flag: '🇮🇳',
+    city: 'Mumbai (Bombay), Maharashtra, India (Shahid Bhagat Singh Rd)',
+    coordinates: '18.9322° N, 72.8364° E',
+    lat: 18.9322,
+    lng: 72.8364,
+    tagColor: '#ea580c',
+    founded: 'ค.ศ. 1829',
+    status: 'โรงกษาปณ์ศูนย์กลางการค้าแห่งบริติชราช (British Raj)',
+    coinsMinted: ['British Trade Dollar 1895–1935 (มาร์ก B / จุด)', 'British India 1 Rupee Victoria Empress 1877–1901 (มาร์ก B / จุด)', 'Straits Settlements 1 Dollar 1903–1904 (มาร์ก B)', 'Gold Sovereigns 1918 (มาร์ก I)'],
+    technology: 'แท่นปั๊มกษาปณ์ไอน้ำขนาดใหญ่ของบริษัท Boulton & Watt และเตาหลอมเงินบริสุทธิ์มาตรฐานอังกฤษ',
+    history: 'เป็นโรงกษาปณ์หลักในการผลิตเหรียญการค้า British Trade Dollar (เหรียญบริทาเนีย) และ Straits Settlements Dollar (ดอลลาร์ช่องแคบมะละกา) เพื่อใช้ขับเคลื่อนระบบเศรษฐกิจและการค้าระหว่างประเทศแถบสิงคโปร์ มาลายา ฮ่องกง และสยาม',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=18.9322,72.8364'
   },
   {
-    id: 'mint-mexico-city',
-    name: 'Casa de Moneda de México (โรงกษาปณ์เม็กซิโกซิตี้ - มาร์ก Mo)',
-    country: 'Mexico',
-    countryTh: 'เม็กซิโก',
-    flag: '🇲🇽',
-    city: 'Paseo de la Reforma, Mexico City, Mexico',
-    coordinates: '19.4326° N, 99.1332° W',
-    lat: 19.4326,
-    lng: -99.1332,
-    tagColor: '#16a34a',
-    founded: 'ค.ศ. 1535 (โดยพระบรมราชโองการกษัตริย์สเปน)',
-    status: 'โรงกษาปณ์ที่เก่าแก่ที่สุดในทวีปอเมริกา (Oldest Mint in the Americas)',
-    coinsMinted: ['Mexican 8 Reales Cap and Rays (เหรียญนกเม็กซิโก / หมวกเสรีภาพ 8 เรอัล)', 'เหรียญเงินเปโซเม็กซิโกการค้าโลก'],
-    technology: 'แท่นปั๊มสกรูแรงเหวี่ยงยุคอาณานิคม สู่แท่นปั๊มไอน้ำไอน์เฮาส์แห่งศตวรรษที่ 19',
-    history: 'สถาปนาขึ้นในปี ค.ศ. 1535 ถือเป็นโรงกษาปณ์ที่เก่าแก่ที่สุดในทวีปอเมริกา ผลิตเหรียญเงิน 8 Reales (เหรียญนกเม็กซิโก / หัวแปด) ที่กลายเป็นสกุลเงินการค้าหลักของโลกและใช้หมุนเวียนในสยามสมัย ร.3–ร.5',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=19.4326,-99.1332'
+    id: 'mint-calcutta',
+    name: 'India Government Mint, Kolkata (โรงกษาปณ์กัลกัตตา - มาร์ก C / Alipore)',
+    country: 'India',
+    countryTh: 'อินเดีย',
+    flag: '🇮🇳',
+    city: 'Kolkata (Calcutta), West Bengal, India (Strand Road / Alipore)',
+    coordinates: '22.5186° N, 88.3308° E',
+    lat: 22.5186,
+    lng: 88.3308,
+    tagColor: '#ea580c',
+    founded: 'ค.ศ. 1757',
+    status: 'โรงกษาปณ์แห่งแรกของบริษัทอินเดียตะวันออก (East India Company)',
+    coinsMinted: ['British India 1 Rupee Victoria Empress 1877–1901 (มาร์ก C / ไม่มีมาร์ก)', 'British Trade Dollar (มาร์ก C)', 'Straits Settlements 1 Dollar (มาร์ก C)', 'William IV & Victoria Queen 1 Rupee'],
+    technology: 'แท่นปั๊มไอน้ำ Watt Steam Mint ค.ศ. 1831 และแม่พิมพ์แกะสลักลายพรรณพฤกษามาตรฐานจักรวรรดิอังกฤษ',
+    history: 'ก่อตั้งขึ้นหลังยุทธการที่ปลาซี (Battle of Plassey 1757) เป็นโรงกษาปณ์หลักในการผลิตเหรียญรูปีเงิน (One Rupee) ของสมเด็จพระราชินีนาถวิกตอเรียในฐานะ "จักรพรรดินีแห่งอินเดีย" (Kaisar-i-Hind) หมุนเวียนทั่วชมพูทวีป ตะวันออกกลาง และภาคใต้ของไทย',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=22.5186,88.3308'
   },
+
+  // 18. Thailand
   {
-    id: 'mint-guanajuato',
-    name: 'Guanajuato Mint (โรงกษาปณ์กวานาคัวโต - มาร์ก Go)',
-    country: 'Mexico',
-    countryTh: 'เม็กซิโก',
-    flag: '🇲🇽',
-    city: 'Guanajuato, Guanajuato State, Mexico',
-    coordinates: '21.0190° N, 101.2574° W',
-    lat: 21.0190,
-    lng: -101.2574,
-    tagColor: '#16a34a',
-    founded: 'ค.ศ. 1812',
-    status: 'โรงกษาปณ์ศูนย์กลางแหล่งแร่เงินมหาศาลแห่งเม็กซิโก',
-    coinsMinted: ['Mexican 8 Reales ตราตอก Go (บล็อกยอดนิยม ผลิตจำนวนมาก)', 'Cap and Rays Silver Peso'],
-    technology: 'เครื่องจักรปั๊มเหรียญพลังงานน้ำและไอน้ำประจำเหมืองแร่เงินวาเลนเซียนา',
-    history: 'ตั้งอยู่ติดกับเหมืองแร่เงินวาเลนเซียนา (Valenciana Mine) ซึ่งเป็นหนึ่งในเหมืองเงินที่สมบูรณ์ที่สุดในประวัติศาสตร์โลก ปั๊มเหรียญเงิน 8 Reales ตรา Go ที่ส่งออกไปค้าขายในทวีปเอเชียและสยามอย่างแพร่หลาย',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=21.0190,-101.2574'
+    id: 'mint-thailand',
+    name: 'Royal Thai Mint (โรงกษาปณ์สิทธิการ / โรงกษาปณ์ไทย)',
+    country: 'Thailand',
+    countryTh: 'ไทย',
+    flag: '🇹🇭',
+    city: 'Bangkok / Pathum Thani, Thailand (พระบรมมหาราชวัง / คลองหลวง รังสิต)',
+    coordinates: '14.0158° N, 100.6158° E',
+    lat: 14.0158,
+    lng: 100.6158,
+    tagColor: '#0284c7',
+    founded: 'ค.ศ. 1860',
+    status: 'โรงกษาปณ์หลวงแห่งราชอาณาจักรไทย (ตั้งแต่สมัยรัชกาลที่ 4)',
+    coinsMinted: ['เหรียญเงินบรรณาการ รัชกาลที่ 4', 'เหรียญเงินช้างสามเศียร หนวด รัชกาลที่ 5', 'เหรียญเงินหนึ่งบาท รัชกาลที่ 6', 'เหรียญกษาปณ์หมุนเวียนและที่ระลึกของไทย'],
+    technology: 'เครื่องจักรปั๊มเหรียญด้วยแรงดันไอน้ำพระราชทานจากสมเด็จพระราชินีนาถวิกตอเรียแห่งอังกฤษ สู่เทคโนโลยีระบบอัตโนมัติความเร็วสูงในปัจจุบัน',
+    history: 'พระบาทสมเด็จพระจอมเกล้าเจ้าอยู่หัว (รัชกาลที่ 4) ทรงโปรดเกล้าฯ ให้สร้าง "โรงกระสาปน์สิทธิการ" ขึ้นในพระบรมมหาราชวังเมื่อปี พ.ศ. 2403 เพื่อยกเลิกการใช้เงินพดด้วงและผลิตเหรียญกษาปณ์กลมแบนตามมาตรฐานสากล ต่อมาได้พัฒนาและย้ายที่ทำการสู่โรงกษาปณ์รังสิตในสังกัดกรมธนารักษ์ กระทรวงการคลัง',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=14.0158,100.6158'
+  },
+
+  // 19. New Zealand
+  {
+    id: 'mint-waitangi-nz',
+    name: 'Reserve Bank of New Zealand / Royal Mint (เวลลิงตัน)',
+    country: 'New Zealand',
+    countryTh: 'นิวซีแลนด์',
+    flag: '🇳🇿',
+    city: 'Wellington, New Zealand (2 The Terrace)',
+    coordinates: '41.2865° S, 174.7762° E',
+    lat: -41.2865,
+    lng: 174.7762,
+    tagColor: '#059669',
+    founded: 'ค.ศ. 1934',
+    status: 'ธนาคารกลางและผู้ควบคุมการผลิตเหรียญกษาปณ์แห่งนิวซีแลนด์',
+    coinsMinted: ['1935 New Zealand Waitangi Crown 5 Shillings (สนธิสัญญาไวตังกิ - ผลิตเพียง 1,128 เหรียญ)', '1940 Centennial Half Crown', 'เหรียญกษาปณ์เงินนิวซีแลนด์'],
+    technology: 'แม่พิมพ์ปั๊มพิเศษ Proof Finish และการควบคุมคุณภาพเหรียญที่ระลึกระดับราชสำนัก',
+    history: 'ก่อตั้งขึ้นเพื่อดูแลระบบการเงินของนิวซีแลนด์ โดยมอบหมายให้ Royal Mint ลอนดอนปั๊มเหรียญ 1935 Waitangi Crown เพื่อเฉลิมฉลองสนธิสัญญาไวตังกิ (Treaty of Waitangi 1840) ระหว่างมงกุฎอังกฤษกับชนเผ่าเมารี ถือเป็นเหรียญมงกุฎที่หายากและเป็นที่ต้องการสูงสุดของนิวซีแลนด์',
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=-41.2865,174.7762'
   }
 ];
 
@@ -900,43 +1207,62 @@ function setupMintSearch() {
   }
 }
 
-function filterMintsByCountry(country) {
-  activeMintCountry = country;
-  document.querySelectorAll('#mint-filter-chips .dribbble-chip').forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('onclick')?.includes(`'${country}'`));
+function renderMintFilterChips() {
+  const chipsContainer = document.getElementById('mint-filter-chips');
+  if (!chipsContainer) return;
+
+  const countryCounts = {};
+  const countryFlags = {};
+  const countryThNames = {};
+
+  worldMintsData.forEach(m => {
+    countryCounts[m.country] = (countryCounts[m.country] || 0) + 1;
+    countryFlags[m.country] = m.flag;
+    countryThNames[m.country] = m.countryTh;
   });
 
+  let html = `
+    <button class="dribbble-chip ${activeMintCountry === 'all' ? 'active' : ''}" onclick="filterMintsByCountry('all')">
+      🌐 ทั่วโลก (${worldMintsData.length} แห่ง)
+    </button>
+  `;
+
+  Object.keys(countryCounts).forEach(c => {
+    const activeClass = activeMintCountry.toLowerCase() === c.toLowerCase() ? 'active' : '';
+    html += `
+      <button class="dribbble-chip ${activeClass}" onclick="filterMintsByCountry('${c}')">
+        ${countryFlags[c]} ${countryThNames[c]} (${countryCounts[c]})
+      </button>
+    `;
+  });
+
+  chipsContainer.innerHTML = html;
+}
+
+function updateMintSummaryStats() {
+  const totalMintsEl = document.getElementById('stat-total-mints');
+  const totalCountriesEl = document.getElementById('stat-total-countries');
+  const oldestMintEl = document.getElementById('stat-oldest-mint');
+  const totalCatalogCoinsEl = document.getElementById('stat-total-catalog-coins');
+
+  const uniqueCountries = new Set(worldMintsData.map(m => m.country));
+  
+  if (totalMintsEl) totalMintsEl.textContent = `${worldMintsData.length} แห่ง`;
+  if (totalCountriesEl) totalCountriesEl.textContent = `${uniqueCountries.size} ประเทศ`;
+  if (oldestMintEl) oldestMintEl.textContent = 'ค.ศ. 864';
+  if (totalCatalogCoinsEl) totalCatalogCoinsEl.textContent = `${globalCoinsData.length || 27} รายการ`;
+}
+
+function filterMintsByCountry(country) {
+  activeMintCountry = country;
+  renderMintFilterChips();
   renderMintExplorer();
-
-  // Smooth Fly-To Animation right into the exact target country/region
-  if (!leafletMap) return;
-
-  if (country === 'Australia') {
-    leafletMap.flyTo([-32, 138], 4.5, { duration: 1.2 });
-  } else if (country === 'USA') {
-    leafletMap.flyTo([38.5, -98.5], 4, { duration: 1.2 });
-  } else if (country === 'China') {
-    leafletMap.flyTo([31.5, 115], 4.8, { duration: 1.2 });
-  } else if (country === 'Japan') {
-    leafletMap.flyTo([36.0, 137.5], 5.5, { duration: 1.2 });
-  } else if (country === 'UK') {
-    leafletMap.flyTo([52.0, -1.0], 6.2, { duration: 1.2 });
-  } else if (country === 'India') {
-    leafletMap.flyTo([20.5937, 78.9629], 4.8, { duration: 1.2 });
-  } else if (country === 'France') {
-    leafletMap.flyTo([48.0, 2.3], 5.5, { duration: 1.2 });
-  } else if (country === 'Mexico') {
-    leafletMap.flyTo([22.5, -100.5], 5.0, { duration: 1.2 });
-  } else if (country === 'Thailand') {
-    leafletMap.flyTo([13.9, 100.55], 9.5, { duration: 1.2 });
-  } else if (country === 'New Zealand') {
-    leafletMap.flyTo([-38, 175], 5.2, { duration: 1.2 });
-  } else {
-    leafletMap.flyTo([22, 15], 2, { duration: 1.0 });
-  }
 }
 
 function renderMintExplorer() {
+  renderMintFilterChips();
+  updateMintSummaryStats();
+
   const searchVal = (document.getElementById('mint-search-input')?.value || '').toLowerCase();
   
   let filtered = worldMintsData.filter(mint => {
