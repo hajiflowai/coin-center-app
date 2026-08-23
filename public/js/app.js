@@ -498,7 +498,7 @@ function setupNavigation() {
 
 function setNavMode(mode) {
   if (mode === 'all' && !isVipSupporter()) {
-    showToast('🔒 คลังข้อมูลเหรียญทั้งหมด (15 รายการ) สงวนสิทธิ์เฉพาะผู้สนับสนุนเว็บไซต์ (199 บ.)');
+    showToast('🔒 คลังข้อมูลเหรียญทั้งหมด (27 รายการ) สงวนสิทธิ์เฉพาะผู้สนับสนุนเว็บไซต์ (199 บ.)');
     openRegisterModal();
     return;
   }
@@ -568,31 +568,7 @@ async function loadCoins() {
 
 let isCountrySubmenuOpen = false;
 
-// Render Dynamic Preset Chips with Hierarchical Country Grouping
-// Render Dynamic Preset Chips with Hierarchical Country Grouping
-
-const ALL_COUNTRIES_DEF = [
-  { id: 'indochina', label: '🇫🇷 ฝรั่งเศส/อินโดจีน', aliases: ['Indochina', 'France', 'ฝรั่งเศส', 'อินโดจีน'] },
-  { id: 'uk', label: '🇬🇧 สหราชอาณาจักร/บริติช', aliases: ['United Kingdom', 'UK', 'อังกฤษ', 'India', 'อินเดีย'] },
-  { id: 'usa', label: '🇺🇸 สหรัฐอเมริกา', aliases: ['United States', 'USA', 'อเมริกา'] },
-  { id: 'canada', label: '🇨🇦 แคนาดา', aliases: ['Canada', 'แคนาดา'] },
-  { id: 'germany', label: '🇩🇪 เยอรมัน/ปรัสเซีย', aliases: ['Germany', 'Prussia', 'เยอรมัน', 'ปรัสเซีย'] },
-  { id: 'switzerland', label: '🇨🇭 สวิตเซอร์แลนด์', aliases: ['Switzerland', 'สวิตเซอร์แลนด์', 'สวิส'] },
-  { id: 'russia', label: '🇷🇺 รัสเซีย/โรมานอฟ', aliases: ['Russian Empire', 'Russia', 'รัสเซีย'] },
-  { id: 'italy', label: '🇮🇹 อิตาลี', aliases: ['Italy', 'อิตาลี'] },
-  { id: 'netherlands', label: '🇳🇱 เนเธอร์แลนด์', aliases: ['Netherlands', 'เนเธอร์แลนด์', 'ฮอลแลนด์'] },
-  { id: 'belgium', label: '🇧🇪 เบลเยียม', aliases: ['Belgium', 'เบลเยียม'] },
-  { id: 'austria', label: '🇦🇹 ออสเตรีย', aliases: ['Austria', 'ออสเตรีย'] },
-  { id: 'spain', label: '🇪🇸 สเปน', aliases: ['Spain', 'Spanish', 'สเปน'] },
-  { id: 'mexico', label: '🇲🇽 เม็กซิโก', aliases: ['Mexico', 'เม็กซิโก'] },
-  { id: 'china', label: '🇨🇳 จีน', aliases: ['China', 'จีน'] },
-  { id: 'japan', label: '🇯🇵 ญี่ปุ่น', aliases: ['Japan', 'ญี่ปุ่น'] },
-  { id: 'straits', label: '🇸🇬 สเตรทส์/มลายา', aliases: ['Straits', 'Singapore', 'Malaya', 'สเตรทส์'] },
-  { id: 'australia', label: '🇦🇺 ออสเตรเลีย', aliases: ['Australia', 'ออสเตรเลีย'] },
-  { id: 'newzealand', label: '🇳🇿 นิวซีแลนด์', aliases: ['New Zealand', 'นิวซีแลนด์'] }
-];
-
-
+// Render Dynamic Preset Chips (Home 5 Thai Coins, All 27 Coins, Rare Key Dates)
 function renderPresetChips() {
   const container = document.getElementById('hero-preset-chips-list');
   if (!container) return;
@@ -600,68 +576,27 @@ function renderPresetChips() {
   const isVip = isVipSupporter();
   const totalCoins = globalCoinsData.length || 27;
 
-  // Compute active country list with exact live counts
-  const countryList = ALL_COUNTRIES_DEF.map(cDef => {
-    const count = globalCoinsData.filter(coin => {
-      const countryStr = (coin.country || '').toLowerCase();
-      return cDef.aliases.some(alias => countryStr.includes(alias.toLowerCase()));
-    }).length;
-    return {
-      id: cDef.id,
-      label: `${cDef.label} (${count})`,
-      count: count,
-      isFree: false
-    };
-  }).filter(c => c.count > 0);
-
-  const isCountryActive = countryList.some(c => c.id === activePreset);
-
-  const thaiCoinsCount = globalCoinsData.filter(c => c.popularInThailand === true).length || 5;
-
   const mainChips = [
-    { id: 'home', label: `🏠 หน้าแรก (นิยมในไทย ${thaiCoinsCount} เหรียญ)`, isFree: true },
+    { id: 'home', label: '🏠 หน้าแรก (นิยมในไทย 5 เหรียญ)', isFree: true },
     { id: 'all', label: `📂 ทั้งหมด (${totalCoins} เหรียญ)`, isFree: false },
-    { 
-      id: 'toggle-countries', 
-      label: `🌍 แยกตามประเทศ (${countryList.length} ประเทศ) ${isCountrySubmenuOpen || isCountryActive ? '▴' : '▾'}`, 
-      isFree: false, 
-      isActive: isCountryActive 
-    },
     { id: 'rare', label: '⭐ ปีหายาก (Key Dates)', isFree: false }
   ];
 
-  // Update top nav and hero stats dynamically if elements exist
+  // Sync nav & hero stats
   const navTotalCoins = document.getElementById('nav-total-coins');
   if (navTotalCoins) navTotalCoins.textContent = totalCoins;
   const heroTotalCoins = document.getElementById('hero-total-coins');
   if (heroTotalCoins) heroTotalCoins.textContent = totalCoins;
-  const statCountries = document.getElementById('stat-total-countries');
-  if (statCountries) statCountries.textContent = `${countryList.length} ประเทศ`;
 
   let html = `
-    <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:${(isCountrySubmenuOpen || isCountryActive) ? '0.6rem' : '0'};">
+    <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
       ${mainChips.map(p => {
-        const isActive = p.isActive || activePreset === p.id;
+        const isActive = activePreset === p.id;
         const lockIcon = (!isVip && !p.isFree) ? ' <span style="font-size:0.75rem; opacity:0.8;">🔒</span>' : '';
-        return `<button class="dribbble-chip ${isActive ? 'active' : ''}" onclick="handleMainPresetClick('${p.id}')">${p.label}${lockIcon}</button>`;
+        return `<button class="dribbble-chip ${isActive ? 'active' : ''}" onclick="handlePresetClick('${p.id}')">${p.label}${lockIcon}</button>`;
       }).join('')}
     </div>
   `;
-
-  if (isCountrySubmenuOpen || isCountryActive) {
-    html += `
-      <div class="country-submenu-box" style="background:var(--bg-card-sub, #f8fafc); border:1.5px solid var(--border-color, #e2e8f0); border-radius:20px; padding:0.75rem 0.85rem; display:flex; gap:0.45rem; flex-wrap:wrap; margin-top:0.4rem; animation:fadeIn 0.2s ease;">
-        <div style="font-size:0.78rem; font-weight:800; color:var(--text-muted); width:100%; margin-bottom:0.25rem; display:flex; align-items:center; gap:0.35rem;">
-          🌍 <span>เลือกดูเหรียญตามประเทศ (${countryList.length} ประเทศในระบบ):</span>
-        </div>
-        ${countryList.map(c => {
-          const isActive = activePreset === c.id;
-          const lockIcon = !isVip ? ' <span style="font-size:0.7rem;">🔒</span>' : '';
-          return `<button class="dribbble-chip ${isActive ? 'active' : ''}" style="padding:0.4rem 0.8rem; font-size:0.82rem;" onclick="handlePresetClick('${c.id}')">${c.label}${lockIcon}</button>`;
-        }).join('')}
-      </div>
-    `;
-  }
 
   container.innerHTML = html;
 }
@@ -671,9 +606,7 @@ function handleMainPresetClick(presetId) {
 
   if (presetId === 'toggle-countries') {
     if (!isVip) {
-      showToast('🔒 หมวดหมู่แยกตามประเทศสงวนสิทธิ์เฉพาะผู้สนับสนุนเว็บไซต์ (199 บ.)');
-      openRegisterModal();
-      return;
+      showToast('
     }
     isCountrySubmenuOpen = !isCountrySubmenuOpen;
     renderPresetChips();
@@ -760,8 +693,9 @@ function getFilteredCoins() {
     'coin-mx-8-reales'
   ];
 
+  // Non-VIP users or Home preset is STRICTLY restricted to the 5 Thai coins
   let sourceCoins = globalCoinsData;
-  if (!isVip) {
+  if (!isVip || activePreset === 'home') {
     sourceCoins = globalCoinsData.filter(c => c.popularInThailand === true || THAI_FEATURED_IDS.includes(c.id));
   }
 
@@ -779,19 +713,12 @@ function getFilteredCoins() {
       matchPreset = c.popularInThailand === true || THAI_FEATURED_IDS.includes(c.id);
     } else if (activePreset === 'rare') {
       matchPreset = (c.rarity || '').includes('Rare') || (c.rarity || '').includes('Legendary') || (c.rarity || '').includes('Key Date') || (c.rarity || '').includes('MYTHIC') || (c.rarity || '').includes('EPIC');
-    } else if (activePreset !== 'all') {
-      // Dynamic country match
-      const cDef = ALL_COUNTRIES_DEF.find(item => item.id === activePreset);
-      if (cDef) {
-        const countryStr = (c.country || '').toLowerCase();
-        matchPreset = cDef.aliases.some(alias => countryStr.includes(alias.toLowerCase()));
-      }
     }
 
     return matchSearch && matchPreset;
   });
 
-  if (activePreset === 'home') {
+  if (activePreset === 'home' || !isVip) {
     filtered.sort((a, b) => (a.thaiRank || 99) - (b.thaiRank || 99));
   }
 

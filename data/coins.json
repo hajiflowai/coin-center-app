@@ -1196,7 +1196,7 @@
         "url": "https://www.ngccoin.com/price-guide/world/mexico-spanish-colony-8-reales-km-103-1732-1771-cuid-1116524-duid-1418721"
       }
     ],
-    "popularInThailand": true,
+    "popularInThailand": false,
     "thaiMarketPrice": "ผ่านใช้ทั่วไป: 6,500 – 14,000 บาท | สภาพสวยคมชัด: 18,000 – 38,000 บาท | สภาพสวยแชมป์ UNC/เกรดสถาบัน: 70,000 – 250,000+ บาท",
     "internationalPrice": "$200 – $450 USD (VG-VF) | $700 – $1,800 USD (XF-AU) | $3,000 – $12,000+ USD (MS62-MS64)",
     "auctionRecord": "$150,000+ USD สำหรับเหรียญ Royal Presentation Strike 1732 ที่ Heritage Auctions",
@@ -1272,7 +1272,7 @@
         "url": "https://en.numista.com/catalogue/pieces4455.html"
       }
     ],
-    "popularInThailand": true,
+    "popularInThailand": false,
     "thaiMarketPrice": "ผ่านใช้ทั่วไป: 550 – 950 บาท | สภาพสวย AU-UNC: 1,500 – 4,500 บาท | ปี Key Date (1921-D, 1921-S, 1938-D): 15,000 – 95,000+ บาท",
     "internationalPrice": "$14 – $25 USD (Bullion) | $45 – $120 USD (AU-UNC) | $2,500 – $28,000+ USD (Key Dates MS64+)",
     "auctionRecord": "$144,000 USD สำหรับเหรียญ 1919-D MS66+ จบที่ Heritage Auctions",
@@ -1312,7 +1312,7 @@
     "historyText": "Maria Theresa Thaler 1780 เป็นเหรียญเงินระดับตำนานของจักรวรรดิออสเตรีย-ฮังการี ได้รับความนิยมสูงสุดในการค้าขายระหว่างประเทศ โดยเฉพาะในตะวันออกกลาง คาบสมุทรอาหรับ และแอฟริกาตะวันออก ลวดลายนกอินทรีสองหัวและพระพักตร์จักรพรรดินีมาเรีย เทเรซา ถือเป็นเอกลักษณ์แห่งความมั่งคั่งเหนือกาลเวลา",
     "features": {
       "color": "brilliant-silver",
-      "diameterMm": 41.0,
+      "diameterMm": 41,
       "weightG": 28.066,
       "composition": "Silver 83.33%, Copper 16.67%",
       "shape": "Round",
@@ -1349,7 +1349,7 @@
         "url": "https://www.muenzeoesterreich.at"
       }
     ],
-    "popularInThailand": true,
+    "popularInThailand": false,
     "thaiMarketPrice": "ผ่านใช้/Restrike ทั่วไป: 1,200 – 1,900 บาท | สภาพสวย UNC/Prooflike: 2,200 – 4,000 บาท | บล็อกเก่าก่อนปี 1858: 18,000 – 85,000+ บาท",
     "internationalPrice": "$30 – $55 USD (Restrike) | $60 – $120 USD (Proof) | $600 – $3,500+ USD (Early Strike)",
     "auctionRecord": "$14,000 USD สำหรับเหรียญ Original 1780 Hall Mint Gem UNC",
@@ -1390,7 +1390,7 @@
     "features": {
       "color": "lustrous-silver",
       "diameterMm": 33.65,
-      "weightG": 20.0,
+      "weightG": 20,
       "composition": "Silver 90%, Copper 10%",
       "shape": "Round",
       "edge": "Lettered Edge: 'ЧИСТАГО СЕРЕБРА 4 ЗОЛОТНИКА 21 ДОЛЯ'",
@@ -1425,7 +1425,7 @@
         "url": "https://www.pcgs.com/coinfacts/category/world/russia/ruble/4430"
       }
     ],
-    "popularInThailand": true,
+    "popularInThailand": false,
     "thaiMarketPrice": "ผ่านใช้ทั่วไป: 2,800 – 5,500 บาท | สภาพสวย AU-UNC: 8,500 – 22,000 บาท | รุ่น 300 ปีโรมานอฟ (1913) UNC: 9,000 – 28,000 บาท | เกรดสถาบัน MS63+: 35,000 – 120,000+ บาท",
     "internationalPrice": "$70 – $160 USD (VF-XF) | $300 – $1,100 USD (MS61-MS63) | $1,800 – $6,500+ USD (Gem MS64+)",
     "auctionRecord": "$320,000 USD สำหรับเหรียญ 1914 Gangut Jubileum Ruble ที่ Sincona Auction",
@@ -1465,7 +1465,7 @@
     "historyText": "เหรียญเงิน 5 มาร์ค ปรัสเซีย ยุคไกเซอร์วิลเฮ็ล์มที่ 2 (ค.ศ. 1891–1914) สะท้อนความยิ่งใหญ่และแสนยานุภาพของจักรวรรดิเยอรมันก่อนสงครามโลกครั้งที่ 1 ด้วยน้ำหนักเงินสุทธิเกือบ 1 ออนซ์เต็ม ลวดลายนกอินทรีหลวง Reichsadler และอักษรขอบเหรียญ 'GOTT MIT UNS' ทำให้เป็นหนึ่งในเหรียญเงินยุโรปที่น่าสะสมที่สุด",
     "features": {
       "color": "lustrous-silver",
-      "diameterMm": 38.0,
+      "diameterMm": 38,
       "weightG": 27.777,
       "composition": "Silver 90%, Copper 10%",
       "shape": "Round",
@@ -1502,7 +1502,7 @@
         "url": "https://www.pcgs.com/coinfacts/category/world/german-states/prussia/5-mark/4420"
       }
     ],
-    "popularInThailand": true,
+    "popularInThailand": false,
     "thaiMarketPrice": "ผ่านใช้ทั่วไป: 2,000 – 3,800 บาท | สภาพสวย AU-UNC: 5,500 – 14,000 บาท | รุ่นเครื่องแบบทหารปี 1913/1914 UNC: 7,500 – 25,000 บาท | เกรดสถาบัน MS63+: 20,000 – 65,000+ บาท",
     "internationalPrice": "$60 – $130 USD (VF-XF) | $220 – $750 USD (AU-UNC MS62-MS64) | $1,200 – $4,500+ USD (Proof / Gem MS65+)",
     "auctionRecord": "$38,000 USD สำหรับเหรียญ 1914-A Wilhelm II Uniform Proof-67 ที่ Kuenker Auction",
@@ -1542,8 +1542,8 @@
     "historyText": "เหรียญเงิน 5 ฟรังก์ เฮอร์คิวลิส ผลิตขึ้นในยุคสาธารณรัฐฝรั่งเศสที่ 3 (ค.ศ. 1870–1878) เป็นเหรียญเงินขนาด 37 มม. ที่สร้างชื่อเสียงก้องโลก ออกแบบโดย Augustin Dupré สะท้อนอุดมการณ์ปฏิวัติฝรั่งเศส 'เสรีภาพ เสมอภาค ภราดรภาพ' เป็นเหรียญเงินยอดนิยมที่นักสะสมไทยและสากลนิยมสะสมอย่างแพร่หลาย",
     "features": {
       "color": "lustrous-silver",
-      "diameterMm": 37.0,
-      "weightG": 25.0,
+      "diameterMm": 37,
+      "weightG": 25,
       "composition": "Silver 90%, Copper 10%",
       "shape": "Round",
       "edge": "Lettered Edge: 'DIEU PROTEGE LA FRANCE'",
@@ -1578,7 +1578,7 @@
         "url": "https://www.pcgs.com/coinfacts/category/world/france/5-francs/4415"
       }
     ],
-    "popularInThailand": true,
+    "popularInThailand": false,
     "thaiMarketPrice": "ผ่านใช้ทั่วไป: 1,500 – 2,800 บาท | สภาพสวย AU-UNC: 3,800 – 9,500 บาท | ปี 1878-K (Bordeaux) / เกรดสถาบัน MS63+: 25,000 – 65,000+ บาท",
     "internationalPrice": "$40 – $85 USD (VF) | $180 – $650 USD (AU-UNC MS62-MS64) | $1,200 – $4,500+ USD (Gem MS65+)",
     "auctionRecord": "$18,500 USD สำหรับเหรียญ 1870 5 Francs Pattern Essai ที่ CGB Numismatics Paris",
@@ -1655,7 +1655,7 @@
         "url": "https://en.numista.com/catalogue/pieces13256.html"
       }
     ],
-    "popularInThailand": true,
+    "popularInThailand": false,
     "thaiMarketPrice": "Jubilee Crown 1887: 2,500 – 16,000 บาท | Gothic Crown 1847 แท้: 250,000 – 1,800,000+ บาท",
     "internationalPrice": "Jubilee $80 – $1,800 USD | Gothic Crown 1847 Genuine: $15,000 – $90,000+ USD",
     "auctionRecord": "£156,000 GBP (~7.2 ล้านบาท) สำหรับเหรียญ Gothic Crown 1847 Proof-65 ที่ Spink London",
@@ -1695,8 +1695,8 @@
     "historyText": "เหรียญเงิน 5 ฟรังก์ เทพีเฮลเวเทีย ผลิตระหว่างปี ค.ศ. 1874–1928 เป็นสัญลักษณ์แห่งเสถียรภาพทางการเงินระดับโลกของสวิตเซอร์แลนด์ ด้วยลวดลายเทพีเฮลเวเทียถือหอกและโล่กากบาทสวิส ขอบเหรียญตอกอักษร 'DOMINUS PROVIDEBIT' ทำให้เป็นหนึ่งในเหรียญเงินยุโรปที่นักสะสมนิยมสูงสุด",
     "features": {
       "color": "lustrous-silver",
-      "diameterMm": 37.0,
-      "weightG": 25.0,
+      "diameterMm": 37,
+      "weightG": 25,
       "composition": "Silver 90%, Copper 10%",
       "shape": "Round",
       "edge": "Lettered Edge: 'DOMINUS PROVIDEBIT'",
@@ -1731,7 +1731,7 @@
         "url": "https://www.ngccoin.com/price-guide/world/switzerland-5-francs-km-34-1874-1928-cuid-1094132-duid-1574347"
       }
     ],
-    "popularInThailand": true,
+    "popularInThailand": false,
     "thaiMarketPrice": "ผ่านใช้ทั่วไป: 1,600 – 3,200 บาท | สภาพสวย AU-UNC: 4,500 – 12,000 บาท | Shooting Thaler / เกรดสถาบัน: 18,000 – 75,000+ บาท",
     "internationalPrice": "$50 – $140 USD (VF) | $200 – $650 USD (AU-UNC) | $600 – $3,500+ USD (Shooting Thalers)",
     "auctionRecord": "$45,000 USD สำหรับเหรียญ Shooting Thaler 1855 Solothurn Proof-66 ที่ Hess Divo",
@@ -1771,7 +1771,7 @@
     "historyText": "Canada 1 Dollar 'Voyageur' 1948 เป็นเหรียญเงินระดับตำนานที่นักสะสมทั่วโลกต่างตามหา ด้วยลวดลายนายพรานและชนพื้นเมืองพายเรือแคนูบรรทุกขนสัตว์ท่ามกลางธรรมชาติอันบริสุทธิ์ของแคนาดา การผลิตที่จำกัดเพียง 18,780 เหรียญในปี 1948 ทำให้มูลค่าของเหรียญรุ่นนี้พุ่งทะยานสูงขึ้นอย่างต่อเนื่อง",
     "features": {
       "color": "lustrous-silver",
-      "diameterMm": 36.0,
+      "diameterMm": 36,
       "weightG": 23.33,
       "composition": "Silver 80%, Copper 20%",
       "shape": "Round",
@@ -1808,7 +1808,7 @@
         "url": "https://www.coinsandcanada.com"
       }
     ],
-    "popularInThailand": true,
+    "popularInThailand": false,
     "thaiMarketPrice": "ปีทั่วไป: 850 – 3,500 บาท | ปี 1948 Key Date: 15,000 – 75,000 บาท (VF-AU) | เกรดสถาบัน MS63+: 90,000 – 250,000+ บาท",
     "internationalPrice": "Common $25 – $50 USD | 1948 Key Date: $200 – $800 USD (Circulated) | $1,500 – $5,000+ USD (UNC MS60-MS65)",
     "auctionRecord": "$26,400 USD สำหรับเหรียญ 1948 MS66 ที่ Heritage Auctions",
@@ -1848,8 +1848,8 @@
     "historyText": "Kingdom of Italy 5 Lire เป็นเหรียญเงินประวัติศาสตร์อันทรงคุณค่าที่ผลิตขึ้นในยุครวมชาติอิตาลี (Risorgimento) นำโดยพระเจ้าวิตโตรีโอ เอมานูเอลที่ 2 และการิบัลดิ ลวดลายตราอาร์มราชวงศ์ซาวอยและคำขวัญโบราณ FERT บนขอบเหรียญทำให้เป็นหนึ่งในเหรียญเงินยุโรปที่น่าสะสมที่สุด",
     "features": {
       "color": "lustrous-silver",
-      "diameterMm": 37.0,
-      "weightG": 25.0,
+      "diameterMm": 37,
+      "weightG": 25,
       "composition": "Silver 90%, Copper 10%",
       "shape": "Round",
       "edge": "Lettered Edge: 'FERT - FERT - FERT'",
@@ -1884,7 +1884,7 @@
         "url": "https://www.pcgs.com/coinfacts/category/world/italy/5-lire/4425"
       }
     ],
-    "popularInThailand": true,
+    "popularInThailand": false,
     "thaiMarketPrice": "ผ่านใช้ทั่วไป: 1,500 – 2,900 บาท | สภาพสวย AU-UNC: 4,200 – 11,000 บาท | ปี 1861-T / เกรดสถาบัน MS63+: 35,000 – 95,000+ บาท",
     "internationalPrice": "$45 – $95 USD (VF) | $160 – $550 USD (AU-UNC) | $1,200 – $4,500+ USD (Gem MS65+)",
     "auctionRecord": "€24,000 EUR (~920,000 บาท) สำหรับเหรียญ 1861 Turin Proof ที่ Nomisma Auction",
@@ -1924,8 +1924,8 @@
     "historyText": "Netherlands 2.5 Gulden เป็นเหรียญเงินคลาสสิกของเนเธอร์แลนด์ ยุคสมเด็จพระราชินีนาถวิลเฮลมินา ด้วยขนาดเหรียญที่ใหญ่ถึง 38 มม. น้ำหนัก 25 กรัมเต็มมือ ตราสิงโตถือดาบและลูกศร 7 ดอก และอักษรขอบเหรียญ 'GOD ZIJ MET ONS' ทำให้เป็นหนึ่งในเหรียญเงินยอดนิยมของนักสะสมทั่วโลก",
     "features": {
       "color": "lustrous-silver",
-      "diameterMm": 38.0,
-      "weightG": 25.0,
+      "diameterMm": 38,
+      "weightG": 25,
       "composition": "Silver 72%, Copper 28%",
       "shape": "Round",
       "edge": "Lettered Edge: 'GOD ★ ZIJ ★ MET ★ ONS ★'",
@@ -1960,7 +1960,7 @@
         "url": "https://www.ngccoin.com/price-guide/world/netherlands-2-1-2-gulden-km-165-1929-1940-cuid-1084224-duid-1518774"
       }
     ],
-    "popularInThailand": true,
+    "popularInThailand": false,
     "thaiMarketPrice": "รุ่นทั่วไป: 1,100 – 2,200 บาท (VF) | สภาพสวย AU-UNC: 2,800 – 6,500 บาท | ปี 1898 Coronation: 25,000 – 90,000+ บาท",
     "internationalPrice": "$30 – $70 USD (VF) | $100 – $280 USD (AU-UNC) | $1,500 – $5,000+ USD (1898 Coronation)",
     "auctionRecord": "€31,000 EUR (~1.2 ล้านบาท) สำหรับเหรียญ 1898 2.5 Gulden Proof Gem ที่ Schulman Amsterdam",
@@ -2000,8 +2000,8 @@
     "historyText": "Kingdom of Belgium 5 Francs ผลิตขึ้นในรัชสมัยกษัตริย์เลโอโปลด์ที่ 2 (ค.ศ. 1865–1876) เป็นเหรียญเงินหลักในสหภาพการเงินละติน โดดเด่นด้วยตราอาร์มสิงโตเบลเยียมและคำขวัญอมตะ 'L'UNION FAIT LA FORCE' (ความสามัคคีคือพลัง) เป็นหนึ่งในเหรียญเงินยุโรปที่นักสะสมไทยนิยมสะสมอย่างยิ่ง",
     "features": {
       "color": "lustrous-silver",
-      "diameterMm": 37.0,
-      "weightG": 25.0,
+      "diameterMm": 37,
+      "weightG": 25,
       "composition": "Silver 90%, Copper 10%",
       "shape": "Round",
       "edge": "Lettered Edge: 'DIEU PROTEGE LA BELGIQUE'",
@@ -2036,7 +2036,7 @@
         "url": "https://www.ngccoin.com/price-guide/world/belgium-5-francs-km-24-1865-1878-cuid-1044439-duid-1279768"
       }
     ],
-    "popularInThailand": true,
+    "popularInThailand": false,
     "thaiMarketPrice": "ผ่านใช้ทั่วไป: 1,400 – 2,600 บาท | สภาพสวย AU-UNC: 3,500 – 8,500 บาท | เกรดสถาบัน MS63+: 18,000 – 45,000+ บาท",
     "internationalPrice": "$35 – $75 USD (VF) | $120 – $320 USD (AU-UNC) | $500 – $1,800+ USD (Gem MS65+)",
     "auctionRecord": "€14,500 EUR (~550,000 บาท) สำหรับเหรียญ 1865 Proof Gem ที่ Elsen Brussels",
