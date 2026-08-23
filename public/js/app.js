@@ -392,27 +392,27 @@ async function initApp() {
 
 // Helper to determine National Flag Background CSS class
 function getCountryFlagClass(country) {
-  const c = (country || '').toLowerCase();
+  const c = (country || '').toLowerCase().trim();
+  if (c.includes('indochina') || c.includes('france') || c.includes('french') || c.includes('ฝรั่งเศส') || c.includes('อินโดจีน')) return 'flag-bg-france';
+  if (c.includes('china') || c.includes('จีน') || c.includes('chinese')) return 'flag-bg-china';
   if (c.includes('canada') || c.includes('แคนาดา')) return 'flag-bg-canada';
   if (c.includes('germany') || c.includes('prussia') || c.includes('เยอรมัน') || c.includes('ปรัสเซีย')) return 'flag-bg-germany';
   if (c.includes('switzerland') || c.includes('สวิตเซอร์แลนด์') || c.includes('สวิส')) return 'flag-bg-switzerland';
-  if (c.includes('russia') || c.includes('russian') || c.includes('รัสเซีย')) return 'flag-bg-russia';
+  if (c.includes('russia') || c.includes('russian') || c.includes('รัสเซีย') || c.includes('โรมานอฟ')) return 'flag-bg-russia';
   if (c.includes('italy') || c.includes('อิตาลี')) return 'flag-bg-italy';
-  if (c.includes('netherlands') || c.includes('เนเธอร์แลนด์') || c.includes('ฮอลแลนด์')) return 'flag-bg-netherlands';
+  if (c.includes('netherlands') || c.includes('เนเธอร์แลนด์') || c.includes('ฮอลแลนด์') || c.includes('dutch')) return 'flag-bg-netherlands';
   if (c.includes('belgium') || c.includes('เบลเยียม')) return 'flag-bg-belgium';
-  if (c.includes('austria') || c.includes('ออสเตรีย')) return 'flag-bg-austria';
+  if (c.includes('austria') || c.includes('ออสเตรีย') || c.includes('habsburg')) return 'flag-bg-austria';
   if (c.includes('spain') || c.includes('spanish') || c.includes('สเปน')) return 'flag-bg-spain';
   if (c.includes('australia') || c.includes('ออสเตรเลีย')) return 'flag-bg-australia';
   if (c.includes('united states') || c.includes('usa') || c.includes('อเมริกา') || c.includes('america')) return 'flag-bg-usa';
-  if (c.includes('china') || c.includes('จีน') || c.includes('chinese')) return 'flag-bg-china';
   if (c.includes('japan') || c.includes('ญี่ปุ่น')) return 'flag-bg-japan';
-  if (c.includes('french') || c.includes('indochina') || c.includes('ฝรั่งเศส') || c.includes('อินโดจีน')) return 'flag-bg-france';
   if (c.includes('mexico') || c.includes('เม็กซิโก')) return 'flag-bg-mexico';
   if (c.includes('straits') || c.includes('สเตรทส์') || c.includes('malaya') || c.includes('singapore')) return 'flag-bg-straits';
   if (c.includes('india') || c.includes('อินเดีย')) return 'flag-bg-india';
   if (c.includes('united kingdom') || c.includes('uk') || c.includes('อังกฤษ') || c.includes('britain')) return 'flag-bg-uk';
   if (c.includes('new zealand') || c.includes('นิวซีแลนด์') || c.includes('nz')) return 'flag-bg-nz';
-  if (c.includes('thailand') || c.includes('ไทย')) return 'flag-bg-thailand';
+  if (c.includes('thailand') || c.includes('ไทย') || c.includes('siam') || c.includes('สยาม')) return 'flag-bg-thailand';
   return 'flag-bg-default';
 }
 
