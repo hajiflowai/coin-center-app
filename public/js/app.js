@@ -1206,11 +1206,11 @@ function openCoinDetailModal(coinId) {
 
   // 1. Thai Local Market Price (Visible to All Users)
   const thaiPriceHtml = `
-    <div style="background:linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border:1.5px solid #86efac; padding:1.2rem; border-radius:24px; margin-bottom:1.25rem; box-shadow:0 4px 16px rgba(22,163,74,0.08);">
-      <div style="font-size:0.8rem; color:#15803d; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.35rem; display:flex; align-items:center; gap:0.4rem;">
+    <div class="modal-section-card modal-thai-price-card">
+      <div class="modal-card-tag-green">
         🇹🇭 <span>ราคาซื้อขายพื้นฐานในประเทศไทย (Thai Market Price)</span>
       </div>
-      <div style="font-size:1.15rem; font-weight:900; color:#166534; line-height:1.4;">
+      <div class="modal-thai-price-val">
         ${coin.thaiMarketPrice || coin.marketPriceRange || '2,500 – 6,500 บาท (ตามสภาพ)'}
       </div>
     </div>
@@ -1218,20 +1218,20 @@ function openCoinDetailModal(coinId) {
 
   // 2. Deep VIP Insights (Key Observations, Authenticity Guide, International Price, World Auction Records, Key Dates, Live Verification Links)
   const deepInsightsRawHtml = `
-    <div style="background:linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); border:1.5px solid #fdba74; padding:1.25rem; border-radius:24px; box-shadow:0 6px 20px rgba(251,146,60,0.12);">
+    <div class="modal-section-card modal-vip-insights-card">
       ${(isVip && currentUser) ? `
-      <div style="display:inline-flex; align-items:center; gap:0.35rem; background:#dcfce7; color:#166534; padding:0.35rem 0.85rem; border-radius:9999px; font-size:0.8rem; font-weight:800; margin-bottom:1rem; border:1.5px solid #86efac;">
+      <div class="modal-vip-badge-pill">
         👑 <span>ข้อมูลจริงปลดล็อกครบถ้วน (สำหรับ คุณ ${currentUser.name || ''} - ${currentUser.memberCode || ''})</span>
       </div>
       ` : ''}
 
       <!-- Key Observations & Minting Points -->
       ${coin.keyObservations ? `
-      <div style="margin-bottom:1rem; background:#ffffff; border:1.5px solid #fed7aa; padding:1rem; border-radius:18px;">
-        <div style="font-size:0.82rem; color:#c2410c; font-weight:900; text-transform:uppercase; letter-spacing:0.03em; margin-bottom:0.45rem; display:flex; align-items:center; gap:0.35rem;">
-          🔍 <span>จุดสังเกตเฉพาะเหรียญ & ตำหนิแม่พิมพ์แท้ (Key Observations)</span>
+      <div class="modal-sub-box modal-key-observations-box">
+        <div class="modal-sub-box-title modal-title-orange">
+          🔍 <span>จุดสังเกตเฉพาะเหรียญ &amp; ตำหนิแม่พิมพ์แท้ (Key Observations)</span>
         </div>
-        <div style="font-size:0.88rem; color:#7c2d12; line-height:1.6; white-space:pre-line; font-weight:600;">
+        <div class="modal-sub-box-content modal-text-orange">
           ${coin.keyObservations}
         </div>
       </div>
@@ -1239,11 +1239,11 @@ function openCoinDetailModal(coinId) {
 
       <!-- 5-Step Counterfeit & Authenticity Guide -->
       ${coin.authenticityGuide ? `
-      <div style="margin-bottom:1rem; background:#ffffff; border:1.5px solid #86efac; padding:1rem; border-radius:18px;">
-        <div style="font-size:0.82rem; color:#15803d; font-weight:900; text-transform:uppercase; letter-spacing:0.03em; margin-bottom:0.45rem; display:flex; align-items:center; gap:0.35rem;">
-          🛡️ <span>วิธีเช็คแท้-ปลอม 5 ขั้นตอน & เสียงกังวาน (Authenticity & Ping Test Guide)</span>
+      <div class="modal-sub-box modal-auth-guide-box">
+        <div class="modal-sub-box-title modal-title-green">
+          🛡️ <span>วิธีเช็คแท้-ปลอม 5 ขั้นตอน &amp; เสียงกังวาน (Authenticity &amp; Ping Test Guide)</span>
         </div>
-        <div style="font-size:0.88rem; color:#14532d; line-height:1.6; white-space:pre-line; font-weight:600;">
+        <div class="modal-sub-box-content modal-text-green">
           ${coin.authenticityGuide}
         </div>
       </div>
@@ -1251,41 +1251,41 @@ function openCoinDetailModal(coinId) {
 
       <!-- Counterfeit Risk Rating -->
       ${coin.counterfeitRisk ? `
-      <div style="margin-bottom:1rem; background:#fef2f2; border:1.5px solid #fca5a5; padding:0.75rem 1rem; border-radius:16px; display:flex; align-items:center; gap:0.5rem;">
+      <div class="modal-sub-box modal-counterfeit-risk-box">
         <span style="font-size:1.1rem;">⚠️</span>
-        <div style="font-size:0.85rem; font-weight:800; color:#991b1b; line-height:1.4;">
+        <div class="modal-counterfeit-text">
           <b>ความเสี่ยงการปลอมแปลงในตลาด:</b> ${coin.counterfeitRisk}
         </div>
       </div>
       ` : ''}
 
       <!-- International Market Price -->
-      <div style="margin-bottom:0.9rem;">
-        <div style="font-size:0.8rem; color:#0369a1; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.25rem; display:flex; align-items:center; gap:0.35rem;">
+      <div class="modal-insight-row">
+        <div class="modal-insight-label modal-label-blue">
           🌐 <span>ราคาซื้อขายในตลาดต่างประเทศ (International Market)</span>
         </div>
-        <div style="font-size:0.95rem; font-weight:900; color:#0c4a6e; line-height:1.45; background:#e0f2fe; padding:0.65rem 0.95rem; border-radius:14px; border:1px solid #7dd3fc;">
+        <div class="modal-insight-val modal-val-blue">
           ${coin.internationalPrice || '$150 – $450 USD'}
         </div>
       </div>
 
       <!-- World Auction Record Price -->
-      <div style="margin-bottom:0.9rem;">
-        <div style="font-size:0.8rem; color:#9333ea; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.25rem; display:flex; align-items:center; gap:0.35rem;">
+      <div class="modal-insight-row">
+        <div class="modal-insight-label modal-label-purple">
           🔨 <span>สถิติราคาประมูลสูงสุดระดับโลก (Auction Records)</span>
         </div>
-        <div style="font-size:0.95rem; font-weight:900; color:#581c87; line-height:1.45; background:#f3e8ff; padding:0.65rem 0.95rem; border-radius:14px; border:1px solid #d8b4fe;">
+        <div class="modal-insight-val modal-val-purple">
           ${coin.auctionRecord || 'ประมูลจบระดับสากลที่ Heritage / Stacks Bowers'}
         </div>
       </div>
 
       <!-- Key Dates & Sought After Years -->
       ${coin.soughtAfterYears ? `
-      <div style="margin-bottom:0.9rem;">
-        <div style="font-size:0.8rem; color:#c2410c; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.25rem; display:flex; align-items:center; gap:0.35rem;">
-          ⭐ <span>ปีที่นักสะสมตามหา & บล็อกลับ (Key Dates / Sought-After Years)</span>
+      <div class="modal-insight-row">
+        <div class="modal-insight-label modal-label-orange">
+          ⭐ <span>ปีที่นักสะสมตามหา &amp; บล็อกลับ (Key Dates / Sought-After Years)</span>
         </div>
-        <div style="font-size:0.95rem; font-weight:900; color:#9a3412; line-height:1.45; background:#ffedd5; padding:0.65rem 0.95rem; border-radius:14px; border:1px solid #fdba74;">
+        <div class="modal-insight-val modal-val-orange">
           ${coin.soughtAfterYears}
         </div>
       </div>
@@ -1293,15 +1293,15 @@ function openCoinDetailModal(coinId) {
 
       <!-- Live Verification Reference Links -->
       ${coin.referenceSources && coin.referenceSources.length ? `
-      <div>
-        <div style="font-size:0.8rem; color:#0f766e; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.4rem; display:flex; align-items:center; gap:0.35rem;">
+      <div style="margin-top:0.75rem;">
+        <div class="modal-insight-label modal-label-teal" style="margin-bottom:0.45rem;">
           🔗 <span>แหล่งข้อมูลอ้างอิงจริง กดตามไปดูข้อมูลกษาปณ์ (Live Verification Links)</span>
         </div>
         <div style="display:flex; flex-direction:column; gap:0.5rem;">
           ${coin.referenceSources.map(ref => `
-            <a href="${ref.url}" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; justify-content:space-between; background:#ffffff; border:1.5px solid #cbd5e1; padding:0.6rem 0.9rem; border-radius:14px; text-decoration:none; color:var(--text-main); font-size:0.85rem; font-weight:800; transition:all 0.2s ease;">
+            <a href="${ref.url}" target="_blank" rel="noopener noreferrer" class="modal-reference-link">
               <span>🌐 ${ref.name}</span>
-              <span style="color:var(--accent-orange); font-weight:900;">เปิดดูข้อมูลจริง ↗</span>
+              <span class="modal-ref-arrow">เปิดดูข้อมูลจริง ↗</span>
             </a>
           `).join('')}
         </div>
@@ -1343,61 +1343,61 @@ function openCoinDetailModal(coinId) {
         </div>
       </div>
 
-      <h2 style="font-size:1.5rem; font-weight:900; line-height:1.2;">${coin.name}</h2>
+      <h2 class="modal-coin-title">${coin.name}</h2>
     </div>
 
     <!-- Key Dates & Low Mintage Rare Alert Banner -->
     ${coin.keyDatesInfo ? `
-    <div style="background:linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); color:#92400e; border:1.5px solid #f59e0b; padding:0.9rem 1.2rem; border-radius:20px; margin-bottom:1.25rem; font-size:0.88rem; font-weight:800; line-height:1.5;">
+    <div class="modal-keydates-banner">
       ${coin.keyDatesInfo}
     </div>
     ` : ''}
 
     <!-- Specs Grid with Accurate Purity, Weight, Size & Edge -->
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; background:#f8fafc; padding:1.25rem; border-radius:20px; border:1.5px solid #e2e8f0; margin-bottom:1.25rem;">
-      <div style="grid-column: 1 / -1;">
-        <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">🧪 เปอร์เซ็นต์เนื้อโลหะบริสุทธิ์ตามจริง</div>
-        <div style="font-size:0.95rem; font-weight:800; color:var(--accent-blue);">${composition}</div>
+    <div class="modal-specs-grid">
+      <div class="spec-grid-item spec-grid-full">
+        <div class="spec-grid-label">🧪 เปอร์เซ็นต์เนื้อโลหะบริสุทธิ์ตามจริง</div>
+        <div class="spec-grid-val spec-grid-blue">${composition}</div>
       </div>
-      <div>
-        <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">⚖️ น้ำหนักมาตรฐานแท้</div>
-        <div style="font-size:0.95rem; font-weight:800; color:var(--accent-gold);">${weight}</div>
+      <div class="spec-grid-item">
+        <div class="spec-grid-label">⚖️ น้ำหนักมาตรฐานแท้</div>
+        <div class="spec-grid-val spec-grid-gold">${weight}</div>
       </div>
-      <div>
-        <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">📏 ขนาด &amp; ความหนา</div>
-        <div style="font-size:0.95rem; font-weight:800; color:var(--text-main);">${coin.exactDiameterMm || '-'} (หนา ${coin.exactThicknessMm || '-'})</div>
+      <div class="spec-grid-item">
+        <div class="spec-grid-label">📏 ขนาด &amp; ความหนา</div>
+        <div class="spec-grid-val">${coin.exactDiameterMm || '-'} (หนา ${coin.exactThicknessMm || '-'})</div>
       </div>
-      <div>
-        <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">⚙️ ลายขอบเหรียญ (Edge)</div>
-        <div style="font-size:0.95rem; font-weight:800; color:var(--text-main);">${coin.edgeDescription || 'ขอบเฟืองตรง'}</div>
+      <div class="spec-grid-item">
+        <div class="spec-grid-label">⚙️ ลายขอบเหรียญ (Edge)</div>
+        <div class="spec-grid-val">${coin.edgeDescription || 'ขอบเฟืองตรง'}</div>
       </div>
-      <div>
-        <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">🪙 จำนวนผลิต (Mintage)</div>
-        <div style="font-size:0.95rem; font-weight:800; color:var(--accent-green);">${mintage}</div>
+      <div class="spec-grid-item">
+        <div class="spec-grid-label">🪙 จำนวนผลิต (Mintage)</div>
+        <div class="spec-grid-val spec-grid-green">${mintage}</div>
       </div>
-      <div style="grid-column: 1 / -1;">
-        <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700;">🏛️ โรงกษาปณ์ที่ผลิต</div>
-        <div style="font-size:0.95rem; font-weight:800; color:var(--text-main);">${coin.mint || 'ไม่ระบุ'}</div>
+      <div class="spec-grid-item spec-grid-full">
+        <div class="spec-grid-label">🏛️ โรงกษาปณ์ที่ผลิต</div>
+        <div class="spec-grid-val">${coin.mint || 'ไม่ระบุ'}</div>
       </div>
     </div>
 
     <!-- Mint History Section -->
     ${coin.mintHistory ? `
-    <div style="background:#e0f2fe; color:#0369a1; padding:1.1rem; border-radius:20px; margin-bottom:1.25rem; font-size:0.88rem; line-height:1.6; border:1px solid #bae6fd;">
-      <div style="font-weight:900; font-size:0.95rem; margin-bottom:0.4rem; display:flex; align-items:center; gap:0.4rem;">
+    <div class="modal-mint-history-box">
+      <div class="modal-mint-history-title">
         🏛️ <span>ประวัติโรงกษาปณ์ (${coin.mint || 'โรงกษาปณ์ต้นกำเนิด'})</span>
       </div>
-      <div>${coin.mintHistory}</div>
-      ${coin.mintLocation ? `<div style="margin-top:0.4rem; font-size:0.82rem; font-weight:700; color:#0369a1;">📍 ที่ตั้ง/พิกัด: ${coin.mintLocation}</div>` : ''}
+      <div class="modal-mint-history-body">${coin.mintHistory}</div>
+      ${coin.mintLocation ? `<div class="modal-mint-location">📍 ที่ตั้ง/พิกัด: ${coin.mintLocation}</div>` : ''}
     </div>
     ` : ''}
 
     <!-- Historical Background Section from DATA.txt & Archives -->
-    <div style="background:#f1f5f9; padding:1.25rem; border-radius:20px; margin-bottom:1.25rem; font-size:0.88rem; color:var(--text-main); line-height:1.65;">
-      <div style="display:flex; align-items:center; gap:0.5rem; font-weight:900; font-size:0.95rem; margin-bottom:0.6rem;">
+    <div class="modal-history-box">
+      <div class="modal-history-title">
         📜 <span>ประวัติศาสตร์กษาปณ์ (จาก DATA.txt)</span>
       </div>
-      <div>${historyText}</div>
+      <div class="modal-history-body">${historyText}</div>
     </div>
 
     <!-- Section 1: Thai Local Market Price (Visible to All) -->

@@ -581,17 +581,18 @@ app.post('/api/login', (req, res) => {
   });
 });
 
-// 14. Admin Login (สำหรับคุณศรัณย์ เจ้าของร้าน)
+// 14. Admin Login (สำหรับคุณศรัณย์ และทีมแอดมิน)
 app.post('/api/admin/login', (req, res) => {
-  const { password } = req.body;
-  // Master passwords for owner (รวมรหัส zero96597)
-  if (password === 'zero96597' || password === 'saran999' || password === 'admin' || password === 'coin888') {
+  const { password, email } = req.body;
+  // Master passwords for owner & admins (รวมรหัส 9999, zero96597, saran999)
+  if (password === '9999' || password === 'zero96597' || password === 'saran999' || password === 'admin' || password === 'coin888') {
+    const isRomroll = (email && email.toLowerCase().includes('romroll')) || password === '9999';
     return res.json({
       success: true,
-      token: 'admin-saran-verified-token',
-      adminName: 'ศรัณย์ทองขวัญ (เจ้าของร้าน)',
-      adminEmail: 'aifloworkbyhaji999@gmail.com',
-      message: 'ยินดีต้อนรับคุณศรัณย์ เข้าสู่ระบบจัดการสมาชิก'
+      token: 'admin-verified-token',
+      adminName: isRomroll ? 'Admin (romrolllb82)' : 'ศรัณย์ทองขวัญ (เจ้าของร้าน)',
+      adminEmail: isRomroll ? 'romrolllb82@gmail.com' : 'aifloworkbyhaji999@gmail.com',
+      message: isRomroll ? 'ยินดีต้อนรับ Admin เข้าสู่ระบบจัดการสมาชิก' : 'ยินดีต้อนรับคุณศรัณย์ เข้าสู่ระบบจัดการสมาชิก'
     });
   }
   res.status(401).json({ error: 'รหัสผ่านผู้ดูแลระบบไม่ถูกต้อง' });

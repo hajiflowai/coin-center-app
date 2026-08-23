@@ -30,5 +30,21 @@
     "phone": "081-999-9999",
     "bankRef": "SCB 4190025841 ศรัณย์ทองขวัญ",
     "amountPaid": 199
+  },
+  {
+    "id": "mem-admin-002",
+    "memberCode": "CC-00002",
+    "name": "Admin (romrolllb82)",
+    "email": "romrolllb82@gmail.com",
+    "password": "9999",
+    "slipUrl": "",
+    "status": "approved",
+    "role": "admin",
+    "createdAt": "2026-08-23T03:00:00.000Z",
+    "approvedAt": "2026-08-23T03:00:00.000Z",
+    "note": "บัญชีผู้ดูแลระบบ (Admin)",
+    "phone": "089-999-9999",
+    "bankRef": "SCB 4190025841 ศรัณย์ทองขวัญ",
+    "amountPaid": 199
   }
 ]
