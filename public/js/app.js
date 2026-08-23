@@ -602,17 +602,6 @@ function renderPresetChips() {
 }
 
 function handleMainPresetClick(presetId) {
-  const isVip = isVipSupporter();
-
-  if (presetId === 'toggle-countries') {
-    if (!isVip) {
-      showToast('
-    }
-    isCountrySubmenuOpen = !isCountrySubmenuOpen;
-    renderPresetChips();
-    return;
-  }
-
   handlePresetClick(presetId);
 }
 
