@@ -1,0 +1,50 @@
+[
+  {
+    "id": "mem-1787423663196-4knj8",
+    "memberCode": "CC-96727",
+    "name": "สมศักดิ์ พระนคร",
+    "email": "somsak.thai@gmail.com",
+    "password": "password123",
+    "phone": "0812345678",
+    "slipUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+    "bankRef": "SCB 4190025841 ศรัณย์ทองขวัญ",
+    "amountPaid": 199,
+    "bankAccount": "ไทยพาณิชย์ (SCB) 4190025841 ศรัณย์ทองขวัญ",
+    "status": "approved",
+    "role": "supporter",
+    "createdAt": "2026-08-22T18:34:23.196Z",
+    "approvedAt": "2026-08-22T19:20:27.399Z"
+  },
+  {
+    "id": "mem-owner-001",
+    "memberCode": "CC-00001",
+    "name": "ศรัณย์ทองขวัญ (เจ้าของร้าน)",
+    "email": "aifloworkbyhaji999@gmail.com",
+    "password": "zero96597",
+    "slipUrl": "",
+    "status": "approved",
+    "role": "admin",
+    "createdAt": "2026-08-23T00:00:00.000Z",
+    "approvedAt": "2026-08-23T00:00:00.000Z",
+    "note": "บัญชีผู้ดูแลระบบ / เจ้าของร้าน",
+    "phone": "081-999-9999",
+    "bankRef": "SCB 4190025841 ศรัณย์ทองขวัญ",
+    "amountPaid": 199
+  },
+  {
+    "id": "mem-admin-002",
+    "memberCode": "CC-00002",
+    "name": "Admin (romrolllb82)",
+    "email": "romrolllb82@gmail.com",
+    "password": "9999",
+    "slipUrl": "",
+    "status": "approved",
+    "role": "admin",
+    "createdAt": "2026-08-23T03:00:00.000Z",
+    "approvedAt": "2026-08-23T03:00:00.000Z",
+    "note": "บัญชีผู้ดูแลระบบ (Admin)",
+    "phone": "089-999-9999",
+    "bankRef": "SCB 4190025841 ศรัณย์ทองขวัญ",
+    "amountPaid": 199
+  }
+]
