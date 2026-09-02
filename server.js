@@ -158,29 +158,30 @@ const MEMBERS_FILE = path.join(__dirname, 'data', 'members.json');
 function getCoinsData() {
   if (memoryCoins) return memoryCoins;
 
+  let baseCoins = [];
+  try {
+    baseCoins = require('./data/coins.json');
+  } catch (e) {
+    try {
+      if (fs.existsSync(DATA_FILE)) {
+        baseCoins = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
+      }
+    } catch (err) {}
+  }
+
   try {
     const tmpPath = path.join('/tmp', 'coins.json');
     if (fs.existsSync(tmpPath)) {
       const raw = fs.readFileSync(tmpPath, 'utf8');
-      memoryCoins = JSON.parse(raw);
-      return memoryCoins;
+      const tmpCoins = JSON.parse(raw);
+      if (Array.isArray(tmpCoins) && tmpCoins.length >= baseCoins.length) {
+        memoryCoins = tmpCoins;
+        return memoryCoins;
+      }
     }
   } catch (e) {}
 
-  try {
-    memoryCoins = require('./data/coins.json');
-    return memoryCoins;
-  } catch (e) {}
-
-  try {
-    if (fs.existsSync(DATA_FILE)) {
-      const raw = fs.readFileSync(DATA_FILE, 'utf8');
-      memoryCoins = JSON.parse(raw);
-      return memoryCoins;
-    }
-  } catch (err) {
-    console.error('Error reading coins data:', err);
-  }
+  memoryCoins = baseCoins;
   return memoryCoins || [];
 }
 
