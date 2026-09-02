@@ -715,7 +715,9 @@ function getCountryFlagClass(country) {
   if (c.includes('united states') || c.includes('usa') || c.includes('อเมริกา') || c.includes('america')) return 'flag-bg-usa';
   if (c.includes('japan') || c.includes('ญี่ปุ่น')) return 'flag-bg-japan';
   if (c.includes('mexico') || c.includes('เม็กซิโก')) return 'flag-bg-mexico';
-  if (c.includes('straits') || c.includes('สเตรทส์') || c.includes('malaya') || c.includes('singapore')) return 'flag-bg-straits';
+  if (c.includes('singapore') || c.includes('สิงคโปร์')) return 'flag-bg-singapore';
+  if (c.includes('uae') || c.includes('united arab emirates') || c.includes('เอมิเรตส์') || c.includes('อาหรับ') || c.includes('ras al')) return 'flag-bg-uae';
+  if (c.includes('straits') || c.includes('สเตรทส์') || c.includes('malaya')) return 'flag-bg-straits';
   if (c.includes('india') || c.includes('อินเดีย')) return 'flag-bg-india';
   if (c.includes('united kingdom') || c.includes('uk') || c.includes('อังกฤษ') || c.includes('britain')) return 'flag-bg-uk';
   if (c.includes('new zealand') || c.includes('นิวซีแลนด์') || c.includes('nz')) return 'flag-bg-nz';

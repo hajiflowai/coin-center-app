@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600">
+  <rect width="900" height="300" fill="#ED2939"/>
+  <rect y="300" width="900" height="300" fill="#FFFFFF"/>
+  <g fill="#FFFFFF" transform="translate(200, 150)">
+    <path d="M 0,-100 A 100 100 0 1 0 0,100 A 80 80 0 1 1 0,-100 Z"/>
+    <g transform="translate(35, 0)">
+      <!-- 5 Stars arranged in pentagon -->
+      <polygon points="0,-45 4,-32 17,-32 7,-24 11,-11 0,-19 -11,-11 -7,-24 -17,-32 -4,-32"/>
+      <polygon points="28,-20 32,-7 45,-7 35,1 39,14 28,6 17,14 21,1 11,-7 24,-7"/>
+      <polygon points="28,20 32,33 45,33 35,41 39,54 28,46 17,54 21,41 11,33 24,33" transform="translate(0, -20)"/>
+      <polygon points="-28,-20 -24,-7 -11,-7 -21,1 -17,14 -28,6 -39,14 -35,1 -45,-7 -32,-7"/>
+      <polygon points="-17,25 -13,38 0,38 -10,46 -6,59 -17,51 -28,59 -24,46 -34,38 -21,38" transform="translate(0, -20)"/>
+      <polygon points="17,25 21,38 34,38 24,46 28,59 17,51 6,59 10,46 0,38 13,38" transform="translate(0, -20)"/>
+    </g>
+  </g>
+</svg>

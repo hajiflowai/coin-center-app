@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <!-- Horizontal stripes -->
+  <rect x="300" y="0" width="900" height="200" fill="#00732F"/>
+  <rect x="300" y="200" width="900" height="200" fill="#FFFFFF"/>
+  <rect x="300" y="400" width="900" height="200" fill="#000000"/>
+  <!-- Left vertical red stripe -->
+  <rect x="0" y="0" width="300" height="600" fill="#FF0000"/>
+</svg>
