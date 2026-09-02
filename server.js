@@ -156,7 +156,7 @@ const MEMBERS_FILE = path.join(__dirname, 'data', 'members.json');
 
 // Helper to read coins data
 function getCoinsData() {
-  if (memoryCoins) return memoryCoins;
+  if (memoryCoins && memoryCoins.length >= 36) return memoryCoins;
 
   let baseCoins = [];
   try {
@@ -174,8 +174,10 @@ function getCoinsData() {
     if (fs.existsSync(tmpPath)) {
       const raw = fs.readFileSync(tmpPath, 'utf8');
       const tmpCoins = JSON.parse(raw);
-      if (Array.isArray(tmpCoins) && tmpCoins.length >= baseCoins.length) {
-        memoryCoins = tmpCoins;
+      if (Array.isArray(tmpCoins) && tmpCoins.length > baseCoins.length) {
+        const existingIds = new Set(baseCoins.map(c => c.id));
+        const extraCoins = tmpCoins.filter(c => !existingIds.has(c.id));
+        memoryCoins = [...baseCoins, ...extraCoins];
         return memoryCoins;
       }
     }
