@@ -805,7 +805,7 @@ function setupNavigation() {
 
 function setNavMode(mode) {
   if (mode === 'all' && !isVipSupporter()) {
-    showToast('🔒 คลังข้อมูลเหรียญทั้งหมด (27 รายการ) สงวนสิทธิ์เฉพาะผู้สนับสนุนเว็บไซต์ (199 บ.)');
+    showToast('🔒 คลังข้อมูลเหรียญทั้งหมด (36 รายการ) สงวนสิทธิ์เฉพาะผู้สนับสนุนเว็บไซต์ (199 บ.)');
     openRegisterModal();
     return;
   }
@@ -881,7 +881,7 @@ function renderPresetChips() {
   if (!container) return;
 
   const isVip = isVipSupporter();
-  const totalCoins = globalCoinsData.length || 27;
+  const totalCoins = globalCoinsData.length || 36;
 
   const mainChips = [
     { id: 'home', label: '🏠 หน้าแรก (นิยมในไทย 5 เหรียญ)', isFree: true },
@@ -1250,7 +1250,7 @@ function updateMintSummaryStats() {
   if (totalMintsEl) totalMintsEl.textContent = `${worldMintsData.length} แห่ง`;
   if (totalCountriesEl) totalCountriesEl.textContent = `${uniqueCountries.size} ประเทศ`;
   if (oldestMintEl) oldestMintEl.textContent = 'ค.ศ. 864';
-  if (totalCatalogCoinsEl) totalCatalogCoinsEl.textContent = `${globalCoinsData.length || 27} รายการ`;
+  if (totalCatalogCoinsEl) totalCatalogCoinsEl.textContent = `${globalCoinsData.length || 36} รายการ`;
 }
 
 function filterMintsByCountry(country) {
