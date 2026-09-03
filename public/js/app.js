@@ -1070,12 +1070,18 @@ function renderCatalog() {
   }
 }
 
+function getCoinImgUrl(url) {
+  if (!url) return '/images/default-coin.svg';
+  if (url.startsWith('data:') || url.startsWith('http')) return url;
+  return url + (url.includes('?') ? '&' : '?') + 'v=3';
+}
+
 function createCoverflowCardHtml(coin, index, posClass) {
   const weight = getWeightText(coin);
   const mintage = coin.mintage || 'ไม่ระบุ';
   const composition = getCompositionText(coin);
   const flagBgClass = getCountryFlagClass(coin.country);
-  const mainImage = coin.obverseImage || coin.image;
+  const mainImage = getCoinImgUrl(coin.obverseImage || coin.image);
   const thaiBadge = coin.popularInThailand ? `<span class="card-badge" style="background:rgba(239,68,68,0.15); color:#ef4444; border:1px solid rgba(239,68,68,0.3); font-weight:800; font-size:0.7rem; padding:0.2rem 0.55rem;">🇹🇭 นิยมในไทย #${coin.thaiRank || ''}</span>` : '';
 
   return `
@@ -1169,7 +1175,7 @@ function toggleCoinSide(cardElementId, coinId, event) {
   imgEl.style.opacity = '0.5';
 
   setTimeout(() => {
-    imgEl.src = newSide === 'obv' ? obv : rev;
+    imgEl.src = getCoinImgUrl(newSide === 'obv' ? obv : rev);
     if (badgeEl) badgeEl.textContent = newSide === 'obv' ? '🔄 ด้านหน้า (แตะเพื่อสลับ)' : '🔄 ด้านหลัง (แตะเพื่อสลับ)';
     imgEl.style.transform = 'scale(1) rotateY(0deg)';
     imgEl.style.opacity = '1';
@@ -1478,7 +1484,7 @@ function openCoinDetailModal(coinId) {
   const mintage = coin.mintage || 'ไม่ระบุ';
   const composition = coin.exactPurity || getCompositionText(coin);
   const flagBgClass = getCountryFlagClass(coin.country);
-  const obv = coin.obverseImage || coin.image;
+  const obv = getCoinImgUrl(coin.obverseImage || coin.image);
   const historyText = coin.historyText || coin.description || 'ไม่มีข้อมูลประวัติศาสตร์';
   const isVip = isVipSupporter();
 
@@ -1722,7 +1728,7 @@ function toggleModalCoinSide(coinId) {
   imgEl.style.opacity = '0.5';
 
   setTimeout(() => {
-    imgEl.src = newSide === 'obv' ? obv : rev;
+    imgEl.src = getCoinImgUrl(newSide === 'obv' ? obv : rev);
     if (badgeEl) badgeEl.textContent = newSide === 'obv' ? '🔄 ด้านหน้า (แตะเพื่อสลับเป็นด้านหลัง)' : '🔄 ด้านหลัง (แตะเพื่อสลับเป็นด้านหน้า)';
     imgEl.style.transform = 'scale(1) rotateY(0deg)';
     imgEl.style.opacity = '1';
